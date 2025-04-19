@@ -1,0 +1,14 @@
+3 pages
+	product with features (smart home, parcking)
+	product with models
+	-----product categories
+
+{
+    "asd" : [
+{
+"name"
+"desc"
+img
+}
+]
+}
