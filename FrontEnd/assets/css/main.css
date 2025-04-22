@@ -2398,3 +2398,45 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+/*
+team page
+*/
+.team-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.team-container h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+.team-container .team-member {
+  background-color: #8faaff;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.team-container .team-member:hover {
+  transform: translateY(-5px);
+}
+.team-container .profile-pic {
+  border: 6px solid #5a3fc0;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.team-container .name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.team-container .title {
+  color: #333;
+}
