@@ -2,87 +2,175 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .shape {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      margin-top: 240px;
-    }
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-    .shape .circle {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      position: absolute;
-      mix-blend-mode: multiply;
-      opacity: 0.85;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
+  <!-- Favicons -->
+   <!--
+  <link href="assets/img/favicon.png" rel="icon">
+    -->
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    .shape .circle span {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-weight: bold;
-      color: white;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-      font-size: 1.2em;
-      pointer-events: none;
-    }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    .shape .circle:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      z-index: 2;
-    }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-    .shape .smart {
-      background: #2d6ca2;
-      top: -100px;
-      left: 100px;
-    }
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 
-    .shape .innovation {
-      background: #b76c6c;
-      top: 0;
-      left: 200px;
-    }
-
-    .shape .safety {
-      background: #30b9a5;
-      top: 100px;
-      left: 150px;
-    }
-
-    .shape .quality {
-      background: #b0b0b0;
-      top: 100px;
-      left: 50px;
-    }
-
-    .shape .sustainability {
-      background: #c4793c;
-      top: 0;
-      left: 0;
-    }
-  </style>
+  <!-- =======================================================
+  * Template Name: Knight
+  * Template URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
+  * Updated: Oct 16 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
-<body>
-  <div class="shape">
-    <div class="circle smart"><span>Smart</span></div>
-    <div class="circle innovation"><span>Innovation</span></div>
-    <div class="circle safety"><span>Safety</span></div>
-    <div class="circle quality"><span>Quality</span></div>
-    <div class="circle sustainability"><span>Sustainability</span></div>
+<body class="portfolio-details-page">
+ 
+  <div class="graph d-flex justify-content-center align-items-center" style="height: 100vh; background-color: #f8f9fa;">
+    <div class="timeline-container">
+      <h2 class="text-center mb-5" style="color: #376996;">Our Growing</h2>
+      <div class="timeline">
+        <div class="timeline-item" style="--size: 30px;">
+          <div class="circle">1M</div>
+          <div class="year">2008</div>
+        </div>
+        <div class="timeline-item" style="--size: 40px;">
+          <div class="circle">6M</div>
+          <div class="year">2017</div>
+        </div>
+        <div class="timeline-item" style="--size: 50px;">
+          <div class="circle">13M</div>
+          <div class="year">2020</div>
+        </div>
+        <div class="timeline-item" style="--size: 60px;">
+          <div class="circle">25M</div>
+          <div class="year">2022</div>
+        </div>
+        <div class="timeline-item" style="--size: 70px;">
+          <div class="circle">35M</div>
+          <div class="year">2024</div>
+        </div>
+        <div class="timeline-line"></div>
+      </div>
+    </div>
   </div>
+  
+  <style>
+  .timeline-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+  }
+  
+  .timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 300px;
+  }
+  
+  .timeline-line {
+    position: absolute;
+    bottom: 0;
+    height: 6px;
+    width: 100%;
+    background-color: #376996;
+    z-index: 1;
+    animation: lineGrow 1.5s ease-out;
+  }
+  
+  .timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+  }
+  
+  .timeline-item .circle {
+    width: var(--size);
+    height: var(--size);
+    background-color: #376996;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .timeline-item .year {
+    font-size: 14px;
+    color: #444;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes lineGrow {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  </style>
+  
+  
+ 
+  
+  
+ 
+  
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
