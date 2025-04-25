@@ -112,8 +112,44 @@
         <div class="container section-title" data-aos="fade-up">
           <h2>Add Contact</h2>
          </div><!-- End Section Title -->
-        <div class="container">
-        </div>
+         <div class="container contact section-title" data-aos="fade-up">
+          <div class="row justify-content-center">
+              <div class="col-lg-7">
+                  <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+                      <div class="col-md-12">
+                        <input style="border-radius: 5px;" type="text" class="form-control" name="contry" placeholder="Contry">
+                      </div>
+                      <div id="addresses" class="text-start">
+                        <span>Add an address</span>
+                        <i id="iconAddress" style="color: #7cc576; cursor: pointer; margin-left: 25px;" class="bi bi-plus-circle fs-5"></i>
+                      </div>
+                      <div id="emails" class="text-start">
+                        <span>Add an email</span>
+                        <i id="iconEmail" style="color: #7cc576; cursor: pointer; margin-left: 42px;" class="bi bi-plus-circle fs-5"></i>
+                      </div>
+                      <div id="phones" class="text-start">
+                        <span>Add an phone</span>
+                        <i id="iconPhone" style="color: #7cc576; cursor: pointer; margin-left: 36px;" class="bi bi-plus-circle fs-5"></i>
+                      </div>
+                      <div id="whatsup" class="text-start">
+                        <span>Add an whatsApp</span>
+                        <i id="iconWhasapp" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-2"></i>
+                      </div>
+
+
+                      <div class="col-md-12 text-center">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+       
+                        <button type="submit">Add</button>
+                      </div>
+      
+                    </div>
+                  </form>
+                </div>
+          </div>
+      </div>
     </section>
     <!-- /Admin Section -->
 
@@ -202,6 +238,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/contact.js"></script>
 
 </body>
 
