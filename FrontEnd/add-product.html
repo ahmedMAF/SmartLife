@@ -112,8 +112,60 @@
         <div class="container section-title" data-aos="fade-up">
           <h2>Add Product</h2>
          </div><!-- End Section Title -->
-        <div class="container">
-        </div>
+         <div class="container contact section-title" data-aos="fade-up">
+          <div class="row justify-content-center">
+              <div class="col-lg-7">
+                  <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+                      <div class="col-md-12">
+                        <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name">
+                      </div>
+                      <div class="col-md-12">
+                        <textarea class="form-control" style="border-radius: 5px;" name="description" placeholder="Description"></textarea>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="mb-3">
+                          <input list="options" id="myInput" name="category" class="form-control" placeholder="category">
+                          <datalist id="options">
+                            <option value="category1">
+                            <option value="category2">
+                            <option value="category3">
+                          </datalist>
+                         </div>
+                        <div>
+                          <label class="w-100 mb-2 ps-2 text-start" for="image">Upload Image</label>
+                          <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div id="feature" class="text-start mt-3">
+                          <span>Add a feature</span>
+                          <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;" class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                        <div id="model" class="text-start mt-3">
+                          <span>Add a model</span>
+                          <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
+                        </div>
+                        <div id="photo" class="text-start mt-3">
+                          <span>Add a photo</span>
+                          <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;" class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                        <div id="video" class="text-start mt-3">
+                          <span>Add a video</span>
+                          <i id="iconvideo" style="color: #7cc576; cursor: pointer; margin-left: 20px;" class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                       </div>
+
+                      <div class="col-md-12 text-center">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+       
+                        <button type="submit">Add</button>
+                      </div>
+      
+                    </div>
+                  </form>
+                </div>
+          </div>
+      </div>
     </section>
     <!-- /Admin Section -->
 
@@ -202,6 +254,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/product.js"></script>
 
 </body>
 
