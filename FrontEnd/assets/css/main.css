@@ -2597,3 +2597,8 @@ value section in about page
   width: 100%; 
   object-fit: cover;
 }
+.partner-image{
+  height: 120px; 
+  width: 100%; 
+  object-fit: cover;
+}
