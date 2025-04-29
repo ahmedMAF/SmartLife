@@ -11,7 +11,7 @@ using SmartLife;
 
 namespace SmartLife.Migrations
 {
-    [DbContext(typeof(MySqlDb))]
+    [DbContext(typeof(SmartLifeDb))]
     [Migration("20250420092630_InitailCreate")]
     partial class InitailCreate
     {

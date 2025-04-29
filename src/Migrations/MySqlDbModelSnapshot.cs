@@ -10,7 +10,7 @@ using SmartLife;
 
 namespace SmartLife.Migrations
 {
-    [DbContext(typeof(MySqlDb))]
+    [DbContext(typeof(SmartLifeDb))]
     partial class MySqlDbModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

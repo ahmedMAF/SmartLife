@@ -1,19 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Json;
 using SmartLife.Models;
 
 namespace SmartLife;
 
-public class MySqlDb : DbContext
+public class SmartLifeDb : DbContext
 {
-    public DbSet<User> Users { get; set; }
     public DbSet<Post> News { get; set; }
-    public DbSet<Contact> Contact { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
     public DbSet<PartnerClient> PartnersClients { get; set; }
     public DbSet<TeamMember> Team { get; set; }
     public DbSet<Product> Products { get; set; }
+    public DbSet<Category> Categories { get; set; }
 
-    public MySqlDb(DbContextOptions<MySqlDb> options) : base(options)
+    public SmartLifeDb(DbContextOptions<SmartLifeDb> options) : base(options)
     {
     }
 
@@ -27,6 +26,14 @@ public class MySqlDb : DbContext
 
         modelBuilder.Entity<Product>()
             .Property(p => p.Models)
+            .HasColumnType("json");
+
+        modelBuilder.Entity<Product>()
+            .Property(p => p.Photos)
+            .HasColumnType("json");
+
+        modelBuilder.Entity<Product>()
+            .Property(p => p.Videos)
             .HasColumnType("json");
     }
 }

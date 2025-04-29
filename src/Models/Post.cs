@@ -7,5 +7,4 @@ public class Post
     public string Content { get; set; }
     public List<string> Image { get; set; }
     public DateTime Time { get; set; }
-    public User User { get; set; }
 }
