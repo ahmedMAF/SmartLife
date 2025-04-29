@@ -8,15 +8,19 @@ internal class Program
     private static void Main(string[] args)
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-        MySqlServerVersion serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
+        MySqlServerVersion serverVersion = new(new Version(8, 0, 29));
         string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
         // Add services to the container.
+        builder.Services.AddSession();
         builder.Services.AddRazorPages();
-        //builder.Services.AddSwaggerGen();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+        // https://localhost:5001/swagger
 
-        builder.Services.AddDbContext<MySqlDb>(options => {
-            options.UseMySql(connectionString, serverVersion, options => options.UseMicrosoftJson());
+        builder.Services.AddDbContext<SmartLifeDb>(options =>
+        {
+            options.UseMySql(connectionString, serverVersion, options => options.UseMicrosoftJson(MySqlCommonJsonChangeTrackingOptions.FullHierarchyOptimizedFast));
 #if DEBUG
             options.LogTo(Console.WriteLine, LogLevel.Information)
                     .EnableSensitiveDataLogging()
@@ -37,32 +41,28 @@ internal class Program
         WebApplication app = builder.Build();
 
         // Configure the HTTP request pipeline.
-        if (!app.Environment.IsDevelopment())
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+        else
         {
             app.UseExceptionHandler("/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            // The default HSTS value is 30 days. You may want to change this for production scenarios,
+            // see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
 
+        app.UseSession();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-
-        // For controllers/routes attributes
         app.UseRouting();
-        // Direct
-        MapRoutes(app);
-
         app.UseAuthorization();
+        app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
         app.MapRazorPages();
 
-        app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
-
         app.Run();
-    }
-
-    private static void MapRoutes(WebApplication app)
-    {
-        //app.MapGet("", () => "");
     }
 }
