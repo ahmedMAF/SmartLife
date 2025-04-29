@@ -2416,13 +2416,14 @@ team page
   gap: 30px;
   flex-wrap: wrap;
   text-align: center;
+  color: white;
 }
 .team-container h1 {
   font-size: 48px;
   margin-bottom: 40px;
 }
 .team-container .team-member {
-  background-color: #8faaff;
+  background: linear-gradient(to top, #4a90e2, #376996);
   border-radius: 10px;
   width: 250px;
   padding: 20px;
@@ -2430,10 +2431,10 @@ team page
   transition: 0.3s;
 }
 .team-container .team-member:hover {
-  transform: translateY(-5px);
+  background: linear-gradient(to top, #376996, #376996);
+  transform: scale(1.05);
 }
 .team-container .profile-pic {
-  border: 6px solid #5a3fc0;
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -2445,152 +2446,8 @@ team page
   font-weight: bold;
   margin-bottom: 8px;
 }
-.team-container .title {
-  color: #333;
-}
-/*
-value section in about page
-*/
-.values {
-  height: 500px;
-  position: relative;
-  overflow: hidden;
-}
-
-.circle-container {
-  position: relative;
-  width: 500px;
-  height: 500px;
-}
-
-.circle {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.3s ease;
-  opacity: 0.9;
-  mix-blend-mode: multiply;
-}
-
-/* Hover effect */
-.circle:hover {
-  transform: scale(1.1);
-}
-
-/* Positioning for strong overlaps */
-.smart {
-  background-color: #376996;
-  top: 30px;
-  left: 150px;
-}
-
-.sustainability {
-  background-color: #c67b39;
-  top: 130px;
-  left: 40px;
-}
-
-.innovation {
-  background-color: #a66763;
-  top: 130px;
-  left: 260px;
-}
-
-.quality {
-  background-color: #b0b0b0;
-  top: 250px;
-  left: 80px;
-}
-
-.safety {
-  background-color: #34b1a5;
-  top: 250px;
-  left: 210px;
-}
-
-/* Responsive – keep overlap and scale down */
-@media (max-width: 768px) {
-  .circle-container {
-    width: 350px;
-    height: 350px;
-  }
-
-  .circle {
-    width: 140px;
-    height: 140px;
-    font-size: 1rem;
-  }
-
-  .smart {
-    top: 20px;
-    left: 105px;
-  }
-
-  .sustainability {
-    top: 95px;
-    left: 20px;
-  }
-
-  .innovation {
-    top: 95px;
-    left: 185px;
-  }
-
-  .quality {
-    top: 190px;
-    left: 50px;
-  }
-
-  .safety {
-    top: 190px;
-    left: 155px;
-  }
-}
-
-.since{
-  color: #376996;
-  font-size: 60px;
-  font-weight: bold;
-}
-
-.since-item div{
-  max-width: 200px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: #376996;
-  transition: 0.4s ease;
-}
-.since-item span , .detals span{
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-}
-.since-item div:hover , .detals div:hover{
-  background-color: #34b1a5;
-  transform: scale(1.05);
-}
-.detals div{
-  margin-top: 100px;
-  max-width: 200px;
-  cursor: pointer;
-  background-color: #376996;
-  transition: 0.4s ease;
-  padding: 20px;
-  width: fit-content;
-  border-radius: 5px;
-}
-.detals span{
-  font-size: 20px;
-}
+.team-container .team-member a{
+ }
 /***********/
 .product-image{
   height: 300px; 
