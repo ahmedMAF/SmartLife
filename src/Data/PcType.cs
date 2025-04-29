@@ -1,4 +1,4 @@
-﻿namespace SmartLife;
+﻿namespace SmartLife.Data;
 
 public enum PcType
 {
