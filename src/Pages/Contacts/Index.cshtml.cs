@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SmartLife.Models;
-using System.Net;
-using System.Text.Json;
+using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Contacts
 {
@@ -11,24 +11,13 @@ namespace SmartLife.Pages.Contacts
         public Contact Contact { get; set; } = default!;
         public IList<Contact> Contacts { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            IPAddress ip = PageContext.HttpContext.Connection.RemoteIpAddress;
-            string country = "";
-
-            using (HttpClient client = new())
-            {
-                HttpResponseMessage response = await client.GetAsync($"http://ip-api.com/json/{ip}?fields=16386");
-                IpApiResponse c = JsonSerializer.Deserialize<IpApiResponse>(await response.Content.ReadAsStringAsync());
-
-                country = c.Success ? c.CountryCode : "US";
-            }
-
-            Contact contact = await context.Contacts.FirstOrDefaultAsync(m => m.Country == country);
-
-            Contact = contact ?? await context.Contacts.FirstOrDefaultAsync(m => m.Country == "eg");
+            Contact = await ContactHelper.GetContactByIpAsync(context, HttpContext);
             Contacts = await context.Contacts.ToListAsync();
-            Contacts.Remove(contact);
+            Contacts.Remove(Contact);
+
+            return Page();
         }
 
         private struct IpApiResponse

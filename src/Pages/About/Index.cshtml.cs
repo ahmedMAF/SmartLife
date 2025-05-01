@@ -1,8 +1,7 @@
 ﻿using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using SmartLife.Data;
-using SmartLife.Models;
 
 namespace SmartLife.Pages.About
 {
@@ -10,9 +9,10 @@ namespace SmartLife.Pages.About
     {
         public AboutData Data { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public IActionResult OnGet()
         {
-            Data = JsonSerializer.Deserialize<AboutData>("about.json");
+            Data = JsonSerializer.Deserialize<AboutData>(System.IO.File.ReadAllText("about.json"));
+            return Page();
         }
     }
 }

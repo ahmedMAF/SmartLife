@@ -1,29 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
-using SmartLife.Data;
 
-namespace SmartLife.Pages.Team
+namespace SmartLife.Pages.Team;
+
+public class EditModel(SmartLifeDb context) : PageModel
 {
-    public class EditModel(SmartLifeDb context) : PageModel
+    [BindProperty]
+    public TeamMember TeamMember { get; set; } = default!;
+
+    public IActionResult OnGet()
     {
-        [BindProperty]
-        public TeamMember TeamMember { get; set; } = default!;
+        return Page();
+    }
 
-        public IActionResult OnGet()
-        {
+    public async Task<IActionResult> OnPostAsync()
+    {
+        if (!ModelState.IsValid)
             return Page();
-        }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-                return Page();
+        context.Team.Add(TeamMember);
+        await context.SaveChangesAsync();
 
-            context.Team.Add(TeamMember);
-            await context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
-        }
+        return RedirectToPage("./Index");
     }
 }

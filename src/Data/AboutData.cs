@@ -1,5 +1,3 @@
-using System;
-
 namespace SmartLife.Data;
 
 public struct AboutData

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using SmartLife.Models;
-using SmartLife.Data;
 
 namespace SmartLife.Pages.News
 {
@@ -10,8 +10,14 @@ namespace SmartLife.Pages.News
         [BindProperty]
         public Post Post { get; set; } = default!;
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync(int id)
         {
+            var post = await context.News.FirstOrDefaultAsync(p => p.Id == id);
+
+            if (post == null)
+                return NotFound();
+
+            Post = post;
             return Page();
         }
 

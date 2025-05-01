@@ -1,29 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
-using SmartLife.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace SmartLife.Pages.Partners
+namespace SmartLife.Pages.Partners;
+
+public class EditModel(SmartLifeDb context) : PageModel
 {
-    public class EditModel(SmartLifeDb context) : PageModel
+    [BindProperty]
+    public PartnerClient Partner { get; set; } = default!;
+
+    public async Task<IActionResult> OnGetAsync(int id)
     {
-        [BindProperty]
-        public Post Post { get; set; } = default!;
+        var partner = await context.PartnersClients.FirstOrDefaultAsync(p => p.Id == id);
 
-        public IActionResult OnGet()
-        {
+        if (partner == null)
+            return NotFound();
+
+        Partner = partner;
+        return Page();
+    }
+
+    public async Task<IActionResult> OnPostAsync()
+    {
+        if (!ModelState.IsValid)
             return Page();
-        }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-                return Page();
+        context.PartnersClients.Add(Partner);
+        await context.SaveChangesAsync();
 
-            context.News.Add(Post);
-            await context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
-        }
+        return RedirectToPage("./Index");
     }
 }

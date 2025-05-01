@@ -1,31 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
-using SmartLife.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace SmartLife.Pages.Contacts
+namespace SmartLife.Pages.Contacts;
+
+public class EditModel(SmartLifeDb context) : PageModel
 {
-    public class EditModel(SmartLifeDb context) : PageModel
+    [BindProperty]
+    public Contact Contact { get; set; } = default!;
+
+    public async Task<IActionResult> OnGetAsync(string country)
     {
-        [BindProperty]
-        public PartnerClient Client { get; set; } = default!;
+        var contact = await context.Contacts.FirstOrDefaultAsync(c => c.Country == country);
 
-        public IActionResult OnGet()
-        {
+        if (contact == null)
+            return NotFound();
+
+        Contact = contact;
+        return Page();
+    }
+
+    public async Task<IActionResult> OnPostAsync()
+    {
+        if (!ModelState.IsValid)
             return Page();
-        }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            Client.Type = PcType.Client;
-            
-            if (!ModelState.IsValid)
-                return Page();
+        context.Contacts.Add(Contact);
+        await context.SaveChangesAsync();
 
-            context.PartnersClients.Add(Client);
-            await context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
-        }
+        return RedirectToPage("./Index");
     }
 }

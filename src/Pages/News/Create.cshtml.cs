@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
-using SmartLife.Data;
 
 namespace SmartLife.Pages.News
 {
     public class CreateModel(SmartLifeDb context) : PageModel
     {
         [BindProperty]
-        public Post Post { get; set; } = default!;
+        public Post Post { get; set; } = new();
 
         public IActionResult OnGet()
         {

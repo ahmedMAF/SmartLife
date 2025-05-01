@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SmartLife.Models;
 using SmartLife.Data;
+using SmartLife.Models;
 
 namespace SmartLife.Pages.Partners
 {
     public class CreateModel(SmartLifeDb context) : PageModel
     {
         [BindProperty]
-        public Post Post { get; set; } = default!;
+        public PartnerClient Partner { get; set; } = new() { Type = PcType.Partner };
 
         public IActionResult OnGet()
         {
@@ -20,7 +20,7 @@ namespace SmartLife.Pages.Partners
             if (!ModelState.IsValid)
                 return Page();
 
-            context.News.Add(Post);
+            context.PartnersClients.Add(Partner);
             await context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

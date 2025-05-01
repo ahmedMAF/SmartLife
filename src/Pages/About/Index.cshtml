@@ -11,7 +11,7 @@
         <h1>About Us</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="Index">Home</a></li>
+                <li><a asp-page="/Index">Home</a></li>
                 <li class="current">About us</li>
             </ol>
         </nav>
@@ -97,12 +97,12 @@
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>Our Growing</h2>
-        <div class="graph">
+        <div class="grow" id="companyChart">
+            <!-- Chart will be inserted here by JavaScript -->
         </div>
     </div><!-- End Section Title -->
-
 </section>
-<!-- /Graph Section -->
+<!--end section graph-->
 
 <section id="about" class="about section">
     <!-- Section Title -->
@@ -141,7 +141,7 @@
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+@Model.Data.Employees</span>
-                <span>Employees</span>
+                <span>Emplyoees</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+@Model.Data.Clients</span>

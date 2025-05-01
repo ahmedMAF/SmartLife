@@ -8,7 +8,7 @@ namespace SmartLife.Pages.Contacts
     public class CreateModel(SmartLifeDb context) : PageModel
     {
         [BindProperty]
-        public PartnerClient Client { get; set; } = default!;
+        public Contact Contact { get; set; } = new();
 
         public IActionResult OnGet()
         {
@@ -19,9 +19,8 @@ namespace SmartLife.Pages.Contacts
         {
             if (!ModelState.IsValid)
                 return Page();
-
-            Client.Type = PcType.Client;
-            context.PartnersClients.Add(Client);
+;
+            context.Contacts.Add(Contact);
             await context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

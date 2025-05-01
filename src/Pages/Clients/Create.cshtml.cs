@@ -8,7 +8,7 @@ namespace SmartLife.Pages.Clients
     public class CreateModel(SmartLifeDb context) : PageModel
     {
         [BindProperty]
-        public PartnerClient Client { get; set; } = default!;
+        public PartnerClient Client { get; set; } = new() { Type = PcType.Client };
 
         public IActionResult OnGet()
         {
@@ -17,8 +17,6 @@ namespace SmartLife.Pages.Clients
 
         public async Task<IActionResult> OnPostAsync()
         {
-            Client.Type = PcType.Client;
-            
             if (!ModelState.IsValid)
                 return Page();
 

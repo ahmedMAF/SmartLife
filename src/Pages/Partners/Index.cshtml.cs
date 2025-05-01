@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SmartLife.Data;
 using SmartLife.Models;
@@ -9,9 +10,10 @@ namespace SmartLife.Pages.Partners
     {
         public IList<PartnerClient> Partners { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             Partners = await context.PartnersClients.Where(m => m.Type == PcType.Partner).ToListAsync();
+            return Page();
         }
     }
 }

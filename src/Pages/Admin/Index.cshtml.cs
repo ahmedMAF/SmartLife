@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SmartLife.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SmartLife.Pages.Dashboard
 {
     public class IndexModel : PageModel
     {
-        public async Task OnGetAsync()
+        public IActionResult OnGet()
         {
-            
+            return Page();
         }
     }
 }
