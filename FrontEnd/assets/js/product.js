@@ -8,14 +8,20 @@ const iconmodel = document.getElementById("iconmodel");
 const iconphoto = document.getElementById("iconphoto");
 const iconvideo = document.getElementById("iconvideo");
 
+let f = 0;
+let m = 0;
+let p = 0;
+let v = 0;
+
 iconfeature.onclick = function(){
+    f++;
     let input = document.createElement("input");
     input.type = "text";
-    input.name = "title";
+    input.name = `title${f}`;
     input.placeholder = "Title";
     input.className = "form-control mt-2";
     let input1 = document.createElement("textarea");
-    input1.name = "description";
+    input1.name = `description${f}`;
     input1.placeholder = "Description";
     input1.className = "form-control mt-2";
     let input22 = document.createElement("label");
@@ -23,23 +29,23 @@ iconfeature.onclick = function(){
     input22.innerText = "Upload Image";
     let input2 = document.createElement("input");
     input2.type = "file";
-    input2.name = "image";
+    input2.name = `image${f}`;
     input2.className = "form-control mt-2";
     let input33 = document.createElement("label");
     input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
     input33.innerText = "Upload Datasheet";
     let input3 = document.createElement("input");
     input3.type = "file";
-    input3.name = "data-sheet";
+    input3.name = `data-sheet${f}`;
     input3.className = "form-control mt-2";
     let input4 = document.createElement("input");
     input4.type = "text";
-    input4.name = "google-play";
+    input4.name = `google-play${f}`;
     input4.placeholder = "Link google play";
     input4.className = "form-control mt-2";
     let input5 = document.createElement("input");
     input5.type = "text";
-    input5.name = "apple-store";
+    input5.name = `apple-store${f}`;
     input5.placeholder = "Link apple store";
     input5.className = "form-control mt-2";
     feature.appendChild(input);
@@ -52,13 +58,14 @@ iconfeature.onclick = function(){
     feature.appendChild(input5);
 }
 iconmodel.onclick = function(){
+    m++;
     let input = document.createElement("input");
     input.type = "text";
-    input.name = "name";
+    input.name = `name${m}`;
     input.placeholder = "Name";
     input.className = "form-control mt-2";
     let input1 = document.createElement("textarea");
-    input1.name = "description";
+    input1.name = `description${m}`;
     input1.placeholder = "Description";
     input1.className = "form-control mt-2";
     let input22 = document.createElement("label");
@@ -66,23 +73,23 @@ iconmodel.onclick = function(){
     input22.innerText = "Upload Image";
     let input2 = document.createElement("input");
     input2.type = "file";
-    input2.name = "image";
+    input2.name = `image${m}`;
     input2.className = "form-control mt-2";
     let input33 = document.createElement("label");
     input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
     input33.innerText = "Upload Datasheet";
     let input3 = document.createElement("input");
     input3.type = "file";
-    input3.name = "data-sheet";
+    input3.name = `data-sheet${m}`;
     input3.className = "form-control mt-2";
     let input4 = document.createElement("input");
     input4.type = "text";
-    input4.name = "google-play";
+    input4.name = `google-play${m}`;
     input4.placeholder = "Link google play";
     input4.className = "form-control mt-2";
     let input5 = document.createElement("input");
     input5.type = "text";
-    input5.name = "apple-store";
+    input5.name = `apple-store${m}`;
     input5.placeholder = "Link apple store";
     input5.className = "form-control mt-2";
     model.appendChild(input);
@@ -95,27 +102,29 @@ iconmodel.onclick = function(){
     model.appendChild(input5);
 }
 iconphoto.onclick = function(){
+    p++;
     let input = document.createElement("input");
     input.type = "text";
-    input.name = "title";
+    input.name = `title${p}`;
     input.placeholder = "Title";
     input.className = "form-control mt-2";
     let input1 = document.createElement("textarea");
-    input1.name = "description";
+    input1.name = `description${p}`;
     input1.placeholder = "Description";
     input1.className = "form-control mt-2";
     let input2 = document.createElement("input");
     input2.type = "file";
-    input2.name = "image";
+    input2.name = `image${p}`;
     input2.className = "form-control mt-2";
     photo.appendChild(input);
     photo.appendChild(input1);
     photo.appendChild(input2);
 }
 iconvideo.onclick = function(){
+    v++;
     let input = document.createElement("input");
     input.type = "text";
-    input.name = "video";
+    input.name = `video${v}`;
     input.placeholder = "Video link";
     input.className = "form-control mt-2";
     video.appendChild(input);
