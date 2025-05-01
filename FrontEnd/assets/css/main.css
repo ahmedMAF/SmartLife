@@ -2446,8 +2446,6 @@ team page
   font-weight: bold;
   margin-bottom: 8px;
 }
-.team-container .team-member a{
- }
 /***********/
 .product-image{
   height: 300px; 
@@ -2459,3 +2457,31 @@ team page
   width: 100%; 
   object-fit: cover;
 }
+
+
+
+
+
+.portfolio-details-slider {
+  height: 400px; 
+  width: 500px;
+}
+
+@media (max-width: 540px) {
+  .portfolio-details-slider {
+    width: 100%;
+  }
+}
+ 
+.portfolio-details-slider .swiper-slide img , .portfolio-details-slider .swiper-slide iframe{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+ 
+.portfolio-details-slider .swiper-wrapper {
+  height: calc(100% - 40px);
+}
+
+ 
