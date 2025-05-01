@@ -8,14 +8,13 @@ namespace SmartLife.Pages.Products;
 
 public class EditModel(SmartLifeDb context, IWebHostEnvironment environment) : PageModel
 {
-    [BindProperty]
     public Product Product { get; set; } = default!;
 
     [BindProperty]
     public IFormFile? ImageFile { get; set; }
 
     [BindProperty]
-    public List<IFormFile> AdditionalPhotos { get; set; } = [];
+    public List<IFormFile> PhotoGalleryFiles { get; set; } = [];
 
     public SelectList CategorySelectList { get; set; } = default!;
 
@@ -43,7 +42,7 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment) : P
 
         if (ImageFile != null)
         {
-            var uploadsFolder = Path.Combine(environment.WebRootPath, "uploads", "products");
+            var uploadsFolder = Path.Combine(environment.WebRootPath, "images", "products");
             Directory.CreateDirectory(uploadsFolder);
 
             // Delete old image if exists
@@ -51,9 +50,7 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment) : P
             {
                 var oldImagePath = Path.Combine(environment.WebRootPath, Product.Image.TrimStart('/'));
                 if (System.IO.File.Exists(oldImagePath))
-                {
                     System.IO.File.Delete(oldImagePath);
-                }
             }
 
             var uniqueFileName = Guid.NewGuid().ToString() + "_" + ImageFile.FileName;
@@ -67,26 +64,26 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment) : P
             Product.Image = "/uploads/products/" + uniqueFileName;
         }
 
-        if (AdditionalPhotos != null && AdditionalPhotos.Any())
+        if (PhotoGalleryFiles != null && PhotoGalleryFiles.Count != 0)
         {
             var photoUrls = new List<string>();
             var uploadsFolder = Path.Combine(environment.WebRootPath, "uploads", "products");
 
             // Delete old additional photos if they exist
-            if (!string.IsNullOrEmpty(Product.AdditionalPhotos))
-            {
-                var oldPhotos = Product.AdditionalPhotos.Split(',');
-                foreach (var oldPhoto in oldPhotos)
-                {
-                    var oldPhotoPath = Path.Combine(environment.WebRootPath, oldPhoto.TrimStart('/'));
-                    if (System.IO.File.Exists(oldPhotoPath))
-                    {
-                        System.IO.File.Delete(oldPhotoPath);
-                    }
-                }
-            }
+            // if (!string.IsNullOrEmpty(Product.Photos))
+            // {
+            //     var oldPhotos = Product.AdditionalPhotos.Split(',');
+            //     foreach (var oldPhoto in oldPhotos)
+            //     {
+            //         var oldPhotoPath = Path.Combine(environment.WebRootPath, oldPhoto.TrimStart('/'));
+            //         if (System.IO.File.Exists(oldPhotoPath))
+            //         {
+            //             System.IO.File.Delete(oldPhotoPath);
+            //         }
+            //     }
+            // }
 
-            foreach (var photo in AdditionalPhotos)
+            foreach (var photo in PhotoGalleryFiles)
             {
                 var uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
                 var filePath = Path.Combine(uploadsFolder, uniqueFileName);
@@ -96,35 +93,14 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment) : P
                     await photo.CopyToAsync(fileStream);
                 }
 
-                photoUrls.Add("/uploads/products/" + uniqueFileName);
+                Product.Photos.Add("/uploads/products/" + uniqueFileName);
             }
-
-            Product.AdditionalPhotos = string.Join(",", photoUrls);
         }
 
         context.Attach(Product).State = EntityState.Modified;
 
-        try
-        {
-            await context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!await ProductExists(Product.Id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
+        await context.SaveChangesAsync();
 
         return RedirectToPage("./Index");
-    }
-
-    private async Task<bool> ProductExists(int id)
-    {
-        return await context.Products.AnyAsync(e => e.Id == id);
     }
 }
