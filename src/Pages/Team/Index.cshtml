@@ -1,0 +1,42 @@
+﻿@page
+@model SmartLife.Pages.Team.IndexModel
+
+@{
+    ViewData["Title"] = "Team";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>Clients</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="Index">Home</a></li>
+                <li class="current">Team</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Team Section -->
+<section id="portfolio" class="portfolio section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Our Team</h2>
+        <p>Our team is the beating heart of every success we deliver</p>
+    </div><!-- End Section Title -->
+
+    <div class="team-container">
+        @foreach (var member in Model.Team)
+        {
+            <div class="team-member">
+                <img src="@member.Photo" alt="@member.Name" class="profile-pic" />
+                <div class="name">@member.Name</div>
+                <div class="title">@member.Role</div>
+            </div>
+        }
+    </div>
+
+</section>
+<!-- /Clients Section -->

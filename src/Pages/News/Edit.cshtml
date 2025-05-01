@@ -1,0 +1,70 @@
+﻿@page "{id:int}"
+@model SmartLife.Pages.News.CreateModel
+
+@{
+    ViewData["Title"] = "Edit Post";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>Dashboard</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="Index">Home</a></li>
+                <li><a asp-page="Dashboard/Index">Dashboard</a></li>
+                <li class="current">Edit Post</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Admin Section -->
+<section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Edit Post</h2>
+    </div><!-- End Section Title -->
+    <div class="container contact section-title" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <form method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+                        <div class="col-md-12">
+                            <input asp-for="Post.Title" style="border-radius: 5px;" class="form-control"
+                                placeholder="Title">
+                            <span asp-validation-for="Post.Title" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <textarea asp-for="Post.Content" class="form-control" style="border-radius: 5px;"
+                                placeholder="Content"></textarea>
+                            <span asp-validation-for="Post.Content" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <div>
+                                <label asp-for="Post.Image" class="w-100 mb-2 ps-2 text-start">Upload Image</label>
+                                <input asp-for="Post.Image" style="border-radius: 5px;" type="file" class="form-control"
+                                    placeholder="Image">
+                                <span asp-validation-for="Post.Image" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <button type="submit">Save</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Admin Section -->
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,162 @@
+﻿@page
+@model SmartLife.Pages.About.IndexModel
+
+@{
+    ViewData["Title"] = "About";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>About Us</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">Home</a></li>
+                <li class="current">About us</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- about Section -->
+<section id="about" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <p>We create smart solutions that make your life easier and more luxurious</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 mb-5">
+            <div class="col-lg-5 text-center">
+                <img style="height: 300px; text-align: center; border-radius: 10px;" src="assets/img/about2.jpg"
+                    class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-7 content">
+                <h3>Vision</h3>
+                <p class="fst-italic">
+                    To be the market leader in smart automation systems, delivering innovative solutions that redefine
+                    comfort, efficiency, and security.
+                </p>
+                <p>
+                    To be one of Middle East market leaders in the field of automation system solutions and to pursue
+                    maximum customer satisfaction by providing reliable, sustainable products & efficient, high-quality
+                    services.
+                </p>
+            </div>
+        </div>
+
+        <div class="row gy-4">
+            <div class="col-lg-7 content">
+                <h3>Mission</h3>
+                <p class="fst-italic">
+                    Full Smart City Automation
+                </p>
+                <p>
+                    Developing comprehensive sustainable automation solutions & providing innovative services in
+                    accordance with international standards & best practices with inspiring national talents that
+                    enhance community luxury & and seeks maximum customer satisfaction.
+                </p>
+            </div>
+            <div class="col-lg-5 text-center">
+                <img style="height: 250px; text-align: center; border-radius: 10px;" src="assets/img/about3.jpg"
+                    class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Values</h2>
+        <p>
+            Our values are the foundation upon which we build every innovation we offer. We believe in sustainability as
+            a path to the future, in smart solutions as a means to comfort, and in innovation as the spirit of renewal
+            and progress. Quality is not an option, but a commitment — and safety is a non-negotiable priority. With
+            Smart Life, we are redefining smart living through solid values and a renewed vision.
+        </p>
+        <div class="values mt-5 w-100 d-flex justify-content-center align-items-center">
+            <div class="circle-container position-relative">
+                <div class="circle smart">Smart</div>
+                <div class="circle sustainability">Sustainability</div>
+                <div class="circle innovation">Innovation</div>
+                <div class="circle quality">Quality</div>
+                <div class="circle safety">Safety</div>
+            </div>
+        </div>
+
+    </div><!-- End Section Title -->
+
+</section>
+<!-- /values Section -->
+
+<section id="about" class="about section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Our Growing</h2>
+        <div class="grow" id="companyChart">
+            <!-- Chart will be inserted here by JavaScript -->
+        </div>
+    </div><!-- End Section Title -->
+</section>
+<!--end section graph-->
+
+<section id="about" class="about section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Since</h2>
+        <p>
+            Since 2008, Smart Life has been at the forefront of redefining modern living — seamlessly blending advanced
+            technology with everyday comfort. What began as a vision to simplify life through innovation has evolved
+            into a trusted name in smart home solutions, sustainability, and safety. Passion drives us, technology
+            empowers us, and the future inspires us. We continue to innovate to deliver intelligent solutions that shape
+            a more comfortable and secure tomorrow.
+        </p>
+        <p class="since">2008</p>
+        <div class="mt-4 since-item graph row justify-content-around gap-3">
+            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span>@(DateTime.Now.Year - 2008)</span>
+                <span>Year</span>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span>@Model.Data.Countries</span>
+                <span>Country</span>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span>@Model.Data.Projects</span>
+                <span>Project</span>
+            </div>
+        </div>
+        <div class="detals graph row justify-content-around gap-3">
+            <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
+                <span>+@Model.Data.Projects</span>
+                <span>Projects</span>
+            </div>
+            <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
+                <span>+@Model.Data.Consultants</span>
+                <span>Consultants</span>
+            </div>
+            <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
+                <span>+@Model.Data.Employees</span>
+                <span>Emplyoees</span>
+            </div>
+            <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
+                <span>+@Model.Data.Clients</span>
+                <span>Happy Clients</span>
+            </div>
+            <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
+                <span>+@Model.Data.Branches</span>
+                <span>Branches</span>
+            </div>
+            <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
+                <span>@Model.Data.Countries</span>
+                <span>Countries</span>
+            </div>
+        </div>
+    </div><!-- End Section Title -->
+
+</section>
+<!-- /Since Section -->

@@ -1,0 +1,29 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using SmartLife.Models;
+using SmartLife.Data;
+
+namespace SmartLife.Pages.Clients
+{
+    public class CreateModel(SmartLifeDb context) : PageModel
+    {
+        [BindProperty]
+        public PartnerClient Client { get; set; } = new() { Type = PcType.Client };
+
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+                return Page();
+
+            context.PartnersClients.Add(Client);
+            await context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
+    }
+}

@@ -9,9 +9,9 @@ public class Product
     public string Image { get; set; }
     public string Description { get; set; }
     public Category Category { get; set; }
-    public List<SubModule> Features { get; set; }
-    public List<SubModule> Models { get; set; }
-    public List<GalleryEntry> Photos { get; set; }
-    public List<GalleryEntry> Videos { get; set; }
+    public List<SubModule> Features { get; set; } = [];
+    public List<SubModule> Models { get; set; } = [];
+    public List<GalleryEntry> Photos { get; set; } = [];
+    public List<GalleryEntry> Videos { get; set; } = [];
 
 }
