@@ -1,0 +1,138 @@
+﻿@page "{id:int}"
+@model SmartLife.Pages.Products.EditModel
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>Admin</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">Home</a></li>
+                <li><a asp-page="/Products/Index">Products</a></li>
+                <li class="current">Edit Product</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Admin Section -->
+<section id="portfolio" class="portfolio section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Edit Product</h2>
+    </div>
+
+    <div class="container contact section-title" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <form method="post" enctype="multipart/form-data" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Product.Id" />
+                        <input type="hidden" asp-for="Product.Image" />
+                        <input type="hidden" asp-for="Product.AdditionalPhotos" />
+                        
+                        <div class="col-md-12">
+                            <input asp-for="Product.Name" class="form-control" placeholder="Name" style="border-radius: 5px;" />
+                            <span asp-validation-for="Product.Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <textarea asp-for="Product.Description" class="form-control" placeholder="Description" style="border-radius: 5px;"></textarea>
+                            <span asp-validation-for="Product.Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <select asp-for="Product.CategoryId" asp-items="Model.CategorySelectList" class="form-control" style="border-radius: 5px;">
+                                <option value="">Select Category</option>
+                            </select>
+                            <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div>
+                                <label class="w-100 mb-2 ps-2 text-start" for="ImageFile">Current Image</label>
+                                @if (!string.IsNullOrEmpty(Model.Product.Image))
+                                {
+                                    <img src="@Model.Product.Image" class="img-fluid mb-2" alt="@Model.Product.Name" style="max-height: 200px;" />
+                                }
+                                <input type="file" asp-for="ImageFile" class="form-control" style="border-radius: 5px;" />
+                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="feature" class="text-start mt-3">
+                                <span>Add a feature</span>
+                                <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;" class="bi bi-plus-circle fs-5"></i>
+                            </div>
+                            <div id="features-container">
+                                @if (!string.IsNullOrEmpty(Model.Product.Features))
+                                {
+                                    @foreach (var feature in Model.Product.Features.Split(','))
+                                    {
+                                        <div class="feature-item mt-2">
+                                            <input type="text" name="Features" value="@feature" class="form-control" />
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="model" class="text-start mt-3">
+                                <span>Add a model</span>
+                                <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
+                            </div>
+                            <div id="models-container">
+                                @if (!string.IsNullOrEmpty(Model.Product.Models))
+                                {
+                                    @foreach (var model in Model.Product.Models.Split(','))
+                                    {
+                                        <div class="model-item mt-2">
+                                            <input type="text" name="Models" value="@model" class="form-control" />
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="photo" class="text-start mt-3">
+                                <span>Additional Photos</span>
+                                <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;" class="bi bi-plus-circle fs-5"></i>
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.Product.AdditionalPhotos))
+                            {
+                                <div class="row mt-2">
+                                    @foreach (var photo in Model.Product.AdditionalPhotos.Split(','))
+                                    {
+                                        <div class="col-md-4 mb-2">
+                                            <img src="@photo" class="img-fluid" alt="Additional Photo" />
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            <div id="photos-container">
+                                <input type="file" name="AdditionalPhotos" multiple class="form-control mt-2" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <button type="submit">Save Changes</button>
+                            <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/product.js"></script>
+}

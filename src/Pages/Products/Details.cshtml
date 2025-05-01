@@ -1,0 +1,94 @@
+﻿@page "{id:int}"
+@model SmartLife.Pages.Products.DetailsModel
+
+@{
+    ViewData["Title"] = @Model.Product.Name;
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>@Model.Product.Name</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">Home</a></li>
+                <li><a asp-page="/Products/Index">Products</a></li>
+                <li class="current">@Model.Product.Name</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<section class="portfolio-details">
+    <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+            <div class="col-lg-8">
+                <div class="portfolio-details-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        @if (!string.IsNullOrEmpty(Model.Product.Image))
+                        {
+                            <div class="swiper-slide">
+                                <img src="@Model.Product.Image" alt="@Model.Product.Name">
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.Product.AdditionalPhotos))
+                        {
+                            @foreach (var photo in Model.Product.AdditionalPhotos.Split(','))
+                            {
+                                <div class="swiper-slide">
+                                    <img src="@photo" alt="@Model.Product.Name">
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="portfolio-info">
+                    <h3>Product Information</h3>
+                    <ul>
+                        <li><strong>Category</strong>: @Model.Product.Category?.Name</li>
+                        @if (!string.IsNullOrEmpty(Model.Product.Models))
+                        {
+                            <li>
+                                <strong>Models</strong>:
+                                <ul class="models-list">
+                                    @foreach (var model in Model.Product.Models.Split(','))
+                                    {
+                                        <li>@model</li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="portfolio-description">
+                    <h2>Description</h2>
+                    <p>@Model.Product.Description</p>
+                </div>
+                @if (!string.IsNullOrEmpty(Model.Product.Features))
+                {
+                    <div class="portfolio-features mt-4">
+                        <h2>Features</h2>
+                        <ul class="features-list">
+                            @foreach (var feature in Model.Product.Features.Split(','))
+                            {
+                                <li><i class="bi bi-check-circle"></i> @feature</li>
+                            }
+                        </ul>
+                    </div>
+                }
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <div class="mt-4">
+                        <a asp-page="./Edit" asp-route-id="@Model.Product.Id" class="btn btn-primary">Edit</a>
+                        <a asp-page="./Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
+                        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

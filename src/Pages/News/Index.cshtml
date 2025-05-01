@@ -1,0 +1,58 @@
+﻿@page
+@model SmartLife.Pages.News.IndexModel
+
+@{
+    ViewData["Title"] = "Clients";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>Last News</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li class="current">Last News</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Clients Section -->
+<section id="portfolio" class="portfolio section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Last News</h2>
+        <p>
+            At Smart Life, we believe that knowledge is power - stay updated with our latest news and always be at the heart of the action.
+        </p>
+    </div><!-- End Section Title -->
+
+    <div class="pricing section">
+        <div class="container">
+            <div class="row gy-4">
+                @foreach (var post in Model.Posts)
+                {
+                    <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="pricing-item">
+                            <h3 class="mb-0">@post.Title</h3>
+                            <span>@post.Time</span>
+                            <p class="my-3">@post.Content</p>
+                            <div class="text-end" style="height: 200px;">
+                                <img class="h-100" src="@post.Image" alt="@post.Title">
+                            </div>
+                            @if (Model.HttpContext.User.Identity != null)
+                            {
+                                <a href="portfolio-details.html" class="me-3">Edit</a>
+                                <a href="portfolio-details.html">Delete</a>
+                            }
+                        </div>
+                    </div><!-- End post Item -->
+                }
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- /posts Section -->

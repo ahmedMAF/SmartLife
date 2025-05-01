@@ -1,0 +1,54 @@
+﻿@page
+@model SmartLife.Pages.Team.IndexModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+    <h1>Dashboard</h1>
+    <nav class="breadcrumbs">
+        <ol>
+        <li><a asp-page="Index">Home</a></li>
+        <li class="current">Dashboard</li>
+        </ol>
+    </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Admin Section -->
+<section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Dashboard</h2>
+        <p>Easily manage every detail of the Smart Life website with complete control</p>
+    </div><!-- End Section Title -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div style="max-width: 216px;">
+                <a style="color: white;" asp-page="Products/Create" class="text-center see-more d-block mt-5">Add Product</a>
+            </div>
+            <div style="max-width: 216px;">
+                <a style="color: white;" asp-page="Partners/Create" class="text-center see-more d-block mt-5">Add Partner</a>
+            </div>
+            <div style="max-width: 216px;">
+                <a style="color: white;" asp-page="Clients/Create" class="text-center see-more d-block mt-5">Add Client</a>
+            </div>
+            <div style="max-width: 216px;">
+                <a style="color: white;" asp-page="Team/Create" class="text-center see-more d-block mt-5">Add Team Member</a>
+            </div>
+            <div style="max-width: 216px;">
+                <a style="color: white;" asp-page="News/Create" class="text-center see-more d-block mt-5">Add Post</a>
+            </div>
+            <div style="max-width: 216px;">
+                <a style="color: white;" asp-page="Contacts/Create" class="text-center see-more d-block mt-5">Add Contact</a>
+            </div>
+            <div style="max-width: 216px;">
+                <a style="color: white;" asp-page="./Password" class="text-center see-more d-block mt-5">password</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Admin Section -->
