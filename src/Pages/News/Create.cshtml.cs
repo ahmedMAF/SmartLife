@@ -1,13 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Localization;
 using SmartLife.Models;
 
 namespace SmartLife.Pages.News
 {
-    public class CreateModel(SmartLifeDb context) : PageModel
+    public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> localizer) : PageModel
     {
         [BindProperty]
         public Post Post { get; set; } = new();
+
+        [BindProperty]
+        public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
         public IActionResult OnGet()
         {

@@ -1,29 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Localization;
 using SmartLife.Models;
 using SmartLife.Data;
 
-namespace SmartLife.Pages.Clients
+namespace SmartLife.Pages.Clients;
+
+public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> localizer) : PageModel
 {
-    public class CreateModel(SmartLifeDb context) : PageModel
+    [BindProperty]
+    public PartnerClient Client { get; set; } = new() { Type = PcType.Client };
+
+    [BindProperty]
+    public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
+
+    public IActionResult OnGet()
     {
-        [BindProperty]
-        public PartnerClient Client { get; set; } = new() { Type = PcType.Client };
+        return Page();
+    }
 
-        public IActionResult OnGet()
-        {
+    public async Task<IActionResult> OnPostAsync()
+    {
+        if (!ModelState.IsValid)
             return Page();
-        }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-                return Page();
+        context.PartnersClients.Add(Client);
+        await context.SaveChangesAsync();
 
-            context.PartnersClients.Add(Client);
-            await context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
-        }
+        return RedirectToPage("./Index");
     }
 }

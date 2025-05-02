@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using SmartLife.Models;
 
 namespace SmartLife.Pages.Products;
 
-public class EditModel(SmartLifeDb context, IWebHostEnvironment environment) : PageModel
+public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, IStringLocalizer<EditModel> localizer) : PageModel
 {
     [BindProperty]
     public Product Product { get; set; } = default!;
@@ -18,6 +19,9 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment) : P
     public List<IFormFile> PhotoGalleryFiles { get; set; } = [];
 
     public SelectList CategorySelectList { get; set; } = default!;
+
+    [BindProperty]
+    public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync(int id)
     {

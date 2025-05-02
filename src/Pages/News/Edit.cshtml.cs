@@ -1,14 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using SmartLife.Models;
 
 namespace SmartLife.Pages.News
 {
-    public class EditModel(SmartLifeDb context) : PageModel
+    public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localizer) : PageModel
     {
         [BindProperty]
         public Post Post { get; set; } = default!;
+
+        [BindProperty]
+        public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
         public async Task<IActionResult> OnGetAsync(int id)
         {

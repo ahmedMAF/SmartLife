@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore;
 using SmartLife.Models;
 using SmartLife.Data;
 using SmartLife.Utilities;
+using Microsoft.Extensions.Localization;
 
 namespace SmartLife.Pages.Products;
 
-public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment) : PageModel
+public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment, IStringLocalizer<CreateModel> localizer) : PageModel
 {
-    public SelectList CategorySelectList { get; set; } = default!;
-
     [BindProperty]
     public Product Product { get; set; } = new();
 
@@ -23,6 +22,11 @@ public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment) :
 
     [BindProperty]
     public List<string> VideoUrls { get; set; } = [];
+
+    public SelectList CategorySelectList { get; set; } = default!;
+
+    [BindProperty]
+    public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()
     {

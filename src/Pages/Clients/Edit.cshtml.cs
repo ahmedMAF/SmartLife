@@ -3,13 +3,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
 using SmartLife.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace SmartLife.Pages.Clients;
 
-public class EditModel(SmartLifeDb context) : PageModel
+public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localizer) : PageModel
 {
     [BindProperty]
     public PartnerClient Client { get; set; } = default!;
+
+    [BindProperty]
+    public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync(int id)
     {
