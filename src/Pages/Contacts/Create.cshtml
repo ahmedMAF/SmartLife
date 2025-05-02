@@ -2,20 +2,20 @@
 @model SmartLife.Pages.Contacts.CreateModel
 
 @{
-    ViewData["Title"] = "Create Client";
+    ViewData["Title"] = "Add Contact";
 }
 
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-    <h1>Dashboard</h1>
-    <nav class="breadcrumbs">
-        <ol>
-        <li><a asp-page="Index">Home</a></li>
-        <li><a asp-page="Dashboard/Index">Dashboard</a></li>
-        <li class="current">Create Client</li>
-        </ol>
-    </nav>
+        <h1>Dashboard</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="Index">Home</a></li>
+                <li><a asp-page="Dashboard/Index">Dashboard</a></li>
+                <li class="current">Add Contact</li>
+            </ol>
+        </nav>
     </div>
 </div><!-- End Page Title -->
 
@@ -23,36 +23,46 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Create Client</h2>
-        </div><!-- End Section Title -->
-        <div class="container contact section-title" data-aos="fade-up">
+        <h2>Add Contact</h2>
+    </div><!-- End Section Title -->
+    <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
             <div class="col-lg-7">
                 <form method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                <div class="row gy-4">
-                    <div class="col-md-12">
-                    <input asp-for="Client.Name" style="border-radius: 5px;" class="form-control" placeholder="Name">
-                    <span asp-validation-for="Client.Name" class="text-danger"></span>
-                    </div>
-                    <div class="col-md-12">
-                    <textarea asp-for="Client.Description" class="form-control" style="border-radius: 5px;" placeholder="Description"></textarea>
-                    <span asp-validation-for="Client.Description" class="text-danger"></span>
-                    </div>
-                    <div class="col-md-12">
-                    <div>
-                        <label asp-for="Client.Image" class="w-100 mb-2 ps-2 text-start">Upload Image</label>
-                        <input asp-for="Client.Image" style="border-radius: 5px;" type="file" class="form-control" placeholder="Image">
-                    </div>
-                    </div>
+                    <div class="row gy-4">
+                        <div class="col-md-12">
+                            <input asp-for="Contact.Country" style="border-radius: 5px;" class="form-control" placeholder="Country">
+                            <span asp-validation-for="Contact.Country" class="text-danger"></span>
+                        </div>
+                        <div id="addresses" class="text-start">
+                            <span>Add an address</span>
+                            <i id="iconAddress" style="color: #7cc576; cursor: pointer; margin-left: 25px;"
+                                class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                        <div id="emails" class="text-start">
+                            <span>Add an email</span>
+                            <i id="iconEmail" style="color: #7cc576; cursor: pointer; margin-left: 42px;"
+                                class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                        <div id="phones" class="text-start">
+                            <span>Add an phone</span>
+                            <i id="iconPhone" style="color: #7cc576; cursor: pointer; margin-left: 36px;"
+                                class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                        <div id="whatsup" class="text-start">
+                            <span>Add an whatsApp</span>
+                            <i id="iconWhasapp" style="color: #7cc576; cursor: pointer;"
+                                class="bi bi-plus-circle fs-5 ms-2"></i>
+                        </div>
 
-                    <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-    
-                    <button type="submit">Create</button>
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+
+                            <button type="submit">Add</button>
+                        </div>
+
                     </div>
-    
-                </div>
                 </form>
             </div>
         </div>
@@ -61,5 +71,7 @@
 <!-- /Admin Section -->
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

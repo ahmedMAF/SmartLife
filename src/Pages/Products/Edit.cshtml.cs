@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using SmartLife.Data;
 using SmartLife.Models;
+using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Products;
 
@@ -13,10 +15,13 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
     public Product Product { get; set; } = default!;
 
     [BindProperty]
-    public IFormFile? ImageFile { get; set; }
+    public IFormFile? MainImage { get; set; }
 
     [BindProperty]
-    public List<IFormFile> PhotoGalleryFiles { get; set; } = [];
+    public List<IFormFile> AdditionalPhotos { get; set; } = [];
+    
+    [BindProperty]
+    public List<string> VideoUrls { get; set; } = [];
 
     public SelectList CategorySelectList { get; set; } = default!;
 
@@ -44,12 +49,11 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
             CategorySelectList = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
             return Page();
         }
+        
+        string folder = Path.Combine(environment.WebRootPath, "uploads", "images", "products");
 
-        if (ImageFile != null)
+        if (MainImage != null)
         {
-            var uploadsFolder = Path.Combine(environment.WebRootPath, "images", "products");
-            Directory.CreateDirectory(uploadsFolder);
-
             // Delete old image if exists
             if (!string.IsNullOrEmpty(Product.Image))
             {
@@ -58,22 +62,11 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
                     System.IO.File.Delete(oldImagePath);
             }
 
-            var uniqueFileName = Guid.NewGuid().ToString() + "_" + ImageFile.FileName;
-            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await ImageFile.CopyToAsync(fileStream);
-            }
-
-            Product.Image = "/uploads/products/" + uniqueFileName;
+            Product.Image = await UploadHelper.UploadFile(MainImage, folder);
         }
 
-        if (PhotoGalleryFiles != null && PhotoGalleryFiles.Count != 0)
+        if (AdditionalPhotos != null && AdditionalPhotos.Count != 0)
         {
-            var photoUrls = new List<string>();
-            var uploadsFolder = Path.Combine(environment.WebRootPath, "uploads", "products");
-
             // Delete old additional photos if they exist
             // if (!string.IsNullOrEmpty(Product.Photos))
             // {
@@ -88,22 +81,21 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
             //     }
             // }
 
-            foreach (var photo in PhotoGalleryFiles)
+            foreach (var photo in AdditionalPhotos)
             {
-                var uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                string file = await UploadHelper.UploadFile(photo, folder);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    await photo.CopyToAsync(fileStream);
-                }
-
-                Product.Photos.Add("/uploads/products/" + uniqueFileName);
+                Product.Photos.Add(new GalleryEntry { Url = file });
             }
+        }
+        
+        // Handle Video URLs
+        foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
+        {
+            Product.Videos.Add(new GalleryEntry { Url = videoUrl });
         }
 
         context.Attach(Product).State = EntityState.Modified;
-
         await context.SaveChangesAsync();
 
         return RedirectToPage("./Index");

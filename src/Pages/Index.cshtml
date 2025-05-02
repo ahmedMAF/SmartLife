@@ -136,14 +136,10 @@
                         <div class="portfolio-info">
                             <h4>@product.Name</h4>
                             <p>@product.Description</p>
-                            <a href=@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app"
-                                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a asp-page="Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i
-                                    class="bi bi-link-45deg"></i></a>
+                            <a href="@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a asp-page="Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                         </div>
-                    </div>
-
-                    <!-- End Portfolio Item -->
+                    </div><!-- End Portfolio Item -->
                 }
             </div><!-- End Portfolio Container -->
             <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mx-auto">See More</a>

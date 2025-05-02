@@ -31,9 +31,6 @@
                 <form method="post" enctype="multipart/form-data" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                     <div class="row gy-4">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input type="hidden" asp-for="Product.Id" />
-                        <input type="hidden" asp-for="Product.Image" />
-                        <input type="hidden" asp-for="Product.AdditionalPhotos" />
                         
                         <div class="col-md-12">
                             <input asp-for="Product.Name" class="form-control" placeholder="Name" style="border-radius: 5px;" />
@@ -46,21 +43,17 @@
                         </div>
 
                         <div class="col-md-12">
-                            <select asp-for="Product.CategoryId" asp-items="Model.CategorySelectList" class="form-control" style="border-radius: 5px;">
+                            <select asp-for="Product.Category" asp-items="Model.CategorySelectList" class="form-control" style="border-radius: 5px;">
                                 <option value="">Select Category</option>
                             </select>
-                            <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                            <span asp-validation-for="Product.Category" class="text-danger"></span>
                         </div>
 
                         <div class="col-md-12">
                             <div>
-                                <label class="w-100 mb-2 ps-2 text-start" for="ImageFile">Current Image</label>
-                                @if (!string.IsNullOrEmpty(Model.Product.Image))
-                                {
-                                    <img src="@Model.Product.Image" class="img-fluid mb-2" alt="@Model.Product.Name" style="max-height: 200px;" />
-                                }
-                                <input type="file" asp-for="ImageFile" class="form-control" style="border-radius: 5px;" />
-                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                <label class="w-100 mb-2 ps-2 text-start" for="MainImage">Main Product Image</label>
+                                <input type="file" asp-for="MainImage" class="form-control" style="border-radius: 5px;" />
+                                <span asp-validation-for="MainImage" class="text-danger"></span>
                             </div>
                         </div>
 
@@ -70,15 +63,7 @@
                                 <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;" class="bi bi-plus-circle fs-5"></i>
                             </div>
                             <div id="features-container">
-                                @if (!string.IsNullOrEmpty(Model.Product.Features))
-                                {
-                                    @foreach (var feature in Model.Product.Features.Split(','))
-                                    {
-                                        <div class="feature-item mt-2">
-                                            <input type="text" name="Features" value="@feature" class="form-control" />
-                                        </div>
-                                    }
-                                }
+                                <input type="hidden" id="feature-count" value="0" />
                             </div>
                         </div>
 
@@ -88,41 +73,32 @@
                                 <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
                             </div>
                             <div id="models-container">
-                                @if (!string.IsNullOrEmpty(Model.Product.Models))
-                                {
-                                    @foreach (var model in Model.Product.Models.Split(','))
-                                    {
-                                        <div class="model-item mt-2">
-                                            <input type="text" name="Models" value="@model" class="form-control" />
-                                        </div>
-                                    }
-                                }
+                                <input type="hidden" id="model-count" value="0" />
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div id="photo" class="text-start mt-3">
-                                <span>Additional Photos</span>
+                                <span>Add additional photos</span>
                                 <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;" class="bi bi-plus-circle fs-5"></i>
                             </div>
-                            @if (!string.IsNullOrEmpty(Model.Product.AdditionalPhotos))
-                            {
-                                <div class="row mt-2">
-                                    @foreach (var photo in Model.Product.AdditionalPhotos.Split(','))
-                                    {
-                                        <div class="col-md-4 mb-2">
-                                            <img src="@photo" class="img-fluid" alt="Additional Photo" />
-                                        </div>
-                                    }
-                                </div>
-                            }
                             <div id="photos-container">
-                                <input type="file" name="AdditionalPhotos" multiple class="form-control mt-2" />
+                                <input type="file" name="AdditionalPhotos" multiple class="form-control mt-2" style="display: none;" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="video" class="text-start mt-3">
+                                <span>Add a video URL</span>
+                                <i id="iconvideo" style="color: #7cc576; cursor: pointer; margin-left: 20px;" class="bi bi-plus-circle fs-5"></i>
+                            </div>
+                            <div id="videos-container">
+                                <input type="hidden" id="video-count" value="0" />
                             </div>
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <button type="submit">Save Changes</button>
+                            <button type="submit">Add Product</button>
                             <a asp-page="Index" class="btn btn-secondary">Cancel</a>
                         </div>
                     </div>
@@ -134,5 +110,4 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="~/js/product.js"></script>
 }

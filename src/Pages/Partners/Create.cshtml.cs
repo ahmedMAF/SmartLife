@@ -12,6 +12,9 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public PartnerClient Partner { get; set; } = new() { Type = PcType.Partner };
 
     [BindProperty]
+    public IFormFile? Image { get; set; } = default!;
+
+    [BindProperty]
     public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()
