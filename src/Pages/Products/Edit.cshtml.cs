@@ -8,6 +8,7 @@ namespace SmartLife.Pages.Products;
 
 public class EditModel(SmartLifeDb context, IWebHostEnvironment environment) : PageModel
 {
+    [BindProperty]
     public Product Product { get; set; } = default!;
 
     [BindProperty]

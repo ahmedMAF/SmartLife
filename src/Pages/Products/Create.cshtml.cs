@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SmartLife.Models;
 using SmartLife.Data;
+using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Products;
 
@@ -12,25 +13,13 @@ public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment) :
     public SelectList CategorySelectList { get; set; } = default!;
 
     [BindProperty]
-    public Product Product { get; set; } = new()
-    {
-        Features = [],
-        Models = [],
-        Photos = [],
-        Videos = []
-    };
+    public Product Product { get; set; } = new();
 
     [BindProperty]
     public IFormFile MainImage { get; set; } = default!;
 
     [BindProperty]
     public List<IFormFile> AdditionalPhotos { get; set; } = [];
-
-    [BindProperty]
-    public List<string> FeatureNames { get; set; } = [];
-
-    [BindProperty]
-    public List<string> ModelNames { get; set; } = [];
 
     [BindProperty]
     public List<string> VideoUrls { get; set; } = [];
@@ -48,51 +37,21 @@ public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment) :
             CategorySelectList = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
             return Page();
         }
-
+        
+        string folder = Path.Combine(environment.WebRootPath, "uploads", "images", "products");
+        
         if (MainImage != null)
         {
-            var uploadsFolder = Path.Combine(environment.WebRootPath, "uploads", "products");
-            Directory.CreateDirectory(uploadsFolder);
-
-            var uniqueFileName = Guid.NewGuid().ToString() + "_" + MainImage.FileName;
-            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await MainImage.CopyToAsync(fileStream);
-            }
-
-            Product.Image = "/uploads/products/" + uniqueFileName;
-        }
-
-        // Handle Features
-        foreach (var featureName in FeatureNames.Where(f => !string.IsNullOrWhiteSpace(f)))
-        {
-            Product.Features.Add(new SubModule { Name = featureName });
-        }
-
-        // Handle Models
-        foreach (var modelName in ModelNames.Where(m => !string.IsNullOrWhiteSpace(m)))
-        {
-            Product.Models.Add(new SubModule { Name = modelName });
+            Product.Image = await UploadHelper.UploadFile(MainImage, folder);
         }
 
         // Handle Additional Photos
         if (AdditionalPhotos != null)
         {
-            var uploadsFolder = Path.Combine(environment.WebRootPath, "uploads", "products");
-            
             foreach (var photo in AdditionalPhotos)
             {
-                var uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    await photo.CopyToAsync(fileStream);
-                }
-
-                Product.Photos.Add(new GalleryEntry { Url = "/uploads/products/" + uniqueFileName });
+                string file = await UploadHelper.UploadFile(photo, folder);
+                Product.Photos.Add(new GalleryEntry { Url = file });
             }
         }
 
