@@ -1,115 +1,131 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Feature handling
-    const iconFeature = document.getElementById('iconfeature');
-    const featuresContainer = document.getElementById('features-container');
-    
-    if (iconFeature) {
-        iconFeature.addEventListener('click', function() {
-            const featureItem = document.createElement('div');
-            featureItem.className = 'feature-item mt-2 d-flex';
-            featureItem.innerHTML = `
-                <input type="text" name="Features" class="form-control" placeholder="Enter feature" />
-                <button type="button" class="btn btn-danger ms-2 remove-item"><i class="bi bi-trash"></i></button>
-            `;
-            featuresContainer.appendChild(featureItem);
-        });
-    }
+const feature = document.getElementById("feature");
+const model = document.getElementById("model");
+const photo = document.getElementById("photo");
+const video = document.getElementById("video");
 
-    // Model handling
-    const iconModel = document.getElementById('iconmodel');
-    const modelsContainer = document.getElementById('models-container');
-    
-    if (iconModel) {
-        iconModel.addEventListener('click', function() {
-            const modelItem = document.createElement('div');
-            modelItem.className = 'model-item mt-2 d-flex';
-            modelItem.innerHTML = `
-                <input type="text" name="Models" class="form-control" placeholder="Enter model" />
-                <button type="button" class="btn btn-danger ms-2 remove-item"><i class="bi bi-trash"></i></button>
-            `;
-            modelsContainer.appendChild(modelItem);
-        });
-    }
+const iconfeature = document.getElementById("iconfeature");
+const iconmodel = document.getElementById("iconmodel");
+const iconphoto = document.getElementById("iconphoto");
+const iconvideo = document.getElementById("iconvideo");
 
-    // Photo handling
-    const iconPhoto = document.getElementById('iconphoto');
-    const photosContainer = document.getElementById('photos-container');
-    
-    if (iconPhoto) {
-        iconPhoto.addEventListener('click', function() {
-            const fileInput = photosContainer.querySelector('input[type="file"]');
-            if (fileInput) {
-                fileInput.style.display = 'block';
-            }
-        });
-    }
+let f = 0;
+let m = 0;
+let p = 0;
+let v = 0;
 
-    // Video handling
-    const iconVideo = document.getElementById('iconvideo');
-    const videosContainer = document.getElementById('videos-container');
-    
-    if (iconVideo) {
-        iconVideo.addEventListener('click', function() {
-            const videoItem = document.createElement('div');
-            videoItem.className = 'video-item mt-2 d-flex';
-            videoItem.innerHTML = `
-                <input type="text" name="Videos" class="form-control" placeholder="Enter video URL" />
-                <button type="button" class="btn btn-danger ms-2 remove-item"><i class="bi bi-trash"></i></button>
-            `;
-            videosContainer.appendChild(videoItem);
-        });
-    }
-
-    // Remove item functionality
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.remove-item')) {
-            const item = e.target.closest('.feature-item, .model-item, .video-item');
-            if (item) {
-                item.remove();
-            }
-        }
-    });
-
-    // Form submission handling
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            const features = Array.from(document.querySelectorAll('input[name="Features"]'))
-                .map(input => input.value.trim())
-                .filter(value => value !== '');
-            
-            const models = Array.from(document.querySelectorAll('input[name="Models"]'))
-                .map(input => input.value.trim())
-                .filter(value => value !== '');
-
-            const videos = Array.from(document.querySelectorAll('input[name="Videos"]'))
-                .map(input => input.value.trim())
-                .filter(value => value !== '');
-
-            // Create hidden inputs for the concatenated values
-            if (features.length > 0) {
-                const hiddenFeatures = document.createElement('input');
-                hiddenFeatures.type = 'hidden';
-                hiddenFeatures.name = 'Product.Features';
-                hiddenFeatures.value = features.join(',');
-                form.appendChild(hiddenFeatures);
-            }
-
-            if (models.length > 0) {
-                const hiddenModels = document.createElement('input');
-                hiddenModels.type = 'hidden';
-                hiddenModels.name = 'Product.Models';
-                hiddenModels.value = models.join(',');
-                form.appendChild(hiddenModels);
-            }
-
-            if (videos.length > 0) {
-                const hiddenVideos = document.createElement('input');
-                hiddenVideos.type = 'hidden';
-                hiddenVideos.name = 'Product.Videos';
-                hiddenVideos.value = videos.join(',');
-                form.appendChild(hiddenVideos);
-            }
-        });
-    }
-});
+iconfeature.onclick = function(){
+    f++;
+    let input = document.createElement("input");
+    input.type = "text";
+    input.name = `title${f}`;
+    input.placeholder = "Title";
+    input.className = "form-control mt-2";
+    let input1 = document.createElement("textarea");
+    input1.name = `description${f}`;
+    input1.placeholder = "Description";
+    input1.className = "form-control mt-2";
+    let input22 = document.createElement("label");
+    input22.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input22.innerText = "Upload Image";
+    let input2 = document.createElement("input");
+    input2.type = "file";
+    input2.name = `image${f}`;
+    input2.className = "form-control mt-2";
+    let input33 = document.createElement("label");
+    input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input33.innerText = "Upload Datasheet";
+    let input3 = document.createElement("input");
+    input3.type = "file";
+    input3.name = `data-sheet${f}`;
+    input3.className = "form-control mt-2";
+    let input4 = document.createElement("input");
+    input4.type = "text";
+    input4.name = `google-play${f}`;
+    input4.placeholder = "Link google play";
+    input4.className = "form-control mt-2";
+    let input5 = document.createElement("input");
+    input5.type = "text";
+    input5.name = `apple-store${f}`;
+    input5.placeholder = "Link apple store";
+    input5.className = "form-control mt-2";
+    feature.appendChild(input);
+    feature.appendChild(input1);
+    feature.appendChild(input22);
+    feature.appendChild(input2);
+    feature.appendChild(input33);
+    feature.appendChild(input3);
+    feature.appendChild(input4);
+    feature.appendChild(input5);
+}
+iconmodel.onclick = function(){
+    m++;
+    let input = document.createElement("input");
+    input.type = "text";
+    input.name = `name${m}`;
+    input.placeholder = "Name";
+    input.className = "form-control mt-2";
+    let input1 = document.createElement("textarea");
+    input1.name = `description${m}`;
+    input1.placeholder = "Description";
+    input1.className = "form-control mt-2";
+    let input22 = document.createElement("label");
+    input22.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input22.innerText = "Upload Image";
+    let input2 = document.createElement("input");
+    input2.type = "file";
+    input2.name = `image${m}`;
+    input2.className = "form-control mt-2";
+    let input33 = document.createElement("label");
+    input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input33.innerText = "Upload Datasheet";
+    let input3 = document.createElement("input");
+    input3.type = "file";
+    input3.name = `data-sheet${m}`;
+    input3.className = "form-control mt-2";
+    let input4 = document.createElement("input");
+    input4.type = "text";
+    input4.name = `google-play${m}`;
+    input4.placeholder = "Link google play";
+    input4.className = "form-control mt-2";
+    let input5 = document.createElement("input");
+    input5.type = "text";
+    input5.name = `apple-store${m}`;
+    input5.placeholder = "Link apple store";
+    input5.className = "form-control mt-2";
+    model.appendChild(input);
+    model.appendChild(input1);
+    model.appendChild(input22);
+    model.appendChild(input2);
+    model.appendChild(input33);
+    model.appendChild(input3);
+    model.appendChild(input4);
+    model.appendChild(input5);
+}
+iconphoto.onclick = function(){
+    p++;
+    let input = document.createElement("input");
+    input.type = "text";
+    input.name = `title${p}`;
+    input.placeholder = "Title";
+    input.className = "form-control mt-2";
+    let input1 = document.createElement("textarea");
+    input1.name = `description${p}`;
+    input1.placeholder = "Description";
+    input1.className = "form-control mt-2";
+    let input2 = document.createElement("input");
+    input2.type = "file";
+    input2.name = `image${p}`;
+    input2.className = "form-control mt-2";
+    photo.appendChild(input);
+    photo.appendChild(input1);
+    photo.appendChild(input2);
+}
+iconvideo.onclick = function(){
+    v++;
+    let input = document.createElement("input");
+    input.type = "text";
+    input.name = `video${v}`;
+    input.placeholder = "Video link";
+    input.className = "form-control mt-2";
+    video.appendChild(input);
+}

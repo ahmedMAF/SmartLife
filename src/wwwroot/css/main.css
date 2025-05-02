@@ -1632,6 +1632,9 @@ section,
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
+.contact .php-email-form input[type=password],
+.contact .php-email-form input[type=file],
+.contact .php-email-form input[list="options"],
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
@@ -1644,12 +1647,17 @@ section,
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type=password]:focus,
+.contact .php-email-form input[type=file]:focus,
+.contact .php-email-form input[list="options"]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type=password]::placeholder,
+.contact .php-email-form input[list="options"]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
@@ -2408,13 +2416,14 @@ team page
   gap: 30px;
   flex-wrap: wrap;
   text-align: center;
+  color: white;
 }
 .team-container h1 {
   font-size: 48px;
   margin-bottom: 40px;
 }
 .team-container .team-member {
-  background-color: #8faaff;
+  background: linear-gradient(to top, #4a90e2, #376996);
   border-radius: 10px;
   width: 250px;
   padding: 20px;
@@ -2422,10 +2431,10 @@ team page
   transition: 0.3s;
 }
 .team-container .team-member:hover {
-  transform: translateY(-5px);
+  background: linear-gradient(to top, #376996, #376996);
+  transform: scale(1.05);
 }
 .team-container .profile-pic {
-  border: 6px solid #5a3fc0;
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -2437,6 +2446,42 @@ team page
   font-weight: bold;
   margin-bottom: 8px;
 }
-.team-container .title {
-  color: #333;
+/***********/
+.product-image{
+  height: 300px; 
+  width: 100%; 
+  object-fit: cover;
 }
+.partner-image{
+  height: 120px; 
+  width: 100%; 
+  object-fit: cover;
+}
+
+
+
+
+
+.portfolio-details-slider {
+  height: 400px; 
+  width: 500px;
+}
+
+@media (max-width: 540px) {
+  .portfolio-details-slider {
+    width: 100%;
+  }
+}
+ 
+.portfolio-details-slider .swiper-slide img , .portfolio-details-slider .swiper-slide iframe{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+ 
+.portfolio-details-slider .swiper-wrapper {
+  height: calc(100% - 40px);
+}
+
+ 
