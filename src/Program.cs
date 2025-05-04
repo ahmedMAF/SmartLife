@@ -14,9 +14,11 @@ internal class Program
         // Add services to the container.
         builder.Services.AddSession();
         builder.Services.AddRazorPages();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+#if DEBUG
+        //builder.Services.AddEndpointsApiExplorer();
+        //builder.Services.AddSwaggerGen();
         // https://localhost:5001/swagger
+#endif
 
         builder.Services.AddDbContext<SmartLifeDb>(options =>
         {
@@ -41,18 +43,18 @@ internal class Program
         WebApplication app = builder.Build();
 
         // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-        else
+        if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Error");
             // The default HSTS value is 30 days. You may want to change this for production scenarios,
             // see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
+        
+#if DEBUG
+        //app.UseSwagger();
+        //app.UseSwaggerUI();
+#endif
 
         app.UseSession();
         app.UseHttpsRedirection();
