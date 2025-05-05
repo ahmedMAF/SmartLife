@@ -23,7 +23,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         if (!ModelState.IsValid)
             return Page();
 
-        context.Team.Add(TeamMember);
+        context.Team.Update(TeamMember);
         await context.SaveChangesAsync();
 
         return RedirectToPage("./Index");

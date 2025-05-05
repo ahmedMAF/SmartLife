@@ -18,7 +18,7 @@ namespace SmartLife.Pages.News
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            var post = await context.News.FirstOrDefaultAsync(p => p.Id == id);
+            var post = await context.News.FindAsync(id);
 
             if (post == null)
                 return NotFound();

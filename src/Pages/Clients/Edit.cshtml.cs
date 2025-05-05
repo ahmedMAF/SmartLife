@@ -16,7 +16,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
     public async Task<IActionResult> OnGetAsync(int id)
     {
-        var client = await context.PartnersClients.FirstOrDefaultAsync(p => p.Id == id);
+        var client = await context.PartnersClients.FindAsync(id);
 
         if (client == null)
             return NotFound();
@@ -30,7 +30,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         if (!ModelState.IsValid)
             return Page();
 
-        context.PartnersClients.Add(Client);
+        context.PartnersClients.Update(Client);
         await context.SaveChangesAsync();
 
         return RedirectToPage("./Index");

@@ -29,8 +29,9 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
     public async Task<IActionResult> OnGetAsync(int id)
     {
         var product = await context.Products
+            .Where(p => p.Id == id)
             .Include(p => p.Category)
-            .FirstOrDefaultAsync(p => p.Id == id);
+            .FirstOrDefaultAsync();
 
         if (product == null)
             return NotFound();
@@ -42,12 +43,6 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
-        {
-            CategorySelectList = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
-            return Page();
-        }
-        
         string folder = Path.Combine(environment.WebRootPath, "uploads", "images", "products");
 
         if (MainImage != null)
@@ -93,7 +88,13 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
             Product.Videos.Add(new GalleryEntry { Url = videoUrl });
         }
 
-        context.Attach(Product).State = EntityState.Modified;
+        if (!ModelState.IsValid)
+        {
+            CategorySelectList = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
+            return Page();
+        }
+
+        context.Products.Update(Product);
         await context.SaveChangesAsync();
 
         return RedirectToPage("./Index");

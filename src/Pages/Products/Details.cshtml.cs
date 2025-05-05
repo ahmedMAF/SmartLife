@@ -14,8 +14,9 @@ public class DetailsModel(SmartLifeDb context, IStringLocalizer<DetailsModel> lo
     public async Task<IActionResult> OnGetAsync(int id)
     {
         var product = await context.Products
+            .Where(p => p.Id == id)
             .Include(p => p.Category)
-            .FirstOrDefaultAsync(p => p.Id == id);
+            .FirstOrDefaultAsync();
 
         if (product == null)
             return NotFound();
