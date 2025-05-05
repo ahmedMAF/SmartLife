@@ -9,8 +9,6 @@ namespace SmartLife.Pages.About;
 public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
     public AboutData Data { get;set; } = default!;
-
-    [BindProperty]
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()

@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = Localizer["home_title"];
+    ViewData["Title"] = Model.Localizer["home_title"];
 }
 
 <!-- Hero Section -->
@@ -11,9 +11,9 @@
         <div class="row justify-content-center" data-aos="zoom-out">
             <div class="col-lg-8">
                 <img style="height: 80px;" src="~/img/smartLife.png" alt="" class="img-fluid mb-3">
-                <h2>@Localizer["home_welcome"]</h2>
-                <p>@Localizer["home_intro"]</p>
-                <a href="#about" class="btn-get-started">@Localizer["home_start"]</a>
+                <h2>@Model.Localizer["home_welcome"]</h2>
+                <p>@Model.Localizer["home_intro"]</p>
+                <a href="#about" class="btn-get-started">@Model.Localizer["home_start"]</a>
             </div>
         </div>
     </div>
@@ -24,8 +24,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>@Localizer["home_about_title"]</h2>
-        <p>@Localizer["home_about"]</p>
+        <h2>@Model.Localizer["home_about_title"]</h2>
+        <p>@Model.Localizer["home_about"]</p>
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -36,14 +36,14 @@
                     class="img-fluid" alt="">
             </div>
             <div class="col-lg-7 content">
-                <h3>@Localizer["home_vision_title"]</h3>
+                <h3>@Model.Localizer["home_vision_title"]</h3>
                 <p class="fst-italic">
-                   @Localizer["home_vision"]
+                   @Model.Localizer["home_vision"]
                 </p>
                 <p>
-                    @Localizer["home_aim"]
+                    @Model.Localizer["home_aim"]
                 </p>
-                <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mt-5">@Localizer["home_see_more"]</a>
+                <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mt-5">@Model.Localizer["home_see_more"]</a>
             </div>
         </div>
 
@@ -89,14 +89,14 @@
                   }
                 }
             </script>
-            <h2 class="partners mb-5">@Localizer["home_partners"]</h2>
+            <h2 class="partners mb-5">@Model.Localizer["home_partners"]</h2>
             <div class="swiper-wrapper align-items-center">
                 @foreach (var partner in Model.Partners)
                 {
                     <div class="swiper-slide"><img src="@partner.Image" class="img-fluid" alt="@partner.Name"></div>
                 }
             </div>
-            <a style="color: white; width: fit-content;" href="Partners/Index" class="see-more d-block mx-auto">@Localizer["home_see_more"]</a>
+            <a style="color: white; width: fit-content;" href="Partners/Index" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
         </div>
 
     </div>
@@ -107,8 +107,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>@Localizer["home_products"]</h2>
-        <p>@Localizer["home_products_desc"]</p>
+        <h2>@Model.Localizer["home_products"]</h2>
+        <p>@Model.Localizer["home_products_desc"]</p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -116,7 +116,7 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
             <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                <li data-filter="*" class="filter-active">@Localizer["home_all"]</li>
+                <li data-filter="*" class="filter-active">@Model.Localizer["home_all"]</li>
                 @foreach (var category in Model.Categories)
                 {
                     <li data-filter="@category.Filter">@category.Name</li>
@@ -137,7 +137,7 @@
                     </div><!-- End Portfolio Item -->
                 }
             </div><!-- End Portfolio Container -->
-            <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mx-auto">@Localizer["home_see_more"]</a>
+            <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
         </div>
 
     </div>
@@ -148,7 +148,7 @@
     <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2 class="text-center mb-5">@Localizer["home_clients"]</h2>
+        <h2 class="text-center mb-5">@Model.Localizer["home_clients"]</h2>
         <div class="swiper init-swiper">
             <script type="application/json" class="swiper-config">
                 {
@@ -182,7 +182,7 @@
                 }
             </div>
             <div class="swiper-pagination"></div>
-            <a style="color: white; width: fit-content;" asp-page="Clients/Index" class="see-more d-block mx-auto">@Localizer["home_see_more"]</a>
+            <a style="color: white; width: fit-content;" asp-page="Clients/Index" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
         </div>
 
     </div>
@@ -194,7 +194,7 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>@Localizer["home_why_us"]</h2>
+        <h2>@Model.Localizer["home_why_us"]</h2>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -206,17 +206,17 @@
                 <div class="faq-container">
 
                     <div class="faq-item faq-active">
-                        <h3>@Localizer["home_why_us_q1"]</h3>
+                        <h3>@Model.Localizer["home_why_us_q1"]</h3>
                         <div class="faq-content">
-                            <p>@Localizer["home_why_us_a1"]</p>
+                            <p>@Model.Localizer["home_why_us_a1"]</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>@Localizer["home_why_us_q2"]</h3>
+                        <h3>@Model.Localizer["home_why_us_q2"]</h3>
                         <div class="faq-content">
-                            <p>@Localizer["home_why_us_a2"]</p>
+                            <p>@Model.Localizer["home_why_us_a2"]</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
@@ -229,17 +229,17 @@
                 <div class="faq-container">
 
                     <div class="faq-item">
-                        <h3>@Localizer["home_why_us_q3"]</h3>
+                        <h3>@Model.Localizer["home_why_us_q3"]</h3>
                         <div class="faq-content">
-                            <p>@Localizer["home_why_us_a3"]</p>
+                            <p>@Model.Localizer["home_why_us_a3"]</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>@Localizer["home_why_us_q4"]</h3>
+                        <h3>@Model.Localizer["home_why_us_q4"]</h3>
                         <div class="faq-content">
-                            <p>@Localizer["home_why_us_a4"]</p>
+                            <p>@Model.Localizer["home_why_us_a4"]</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
@@ -259,8 +259,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>@Localizer["home_contact"]</h2>
-        <p>@Localizer["home_contact_desc"]</p>
+        <h2>@Model.Localizer["home_contact"]</h2>
+        <p>@Model.Localizer["home_contact_desc"]</p>
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -279,7 +279,7 @@
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
-                            <h3>@Localizer["home_contact_address"]</h3>
+                            <h3>@Model.Localizer["home_contact_address"]</h3>
                             @foreach (string address in Model.Contact.Addresses)
                             {
                                 <p>>@address</p>
@@ -294,7 +294,7 @@
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                         <i class="bi bi-telephone flex-shrink-0"></i>
                         <div>
-                            <h3>@Localizer["home_contact_call"]</h3>
+                            <h3>@Model.Localizer["home_contact_call"]</h3>
                             @foreach (string phone in Model.Contact.Phones)
                             {
                                 <p>>@phone</p>
@@ -309,7 +309,7 @@
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                         <i class="bi bi-telephone flex-shrink-0"></i>
                         <div>
-                            <h3>@Localizer["home_contact_whatsapp"]</h3>
+                            <h3>@Model.Localizer["home_contact_whatsapp"]</h3>
                             @foreach (string whatsApp in Model.Contact.WhatsApps)
                             {
                                 <p>>@whatsApp</p>
@@ -324,7 +324,7 @@
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
-                            <h3>@Localizer["home_contact_email"]</h3>
+                            <h3>@Model.Localizer["home_contact_email"]</h3>
                             @foreach (string email in Model.Contact.Emails)
                             {
                                 <p>>@email</p>
@@ -341,27 +341,27 @@
                     <div class="row gy-4">
 
                         <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="@Localizer["home_contact_form_name"]" required="">
+                            <input type="text" name="name" class="form-control" placeholder="@Model.Localizer["home_contact_form_name"]" required="">
                         </div>
 
                         <div class="col-md-6 ">
-                            <input type="text" class="form-control" name="phone" placeholder="@Localizer["home_contact_form_phone"]" required="">
+                            <input type="text" class="form-control" name="phone" placeholder="@Model.Localizer["home_contact_form_phone"]" required="">
                         </div>
 
                         <div class="col-md-12">
-                            <input type="email" class="form-control" name="email" placeholder="@Localizer["home_contact_form_email"]" required="">
+                            <input type="email" class="form-control" name="email" placeholder="@Model.Localizer["home_contact_form_email"]" required="">
                         </div>
 
                         <div class="col-md-12">
-                            <textarea class="form-control" name="message" rows="6" placeholder="@Localizer["home_contact_form_message"]" required=""></textarea>
+                            <textarea class="form-control" name="message" rows="6" placeholder="@Model.Localizer["home_contact_form_message"]" required=""></textarea>
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <div class="loading">@Localizer["home_contact_form_loading"]</div>
+                            <div class="loading">@Model.Localizer["home_contact_form_loading"]</div>
                             <div class="error-message"></div>
-                            <div class="sent-message">@Localizer["home_contact_form_sent"]</div>
+                            <div class="sent-message">@Model.Localizer["home_contact_form_sent"]</div>
 
-                            <button type="submit">@Localizer["home_contact_form_send"]</button>
+                            <button type="submit">@Model.Localizer["home_contact_form_send"]</button>
                         </div>
 
                     </div>

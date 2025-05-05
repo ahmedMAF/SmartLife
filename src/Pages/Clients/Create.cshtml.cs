@@ -11,7 +11,6 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     [BindProperty]
     public PartnerClient Client { get; set; } = new() { Type = PcType.Client };
 
-    [BindProperty]
     public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()

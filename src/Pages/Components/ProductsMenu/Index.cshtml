@@ -1,11 +1,11 @@
 @model SmartLife.Data.ProductsMenu
 
 <li class="dropdown">
-    <a asp-page="Products/Index"><span>Products</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+    <a asp-page="/Products/Index"><span>Products</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
     <ul>
         @foreach (var product in Model.Products[-1])
         {
-            <li><a asp-page="Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
+            <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
         }
 
         @foreach (var cat in Model.Categories)
@@ -15,7 +15,7 @@
                 <ul>
                     @foreach (var product in Model.Products[cat.Id])
                     {
-                        <li><a asp-page="Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
+                        <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
                     }
                 </ul>
             </li>

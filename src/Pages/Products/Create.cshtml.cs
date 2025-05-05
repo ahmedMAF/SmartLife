@@ -17,6 +17,7 @@ public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment, I
     [BindProperty]
     public IFormFile MainImage { get; set; } = default!;
 
+    // TODO: add name and desc to photo
     [BindProperty]
     public List<IFormFile> AdditionalPhotos { get; set; } = [];
 
@@ -24,8 +25,6 @@ public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment, I
     public List<string> VideoUrls { get; set; } = [];
 
     public SelectList CategorySelectList { get; set; } = default!;
-
-    [BindProperty]
     public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()

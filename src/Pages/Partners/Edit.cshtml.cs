@@ -13,8 +13,6 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     
     [BindProperty]
     public IFormFile? Image { get; set; } = default!;
-
-    [BindProperty]
     public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync(int id)

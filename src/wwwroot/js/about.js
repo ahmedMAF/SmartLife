@@ -1,12 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    const chartData = [
-        { year: "2008", value: 6 },
-        { year: "2017", value: 13 },
-        { year: "2020", value: 20 },
-        { year: "2022", value: 28 },
-        { year: "2024", value: 35 }
-    ];
+    
 
     const chart = document.getElementById('companyChart');
     const maxHeight = 300; // Adjusted for the container height

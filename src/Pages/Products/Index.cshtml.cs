@@ -8,7 +8,6 @@ namespace SmartLife.Pages.Products;
 
 public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
-    [BindProperty]
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public IList<Product> Products { get; set; } = default!;

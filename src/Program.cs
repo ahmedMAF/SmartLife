@@ -14,6 +14,12 @@ internal class Program
         // Add services to the container.
         builder.Services.AddSession();
         builder.Services.AddRazorPages();
+        builder.Services.AddAuthentication("SLCookieAuth")
+            .AddCookie("SLCookieAuth", options =>
+            {
+                options.LoginPath = "/Admin/Login";
+                options.LogoutPath = "/Admin/Logout";
+            });
 #if DEBUG
         //builder.Services.AddEndpointsApiExplorer();
         //builder.Services.AddSwaggerGen();
@@ -60,6 +66,7 @@ internal class Program
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
+        app.UseAuthentication();
         app.UseAuthorization();
         app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 

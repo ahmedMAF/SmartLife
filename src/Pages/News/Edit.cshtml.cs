@@ -12,6 +12,7 @@ namespace SmartLife.Pages.News
         public Post Post { get; set; } = default!;
 
         [BindProperty]
+        public IList<IFormFile> Images { get; set; } = [];
         public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
         public async Task<IActionResult> OnGetAsync(int id)

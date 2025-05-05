@@ -160,3 +160,19 @@
 
 </section>
 <!-- /Since Section -->
+
+@section Scripts {
+    <script>
+        const chartData = [
+            @foreach(var bar in Model.Data.Growth)
+            {
+                @($"\{ year: \"{bar.Item1}\", value: {bar.Item2} \},")
+            }
+        ];
+    </script>
+    <script src="~/js/about.js"></script>
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/about.css">
+}

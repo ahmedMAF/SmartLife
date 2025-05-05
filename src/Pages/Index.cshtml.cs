@@ -15,8 +15,6 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
     public IList<Product> Products { get; set; } = default!;
     public IList<Category> Categories { get; set; } = default!;
     public Contact Contact { get; set; } = default!;
-
-    [BindProperty]
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()

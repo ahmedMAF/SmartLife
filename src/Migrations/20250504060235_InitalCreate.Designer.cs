@@ -12,8 +12,8 @@ using SmartLife;
 namespace SmartLife.Migrations
 {
     [DbContext(typeof(SmartLifeDb))]
-    [Migration("20250420092630_InitailCreate")]
-    partial class InitailCreate
+    [Migration("20250504060235_InitalCreate")]
+    partial class InitalCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,26 +25,51 @@ namespace SmartLife.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("SmartLife.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Filter")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("SmartLife.Models.Contact", b =>
                 {
                     b.Property<string>("Country")
                         .HasColumnType("varchar(255)");
 
                     b.PrimitiveCollection<string>("Addresses")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.PrimitiveCollection<string>("Emails")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.PrimitiveCollection<string>("Phones")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.PrimitiveCollection<string>("WhatsApps")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Country");
 
-                    b.ToTable("Contact");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("SmartLife.Models.PartnerClient", b =>
@@ -56,16 +81,23 @@ namespace SmartLife.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -81,23 +113,21 @@ namespace SmartLife.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.PrimitiveCollection<string>("Image")
+                    b.PrimitiveCollection<string>("Images")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("News");
                 });
@@ -110,31 +140,40 @@ namespace SmartLife.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Category")
-                        .HasColumnType("longtext");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Features")
+                        .IsRequired()
                         .HasColumnType("json");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Models")
+                        .IsRequired()
                         .HasColumnType("json");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.PrimitiveCollection<string>("Photos")
-                        .HasColumnType("longtext");
+                    b.Property<string>("Photos")
+                        .IsRequired()
+                        .HasColumnType("json");
 
-                    b.PrimitiveCollection<string>("Videos")
-                        .HasColumnType("longtext");
+                    b.Property<string>("Videos")
+                        .IsRequired()
+                        .HasColumnType("json");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -148,12 +187,15 @@ namespace SmartLife.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Photo")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -161,35 +203,15 @@ namespace SmartLife.Migrations
                     b.ToTable("Team");
                 });
 
-            modelBuilder.Entity("SmartLife.Models.User", b =>
+            modelBuilder.Entity("SmartLife.Models.Product", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("SmartLife.Models.Post", b =>
-                {
-                    b.HasOne("SmartLife.Models.User", "User")
+                    b.HasOne("SmartLife.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

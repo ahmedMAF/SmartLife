@@ -10,8 +10,6 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 {
     [BindProperty]
     public Contact Contact { get; set; } = default!;
-
-    [BindProperty]
     public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync(string country)

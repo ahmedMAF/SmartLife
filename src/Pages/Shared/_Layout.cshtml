@@ -1,19 +1,18 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@{
+    // TODO: fix for user
+    bool isAr = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName, "ar");
+}
+
+<!DOCTYPE html>
+<html direction="@(isAr ? "rtl" : "ltr")" lang="@(isAr ? "ar" : "en")">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SmartLife</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SmartLife.styles.css" asp-append-version="true" />
-
-    <!-- Things -->
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <!--
-    <link href="~/img/favicon.png" rel="icon">
-    -->
+
+    <title>@ViewData["Title"] - SmartLife</title>
+
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
@@ -30,9 +29,9 @@
 
     <!-- Main CSS File -->
     <link href="~/css/main.css" rel="stylesheet">
-
+    @await RenderSectionAsync("Styles", required: false)
 </head>
-<body>
+<body class="portfolio-details-page">
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
@@ -44,33 +43,31 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a asp-page="Index" class="active">Home</a></li>
-                    <li><a asp-page="About/Index">About</a></li>
+                    <li><a asp-page="/Index" class="active">Home</a></li>
+                    <li><a asp-page="/About/Index">About</a></li>
                     @await Component.InvokeAsync("ProductsMenu")
-                    <li><a asp-page="Partners/Index">Partners</a></li>
-                    <li><a asp-page="Clients/Index">Clients</a></li>
-                    <li><a asp-page="Team/Index">Team</a></li>
-                    <li><a asp-page="News/Index">Last News</a></li>
-                    <li><a asp-page="Contacts/Index">Contacts</a></li>
+                    <li><a asp-page="/Partners/Index">Partners</a></li>
+                    <li><a asp-page="/Clients/Index">Clients</a></li>
+                    <li><a asp-page="/Team/Index">Team</a></li>
+                    <li><a asp-page="/News/Index">Last News</a></li>
+                    <li><a asp-page="/Contacts/Index">Contacts</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
             <div class="header-social-links">
-                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="https://youtube.com/@smartlifecom?si=hdY7vixkDvCO5jZQ" class="youtube"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.facebook.com/share/1CaQ4VvXsQ/" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/smartlifeeg?igsh=OGsyNzZyZzR0ZGx1" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/smartlifeco/" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
 
         </div>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main class="main">
+        @RenderBody()
+    </main>
 
     <footer id="footer" class="footer dark-background">
         <div class="container footer-top">
@@ -85,19 +82,19 @@
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="Index">Home</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="About/Index">About us</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="Partners/Index">Partners</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="Clients/Index">Clients</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Index">Home</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/About/Index">About us</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Partners/Index">Partners</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Clients/Index">Clients</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="Products/Index">Products</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="News/Index">Last News</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="Team/Index">Team</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Products/Index">Products</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/News/Index">Last News</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Team/Index">Team</a></li>
                     </ul>
                 </div>
 
@@ -105,10 +102,10 @@
                     <h4>Follow Us</h4>
                     <p>You can follow us here to discover more of our smart solutions</p>
                     <div class="social-links d-flex">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+                        <a href="https://youtube.com/@smartlifecom?si=hdY7vixkDvCO5jZQ"><i class="bi bi-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/1CaQ4VvXsQ/"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/smartlifeeg?igsh=OGsyNzZyZzR0ZGx1"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/smartlifeco/"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
 
@@ -118,6 +115,7 @@
         <div class="container copyright text-center mt-4">
             <p>© <span>Copyright</span> <strong class="px-1 sitename">SmartLife</strong> <span>All Rights Reserved</span></p>
             <div class="credits">
+                <!-- TODO: link -->
                 Designed by <a href="#">NOVA Integrated Solutions</a>
             </div>
         </div>
@@ -141,9 +139,6 @@
 
     <!-- Main JS File -->
     <script src="~/js/main.js"></script>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

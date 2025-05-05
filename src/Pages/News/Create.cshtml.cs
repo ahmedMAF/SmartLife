@@ -9,8 +9,9 @@ namespace SmartLife.Pages.News
     {
         [BindProperty]
         public Post Post { get; set; } = new();
-
+        
         [BindProperty]
+        public IList<IFormFile> Images { get; set; } = [];
         public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
         public IActionResult OnGet()
@@ -22,7 +23,8 @@ namespace SmartLife.Pages.News
         {
             if (!ModelState.IsValid)
                 return Page();
-
+            
+            // TODO: Uplaod images to a server or cloud storage and get the URLs 
             context.News.Add(Post);
             await context.SaveChangesAsync();
 

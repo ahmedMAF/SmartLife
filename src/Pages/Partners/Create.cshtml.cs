@@ -13,8 +13,6 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
     [BindProperty]
     public IFormFile? Image { get; set; } = default!;
-
-    [BindProperty]
     public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()

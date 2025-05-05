@@ -10,8 +10,6 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 {
     [BindProperty]
     public Contact Contact { get; set; } = new();
-
-    [BindProperty]
     public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()

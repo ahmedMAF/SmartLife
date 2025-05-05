@@ -24,8 +24,6 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
     public List<string> VideoUrls { get; set; } = [];
 
     public SelectList CategorySelectList { get; set; } = default!;
-
-    [BindProperty]
     public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync(int id)

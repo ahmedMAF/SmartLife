@@ -2,7 +2,7 @@
 @model SmartLife.Pages.News.IndexModel
 
 @{
-    ViewData["Title"] = "Clients";
+    ViewData["Title"] = "Last News";
 }
 
 <!-- Page Title -->
@@ -11,7 +11,7 @@
         <h1>Last News</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a href="index.html">Home</a></li>
+                <li><a asp-page="/Index">Home</a></li>
                 <li class="current">Last News</li>
             </ol>
         </nav>
@@ -40,9 +40,9 @@
                             <span>@post.Time</span>
                             <p class="my-3">@post.Content</p>
                             <div class="text-end" style="height: 200px;">
-                                <img class="h-100" src="@post.Image" alt="@post.Title">
+                                <img class="h-100" src="@post.Images[0]" alt="@post.Title">
                             </div>
-                            @if (Model.HttpContext.User.Identity != null)
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
                                 <a href="portfolio-details.html" class="me-3">Edit</a>
                                 <a href="portfolio-details.html">Delete</a>

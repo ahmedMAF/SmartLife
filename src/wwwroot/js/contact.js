@@ -17,7 +17,7 @@ iconAddress.onclick = function(){
     a++;
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `address${a}`;
+    input.name = `Contact.Addresses[${a}]`;
     input.placeholder = "Address";
     input.className = "form-control mt-2";
     address.appendChild(input);
@@ -26,7 +26,7 @@ iconEmail.onclick = function(){
     e++;
     let input = document.createElement("input");
     input.type = "email";
-    input.name = `email${e}`;
+    input.name = `Contact.Emails[${e}]`;
     input.placeholder = "Email";
     input.className = "form-control mt-2";
     email.appendChild(input);
@@ -35,7 +35,7 @@ iconPhone.onclick = function(){
     p++;
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `phone${p}`;
+    input.name = `Contact.Phones[${p}]`;
     input.placeholder = "Phone";
     input.className = "form-control mt-2";
     phone.appendChild(input);
@@ -44,7 +44,7 @@ iconWhasapp.onclick = function(){
     w++;
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `whatsapp${w}`;
+    input.name = `Contact.WhatsApps[${w}]`;
     input.placeholder = "WhatsApp";
     input.className = "form-control mt-2";
     whatsApp.appendChild(input);

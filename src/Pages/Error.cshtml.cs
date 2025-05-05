@@ -12,8 +12,6 @@ public class ErrorModel(ILogger<ErrorModel> logger, IStringLocalizer<ErrorModel>
     public string? RequestId { get; set; }
 
     public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    [BindProperty]
     public IStringLocalizer<ErrorModel> Localizer { get; } = localizer;
 
     public void OnGet()

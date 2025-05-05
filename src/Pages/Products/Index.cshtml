@@ -52,7 +52,7 @@
                                 class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             <a asp-page="Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i
                                     class="bi bi-link-45deg"></i></a>
-                            @if (Model.HttpContext.User.Identity != null)
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
                                 <div class="mt-2">
                                     <a asp-page="Edit" asp-route-id="@product.Id" class="me-3">Edit</a>

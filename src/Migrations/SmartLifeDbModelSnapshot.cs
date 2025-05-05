@@ -11,7 +11,7 @@ using SmartLife;
 namespace SmartLife.Migrations
 {
     [DbContext(typeof(SmartLifeDb))]
-    partial class MySqlDbModelSnapshot : ModelSnapshot
+    partial class SmartLifeDbModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -113,7 +113,7 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Image")
+                    b.PrimitiveCollection<string>("Images")
                         .IsRequired()
                         .HasColumnType("longtext");
 

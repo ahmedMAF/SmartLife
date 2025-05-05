@@ -11,8 +11,6 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
 {
     public Contact Contact { get; set; } = default!;
     public IList<Contact> Contacts { get; set; } = default!;
-
-    [BindProperty]
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()
@@ -22,11 +20,5 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
         Contacts.Remove(Contact);
 
         return Page();
-    }
-
-    private struct IpApiResponse
-    {
-        public bool Success;
-        public string CountryCode;
     }
 }
