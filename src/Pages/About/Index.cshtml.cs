@@ -13,7 +13,14 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
 
     public IActionResult OnGet()
     {
-        Data = JsonSerializer.Deserialize<AboutData>(System.IO.File.ReadAllText("about.json"));
+        if(System.IO.File.Exists("about.json"))
+            Data = JsonSerializer.Deserialize<AboutData>(System.IO.File.ReadAllText("about.json"));
+        else
+        {
+            Data = new AboutData();
+            System.IO.File.WriteAllText("about.json", JsonSerializer.Serialize<AboutData>(Data));
+        }
+
         return Page();
     }
 }

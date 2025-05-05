@@ -39,8 +39,11 @@
                             <h3 class="mb-0">@post.Title</h3>
                             <span>@post.Time</span>
                             <p class="my-3">@post.Content</p>
-                            <div class="text-end" style="height: 200px;">
-                                <img class="h-100" src="@post.Images[0]" alt="@post.Title">
+                            <div class="text-end">
+                                @foreach(var image in post.Images)
+                                {
+                                    <img style="height: 200px;" class="mb-1" src="@image" alt="@post.Title">
+                                }
                             </div>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {

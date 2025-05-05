@@ -25,9 +25,6 @@
     <div class="container section-title" data-aos="fade-up">
         <h2>Products</h2>
         <p>Full Solutions for Smart Automation and Security</p>
-        <div class="text-end mb-3">
-            <a asp-page="Create" class="btn btn-primary">Add New Product</a>
-        </div>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -44,22 +41,24 @@
                 @foreach (var product in Model.Products)
                 {
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item @product.Category.Filter">
-                        <img src="@product.Image" class="img-fluid" alt="@product.Name">
-                        <div class="portfolio-info">
-                            <h4>@product.Name</h4>
-                            <p>@product.Description</p>
-                            <a href="@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app"
-                                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a asp-page="Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i
-                                    class="bi bi-link-45deg"></i></a>
-                            @if (User.Identity != null && User.Identity.IsAuthenticated)
-                            {
-                                <div class="mt-2">
-                                    <a asp-page="Edit" asp-route-id="@product.Id" class="me-3">Edit</a>
-                                    <a asp-page="Delete" asp-route-id="@product.Id" class="text-danger">Delete</a>
-                                </div>
-                            }
-                        </div>
+                        <a asp-page="Details" asp-route-id="@product.Id">
+                            <img src="@product.Image" class="product-image" alt="@product.Name">
+                            <div class="portfolio-info">
+                                <h4>@product.Name</h4>
+                                <p>@product.Description</p>
+                                <a href="@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app"
+                                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a asp-page="Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i
+                                        class="bi bi-link-45deg"></i></a>
+                                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                                {
+                                    <div class="mt-2">
+                                        <a asp-page="Edit" asp-route-id="@product.Id" class="me-3">Edit</a>
+                                        <a asp-page="Delete" asp-route-id="@product.Id" class="text-danger">Delete</a>
+                                    </div>
+                                }
+                            </div>
+                        </a>
                     </div>
                 
                     <!-- End Portfolio Item -->
