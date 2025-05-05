@@ -19,4 +19,15 @@ public class EditContactsModel(SmartLifeDb context, IStringLocalizer<IndexModel>
 
         return Page();
     }
+
+    public async Task<IActionResult> OnPostAsync()
+    {
+        if (!ModelState.IsValid)
+            return Page();
+
+        context.Contacts.UpdateRange(Contacts);
+        await context.SaveChangesAsync();
+
+        return RedirectToPage("/Admin");
+    }
 }
