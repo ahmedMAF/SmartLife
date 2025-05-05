@@ -8,6 +8,12 @@ namespace SmartLife.Pages.Admin;
 
 public class LoginModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
+    [BindProperty]
+    public string Email { get; set; }
+
+    [BindProperty]
+    public string Password { get; set; }
+
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()
@@ -17,8 +23,6 @@ public class LoginModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
 
     public async Task<IActionResult> OnPostAsync()
     {
-        Console.WriteLine("afana");
-        string email = Request.Form["email"].ToString();
         string password;
 
         if (System.IO.File.Exists("pwd"))
@@ -31,11 +35,11 @@ public class LoginModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
             System.IO.File.WriteAllText("pwd", password);
         }
 
-        if (email == "ceo@smartlifeeg.com" && Request.Form["password"] == password)
+        if (Email == "ceo@smartlifeeg.com" && Password == password)
         {
             List<Claim> claims =
             [
-                new (ClaimTypes.Name, email)
+                new (ClaimTypes.Name, Email)
             ];
 
             var identity = new ClaimsIdentity(claims, "SLCookieAuth");
