@@ -15,8 +15,8 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
 
     public async Task<IActionResult> OnGetAsync()
     {
-        Contact = await ContactHelper.GetContactByIpAsync(context, HttpContext);
-        Contacts = await context.Contacts.ToListAsync();
+        Contact = await ContactHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact();
+        Contacts = await context.Contacts.ToListAsync() ?? [];
         Contacts.Remove(Contact);
 
         return Page();

@@ -31,7 +31,7 @@
 
         <div class="row gy-4 mb-5">
             <div class="col-lg-5 text-center">
-                <img style="height: 300px; text-align: center; border-radius: 10px;" src="assets/img/about2.jpg"
+                <img style="height: 300px; text-align: center; border-radius: 10px;" src="~/img/about2.jpg"
                     class="img-fluid" alt="">
             </div>
             <div class="col-lg-7 content">
@@ -61,7 +61,7 @@
                 </p>
             </div>
             <div class="col-lg-5 text-center">
-                <img style="height: 250px; text-align: center; border-radius: 10px;" src="assets/img/about3.jpg"
+                <img style="height: 250px; text-align: center; border-radius: 10px;" src="~/img/about3.jpg"
                     class="img-fluid" alt="">
             </div>
         </div>
@@ -166,7 +166,7 @@
         const chartData = [
             @foreach(var bar in Model.Data.Growth)
             {
-                @($"\{ year: \"{bar.Item1}\", value: {bar.Item2} \},")
+                @Html.Raw($"{{ year: \"{bar.Item1}\", value: {bar.Item2} }},")
             }
         ];
     </script>

@@ -17,6 +17,7 @@ public class LoginModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
 
     public async Task<IActionResult> OnPostAsync()
     {
+        Console.WriteLine("afana");
         string email = Request.Form["email"].ToString();
         string password;
 
@@ -26,11 +27,11 @@ public class LoginModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
         }
         else
         {
-            password = "12345";
+            password = "123456";
             System.IO.File.WriteAllText("pwd", password);
         }
 
-        if (email == "ceo@smartlife.com" && Request.Form["password"] == password)
+        if (email == "ceo@smartlifeeg.com" && Request.Form["password"] == password)
         {
             List<Claim> claims =
             [

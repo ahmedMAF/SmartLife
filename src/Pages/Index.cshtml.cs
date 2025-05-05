@@ -24,7 +24,7 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
         Products = await context.Products.Include(p => p.Category).ToListAsync();
         Categories = await context.Categories.ToListAsync();
 
-        Contact = await ContactHelper.GetContactByIpAsync(context, HttpContext);
+        Contact = await ContactHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact();
 
         return Page();
     }
