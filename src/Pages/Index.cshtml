@@ -43,7 +43,7 @@
                 <p>
                     @Model.Localizer["home_aim"]
                 </p>
-                <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mt-5">@Model.Localizer["home_see_more"]</a>
+                <a asp-page="/About/Index" style="color: white; width: fit-content;" class="see-more d-block mt-5">@Model.Localizer["home_see_more"]</a>
             </div>
         </div>
 
@@ -96,7 +96,7 @@
                     <div class="swiper-slide"><img src="@partner.Image" class="img-fluid" alt="@partner.Name"></div>
                 }
             </div>
-            <a style="color: white; width: fit-content;" href="Partners/Index" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
+            <a asp-page="/Partners/Index" style="color: white; width: fit-content;" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
         </div>
 
     </div>
@@ -139,7 +139,7 @@
                     </div><!-- End Portfolio Item -->
                 }
             </div><!-- End Portfolio Container -->
-            <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
+            <a asp-page="/Products/Index" style="color: white; width: fit-content;" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
         </div>
 
     </div>
@@ -184,7 +184,7 @@
                 }
             </div>
             <div class="swiper-pagination"></div>
-            <a style="color: white; width: fit-content;" asp-page="Clients/Index" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
+            <a asp-page="/Clients/Index" style="color: white; width: fit-content;" class="see-more d-block mx-auto">@Model.Localizer["home_see_more"]</a>
         </div>
 
     </div>

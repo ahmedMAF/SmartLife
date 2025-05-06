@@ -14,13 +14,22 @@ public static class ContactHelper
         if (string.IsNullOrEmpty(country))
         {
             IPAddress? ip = ctx.Connection.RemoteIpAddress;
+            HttpClient client = new();
 
-            using (HttpClient client = new())
+            try
             {
                 HttpResponseMessage response = await client.GetAsync($"http://ip-api.com/json/{ip}?fields=16386");
                 IpApiResponse c = JsonSerializer.Deserialize<IpApiResponse>(await response.Content.ReadAsStringAsync());
 
                 country = c.Success ? c.CountryCode : "EG";
+            }
+            catch (System.Exception)
+            {
+                country = "EG";
+            }
+            finally
+            {
+                client.Dispose();
             }
             
             ctx.Session.SetString("country", country);

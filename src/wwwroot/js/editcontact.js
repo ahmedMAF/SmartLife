@@ -1,19 +1,9 @@
-const address = document.getElementById("addresses");
-const email = document.getElementById("emails");
-const phone = document.getElementById("phones");
-const whatsApp = document.getElementById("whatsup");
-
-const iconAddress = document.getElementById("iconAddress");
-const iconEmail = document.getElementById("iconEmail");
-const iconPhone = document.getElementById("iconPhone");
-const iconWhasapp = document.getElementById("iconWhasapp");
-
 let a = -1;
 let e = -1;
 let p = -1;
 let w = -1;
 
-iconAddress.onclick = function () {
+function addAddress(c) {
     if (a === -1) {
         const count = document.getElementById('address-initial-count');
         a = parseInt(count.value);
@@ -21,14 +11,14 @@ iconAddress.onclick = function () {
 
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `Contact.Addresses[${a}]`;
+    input.name = `Contacts[${c}].Addresses[${a}]`;
     input.placeholder = "Address";
     input.className = "form-control mt-2";
-    address.appendChild(input);
+    document.getElementById(`addresses-${c}`).appendChild(input);
     a++;
 }
 
-iconEmail.onclick = function () {
+function addEmail(c) {
     if (e === -1) {
         const count = document.getElementById('email-initial-count');
         e = parseInt(count.value);
@@ -36,13 +26,14 @@ iconEmail.onclick = function () {
 
     let input = document.createElement("input");
     input.type = "email";
-    input.name = `Contact.Emails[${e}]`;
+    input.name = `Contacts[${c}].Emails[${e}]`;
     input.placeholder = "Email";
     input.className = "form-control mt-2";
-    email.appendChild(input);
+    document.getElementById(`emails-${c}`).appendChild(input);
     e++;
 }
-iconPhone.onclick = function () {
+
+function addPhone(c) {
     if (p === -1) {
         const count = document.getElementById('phone-initial-count');
         p = parseInt(count.value);
@@ -50,13 +41,14 @@ iconPhone.onclick = function () {
 
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `Contact.Phones[${p}]`;
+    input.name = `Contacts[${c}].Phones[${p}]`;
     input.placeholder = "Phone";
     input.className = "form-control mt-2";
-    phone.appendChild(input);
+    document.getElementById(`phones-${c}`).appendChild(input);
     p++;
 }
-iconWhasapp.onclick = function () {
+
+function addWhatsApp(c) {
     if (w === -1) {
         const count = document.getElementById('whatsapp-initial-count');
         w = parseInt(count.value);
@@ -64,9 +56,9 @@ iconWhasapp.onclick = function () {
 
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `Contact.WhatsApps[${w}]`;
+    input.name = `Contacts[${c}].WhatsApps[${w}]`;
     input.placeholder = "WhatsApp";
     input.className = "form-control mt-2";
-    whatsApp.appendChild(input);
+    document.getElementById(`whatsapps-${c}`).appendChild(input);
     w++;
 }

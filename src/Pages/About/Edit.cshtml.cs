@@ -6,8 +6,9 @@ using SmartLife.Data;
 
 namespace SmartLife.Pages.About;
 
-public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
+public class EditModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
+    [BindProperty]
     public AboutData AboutData { get;set; } = default!;
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
@@ -22,5 +23,12 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
         }
 
         return Page();
+    }
+
+    public IActionResult OnPost()
+    {
+        System.IO.File.WriteAllText("about.json", JsonSerializer.Serialize<AboutData>(AboutData));
+
+        return RedirectToPage("/Admin/Index");
     }
 }

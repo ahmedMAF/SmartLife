@@ -122,37 +122,37 @@
                 <span>Year</span>
             </div>
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span>@Model.Data.Countries</span>
+                <span>@Model.AboutData.Countries</span>
                 <span>Country</span>
             </div>
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span>@Model.Data.Projects</span>
+                <span>@Model.AboutData.Projects</span>
                 <span>Project</span>
             </div>
         </div>
         <div class="detals graph row justify-content-around gap-3">
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.Data.Projects</span>
+                <span>+@Model.AboutData.Projects</span>
                 <span>Projects</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.Data.Consultants</span>
+                <span>+@Model.AboutData.Consultants</span>
                 <span>Consultants</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.Data.Employees</span>
+                <span>+@Model.AboutData.Employees</span>
                 <span>Emplyoees</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.Data.Clients</span>
+                <span>+@Model.AboutData.Clients</span>
                 <span>Happy Clients</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.Data.Branches</span>
+                <span>+@Model.AboutData.Branches</span>
                 <span>Branches</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>@Model.Data.Countries</span>
+                <span>@Model.AboutData.Countries</span>
                 <span>Countries</span>
             </div>
         </div>
@@ -164,7 +164,7 @@
 @section Scripts {
     <script>
         const chartData = [
-            @foreach(var bar in Model.Data.Growth)
+            @foreach(var bar in Model.AboutData.Growth)
             {
                 @Html.Raw($"{{ year: \"{bar.Item1}\", value: {bar.Item2} }},")
             }

@@ -2,13 +2,13 @@
 @model SmartLife.Pages.Admin.IndexModel
 
 @{
-	ViewData["Title"] = "Dashboard";
+	ViewData["Title"] = "Admin";
 }
 
 <!-- Page Title -->
 <div class="page-title dark-background">
 	<div class="container">
-		<h1>Dashboard</h1>
+		<h1>Admin</h1>
 		<nav class="breadcrumbs">
 			<ol>
 				<li><a asp-page="/Index">Home</a></li>
@@ -48,7 +48,10 @@
 				<a style="color: white;" asp-page="/Admin/Password" class="text-center see-more d-block mt-5">Password</a>
 			</div>
 			<div style="max-width: 220px;">
-				<a style="color: white;" asp-page="/Admin/EditContact" class="text-center see-more d-block mt-5">Edit Contacts</a>
+				<a style="color: white;" asp-page="/Admin/EditContacts" class="text-center see-more d-block mt-5">Edit Contact</a>
+			</div>
+			<div style="max-width: 220px;">
+				<a style="color: white;" asp-page="/About/Edit" class="text-center see-more d-block mt-5">Edit About</a>
 			</div>
 		</div>
 </section>

@@ -20,17 +20,13 @@ internal class Program
                 options.LoginPath = "/Admin/Login";
                 options.LogoutPath = "/Admin/Logout";
             });
-#if DEBUG
-        //builder.Services.AddEndpointsApiExplorer();
-        //builder.Services.AddSwaggerGen();
-        // https://localhost:5001/swagger
-#endif
 
         builder.Services.AddDbContext<SmartLifeDb>(options =>
         {
-            options.UseMySql(connectionString, serverVersion, options => options.UseMicrosoftJson(MySqlCommonJsonChangeTrackingOptions.FullHierarchyOptimizedFast));
+            options.UseMySql(connectionString, serverVersion, options =>
+                options.UseMicrosoftJson(MySqlCommonJsonChangeTrackingOptions.FullHierarchyOptimizedFast));
 #if DEBUG
-            options.LogTo(Console.WriteLine, LogLevel.Information)
+            options.LogTo(Console.WriteLine, LogLevel.Error)
                     .EnableSensitiveDataLogging()
                     .EnableDetailedErrors();
 #endif
@@ -56,11 +52,6 @@ internal class Program
             // see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
-        
-#if DEBUG
-        //app.UseSwagger();
-        //app.UseSwaggerUI();
-#endif
 
         app.UseSession();
         app.UseHttpsRedirection();
