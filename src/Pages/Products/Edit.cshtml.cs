@@ -3,13 +3,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Authorization;
 using SmartLife.Data;
 using SmartLife.Models;
 using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Products;
 
-public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, IStringLocalizer<EditModel> localizer) : PageModel
+[Authorize]
+public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localizer) : PageModel
 {
     [BindProperty]
     public Product Product { get; set; } = default!;
@@ -43,16 +45,16 @@ public class EditModel(SmartLifeDb context, IWebHostEnvironment environment, ISt
 
     public async Task<IActionResult> OnPostAsync()
     {
-        string folder = Path.Combine(environment.WebRootPath, "uploads", "images", "products");
+        string folder = "/uploads/images/products";
 
         if (MainImage != null)
         {
             // Delete old image if exists
             if (!string.IsNullOrEmpty(Product.Image))
             {
-                var oldImagePath = Path.Combine(environment.WebRootPath, Product.Image.TrimStart('/'));
-                if (System.IO.File.Exists(oldImagePath))
-                    System.IO.File.Delete(oldImagePath);
+                // var oldImagePath = Path.Combine(environment.WebRootPath, Product.Image.TrimStart('/'));
+                // if (System.IO.File.Exists(oldImagePath))
+                //     System.IO.File.Delete(oldImagePath);
             }
 
             Product.Image = await UploadHelper.UploadFile(MainImage, folder);

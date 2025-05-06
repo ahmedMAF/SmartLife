@@ -4,9 +4,11 @@ using SmartLife.Models;
 using SmartLife.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SmartLife.Pages.Clients;
 
+[Authorize]
 public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localizer) : PageModel
 {
     [BindProperty]

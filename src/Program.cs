@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using SmartLife.Utilities;
 
 namespace SmartLife;
 
@@ -43,6 +44,7 @@ internal class Program
         });
 
         WebApplication app = builder.Build();
+        UploadHelper.Environment = app.Environment;
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
@@ -55,13 +57,26 @@ internal class Program
 
         app.UseSession();
         app.UseHttpsRedirection();
-        app.UseStaticFiles();
+        app.UseStaticFiles(
+#if DEBUG
+            new StaticFileOptions
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers.Append("Cache-Control", "no-cache, no-store");
+                    ctx.Context.Response.Headers.Append("Pragma", "no-cache");
+                    ctx.Context.Response.Headers.Append("Expires", "0");
+                }
+            }
+#endif
+        );
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
         app.MapRazorPages();
+        MinRoutes.Map(app);
 
         app.Run();
     }

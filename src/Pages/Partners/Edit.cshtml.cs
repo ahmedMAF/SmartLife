@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SmartLife.Pages.Partners;
 
+[Authorize]
 public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localizer) : PageModel
 {
     [BindProperty]

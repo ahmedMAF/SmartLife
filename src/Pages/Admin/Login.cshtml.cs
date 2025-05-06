@@ -44,8 +44,12 @@ public class LoginModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
 
             var identity = new ClaimsIdentity(claims, "SLCookieAuth");
             var principal = new ClaimsPrincipal(identity);
+            var prop = new AuthenticationProperties
+            {
+                IsPersistent = true
+            };
 
-            await HttpContext.SignInAsync("SLCookieAuth", principal);
+            await HttpContext.SignInAsync("SLCookieAuth", principal, prop);
 
             return RedirectToPage("/Admin/Index");
         }

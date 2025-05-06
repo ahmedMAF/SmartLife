@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Authorization;
 using SmartLife.Models;
 using SmartLife.Data;
 
 namespace SmartLife.Pages.Clients;
 
+[Authorize]
 public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> localizer) : PageModel
 {
     [BindProperty]

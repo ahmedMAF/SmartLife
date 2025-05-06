@@ -6,10 +6,12 @@ using SmartLife.Models;
 using SmartLife.Data;
 using SmartLife.Utilities;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SmartLife.Pages.Products;
 
-public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment, IStringLocalizer<CreateModel> localizer) : PageModel
+[Authorize]
+public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> localizer) : PageModel
 {
     [BindProperty]
     public Product Product { get; set; } = new();
@@ -41,7 +43,7 @@ public class CreateModel(SmartLifeDb context, IWebHostEnvironment environment, I
             return Page();
         }
         
-        string folder = Path.Combine(environment.WebRootPath, "uploads", "images", "products");
+        string folder = "/uploads/images/products";
         
         if (MainImage != null)
         {

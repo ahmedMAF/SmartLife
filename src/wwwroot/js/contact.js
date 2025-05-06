@@ -14,38 +14,38 @@ let p = 0;
 let w = 0;
 
 iconAddress.onclick = function(){
-    a++;
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Contact.Addresses[${a}]`;
     input.placeholder = "Address";
     input.className = "form-control mt-2";
     address.appendChild(input);
+    a++;
 }
 iconEmail.onclick = function(){
-    e++;
     let input = document.createElement("input");
     input.type = "email";
     input.name = `Contact.Emails[${e}]`;
     input.placeholder = "Email";
     input.className = "form-control mt-2";
     email.appendChild(input);
+    e++;
 }
 iconPhone.onclick = function(){
-    p++;
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Contact.Phones[${p}]`;
     input.placeholder = "Phone";
     input.className = "form-control mt-2";
     phone.appendChild(input);
+    p++;
 }
 iconWhasapp.onclick = function(){
-    w++;
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Contact.WhatsApps[${w}]`;
     input.placeholder = "WhatsApp";
     input.className = "form-control mt-2";
     whatsApp.appendChild(input);
+    w++;
 }

@@ -10,6 +10,7 @@ namespace SmartLife.Pages.Admin;
 [Authorize]
 public class EditContactsModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
+    [BindProperty]
     public IList<Contact> Contacts { get; set; } = default!;
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
@@ -28,6 +29,6 @@ public class EditContactsModel(SmartLifeDb context, IStringLocalizer<IndexModel>
         context.Contacts.UpdateRange(Contacts);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("/Admin");
+        return RedirectToPage("/Admin/Index");
     }
 }

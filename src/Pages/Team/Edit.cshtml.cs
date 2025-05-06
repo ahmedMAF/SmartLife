@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Authorization;
 using SmartLife.Models;
 
 namespace SmartLife.Pages.Team;
 
+[Authorize]
 public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localizer) : PageModel
 {
     [BindProperty]

@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
 using SmartLife.Data;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SmartLife.Pages.Contacts;
 
+[Authorize]
 public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> localizer) : PageModel
 {
     [BindProperty]
@@ -21,10 +23,11 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     {
         if (!ModelState.IsValid)
             return Page();
-;
+
+        Console.WriteLine("SMD: " + Contact.Emails.Count);
         context.Contacts.Add(Contact);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Admin/Index");
     }
 }

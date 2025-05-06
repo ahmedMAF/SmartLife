@@ -52,10 +52,10 @@
                                         class="bi bi-link-45deg"></i></a>
                                 @if (User.Identity != null && User.Identity.IsAuthenticated)
                                 {
-                                    <div class="mt-2">
-                                        <a asp-page="Edit" asp-route-id="@product.Id" class="me-3">Edit</a>
-                                        <a asp-page="Delete" asp-route-id="@product.Id" class="text-danger">Delete</a>
-                                    </div>
+                                    <a asp-page="/Products/Edit" asp-route-id="@product.Id" class="me-3">Edit</a>
+                                    <form method="post" action="/Products/Delete/@partner.Id" style="display: inline;">
+                                        <button class="text-danger" type="submit">Delete</button>
+                                    </form>
                                 }
                             </div>
                         </a>

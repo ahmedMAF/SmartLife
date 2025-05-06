@@ -1,13 +1,6 @@
-let a = -1;
-let e = -1;
-let p = -1;
-let w = -1;
-
 function addAddress(c) {
-    if (a === -1) {
-        const count = document.getElementById('address-initial-count');
-        a = parseInt(count.value);
-    }
+    const count = document.getElementById(`address-initial-count-${c}`);
+    let a = parseInt(count.value);
 
     let input = document.createElement("input");
     input.type = "text";
@@ -16,13 +9,12 @@ function addAddress(c) {
     input.className = "form-control mt-2";
     document.getElementById(`addresses-${c}`).appendChild(input);
     a++;
+    count.value = a;
 }
 
 function addEmail(c) {
-    if (e === -1) {
-        const count = document.getElementById('email-initial-count');
-        e = parseInt(count.value);
-    }
+    const count = document.getElementById(`email-initial-count-${c}`);
+    let e = parseInt(count.value);
 
     let input = document.createElement("input");
     input.type = "email";
@@ -30,14 +22,14 @@ function addEmail(c) {
     input.placeholder = "Email";
     input.className = "form-control mt-2";
     document.getElementById(`emails-${c}`).appendChild(input);
+
     e++;
+    count.value = e;
 }
 
 function addPhone(c) {
-    if (p === -1) {
-        const count = document.getElementById('phone-initial-count');
-        p = parseInt(count.value);
-    }
+    const count = document.getElementById(`phone-initial-count-${c}`);
+    let p = parseInt(count.value);
 
     let input = document.createElement("input");
     input.type = "text";
@@ -45,14 +37,14 @@ function addPhone(c) {
     input.placeholder = "Phone";
     input.className = "form-control mt-2";
     document.getElementById(`phones-${c}`).appendChild(input);
+
     p++;
+    count.value = p;
 }
 
 function addWhatsApp(c) {
-    if (w === -1) {
-        const count = document.getElementById('whatsapp-initial-count');
-        w = parseInt(count.value);
-    }
+    const count = document.getElementById(`whatsapp-initial-count-${c}`);
+    let w = parseInt(count.value);
 
     let input = document.createElement("input");
     input.type = "text";
@@ -60,5 +52,7 @@ function addWhatsApp(c) {
     input.placeholder = "WhatsApp";
     input.className = "form-control mt-2";
     document.getElementById(`whatsapps-${c}`).appendChild(input);
+
     w++;
+    count.value = w;
 }

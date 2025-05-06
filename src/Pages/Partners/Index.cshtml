@@ -40,6 +40,13 @@
                                 class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             <a href="@partner.Url" title="More Details" class="details-link"><i
                                     class="bi bi-link-45deg"></i></a>
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                            {
+                                <a asp-page="/Partners/Edit" asp-route-id="@partner.Id" class="me-3">Edit</a>
+                                <form method="post" action="/Partners/Delete/@partner.Id" style="display: inline;">
+                                    <button class="text-danger" type="submit">Delete</button>
+                                </form>
+                            }
                         </div>
                     </div><!-- End partner Item -->
                 }
