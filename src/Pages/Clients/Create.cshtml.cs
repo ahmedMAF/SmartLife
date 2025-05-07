@@ -4,6 +4,7 @@ using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
 using SmartLife.Models;
 using SmartLife.Data;
+using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Clients;
 
@@ -11,8 +12,10 @@ namespace SmartLife.Pages.Clients;
 public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> localizer) : PageModel
 {
     [BindProperty]
-    public PartnerClient Client { get; set; } = new() { Type = PcType.Client };
+    public PartnerClient Client { get; set; } = new();
 
+    [BindProperty]
+    public IFormFile? Image { get; set; } = default!;
     public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()
@@ -22,12 +25,18 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
-            return Page();
+        Client.Type = PcType.Client;
+        Client.Url = "";
+
+        if (Image != null)
+            Client.Image = await UploadHelper.UploadFile(Image, "uploads/images/clients");
+
+        // if (!ModelState.IsValid)
+        //     return Page();
 
         context.PartnersClients.Add(Client);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Admin/Index");
     }
 }

@@ -25,8 +25,9 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public async Task<IActionResult> OnPostAsync()
     {
         string folder = "uploads/images/posts";
+        Post.Time = DateTime.Now;
     
-        if (Images.Count != 0)
+        if (Images != null)
         {
             foreach (var image in Images)
             {
@@ -41,6 +42,6 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         context.News.Add(Post);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Admin/Index");
     }
 }
