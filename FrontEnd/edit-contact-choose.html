@@ -118,65 +118,19 @@
                   <form action="forms/contact.php" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
                     <div class="row gy-4">
                       <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Contry</label>
-                        <input style="border-radius: 5px;" type="text" class="form-control" name="contry" value="Palestine">
-                      </div>
-                      <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Address</label>
-                        <input style="border-radius: 5px;" type="text" class="form-control" name="address" value="Palestine-Gaza-Alnkheel Street">
-                      </div>
-                      <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Address</label>
-                        <input style="border-radius: 5px;" type="text" class="form-control" name="address" value="Palestine-Gaza-Alnkheel Street">
-                      </div>
-                      <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Email</label>
-                        <input style="border-radius: 5px;" type="email" class="form-control" name="email" value="ahmed@gmial.com">
-                      </div>
-                      <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Email</label>
-                        <input style="border-radius: 5px;" type="email" class="form-control" name="email" value="ahmed@gmial.com">
-                      </div>
-                      <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Phone</label>
-                        <input style="border-radius: 5px;" type="text" class="form-control" name="phone" value="123456789">
-                      </div>
-                      <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Phone</label>
-                        <input style="border-radius: 5px;" type="text" class="form-control" name="phone" value="123456789">
-                      </div>
-                      <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Whatsapp</label>
-                        <input style="border-radius: 5px;" type="text" class="form-control" name="phone" value="123456789">
-                      </div>
-                      <div>
-                        <label class="w-100 mb-2 ps-2 text-start">Whatsapp</label>
-                        <input style="border-radius: 5px;" type="text" class="form-control" name="phone" value="123456789">
-                      </div>
-                      <div id="addresses" class="text-start">
-                        <span>Add an address</span>
-                        <i id="iconAddress" style="color: #7cc576; cursor: pointer; margin-left: 25px;" class="bi bi-plus-circle fs-5"></i>
-                      </div>
-                      <div id="emails" class="text-start">
-                        <span>Add an email</span>
-                        <i id="iconEmail" style="color: #7cc576; cursor: pointer; margin-left: 42px;" class="bi bi-plus-circle fs-5"></i>
-                      </div>
-                      <div id="phones" class="text-start">
-                        <span>Add an phone</span>
-                        <i id="iconPhone" style="color: #7cc576; cursor: pointer; margin-left: 36px;" class="bi bi-plus-circle fs-5"></i>
-                      </div>
-                      <div id="whatsup" class="text-start">
-                        <span>Add an whatsApp</span>
-                        <i id="iconWhasapp" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-2"></i>
-                      </div>
-
-
+                        <label class="w-100 mb-2 ps-2 text-start">Please select a country</label>
+                        <select style="border-radius: 5px;" class="form-select select" name="contry" id="">
+                            <option value="" disabled selected>Select a country</option>
+                            <option value="Egpt">Egpt</option>
+                            <option value="UK">The UK</option>
+                            <option value="USA">The USA</option>
+                            <option value="Palestine">Palestine</option>
+                        </select>
+                       </div>
                       <div class="col-md-12 text-center">
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>
-       
-                        <button formaction="" type="submit">Save</button>
-                        <button formaction="" type="submit" class="btn-danger">Delete</button>
+                        <button type="submit">Edit</button>
                       </div>
       
                     </div>

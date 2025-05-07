@@ -1635,6 +1635,7 @@ section,
 .contact .form input[type=password],
 .contact .form input[type=file],
 .contact .form input[list="options"],
+.contact .form .select,
 .contact .form textarea {
   font-size: 14px;
   padding: 10px 15px;
@@ -1650,6 +1651,7 @@ section,
 .contact .form input[type=password]:focus,
 .contact .form input[type=file]:focus,
 .contact .form input[list="options"]:focus,
+.contact .form .select:focus,
 .contact .form textarea:focus {
   border-color: var(--accent-color);
 }
