@@ -10,7 +10,6 @@ public class SmartLifeDb : DbContext
     public DbSet<PartnerClient> PartnersClients { get; set; }
     public DbSet<TeamMember> Team { get; set; }
     public DbSet<Product> Products { get; set; }
-    public DbSet<Category> Categories { get; set; }
 
     public SmartLifeDb(DbContextOptions<SmartLifeDb> options) : base(options)
     {

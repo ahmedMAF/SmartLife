@@ -24,39 +24,34 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public List<IFormFile> AdditionalPhotos { get; set; } = [];
 
     [BindProperty]
+    public List<GalleryEntry> Photos { get; set; } = [];
+
+    [BindProperty]
     public List<string> VideoUrls { get; set; } = [];
 
-    public SelectList CategorySelectList { get; set; } = default!;
+    public List<string> CategoryList { get; set; } = default!;
     public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()
     {
-        CategorySelectList = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
+        CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
         return Page();
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
-        {
-            CategorySelectList = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
-            return Page();
-        }
-        
-        string folder = "/uploads/images/products";
+        string folder = "uploads/images/products";
         
         if (MainImage != null)
-        {
             Product.Image = await UploadHelper.UploadFile(MainImage, folder);
-        }
 
         // Handle Additional Photos
         if (AdditionalPhotos != null)
         {
-            foreach (var photo in AdditionalPhotos)
+            for (int i = 0; i < AdditionalPhotos.Count; i++)
             {
-                string file = await UploadHelper.UploadFile(photo, folder);
-                Product.Photos.Add(new GalleryEntry { Url = file });
+                Photos[i].Url = await UploadHelper.UploadFile(AdditionalPhotos[i], folder);
+                Product.Photos.Add(Photos[i]);
             }
         }
 
@@ -64,6 +59,12 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
         {
             Product.Videos.Add(new GalleryEntry { Url = videoUrl });
+        }
+
+        if (!ModelState.IsValid)
+        {
+            CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
+            return Page();
         }
 
         context.Products.Add(Product);

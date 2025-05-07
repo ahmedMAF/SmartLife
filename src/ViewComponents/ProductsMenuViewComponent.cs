@@ -10,18 +10,16 @@ public class ProductsMenuViewComponent(SmartLifeDb context) : ViewComponent
 {
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        List<Category> categories = await context.Categories.ToListAsync();
-        var products = new Dictionary<int, IList<Product>>();
+        List<string> categories = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
+        var products = new Dictionary<string, IList<Product>>();
 
-        products[-1] = await context.Products
-                    .Include(p => p.Category)
+        products["-"] = await context.Products
                     .Where(p => p.Category == null)
                     .ToListAsync();
                     
         foreach (var category in categories)
         {
-            products[category.Id] = await context.Products
-                .Include(p => p.Category)
+            products[category] = await context.Products
                 .Where(p => p.Category == category)
                 .ToListAsync();
         }

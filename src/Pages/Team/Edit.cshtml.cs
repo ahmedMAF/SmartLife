@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
 using SmartLife.Models;
+using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Team;
 
@@ -13,21 +14,33 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     public TeamMember TeamMember { get; set; } = default!;
 
     [BindProperty]
+    public IFormFile? Image { get; set; } = default!;
+
     public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
-    public IActionResult OnGet()
+    public async Task<IActionResult> OnGetAsync(int id)
     {
+        var member = await context.Team.FindAsync(id);
+
+        if (member == null)
+            return NotFound();
+
+        TeamMember = member;
+
         return Page();
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
+        if (Image != null)
+            TeamMember.Photo = await UploadHelper.UploadFile(Image, "uploads/images/team");
+
         if (!ModelState.IsValid)
             return Page();
 
         context.Team.Update(TeamMember);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Admin/Index");
     }
 }

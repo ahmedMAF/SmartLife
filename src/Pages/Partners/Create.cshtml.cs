@@ -28,10 +28,10 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         Partner.Type = PcType.Partner;
 
         if (Image != null)
-            Partner.Image = await UploadHelper.UploadFile(Image, "/uploads/images/partners");
+            Partner.Image = await UploadHelper.UploadFile(Image, "uploads/images/partners");
 
-        // if (!ModelState.IsValid)
-        //     return Page();
+        if (!ModelState.IsValid)
+            return Page();
 
         context.PartnersClients.Add(Partner);
         await context.SaveChangesAsync();

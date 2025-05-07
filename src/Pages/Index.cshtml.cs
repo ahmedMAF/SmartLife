@@ -13,7 +13,7 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
     public IList<PartnerClient> Partners { get; set; } = default!;
     public IList<PartnerClient> Clients { get; set; } = default!;
     public IList<Product> Products { get; set; } = default!;
-    public IList<Category> Categories { get; set; } = default!;
+    public IList<string> Categories { get; set; } = default!;
     public Contact Contact { get; set; } = default!;
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
@@ -21,8 +21,8 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
     {
         Partners = await context.PartnersClients.Where(m => m.Type == PcType.Partner).ToListAsync();
         Clients = await context.PartnersClients.Where(m => m.Type == PcType.Client).ToListAsync();
-        Products = await context.Products.Include(p => p.Category).ToListAsync();
-        Categories = await context.Categories.ToListAsync();
+        Products = await context.Products.ToListAsync();
+        Categories = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
 
         Contact = await ContactHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact();
 

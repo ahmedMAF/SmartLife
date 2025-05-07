@@ -31,7 +31,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
     public async Task<IActionResult> OnPostAsync()
     {
-        string folder = "/uploads/images/posts";
+        string folder = "uploads/images/posts";
     
         if (Images.Count != 0)
         {

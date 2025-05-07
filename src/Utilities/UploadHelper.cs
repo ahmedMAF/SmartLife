@@ -17,6 +17,6 @@ public static class UploadHelper
         using var fileStream = new FileStream(filePath, FileMode.Create);
         await file.CopyToAsync(fileStream);
 
-        return $"{folder}/{uniqueFileName}";
+        return $"/{folder}/{uniqueFileName}";
     }
 }

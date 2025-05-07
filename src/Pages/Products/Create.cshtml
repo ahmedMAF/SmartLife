@@ -43,8 +43,12 @@
                         </div>
 
                         <div class="col-md-12">
-                            <select asp-for="Product.Category" asp-items="Model.CategorySelectList" class="form-control" style="border-radius: 5px;">
-                                <option value="">Select Category</option>
+                            <input list="options" asp-for="Product.Category" class="form-control" style="border-radius: 5px;">
+                            <datalist id="options">
+                                @foreach(var cat in Model.CategoryList)
+                                {
+                                    <option value="@cat" />
+                                }
                             </select>
                             <span asp-validation-for="Product.Category" class="text-danger"></span>
                         </div>

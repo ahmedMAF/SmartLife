@@ -21,31 +21,31 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
     [BindProperty]
     public List<IFormFile> AdditionalPhotos { get; set; } = [];
+
+    [BindProperty]
+    public List<GalleryEntry> Photos { get; set; } = [];
     
     [BindProperty]
     public List<string> VideoUrls { get; set; } = [];
 
-    public SelectList CategorySelectList { get; set; } = default!;
+    public List<string> CategoryList { get; set; } = default!;
     public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync(int id)
     {
-        var product = await context.Products
-            .Where(p => p.Id == id)
-            .Include(p => p.Category)
-            .FirstOrDefaultAsync();
+        var product = await context.Products.FindAsync(id);
 
         if (product == null)
             return NotFound();
 
         Product = product;
-        CategorySelectList = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
+        CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
         return Page();
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
-        string folder = "/uploads/images/products";
+        string folder = "uploads/images/products";
 
         if (MainImage != null)
         {
@@ -92,7 +92,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
         if (!ModelState.IsValid)
         {
-            CategorySelectList = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
+            CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
             return Page();
         }
 

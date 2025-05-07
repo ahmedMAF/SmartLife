@@ -44,7 +44,6 @@ internal class Program
         });
 
         WebApplication app = builder.Build();
-        UploadHelper.Environment = app.Environment;
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
@@ -78,6 +77,7 @@ internal class Program
         app.MapRazorPages();
         MinRoutes.Map(app);
 
+        UploadHelper.Environment = app.Environment;
         app.Run();
     }
 }

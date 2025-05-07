@@ -11,15 +11,10 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public IList<Product> Products { get; set; } = default!;
-    public IList<Category> Categories { get; set; } = default!;
 
     public async Task<IActionResult> OnGetAsync()
     {
-        Products = await context.Products
-            .Include(p => p.Category)
-            .ToListAsync();
-
-        Categories = await context.Categories.ToListAsync();
+        Products = await context.Products.ToListAsync();
         return Page();
     }
 }

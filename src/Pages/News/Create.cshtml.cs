@@ -24,7 +24,7 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
     public async Task<IActionResult> OnPostAsync()
     {
-        string folder = "/uploads/images/posts";
+        string folder = "uploads/images/posts";
     
         if (Images.Count != 0)
         {
