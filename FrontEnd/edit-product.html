@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Edit Product</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+   <!--
+  <link href="assets/img/favicon.png" rel="icon">
+    -->
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Knight
+  * Template URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
+  * Updated: Oct 16 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">SmartLife</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#portfolio">Partners</a></li>
+          <li><a href="#team">Clients</a></li>
+          <li><a href="#pricing">Team</a></li>
+          <li><a href="blog.html">Last News</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Admin</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container">
+        <h1>Admin</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Admin</a></li>
+            <li class="current">Edit Product</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Admin Section -->
+    <section id="portfolio" class="portfolio section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Edit Product</h2>
+         </div><!-- End Section Title -->
+         <div class="container contact section-title" data-aos="fade-up">
+            <!--main details-->
+          <div class="row justify-content-center">
+              <div class="col-lg-7">
+                  <form action="forms/contact.php" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+                      <div class="col-md-12">
+                        <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                        <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="Door">
+                      </div>
+                      <div class="col-md-12">
+                        <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                        <textarea class="form-control" style="border-radius: 5px;" name="description" placeholder="Description">this is a Door</textarea>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="mb-3">
+                        <label class="w-100 mb-2 ps-2 text-start">Category</label>
+                          <input list="options" id="myInput" name="category" class="form-control" placeholder="category" value="category2">
+                          <datalist id="options">
+                            <option value="category1">
+                            <option value="category2">
+                            <option value="category3">
+                          </datalist>
+                         </div>
+                        <div class="col-md-12">
+                          <label class="w-100 mb-2 ps-2 text-start" for="image">Update Image</label>
+                          <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div id="feature" class="text-start mt-3">
+                          <span>Add a feature</span>
+                          <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;" class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                        <div id="model" class="text-start mt-3">
+                          <span>Add a model</span>
+                          <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
+                        </div>
+                        <div id="photo" class="text-start mt-3">
+                          <span>Add a photo</span>
+                          <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;" class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                        <div id="video" class="text-start mt-3">
+                          <span>Add a video</span>
+                          <i id="iconvideo" style="color: #7cc576; cursor: pointer; margin-left: 20px;" class="bi bi-plus-circle fs-5"></i>
+                        </div>
+                       </div>
+
+                      <div class="col-md-12 text-center">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+       
+                        <button type="submit">Save</button>
+                      </div>
+      
+                    </div>
+                  </form>
+                </div>
+          </div>
+         <!--Features-->
+          <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <form action="forms/contact.php" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                  <div class="row gy-4">
+
+                    <div class="col-md-12 mt-5">
+                        <h3 class="w-100 mb-2 ps-2 text-start">Feature 1</h3>
+                        <div>
+                            <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                            <textarea class="form-control" style="border-radius: 5px;" name="description" placeholder="Description">this is a Door</textarea>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
+                            <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Datasheet</label>
+                            <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                     </div>
+                     <div class="col-md-12 mt-5">
+                        <h3 class="w-100 mb-2 ps-2 text-start">Feature 2</h3>
+                        <div>
+                            <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                            <textarea class="form-control" style="border-radius: 5px;" name="description" placeholder="Description">this is a Door</textarea>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
+                            <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Datasheet</label>
+                            <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                     </div>
+
+                    <div class="col-md-12 text-center">
+                      <div class="loading">Loading</div>
+                      <div class="error-message"></div>
+     
+                      <button formaction="" type="submit">Save</button>
+                      <button formaction="" type="submit">Delete</button>
+                    </div>
+    
+                  </div>
+                </form>
+              </div>
+        </div>
+        <!--model-->
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <form action="forms/contact.php" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                  <div class="row gy-4">
+
+                    <div class="col-md-12 mt-5">
+                        <h3 class="w-100 mb-2 ps-2 text-start">model 1</h3>
+                        <div>
+                            <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                            <textarea class="form-control" style="border-radius: 5px;" name="description" placeholder="Description">this is a Door</textarea>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
+                            <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Datasheet</label>
+                            <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                     </div>
+                     <div class="col-md-12 mt-5">
+                        <h3 class="w-100 mb-2 ps-2 text-start">model 2</h3>
+                        <div>
+                            <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                            <textarea class="form-control" style="border-radius: 5px;" name="description" placeholder="Description">this is a Door</textarea>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
+                            <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Datasheet</label>
+                            <input style="border-radius: 5px;" type="file" class="form-control" name="image" placeholder="Image">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
+                            <input style="border-radius: 5px;" type="text" class="form-control" name="name" placeholder="Name" value="xxx">
+                        </div>
+                     </div>
+
+                    <div class="col-md-12 text-center">
+                      <div class="loading">Loading</div>
+                      <div class="error-message"></div>
+     
+                      <button formaction="" type="submit">Save</button>
+                      <button formaction="" type="submit">Delete</button>
+                    </div>
+    
+                  </div>
+                </form>
+              </div>
+        </div>
+        <!--photos-->
+        <div class="container mt-5">
+            <h3 class="mb-4">Photos</h3>
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <form action="" class="form">
+                        <img style="width: 100%;" src="./assets/img/cards-1.jpg" alt="">
+                        <div class="col-md-12 text-center mt-3">
+                            <button formaction="" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <form action="" class="form">
+                        <img style="width: 100%;" src="./assets/img/cards-1.jpg" alt="">
+                        <div class="col-md-12 text-center mt-3">
+                            <button formaction="" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <form action="" class="form">
+                        <img style="width: 100%;" src="./assets/img/cards-1.jpg" alt="">
+                        <div class="col-md-12 text-center mt-3">
+                            <button formaction="" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <form action="" class="form">
+                        <img style="width: 100%;" src="./assets/img/cards-1.jpg" alt="">
+                        <div class="col-md-12 text-center mt-2">
+                            <button formaction="" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--videos-->
+        <div class="container mt-5">
+            <h3 class="mb-4">Video</h3>
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <form action="" class="form">
+                        <iframe src="https://www.youtube.com/embed/wrCcmQlH_t4" frameborder="0" allowfullscreen></iframe>
+                        <div class="col-md-12 text-center mt-3">
+                            <button formaction="" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <form action="" class="form">
+                        <iframe src="https://www.youtube.com/embed/wrCcmQlH_t4" frameborder="0" allowfullscreen></iframe>
+                        <div class="col-md-12 text-center mt-3">
+                            <button formaction="" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <form action="" class="form">
+                        <iframe src="https://www.youtube.com/embed/wrCcmQlH_t4" frameborder="0" allowfullscreen></iframe>
+                        <div class="col-md-12 text-center mt-3">
+                            <button formaction="" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <form action="" class="form">
+                        <iframe src="https://www.youtube.com/embed/wrCcmQlH_t4" frameborder="0" allowfullscreen></iframe>
+                        <div class="col-md-12 text-center mt-3">
+                            <button formaction="" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Admin Section -->
+
+
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="d-flex align-items-center">
+            <span class="sitename">Smart Life</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Palestine</p>
+            <p>New York, NY 535022,A108 Adam Street </p>
+            <p>New York, NY 535022,A108 Adam Street </p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p class="mt-3"><strong>WhatsApp:</strong> <span>+1 5589 55488 55</span></p>
+            <p class="mt-3"><strong>WhatsApp:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Partners</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Clients</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Products</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Last News</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Team</a></li>
+           </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h4>Follow Us</h4>
+          <p>You can follow us here to discover more of our smart solutions</p>
+          <div class="social-links d-flex">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">SmartLife</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="#">NOVA Integrated Solutions</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/product.js"></script>
+
+</body>
+
+</html>
