@@ -110,11 +110,11 @@
   <div class="container contact section-title" data-aos="fade-up">
     <div class="row justify-content-center mb-5">
       <div class="col-lg-7">
-        <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+        <form asp-page-handler="Add" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-4">
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Year</label>
-              <input asp-for="AboutData.Growth[Model.AboutData.Growth.Count].Item1"
+              <input name="year"
                 style="border-radius: 5px"
                 class="form-control"
                 placeholder="Year"
@@ -122,7 +122,7 @@
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Value</label>
-              <input asp-for="AboutData.Growth[Model.AboutData.Growth.Count].Item2"
+              <input name="val"
                 style="border-radius: 5px"
                 class="form-control"
                 placeholder="Value"
@@ -153,7 +153,7 @@
             {
               <div>
                 <label class="w-100 mb-2 ps-2 text-start">Year</label>
-                <input asp-for="AboutData.Growth[i].Item1"
+                <input asp-for="AboutData.Growth[@i].Item1"
                   style="border-radius: 5px"
                   class="form-control"
                   value="@Model.AboutData.Growth[i].Item1"
@@ -161,7 +161,7 @@
               </div>
               <div>
                 <label class="w-100 mb-2 ps-2 text-start">Value</label>
-                <input asp-for="AboutData.Growth[i].Item2"
+                <input asp-for="AboutData.Growth[@i].Item2"
                   style="border-radius: 5px"
                   class="form-control mb-5"
                   value="@Model.AboutData.Growth[i].Item2"

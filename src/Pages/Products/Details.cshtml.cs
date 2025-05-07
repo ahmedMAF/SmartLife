@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using SmartLife.Models;
 
@@ -13,10 +12,7 @@ public class DetailsModel(SmartLifeDb context, IStringLocalizer<DetailsModel> lo
 
     public async Task<IActionResult> OnGetAsync(int id)
     {
-        var product = await context.Products
-            .Where(p => p.Id == id)
-            .Include(p => p.Category)
-            .FirstOrDefaultAsync();
+        var product = await context.Products.FindAsync(id);
 
         if (product == null)
             return NotFound();

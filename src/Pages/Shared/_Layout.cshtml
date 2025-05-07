@@ -1,10 +1,10 @@
 ﻿@{
     // TODO: fix for user
-    bool isAr = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName, "ar");
+    bool isAr = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
 }
 
 <!DOCTYPE html>
-<html direction="@(isAr ? "rtl" : "ltr")" lang="@(isAr ? "ar" : "en")">
+<html dir="@(isAr ? "rtl" : "ltr")" lang="@(isAr ? "ar" : "en")"> 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,12 +54,12 @@
                     @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
                         <li><a asp-page="/Admin/Index">Admin</a></li>
-                        <li><a asp-page="/Admin/Logout">Logout</a></li>
+                        <li><a href="/Admin/Logout">Logout</a></li>
                     }
                     <li class="language-switcher">
-                        <a href="#">
+                        <a href="/SetLanguage?returnUrl=@Context.Request.Path@Context.Request.QueryString">
                             <i class="bi bi-globe me-1 text-success fs-6"></i>
-                            <span class="language-text">EN/AR</span>
+                            <span class="language-text">@(isAr ? "EN" : "AR")</span>
                         </a>
                     </li>
                 </ul>

@@ -66,13 +66,13 @@ body {
   font-family: var(--default-font);
 }
 
-a {
+a, .a {
   color: var(--accent-color);
   text-decoration: none;
   transition: 0.3s;
 }
 
-a:hover {
+a:hover, .a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
 }
@@ -2484,4 +2484,7 @@ team page
   height: calc(100% - 40px);
 }
 
- 
+.a {
+  border: none;
+  background: none;
+}

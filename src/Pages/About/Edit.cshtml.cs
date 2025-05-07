@@ -6,11 +6,11 @@ using SmartLife.Data;
 
 namespace SmartLife.Pages.About;
 
-public class EditModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
+public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localizer) : PageModel
 {
     [BindProperty]
     public AboutData AboutData { get;set; } = default!;
-    public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
+    public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()
     {
@@ -19,15 +19,23 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<IndexModel> localiz
         else
         {
             AboutData = new AboutData();
-            System.IO.File.WriteAllText("about.json", JsonSerializer.Serialize<AboutData>(AboutData));
+            System.IO.File.WriteAllText("about.json", JsonSerializer.Serialize(AboutData));
         }
 
         return Page();
     }
 
+    public IActionResult OnPostAdd(int year, int val)
+    {
+        AboutData.Growth.Add((year, val));
+        System.IO.File.WriteAllText("about.json", JsonSerializer.Serialize(AboutData));
+
+        return RedirectToPage();
+    }
+
     public IActionResult OnPost()
     {
-        System.IO.File.WriteAllText("about.json", JsonSerializer.Serialize<AboutData>(AboutData));
+        System.IO.File.WriteAllText("about.json", JsonSerializer.Serialize(AboutData));
 
         return RedirectToPage("/Admin/Index");
     }

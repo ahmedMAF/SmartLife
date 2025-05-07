@@ -11,14 +11,18 @@ public class ProductsMenuViewComponent(SmartLifeDb context) : ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         List<string> categories = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
-        var products = new Dictionary<string, IList<Product>>();
-
-        products["-"] = await context.Products
-                    .Where(p => p.Category == null)
-                    .ToListAsync();
+        var products = new Dictionary<string, IList<Product>>
+        {
+            ["-"] = await context.Products
+                    .Where(p => p.Category == "")
+                    .ToListAsync()
+        };
                     
         foreach (var category in categories)
         {
+            if (category == "")
+                continue;
+
             products[category] = await context.Products
                 .Where(p => p.Category == category)
                 .ToListAsync();

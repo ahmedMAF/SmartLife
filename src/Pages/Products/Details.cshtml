@@ -29,7 +29,7 @@
     </div><!-- End Section Title -->
 
     <div class="container">
-        @if (@Model.Product.Features.Count != 0)
+        @if (Model.Product.Features.Count != 0)
         {
             <div class="" data-layout="masonry" data-sort="original-order">
                 <h2 class="partners mb-5">Features</h2>
@@ -45,12 +45,18 @@
                                 <div class="col-lg-7 content">
                                     <h3>@pFeature.Name</h3>
                                     <p class="fst-italic mb-5">@pFeature.Description</p>
-                                    <a href="#">
-                                        <img src="assets/img/apple.svg" alt="App Store" style="height: 40px;">
-                                    </a>
-                                    <a href="#">
-                                        <img src="assets/img/google.svg" alt="Google Play" style="height: 40px;">
-                                    </a>
+                                    @if (!string.IsNullOrEmpty(pFeature.AppStore))
+                                    {
+                                        <a href="@pFeature.AppStore">
+                                            <img src="~/img/apple.svg" alt="App Store" style="height: 40px;">
+                                        </a>
+                                    }
+                                    @if (!string.IsNullOrEmpty(pFeature.GooglePlay))
+                                    {
+                                        <a href="@pFeature.GooglePlay">
+                                            <img src="~/img/google.svg" alt="Google Play" style="height: 40px;">
+                                        </a>
+                                    }
                                     @if (!string.IsNullOrEmpty(pFeature.DataSheetUrl))
                                     {
                                         <a style="color: white; width: fit-content;" href="@pFeature.DataSheetUrl" class="see-more d-block mt-5"><i
@@ -65,7 +71,7 @@
             </div>
         }
         
-        @if (@Model.Product.Models.Count != 0)
+        @if (Model.Product.Models.Count != 0)
         {
             <div class="" data-layout="masonry" data-sort="original-order">
                 <h2 class="partners mb-5">Models</h2>
@@ -81,12 +87,18 @@
                                 <div class="col-lg-7 content">
                                     <h3>@pModel.Name</h3>
                                     <p class="fst-italic mb-5">@pModel.Description</p>
-                                    <a href="#">
-                                        <img src="assets/img/apple.svg" alt="App Store" style="height: 40px;">
-                                    </a>
-                                    <a href="#">
-                                        <img src="assets/img/google.svg" alt="Google Play" style="height: 40px;">
-                                    </a>
+                                    @if (!string.IsNullOrEmpty(pModel.AppStore))
+                                    {
+                                        <a href="@pModel.AppStore">
+                                            <img src="~/img/apple.svg" alt="App Store" style="height: 40px;">
+                                        </a>
+                                    }
+                                    @if (!string.IsNullOrEmpty(pModel.GooglePlay))
+                                    {
+                                        <a href="@pModel.GooglePlay">
+                                            <img src="~/img/google.svg" alt="Google Play" style="height: 40px;">
+                                        </a>
+                                    }
                                     @if (!string.IsNullOrEmpty(pModel.DataSheetUrl))
                                     {
                                         <a style="color: white; width: fit-content;" href="@pModel.DataSheetUrl" class="see-more d-block mt-5"><i
@@ -101,85 +113,91 @@
         </div>
         }
         
-        <div class="mb-5" data-layout="masonry" data-sort="original-order">
-            <h2 class="partners mb-5">Photo Gallery</h2>
-            <div class="d-flex justify-content-around" data-aos="fade-up" data-aos-delay="200">
-                <div class="portfolio-details col-lg-8">
-                    <div class="portfolio-details-slider swiper init-swiper">
-                        <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 600,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "slidesPerView": "auto",
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "type": "bullets",
-                        "clickable": true
-                      }
-                    }
-                  </script>
+        @if (Model.Product.Photos.Count != 0)
+        {
+            <div class="mb-5" data-layout="masonry" data-sort="original-order">
+                <h2 class="partners mb-5">Photo Gallery</h2>
+                <div class="d-flex justify-content-around" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-details col-lg-8">
+                        <div class="portfolio-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                        {
+                        "loop": true,
+                        "speed": 600,
+                        "autoplay": {
+                            "delay": 5000
+                        },
+                        "slidesPerView": "auto",
+                        "pagination": {
+                            "el": ".swiper-pagination",
+                            "type": "bullets",
+                            "clickable": true
+                        }
+                        }
+                    </script>
 
-                        <div class="swiper-wrapper align-items-center">
-                            @foreach (var photo in Model.Product.Photos)
-                            {
-                                <div class="swiper-slide portfolio-item isotope-item">
-                                    <img src="@photo.Url" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>@photo.Name</h4>
-                                        <p>@photo.Description</p>
-                                        <a href="@photo.Url" title="@photo.Name"
-                                        data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
+                            <div class="swiper-wrapper align-items-center">
+                                @foreach (var photo in Model.Product.Photos)
+                                {
+                                    <div class="swiper-slide portfolio-item isotope-item">
+                                        <img src="@photo.Url" class="img-fluid" alt="">
+                                        <div class="portfolio-info">
+                                            <h4>@photo.Name</h4>
+                                            <p>@photo.Description</p>
+                                            <a href="@photo.Url" title="@photo.Name"
+                                            data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                                class="bi bi-zoom-in"></i></a>
+                                        </div>
                                     </div>
-                                </div>
-                            }
+                                }
+                            </div>
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
-                </div>
-            </div><!-- End photos Container -->
-        </div>
-        <!--End photo gallary-->
+                </div><!-- End photos Container -->
+            </div>
+            <!--End photo gallary-->
+        }
 
-        <div class="" data-layout="masonry" data-sort="original-order">
-            <h2 class="partners mb-5">Video Gallary</h2>
-            <div class="d-flex justify-content-around" data-aos="fade-up" data-aos-delay="200">
-                <div class="portfolio-details col-lg-8 text-center">
-                    <div class="portfolio-details-slider swiper init-swiper">
+        @if (Model.Product.Videos.Count != 0)
+        {
+            <div class="" data-layout="masonry" data-sort="original-order">
+                <h2 class="partners mb-5">Video Gallary</h2>
+                <div class="d-flex justify-content-around" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-details col-lg-8 text-center">
+                        <div class="portfolio-details-slider swiper init-swiper">
 
-                        <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 600,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "slidesPerView": "auto",
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "type": "bullets",
-                        "clickable": true
-                      }
-                    }
-                  </script>
+                            <script type="application/json" class="swiper-config">
+                        {
+                        "loop": true,
+                        "speed": 600,
+                        "autoplay": {
+                            "delay": 5000
+                        },
+                        "slidesPerView": "auto",
+                        "pagination": {
+                            "el": ".swiper-pagination",
+                            "type": "bullets",
+                            "clickable": true
+                        }
+                        }
+                    </script>
 
-                        <div class="swiper-wrapper align-items-center">
-                            @foreach (var video in Model.Product.Videos)
-                            {
-                                <div class="swiper-slide">
-                                    <iframe src="@video.Url" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                            }
+                            <div class="swiper-wrapper align-items-center">
+                                @foreach (var video in Model.Product.Videos)
+                                {
+                                    <div class="swiper-slide">
+                                        <iframe src="@video.Url" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                }
+                            </div>
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
-                </div>
-            </div><!-- End photos Container -->
-        </div>
-        <!--End video gallary-->
+                </div><!-- End photos Container -->
+            </div>
+            <!--End video gallary-->
+        }
     </div>
 
 </section><!-- /product Section -->

@@ -38,7 +38,7 @@
                 {
                     <a asp-page="/Team/Edit" asp-route-id="@member.Id" class="me-3" style="color: #5a3fc0;">Edit</a>
                     <form method="post" action="/Team/Delete/@member.Id" style="display: inline;">
-                        <button style="color: #5a3fc0;" type="submit">Delete</button>
+                        <button class="a text-danger" type="submit">Delete</button>
                     </form>
                 }
             </div>

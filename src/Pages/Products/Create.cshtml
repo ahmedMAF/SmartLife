@@ -43,21 +43,21 @@
                         </div>
 
                         <div class="col-md-12">
-                            <input list="options" asp-for="Product.Category" class="form-control" style="border-radius: 5px;">
+                            <input list="options" asp-for="Product.Category" class="form-control" placeholder="Category" style="border-radius: 5px;">
                             <datalist id="options">
                                 @foreach(var cat in Model.CategoryList)
                                 {
                                     <option value="@cat" />
                                 }
-                            </select>
+                            </datalist>
                             <span asp-validation-for="Product.Category" class="text-danger"></span>
                         </div>
 
                         <div class="col-md-12">
                             <div>
                                 <label class="w-100 mb-2 ps-2 text-start" for="MainImage">Main Product Image</label>
-                                <input type="file" asp-for="MainImage" class="form-control" style="border-radius: 5px;" />
-                                <span asp-validation-for="MainImage" class="text-danger"></span>
+                                <input type="file" asp-for="Image" class="form-control" style="border-radius: 5px;" />
+                                <span asp-validation-for="Image" class="text-danger"></span>
                             </div>
                         </div>
 
@@ -66,18 +66,12 @@
                                 <span>Add a feature</span>
                                 <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;" class="bi bi-plus-circle fs-5"></i>
                             </div>
-                            <div id="features-container">
-                                <input type="hidden" id="feature-count" value="0" />
-                            </div>
                         </div>
 
                         <div class="col-md-12">
                             <div id="model" class="text-start mt-3">
                                 <span>Add a model</span>
                                 <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
-                            </div>
-                            <div id="models-container">
-                                <input type="hidden" id="model-count" value="0" />
                             </div>
                         </div>
 
@@ -103,7 +97,7 @@
 
                         <div class="col-md-12 text-center">
                             <button type="submit">Add Product</button>
-                            <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+                            <a asp-page="/Admin/Index" class="btn btn-secondary">Cancel</a>
                         </div>
                     </div>
                 </form>
@@ -113,5 +107,6 @@
 </section>
 
 @section Scripts {
+    <script src="~/js/product.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

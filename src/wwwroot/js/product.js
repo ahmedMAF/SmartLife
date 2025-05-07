@@ -14,11 +14,10 @@ let p = 0;
 let v = 0;
 
 iconfeature.onclick = function(){
-    f++;
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Product.Features[${f}].Name`;
-    input.placeholder = "Title";
+    input.placeholder = "Name";
     input.className = "form-control mt-2";
     let input1 = document.createElement("textarea");
     input1.name = `Product.Features[${f}].Description`;
@@ -29,7 +28,7 @@ iconfeature.onclick = function(){
     input22.innerText = "Upload Image";
     let input2 = document.createElement("input");
     input2.type = "file";
-    input2.name = `Product.Features[${f}].Image`;
+    input2.name = "FeatureImages";
     input2.className = "form-control mt-2";
     let input33 = document.createElement("label");
     input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
@@ -56,9 +55,9 @@ iconfeature.onclick = function(){
     feature.appendChild(input3);
     feature.appendChild(input4);
     feature.appendChild(input5);
+    f++;
 }
 iconmodel.onclick = function(){
-    m++;
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Product.Models[${m}].Name`;
@@ -73,14 +72,14 @@ iconmodel.onclick = function(){
     input22.innerText = "Upload Image";
     let input2 = document.createElement("input");
     input2.type = "file";
-    input2.name = `Product.Models[${m}].Image`;
+    input2.name = "ModelImages";
     input2.className = "form-control mt-2";
     let input33 = document.createElement("label");
     input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
     input33.innerText = "Upload Datasheet";
     let input3 = document.createElement("input");
     input3.type = "file";
-    input3.name = `Product.Models[${m}].DataSheet`;
+    input3.name = `Product.Models[${m}].DataSheetUrl`;
     input3.className = "form-control mt-2";
     let input4 = document.createElement("input");
     input4.type = "text";
@@ -100,32 +99,33 @@ iconmodel.onclick = function(){
     model.appendChild(input3);
     model.appendChild(input4);
     model.appendChild(input5);
+    m++;
 }
 iconphoto.onclick = function(){
-    p++;
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `Photos[${p}].Title`;
-    input.placeholder = "Title";
+    input.name = `PhotoDetails[${p}].Name`;
+    input.placeholder = "Name";
     input.className = "form-control mt-2";
     let input1 = document.createElement("textarea");
-    input1.name = `Photos[${p}].Description`;
+    input1.name = `PhotoDetails[${p}].Description`;
     input1.placeholder = "Description";
     input1.className = "form-control mt-2";
     let input2 = document.createElement("input");
     input2.type = "file";
-    input2.name = `AdditionalPhotos[${p}]`;
+    input2.name = "PhotoFiles";
     input2.className = "form-control mt-2";
     photo.appendChild(input);
     photo.appendChild(input1);
     photo.appendChild(input2);
+    p++;
 }
 iconvideo.onclick = function(){
-    v++;
     let input = document.createElement("input");
     input.type = "text";
     input.name = `VideoUrls[${v}]`;
     input.placeholder = "Video link";
     input.className = "form-control mt-2";
     video.appendChild(input);
+    v++;
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SmartLife.Models;
 using SmartLife.Data;
@@ -17,14 +16,19 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public Product Product { get; set; } = new();
 
     [BindProperty]
-    public IFormFile MainImage { get; set; } = default!;
-
-    // TODO: add name and desc to photo
-    [BindProperty]
-    public List<IFormFile> AdditionalPhotos { get; set; } = [];
+    public IFormFile? Image { get; set; } = default!;
 
     [BindProperty]
-    public List<GalleryEntry> Photos { get; set; } = [];
+    public List<IFormFile> PhotoFiles { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> FeatureImages { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> ModelImages { get; set; } = [];
+
+    [BindProperty]
+    public List<GalleryEntry> PhotoDetails { get; set; } = [];
 
     [BindProperty]
     public List<string> VideoUrls { get; set; } = [];
@@ -40,36 +44,37 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
     public async Task<IActionResult> OnPostAsync()
     {
-        string folder = "uploads/images/products";
-        
-        if (MainImage != null)
-            Product.Image = await UploadHelper.UploadFile(MainImage, folder);
+        Product.Category ??= "";
 
-        // Handle Additional Photos
-        if (AdditionalPhotos != null)
+        Console.WriteLine("SMD: " + Request.Form["FeatureImages[0]"]);
+
+        if (Image != null)
+            Product.Image = await UploadHelper.UploadFile(Image, "uploads/images/products");
+
+        for (int i = 0; i < FeatureImages.Count; i++)
+            Product.Features[i].Image = await UploadHelper.UploadFile(FeatureImages[i], "uploads/images/products/features");
+
+        for (int i = 0; i < ModelImages.Count; i++)
+            Product.Models[i].Image = await UploadHelper.UploadFile(ModelImages[i], "uploads/images/products/models");
+
+        for (int i = 0; i < PhotoFiles.Count; i++)
         {
-            for (int i = 0; i < AdditionalPhotos.Count; i++)
-            {
-                Photos[i].Url = await UploadHelper.UploadFile(AdditionalPhotos[i], folder);
-                Product.Photos.Add(Photos[i]);
-            }
+            PhotoDetails[i].Url = await UploadHelper.UploadFile(PhotoFiles[i], "uploads/images/products");
+            Product.Photos.Add(PhotoDetails[i]);
         }
 
-        // Handle Video URLs
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
-        {
             Product.Videos.Add(new GalleryEntry { Url = videoUrl });
-        }
 
-        if (!ModelState.IsValid)
-        {
-            CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
-            return Page();
-        }
+        // if (!ModelState.IsValid)
+        // {
+        //     CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
+        //     return Page();
+        // }
 
         context.Products.Add(Product);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Admin/Index");
     }
 }
