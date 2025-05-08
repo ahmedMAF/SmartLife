@@ -8,11 +8,11 @@ using SmartLife.Models;
 namespace SmartLife.Pages.Admin;
 
 [Authorize]
-public class EditContactsModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
+public class EditContactsModel(SmartLifeDb context, IStringLocalizer<EditContactsModel> localizer) : PageModel
 {
     [BindProperty]
     public IList<Contact> Contacts { get; set; } = default!;
-    public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
+    public IStringLocalizer<EditContactsModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()
     {
@@ -21,14 +21,8 @@ public class EditContactsModel(SmartLifeDb context, IStringLocalizer<IndexModel>
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(string country)
     {
-        if (!ModelState.IsValid)
-            return Page();
-
-        context.Contacts.UpdateRange(Contacts);
-        await context.SaveChangesAsync();
-
-        return RedirectToPage("/Admin/Index");
+        return RedirectToPage($"/Contacts/Edit/{country}");
     }
 }

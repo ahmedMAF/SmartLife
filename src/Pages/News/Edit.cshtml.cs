@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
 using SmartLife.Models;
 using SmartLife.Utilities;
+using Microsoft.EntityFrameworkCore;
 
 namespace SmartLife.Pages.News;
 
@@ -29,8 +29,13 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(int id)
     {
+        var post = await context.News.FindAsync(id);
+        post.Time = Post.Time;
+        post.Title = Post.Title;
+        post.Content = Post.Content;
+
         string folder = "uploads/images/posts";
     
         if (Images.Count != 0)
@@ -38,16 +43,23 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
             foreach (var image in Images)
             {
                 string file = await UploadHelper.UploadFile(image, folder);
-                Post.Images.Add(file);
+                post.Images.Add(file);
             }
         }
 
-        if (!ModelState.IsValid)
-            return Page();
-
-        context.News.Update(Post);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/News/Index");
+    }
+
+    public async Task<IActionResult> OnPostDeletePhotoAsync(int id, int photoId)
+    {
+        var post = await context.News.FindAsync(id);
+
+        post.Images.RemoveAt(photoId);
+        context.News.Update(post);
+        await context.SaveChangesAsync();
+
+        return RedirectToPage();
     }
 }

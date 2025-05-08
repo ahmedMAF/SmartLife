@@ -11,7 +11,6 @@ public class ContactViewComponent(SmartLifeDb context) : ViewComponent
 {
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        // TODO: Temp
-        return View("Index", await ContactHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact());
+        return View("Index", await LocationHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact());
     }
 }

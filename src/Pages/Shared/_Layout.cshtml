@@ -1,5 +1,9 @@
-﻿@{
-    // TODO: fix for user
+﻿@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IStringLocalizer<SharedResources> Localizer
+
+@{
     bool isAr = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
 }
 
@@ -11,7 +15,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>@ViewData["Title"] - SmartLife</title>
+    <title>@ViewData["Title"] - @Localizer["name"]</title>
 
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -38,23 +42,23 @@
             <a asp-page="/Index" class="logo d-flex align-items-center me-auto me-xl-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">SmartLife</h1>
+                <h1 class="sitename">@Localizer["name"]</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a asp-page="/Index" class="active">Home</a></li>
-                    <li><a asp-page="/About/Index">About</a></li>
+                    <li><a asp-page="/Index" class="active">@Localizer["nav_home"]</a></li>
+                    <li><a asp-page="/About/Index">@Localizer["nav_about"]</a></li>
                     @await Component.InvokeAsync("ProductsMenu")
-                    <li><a asp-page="/Partners/Index">Partners</a></li>
-                    <li><a asp-page="/Clients/Index">Clients</a></li>
-                    <li><a asp-page="/Team/Index">Team</a></li>
-                    <li><a asp-page="/News/Index">Last News</a></li>
-                    <li><a asp-page="/Contacts/Index">Contacts</a></li>
+                    <li><a asp-page="/Partners/Index">@Localizer["nav_partners"]</a></li>
+                    <li><a asp-page="/Clients/Index">@Localizer["nav_clients"]</a></li>
+                    <li><a asp-page="/Team/Index">@Localizer["nav_team"]</a></li>
+                    <li><a asp-page="/News/Index">@Localizer["nav_news"]</a></li>
+                    <li><a asp-page="/Contacts/Index">@Localizer["nav_contacts"]</a></li>
                     @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-page="/Admin/Index">Admin</a></li>
-                        <li><a href="/Admin/Logout">Logout</a></li>
+                        <li><a asp-page="/Admin/Index">@Localizer["nav_admin"]</a></li>
+                        <li><a href="/Admin/Logout">@Localizer["nav_logout"]</a></li>
                     }
                     <li class="language-switcher">
                         <a href="/SetLanguage?returnUrl=@Context.Request.Path@Context.Request.QueryString">
@@ -85,7 +89,7 @@
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
                     <a asp-page="/Index" class="d-flex align-items-center">
-                        <span class="sitename">Smart Life</span>
+                        <span class="sitename">@Localizer["name"]</span>
                     </a>
                     @await Component.InvokeAsync("Contact")
                 </div>
@@ -93,19 +97,19 @@
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Index">Home</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/About/Index">About us</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Partners/Index">Partners</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Clients/Index">Clients</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Index">@Localizer["nav_home"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/About/Index">@Localizer["nav_about"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Partners/Index">@Localizer["nav_partners"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Clients/Index">@Localizer["nav_clients"]</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Products/Index">Products</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/News/Index">Last News</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Team/Index">Team</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Products/Index">@Localizer["nav_products"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/News/Index">@Localizer["nav_news"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Team/Index">@Localizer["nav_team"]</a></li>
                     </ul>
                 </div>
 
@@ -126,7 +130,6 @@
         <div class="container copyright text-center mt-4">
             <p>© <span>Copyright</span> <strong class="px-1 sitename">SmartLife</strong> <span>All Rights Reserved</span></p>
             <div class="credits">
-                <!-- TODO: link -->
                 Designed by <a href="https://www.facebook.com/share/1AGyWmomEp/">NOVA Integrated Solutions</a>
             </div>
         </div>

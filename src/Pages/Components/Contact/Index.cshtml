@@ -1,7 +1,7 @@
 @model SmartLife.Models.Contact
 
 <div class="footer-contact pt-3">
-    <p>@Model.Country</p>
+    <p>@SmartLife.Utilities.LocationHelper.GetCountryNameBy2LetterISO(Model.Country)</p>
     @foreach (var address in @Model.Addresses)
     {
         <p>@address</p>

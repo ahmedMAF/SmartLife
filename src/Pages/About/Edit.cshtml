@@ -33,63 +33,28 @@
         <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-4">
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Country</label>
-              <input asp-for="AboutData.Countries"
-                style="border-radius: 5px"
-                type="text"
-                class="form-control"
-                value="4"
-              />
+              <label class="w-100 mb-2 ps-2 text-start">Countries</label>
+              <input asp-for="AboutData.Countries" style="border-radius: 5px" class="form-control" />
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Project</label>
-              <input asp-for="AboutData.Projects"
-                style="border-radius: 5px"
-                type="text"
-                class="form-control"
-                name="address"
-                value="4k"
-              />
+              <label class="w-100 mb-2 ps-2 text-start">Projects</label>
+              <input asp-for="AboutData.Projects" style="border-radius: 5px" class="form-control" />
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Consultants</label>
-              <input asp-for="AboutData.Consultants"
-                style="border-radius: 5px"
-                type="text"
-                class="form-control"
-                name="email"
-                value="4"
-              />
+              <input asp-for="AboutData.Consultants" style="border-radius: 5px" class="form-control"/>
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Employees</label>
-              <input asp-for="AboutData.Employees"
-                style="border-radius: 5px"
-                type="text"
-                class="form-control"
-                name="email"
-                value="35"
-              />
+              <input asp-for="AboutData.Employees" style="border-radius: 5px" class="form-control"/>
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Clients</label>
-              <input asp-for="AboutData.Clients"
-                style="border-radius: 5px"
-                type="text"
-                class="form-control"
-                name="phone"
-                value="10k"
-              />
+              <input asp-for="AboutData.Clients" style="border-radius: 5px" class="form-control"/>
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Branches</label>
-              <input asp-for="AboutData.Branches"
-                style="border-radius: 5px"
-                type="text"
-                class="form-control"
-                name="phone"
-                value="7"
-              />
+              <input asp-for="AboutData.Branches" style="border-radius: 5px" class="form-control"/>
             </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
@@ -104,7 +69,7 @@
   </div>
 
   <div class="container section-title" data-aos="fade-up">
-    <h2>Add growth</h2>
+    <h2>Add Growth</h2>
   </div>
   <!-- End Section Title -->
   <div class="container contact section-title" data-aos="fade-up">
@@ -114,19 +79,11 @@
           <div class="row gy-4">
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Year</label>
-              <input name="year"
-                style="border-radius: 5px"
-                class="form-control"
-                placeholder="Year"
-              />
+              <input name="year" style="border-radius: 5px" class="form-control" />
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Value</label>
-              <input name="val"
-                style="border-radius: 5px"
-                class="form-control"
-                placeholder="Value"
-              />
+              <input name="val" style="border-radius: 5px" class="form-control"/>
             </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
@@ -141,7 +98,7 @@
   </div>
 
   <div class="container section-title" data-aos="fade-up">
-    <h2>Edit growth</h2>
+    <h2>Edit Growth</h2>
   </div>
   <!-- End Section Title -->
   <div class="container contact section-title" data-aos="fade-up">
@@ -151,23 +108,17 @@
           <div class="row gy-4">
             @for(int i = 0; i < Model.AboutData.Growth.Count; i++)
             {
-              <div>
-                <label class="w-100 mb-2 ps-2 text-start">Year</label>
-                <input asp-for="AboutData.Growth[@i].Item1"
-                  style="border-radius: 5px"
-                  class="form-control"
-                  value="@Model.AboutData.Growth[i].Item1"
-                />
-              </div>
-              <div>
-                <label class="w-100 mb-2 ps-2 text-start">Value</label>
-                <input asp-for="AboutData.Growth[@i].Item2"
-                  style="border-radius: 5px"
-                  class="form-control mb-5"
-                  value="@Model.AboutData.Growth[i].Item2"
-                />
-              </div>
-              }
+                <div>
+                    <label class="w-100 mb-2 ps-2 text-start">Year</label>
+                    <input asp-for="AboutData.Growth[@i].Item1" style="border-radius: 5px" class="form-control"
+                    value="@Model.AboutData.Growth[i].Item1" />
+                </div>
+                <div>
+                    <label class="w-100 mb-2 ps-2 text-start">Value</label>
+                    <input asp-for="AboutData.Growth[@i].Item2" style="border-radius: 5px" class="form-control mb-5"
+                    value="@Model.AboutData.Growth[i].Item2"/>
+                </div>
+            }
             
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>

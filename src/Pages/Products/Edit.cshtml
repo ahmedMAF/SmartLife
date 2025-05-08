@@ -21,97 +21,236 @@
 
 <!-- Admin Section -->
 <section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>Edit Product</h2>
-    </div>
-
+    </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
+        <!--main details-->
         <div class="row justify-content-center">
             <div class="col-lg-7">
                 <form method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200">
+                    <input type="hidden" name="id" value="@Model.Product.Id" />
                     <div class="row gy-4">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        
                         <div class="col-md-12">
-                            <input asp-for="Product.Name" class="form-control" placeholder="Name" style="border-radius: 5px;" />
+                            <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                            <input asp-for="Product.Name" class="form-control" placeholder="Name"
+                                style="border-radius: 5px;" />
                             <span asp-validation-for="Product.Name" class="text-danger"></span>
                         </div>
-
                         <div class="col-md-12">
-                            <textarea asp-for="Product.Description" class="form-control" placeholder="Description" style="border-radius: 5px;"></textarea>
+                            <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                            <textarea asp-for="Product.Description" class="form-control" placeholder="Description"
+                                style="border-radius: 5px;"></textarea>
                             <span asp-validation-for="Product.Description" class="text-danger"></span>
                         </div>
-
                         <div class="col-md-12">
-                            <input list="options" asp-for="Product.Category" class="form-control" style="border-radius: 5px;">
-                            <datalist id="options">
-                                @foreach(var cat in Model.CategoryList)
-                                {
-                                    <option value="@cat" />
-                                }
-                            </select>
-                            <span asp-validation-for="Product.Category" class="text-danger"></span>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div>
-                                <label class="w-100 mb-2 ps-2 text-start" for="MainImage">Main Product Image</label>
-                                <input type="file" asp-for="MainImage" class="form-control" style="border-radius: 5px;" />
+                            <div class="mb-3">
+                                <label class="w-100 mb-2 ps-2 text-start">Category</label>
+                                <input list="options" asp-for="Product.Category" class="form-control"
+                                    style="border-radius: 5px;">
+                                <datalist id="options">
+                                    @foreach (var cat in Model.CategoryList)
+                                    {
+                                        <option value="@cat" />
+                                    }
+                                </datalist>
+                                <span asp-validation-for="Product.Category" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="w-100 mb-2 ps-2 text-start" for="image">Update Image</label>
+                                <input type="file" asp-for="MainImage" class="form-control"
+                                    style="border-radius: 5px;" />
                                 <span asp-validation-for="MainImage" class="text-danger"></span>
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
                             <div id="feature" class="text-start mt-3">
                                 <span>Add a feature</span>
-                                <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;" class="bi bi-plus-circle fs-5"></i>
+                                <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;"
+                                    class="bi bi-plus-circle fs-5"></i>
                             </div>
-                            <div id="features-container">
-                                <input type="hidden" id="feature-count" value="0" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
                             <div id="model" class="text-start mt-3">
                                 <span>Add a model</span>
-                                <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
+                                <i id="iconmodel" style="color: #7cc576; cursor: pointer;"
+                                    class="bi bi-plus-circle fs-5 ms-3"></i>
                             </div>
-                            <div id="models-container">
-                                <input type="hidden" id="model-count" value="0" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
                             <div id="photo" class="text-start mt-3">
-                                <span>Add additional photos</span>
-                                <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;" class="bi bi-plus-circle fs-5"></i>
+                                <span>Add a photo</span>
+                                <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;"
+                                    class="bi bi-plus-circle fs-5"></i>
                             </div>
-                            <div id="photos-container">
-                                <input type="file" name="AdditionalPhotos" multiple class="form-control mt-2" style="display: none;" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
                             <div id="video" class="text-start mt-3">
-                                <span>Add a video URL</span>
-                                <i id="iconvideo" style="color: #7cc576; cursor: pointer; margin-left: 20px;" class="bi bi-plus-circle fs-5"></i>
-                            </div>
-                            <div id="videos-container">
-                                <input type="hidden" id="video-count" value="0" />
+                                <span>Add a video</span>
+                                <i id="iconvideo" style="color: #7cc576; cursor: pointer; margin-left: 20px;"
+                                    class="bi bi-plus-circle fs-5"></i>
                             </div>
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <button type="submit">Add Product</button>
-                            <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+
+                            <button type="submit">Save</button>
                         </div>
+
                     </div>
                 </form>
             </div>
         </div>
+        <!--Features-->
+        <div class="row justify-content-center">
+            @for (int i = 0; i < Model.Product.Features.Count; i++)
+            {
+                <div class="col-lg-7">
+                    <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                        <input type="hidden" name="modelId" value="@i" />
+                        <input type="hidden" name="id" value="@Model.Product.Id" />
+                        <div class="row gy-4">
+                            <div class="col-md-12 mt-5">
+                                <h3 class="w-100 mb-2 ps-2 text-start">Feature @i</h3>
+                                <div>
+                                    <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                                    <input asp-for="Product.Features[@i].Name" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Name">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                                    <textarea asp-for="Product.Features[@i].Description" class="form-control"
+                                        style="border-radius: 5px;" placeholder="Description"></textarea>
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
+                                    <input asp-for="FeatureImages[@i]" style="border-radius: 5px;" class="form-control"
+                                        placeholder="Image">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Data Sheet</label>
+                                    <input asp-for="FeatureDataSheets[@i]" style="border-radius: 5px;" class="form-control"
+                                        placeholder="Data Sheet">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
+                                    <input asp-for="Product.Features[@i].GooglePlay" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Link">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
+                                    <input asp-for="Product.Features[@i].AppStore" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Link">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+
+                                <button formaction="" type="submit">Save</button>
+                                <button formaction="" type="submit">Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+        <!--model-->
+        <div class="row justify-content-center">
+            @for (int i = 0; i < Model.Product.Models.Count; i++)
+            {
+                <div class="col-lg-7">
+                    <form asp-asp-page-handler="EditModel" method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200">
+                        <input type="hidden" name="modelId" value="@i" />
+                        <input type="hidden" name="id" value="@Model.Product.Id" />
+                        <div class="row gy-4">
+                            <div class="col-md-12 mt-5">
+                                <h3 class="w-100 mb-2 ps-2 text-start">Model @i</h3>
+                                <div>
+                                    <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                                    <input asp-for="Product.Models[@i].Name" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Name">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                                    <textarea asp-for="Product.Models[@i].Description" class="form-control"
+                                        style="border-radius: 5px;" placeholder="Description"></textarea>
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
+                                    <input asp-for="ModelImages[@i]" style="border-radius: 5px;" class="form-control"
+                                        placeholder="Image">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Data Sheet</label>
+                                    <input asp-for="ModelDataSheets[@i]" style="border-radius: 5px;" class="form-control"
+                                        placeholder="Data Sheet">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
+                                    <input asp-for="Product.Models[@i].GooglePlay" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Link">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
+                                    <input asp-for="Product.Models[@i].AppStore" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Link">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+
+                                <button formaction="" type="submit">Save</button>
+                                <button formaction="" type="submit">Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+        <!--photos-->
+        <div class="container mt-5">
+            <h3 class="mb-4">Photos</h3>
+            <div class="row gy-4">
+                @for (int i = 0; i < Model.Product.Photos.Count; i++)
+                {
+                    <div class="col-lg-4">
+                        <form asp-asp-page-handler="DeletePhoto" method="post" class="form">
+                            <img style="width: 100%;" src="@Model.Product.Photos[i]" alt="">
+                            <input type="hidden" name="photoId" value="@i" />
+                            <input type="hidden" name="id" value="@Model.Product.Id" />
+                            <div class="col-md-12 text-center mt-3">
+                                <button type="submit">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+        <!--videos-->
+        <div class="container mt-5">
+            <h3 class="mb-4">Video</h3>
+            <div class="row gy-4">
+                @for (int i = 0; i < Model.Product.Videos.Count; i++)
+                {
+                    <div class="col-lg-4">
+                        <form asp-asp-page-handler="DeleteVideo" class="form">
+                            <input type="hidden" name="modelId" value="@i" />
+                            <input type="hidden" name="id" value="@Model.Product.Id" />
+                            <iframe src="@Model.Product.Videos[i]" frameborder="0"
+                                allowfullscreen></iframe>
+                            <div class="col-md-12 text-center mt-3">
+                                <button type="submit">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
 </section>
+<!-- /Admin Section -->
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

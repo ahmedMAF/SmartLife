@@ -31,26 +31,32 @@
                 <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
                     <div class="row gy-4">
                         <div class="col-md-12">
-                            <input asp-for="Contact.Country" style="border-radius: 5px;" class="form-control" placeholder="Country">
+                            <select asp-for="Contact.Country" style="border-radius: 5px;" class="form-select select">
+                                <option value="" disabled selected>Select a Country</option>
+                                @foreach(var country in Model.Countries)
+                                {
+                                    <option value="@country.Code">@country.Name</option>
+                                }
+                            </select>
                             <span asp-validation-for="Contact.Country" class="text-danger"></span>
                         </div>
                         <div id="addresses" class="text-start">
-                            <span>Add an address</span>
+                            <span>Add an Address</span>
                             <i id="iconAddress" style="color: #7cc576; cursor: pointer; margin-left: 25px;"
                                 class="bi bi-plus-circle fs-5"></i>
                         </div>
                         <div id="emails" class="text-start">
-                            <span>Add an email</span>
+                            <span>Add an Email</span>
                             <i id="iconEmail" style="color: #7cc576; cursor: pointer; margin-left: 42px;"
                                 class="bi bi-plus-circle fs-5"></i>
                         </div>
                         <div id="phones" class="text-start">
-                            <span>Add an phone</span>
+                            <span>Add a Phone</span>
                             <i id="iconPhone" style="color: #7cc576; cursor: pointer; margin-left: 36px;"
                                 class="bi bi-plus-circle fs-5"></i>
                         </div>
                         <div id="whatsup" class="text-start">
-                            <span>Add an whatsApp</span>
+                            <span>Add a WhatsApp</span>
                             <i id="iconWhasapp" style="color: #7cc576; cursor: pointer;"
                                 class="bi bi-plus-circle fs-5 ms-2"></i>
                         </div>

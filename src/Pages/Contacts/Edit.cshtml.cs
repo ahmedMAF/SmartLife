@@ -4,24 +4,27 @@ using SmartLife.Models;
 using SmartLife.Data;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
-using System.Globalization;
 using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Contacts;
 
 [Authorize]
-public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> localizer) : PageModel
+public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localizer) : PageModel
 {
     [BindProperty]
-    public Contact Contact { get; set; } = new();
-    
+    public Contact Contact { get; set; } = default!;
     public List<(string Code, string Name)> Countries { get; set; } = default!;
-    public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
+    public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
-    public IActionResult OnGet()
+    public async Task<IActionResult> OnGetAsync(string id)
     {
         Countries = LocationHelper.GetCountries();
+        var contact = await context.Contacts.FindAsync(id);
 
+        if (contact == null)
+            return NotFound();
+
+        Contact = contact;
         return Page();
     }
 
@@ -30,7 +33,7 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         if (!ModelState.IsValid)
             return Page();
 
-        context.Contacts.Add(Contact);
+        context.Contacts.Update(Contact);
         await context.SaveChangesAsync();
 
         return RedirectToPage("/Admin/Index");

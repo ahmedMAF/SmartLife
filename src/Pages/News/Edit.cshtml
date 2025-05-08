@@ -1,5 +1,5 @@
 ﻿@page "{id:int}"
-@model SmartLife.Pages.News.CreateModel
+@model SmartLife.Pages.News.EditModel
 
 @{
     ViewData["Title"] = "Edit Post";
@@ -26,37 +26,58 @@
         <h2>Edit Post</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
+        <!--main detalis-->
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                    <input type="hidden" name="id" value="@Model.Post.Id" />
                     <div class="row gy-4">
                         <div class="col-md-12">
-                            <input asp-for="Post.Title" style="border-radius: 5px;" class="form-control"
+                            <label class="w-100 mb-2 ps-2 text-start">Title</label>
+                            <input asp-for="Post.Title" required style="border-radius: 5px;" class="form-control"
                                 placeholder="Title">
-                            <span asp-validation-for="Post.Title" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
+                            <label class="w-100 mb-2 ps-2 text-start">Content</label>
                             <textarea asp-for="Post.Content" class="form-control" style="border-radius: 5px;"
                                 placeholder="Content"></textarea>
-                            <span asp-validation-for="Post.Content" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <div>
-                                <label asp-for="Images" class="w-100 mb-2 ps-2 text-start">Upload Image</label>
-                                <input asp-for="Images" style="border-radius: 5px;" type="file" class="form-control"
-                                    placeholder="Image">
-                                <span asp-validation-for="Images" class="text-danger"></span>
+                                <label class="w-100 mb-2 ps-2 text-start" for="image">Upload Image</label>
+                                <input asp-for="Images" style="border-radius: 5px;" class="form-control"
+                                    placeholder="Image" multiple>
                             </div>
                         </div>
 
                         <div class="col-md-12 text-center">
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
+
                             <button type="submit">Save</button>
                         </div>
 
                     </div>
                 </form>
+            </div>
+        </div>
+        <!--photo-->
+        <div class="container mt-5">
+            <h3 class="mb-4">Photos</h3>
+            <div class="row gy-4">
+                @for(int i = 0; i < Model.Post.Images.Count; i++)
+                {
+                    <div class="col-lg-4">
+                        <form asp-asp-page-handler="DeletePhoto" class="form">
+                            <input type="hidden" name="modelId" value="@i" />
+                            <input type="hidden" name="id" value="@Model.Post.Id" />
+                            <img style="width: 100%;" src="Model.Post.Images[i]" alt="">
+                            <div class="col-md-12 text-center mt-3">
+                                <button type="submit">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+                }
             </div>
         </div>
     </div>

@@ -20,11 +20,23 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     public IFormFile? MainImage { get; set; }
 
     [BindProperty]
-    public List<IFormFile> AdditionalPhotos { get; set; } = [];
+    public List<IFormFile> PhotoFiles { get; set; } = [];
 
     [BindProperty]
-    public List<GalleryEntry> Photos { get; set; } = [];
-    
+    public List<IFormFile> FeatureImages { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> FeatureDataSheets { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> ModelImages { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> ModelDataSheets { get; set; } = [];
+
+    [BindProperty]
+    public List<GalleryEntry> PhotoDetails { get; set; } = [];
+
     [BindProperty]
     public List<string> VideoUrls { get; set; } = [];
 
@@ -49,41 +61,10 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
         if (MainImage != null)
         {
-            // Delete old image if exists
-            if (!string.IsNullOrEmpty(Product.Image))
-            {
-                // var oldImagePath = Path.Combine(environment.WebRootPath, Product.Image.TrimStart('/'));
-                // if (System.IO.File.Exists(oldImagePath))
-                //     System.IO.File.Delete(oldImagePath);
-            }
-
+            // TODO: Delete old image if exists
             Product.Image = await UploadHelper.UploadFile(MainImage, folder);
         }
 
-        if (AdditionalPhotos != null && AdditionalPhotos.Count != 0)
-        {
-            // Delete old additional photos if they exist
-            // if (!string.IsNullOrEmpty(Product.Photos))
-            // {
-            //     var oldPhotos = Product.AdditionalPhotos.Split(',');
-            //     foreach (var oldPhoto in oldPhotos)
-            //     {
-            //         var oldPhotoPath = Path.Combine(environment.WebRootPath, oldPhoto.TrimStart('/'));
-            //         if (System.IO.File.Exists(oldPhotoPath))
-            //         {
-            //             System.IO.File.Delete(oldPhotoPath);
-            //         }
-            //     }
-            // }
-
-            foreach (var photo in AdditionalPhotos)
-            {
-                string file = await UploadHelper.UploadFile(photo, folder);
-
-                Product.Photos.Add(new GalleryEntry { Url = file });
-            }
-        }
-        
         // Handle Video URLs
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
         {
@@ -99,6 +80,37 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         context.Products.Update(Product);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Products/Details", Product.Id);
+    }
+
+    public async Task<IActionResult> OnPostEditFeatureAsync(int id, int featId)
+    {
+        var product = await context.Products.FindAsync(id);
+
+        context.Products.Update(product);
+        await context.SaveChangesAsync();
+
+        return RedirectToPage();
+    }
+
+    public async Task<IActionResult> OnPostEditModelAsync(int id, int modelId)
+    {
+        var product = await context.Products.FindAsync(id);
+
+        context.Products.Update(product);
+        await context.SaveChangesAsync();
+
+        return RedirectToPage();
+    }
+
+    public async Task<IActionResult> OnPostDeletePhotoAsync(int id, int photoId)
+    {
+        var product = await context.Products.FindAsync(id);
+
+        product.Photos.RemoveAt(photoId);
+        context.Products.Update(product);
+        await context.SaveChangesAsync();
+
+        return RedirectToPage();
     }
 }

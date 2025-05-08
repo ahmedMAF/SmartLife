@@ -25,7 +25,13 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public List<IFormFile> FeatureImages { get; set; } = [];
 
     [BindProperty]
+    public List<IFormFile> FeatureDataSheets { get; set; } = [];
+
+    [BindProperty]
     public List<IFormFile> ModelImages { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> ModelDataSheets { get; set; } = [];
 
     [BindProperty]
     public List<GalleryEntry> PhotoDetails { get; set; } = [];
@@ -46,8 +52,6 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     {
         Product.Category ??= "";
 
-        Console.WriteLine("SMD: " + Request.Form["FeatureImages[0]"]);
-
         if (Image != null)
             Product.Image = await UploadHelper.UploadFile(Image, "uploads/images/products");
 
@@ -56,6 +60,12 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
         for (int i = 0; i < ModelImages.Count; i++)
             Product.Models[i].Image = await UploadHelper.UploadFile(ModelImages[i], "uploads/images/products/models");
+
+        for (int i = 0; i < FeatureDataSheets.Count; i++)
+            Product.Features[i].DataSheetUrl = await UploadHelper.UploadFile(FeatureDataSheets[i], "uploads/datasheets/features");
+
+        for (int i = 0; i < ModelDataSheets.Count; i++)
+            Product.Models[i].DataSheetUrl = await UploadHelper.UploadFile(ModelDataSheets[i], "uploads/datasheets/models");
 
         for (int i = 0; i < PhotoFiles.Count; i++)
         {
