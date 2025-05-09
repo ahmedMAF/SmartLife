@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace SmartLife.Pages.Admin;
 
-public class LoginModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
+public class LoginModel(SmartLifeDb context, IStringLocalizer<LoginModel> localizer) : PageModel
 {
     [BindProperty]
     public string Email { get; set; }
@@ -14,7 +14,7 @@ public class LoginModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
     [BindProperty]
     public string Password { get; set; }
 
-    public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
+    public IStringLocalizer<LoginModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()
     {

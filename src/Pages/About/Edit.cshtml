@@ -34,33 +34,33 @@
           <div class="row gy-4">
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Countries</label>
-              <input asp-for="AboutData.Countries" style="border-radius: 5px" class="form-control" />
+              <input name="countries" type="text" style="border-radius: 5px" class="form-control" value="@Model.AboutData.Countries" />
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Projects</label>
-              <input asp-for="AboutData.Projects" style="border-radius: 5px" class="form-control" />
+              <input name="projects" style="border-radius: 5px" class="form-control" value="@Model.AboutData.Projects" />
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Consultants</label>
-              <input asp-for="AboutData.Consultants" style="border-radius: 5px" class="form-control"/>
+              <input name="consultants" value="@Model.AboutData.Consultants" style="border-radius: 5px" class="form-control"/>
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Employees</label>
-              <input asp-for="AboutData.Employees" style="border-radius: 5px" class="form-control"/>
+              <input name="employees" value="@Model.AboutData.Employees" style="border-radius: 5px" class="form-control"/>
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Clients</label>
-              <input asp-for="AboutData.Clients" style="border-radius: 5px" class="form-control"/>
+              <input name="clients" value="@Model.AboutData.Clients" style="border-radius: 5px" class="form-control"/>
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start">Branches</label>
-              <input asp-for="AboutData.Branches" style="border-radius: 5px" class="form-control"/>
+              <input name="branches" value="@Model.AboutData.Branches" style="border-radius: 5px" class="form-control"/>
             </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
 
-              <button formaction="" type="submit">Save</button>
+              <button type="submit">Save</button>
             </div>
           </div>
         </form>
@@ -89,7 +89,7 @@
               <div class="loading">Loading</div>
               <div class="error-message"></div>
 
-              <button formaction="" type="submit">Add</button>
+              <button type="submit">Add</button>
             </div>
           </div>
         </form>
@@ -104,19 +104,17 @@
   <div class="container contact section-title" data-aos="fade-up">
     <div class="row justify-content-center mb-5">
       <div class="col-lg-7">
-        <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+        <form asp-page-handler="Edit" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-4">
-            @for(int i = 0; i < Model.AboutData.Growth.Count; i++)
+            @for(int i = 0; i < Model.Growth.Count; i++)
             {
                 <div>
                     <label class="w-100 mb-2 ps-2 text-start">Year</label>
-                    <input asp-for="AboutData.Growth[@i].Item1" style="border-radius: 5px" class="form-control"
-                    value="@Model.AboutData.Growth[i].Item1" />
+                    <input asp-for="Growth[@i].Year" value="@Model.Growth[i].Year" style="border-radius: 5px" class="form-control"/>
                 </div>
                 <div>
                     <label class="w-100 mb-2 ps-2 text-start">Value</label>
-                    <input asp-for="AboutData.Growth[@i].Item2" style="border-radius: 5px" class="form-control mb-5"
-                    value="@Model.AboutData.Growth[i].Item2"/>
+                    <input asp-for="Growth[@i].Value" value="@Model.Growth[i].Value" style="border-radius: 5px" class="form-control mb-5"/>
                 </div>
             }
             
@@ -124,7 +122,7 @@
               <div class="loading">Loading</div>
               <div class="error-message"></div>
 
-              <button formaction="" type="submit">Save</button>
+              <button type="submit">Save</button>
             </div>
           </div>
         </form>

@@ -84,5 +84,14 @@ internal class MinRoutes
                 return Results.Redirect("/Team/Index");
             }
         ).RequireAuthorization();
+
+        app.MapPost("/Contacts/Delete/{id}", async (string id, SmartLifeDb ctx) =>
+            {
+                ctx.Contacts.Remove(new Contact { Country = id });
+                await ctx.SaveChangesAsync();
+
+                return Results.Redirect("/Admin/EditContacts");
+            }
+        ).RequireAuthorization();
     }
 }

@@ -8,7 +8,7 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>About Us</h1>
+        <h1>@Model.Localizer["about"]</h1>
         <nav class="breadcrumbs">
             <ol>
                 <li><a asp-page="/Index">Home</a></li>
@@ -166,7 +166,7 @@
         const chartData = [
             @foreach(var bar in Model.AboutData.Growth)
             {
-                @Html.Raw($"{{ year: \"{bar.Item1}\", value: {bar.Item2} }},")
+                @Html.Raw($"{{ year: \"{bar.Year}\", value: {bar.Value} }},")
             }
         ];
     </script>

@@ -30,17 +30,17 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(int id)
     {
+        var member = await context.Team.FindAsync(id);
+        member.Name = TeamMember.Name;
+        member.Role = TeamMember.Role;
+        
         if (Image != null)
             TeamMember.Photo = await UploadHelper.UploadFile(Image, "uploads/images/team");
 
-        if (!ModelState.IsValid)
-            return Page();
-
-        context.Team.Update(TeamMember);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("/Admin/Index");
+        return RedirectToPage("/Team/Index");
     }
 }

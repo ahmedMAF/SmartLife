@@ -18,8 +18,9 @@
     </div>
 </div><!-- End Page Title -->
 
-<!-- Admin Section -->
-<section id="portfolio" class="portfolio section">
+<!--using SmartLife.Utilities;
+#line default
+tion id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>Edit Contact</h2>
@@ -35,7 +36,7 @@
                                 <option value="" disabled selected>Select a country</option>
                                 @foreach (var contact in Model.Contacts)
                                 {
-                                    <option value="@contact.Country">@contact.Country</option>
+                                    <option value="@contact.Country">@SmartLife.Utilities.LocationHelper.GetCountryNameBy2LetterISO(contact.Country)</option>
                                 }
                             </select>
                         </div>

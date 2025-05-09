@@ -1,3 +1,8 @@
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IStringLocalizer<SharedResources> Localizer
+
 @model SmartLife.Models.Contact
 
 <div class="footer-contact pt-3">
@@ -8,14 +13,14 @@
     }
     @foreach (var phone in @Model.Phones)
     {
-        <p class="mt-3"><strong>Phone:</strong> <span>@phone</span></p>
+        <p class="mt-3"><strong>@Localizer["foot_phone"]:</strong> <span>@phone</span></p>
     }
     @foreach (var whatsApp in @Model.WhatsApps)
     {
-        <p class="mt-3"><strong>WhatsApp:</strong> <span>@whatsApp</span></p>
+        <p class="mt-3"><strong>@Localizer["foot_whatsapp"]:</strong> <span>@whatsApp</span></p>
     }
-    @foreach (var email in @Model.WhatsApps)
+    @foreach (var email in @Model.Emails)
     {
-        <p><strong>Email:</strong> <span>info@example.com</span></p>
+        <p><strong>@Localizer["foot_email"]:</strong> <span>@email</span></p>
     }
 </div>

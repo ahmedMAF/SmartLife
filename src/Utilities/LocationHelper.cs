@@ -26,8 +26,15 @@ public static class LocationHelper
 
     public static string GetCountryNameBy2LetterISO(string isoCode)
     {
-        var region = new RegionInfo(isoCode.ToUpper());
-        return region.EnglishName;
+		try
+		{
+			var region = new RegionInfo(isoCode.ToUpper());
+			return region.EnglishName;
+		}
+		catch (Exception)
+		{
+			return "";
+		}
     }
 
     public static async Task<Contact> GetContactByIpAsync(SmartLifeDb context, HttpContext ctx)

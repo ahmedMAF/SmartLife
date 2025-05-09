@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
 using SmartLife.Data;
+using SmartLife.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
@@ -13,7 +14,10 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 {
     [BindProperty]
     public PartnerClient Client { get; set; } = default!;
-
+    
+    [BindProperty]
+    public IFormFile? Image { get; set; } = default!;
+    
     public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync(int id)
@@ -27,14 +31,17 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(int id)
     {
-        if (!ModelState.IsValid)
-            return Page();
+        var client = await context.PartnersClients.FindAsync(id);
+        client.Name = Client.Name;
+        client.Description = Client.Description;
+    
+        if (Image != null)
+            client.Image = await UploadHelper.UploadFile(Image, "uploads/images/clients");
 
-        context.PartnersClients.Update(Client);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Clients/Index");
     }
 }

@@ -74,7 +74,7 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         }
 
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
-            Product.Videos.Add(new GalleryEntry { Url = videoUrl });
+            Product.Videos.Add(new GalleryEntry { Url = videoUrl.Split("v=")[1] });
 
         // if (!ModelState.IsValid)
         // {

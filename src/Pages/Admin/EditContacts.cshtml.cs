@@ -23,6 +23,6 @@ public class EditContactsModel(SmartLifeDb context, IStringLocalizer<EditContact
 
     public async Task<IActionResult> OnPostAsync(string country)
     {
-        return RedirectToPage($"/Contacts/Edit/{country}");
+        return RedirectToPage("/Contacts/Edit", new { id = country });
     }
 }

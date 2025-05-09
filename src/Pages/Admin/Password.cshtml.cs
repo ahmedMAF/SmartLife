@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace SmartLife.Pages.Admin;
 
-public class PasswordModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
+public class PasswordModel(SmartLifeDb context, IStringLocalizer<PasswordModel> localizer) : PageModel
 {
     [BindProperty]
     public string OldPassword { get; set; }
@@ -17,7 +17,7 @@ public class PasswordModel(SmartLifeDb context, IStringLocalizer<IndexModel> loc
     [BindProperty]
     public string ConfirmPassword { get; set; }
 
-    public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
+    public IStringLocalizer<PasswordModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()
     {

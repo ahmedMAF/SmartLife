@@ -1,3 +1,4 @@
+using System.Net.Mail;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -19,9 +20,9 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
 
     public async Task<IActionResult> OnGetAsync()
     {
-        Partners = await context.PartnersClients.Where(m => m.Type == PcType.Partner).ToListAsync();
-        Clients = await context.PartnersClients.Where(m => m.Type == PcType.Client).ToListAsync();
-        Products = await context.Products.ToListAsync();
+        Partners = await context.PartnersClients.Where(m => m.Type == PcType.Partner).Take(10).ToListAsync();
+        Clients = await context.PartnersClients.Where(m => m.Type == PcType.Client).Take(10).ToListAsync();
+        Products = await context.Products.Take(10).ToListAsync();
         Categories = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
 
         Contact = await LocationHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact();
@@ -39,24 +40,15 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
         var subject = $"Contact Form Submission from {name}";
         var body = $"Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}";
 
-        // Replace with your recipient email address
-        var recipient = "info@smartlife.com";
+        var recipient = "ceo@smartlifeeg.com";
 
-        using var smtp = new System.Net.Mail.SmtpClient();
-        var mail = new System.Net.Mail.MailMessage();
+        var mail = new MailMessage();
         mail.To.Add(recipient);
         mail.Subject = subject;
         mail.Body = body;
-        mail.From = new System.Net.Mail.MailAddress(email, name);
-        // Optionally set IsBodyHtml = false
+        mail.From = new MailAddress(email, name);
         mail.IsBodyHtml = false;
-
-        // Configure SMTP settings here if not set in appsettings.json
-        // smtp.Host = "smtp.yourserver.com";
-        // smtp.Port = 587;
-        // smtp.Credentials = new System.Net.NetworkCredential("username", "password");
-        // smtp.EnableSsl = true;
-
-        await smtp.SendMailAsync(mail);
+        
+        EmailHelper.SendEmail(mail);
     }
 }

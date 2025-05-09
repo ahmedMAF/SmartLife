@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
+using SmartLife.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
@@ -28,14 +29,18 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(int id)
     {
-        if (!ModelState.IsValid)
-            return Page();
+        var partner = await context.PartnersClients.FindAsync(id);
+        partner.Name = Partner.Name;
+        partner.Description = Partner.Description;
+        partner.Url = Partner.Url;
+    
+        if (Image != null)
+            partner.Image = await UploadHelper.UploadFile(Image, "uploads/images/clients");
 
-        context.PartnersClients.Update(Partner);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Partners/Index");
     }
 }

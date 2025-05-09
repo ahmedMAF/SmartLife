@@ -8,11 +8,6 @@ const iconEmail = document.getElementById("iconEmail");
 const iconPhone = document.getElementById("iconPhone");
 const iconWhasapp = document.getElementById("iconWhasapp");
 
-let a = 0;
-let e = 0;
-let p = 0;
-let w = 0;
-
 iconAddress.onclick = function(){
     let input = document.createElement("input");
     input.type = "text";

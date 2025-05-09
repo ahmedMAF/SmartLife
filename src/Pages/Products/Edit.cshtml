@@ -102,11 +102,11 @@
             {
                 <div class="col-lg-7">
                     <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
-                        <input type="hidden" name="modelId" value="@i" />
+                        <input type="hidden" name="featureId" value="@i" />
                         <input type="hidden" name="id" value="@Model.Product.Id" />
                         <div class="row gy-4">
                             <div class="col-md-12 mt-5">
-                                <h3 class="w-100 mb-2 ps-2 text-start">Feature @i</h3>
+                                <h3 class="w-100 mb-2 ps-2 text-start">Feature @(i + 1)</h3>
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start">Name</label>
                                     <input asp-for="Product.Features[@i].Name" style="border-radius: 5px;"
@@ -119,12 +119,12 @@
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
-                                    <input asp-for="FeatureImages[@i]" style="border-radius: 5px;" class="form-control"
+                                    <input asp-for="FeatureImage" style="border-radius: 5px;" class="form-control"
                                         placeholder="Image">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Data Sheet</label>
-                                    <input asp-for="FeatureDataSheets[@i]" style="border-radius: 5px;" class="form-control"
+                                    <input asp-for="FeatureDataSheet" style="border-radius: 5px;" class="form-control"
                                         placeholder="Data Sheet">
                                 </div>
                                 <div class="col-md-12 mt-2">
@@ -143,8 +143,8 @@
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
 
-                                <button formaction="" type="submit">Save</button>
-                                <button formaction="" type="submit">Delete</button>
+                                <button asp-page-handler="EditFeature" type="submit">Save</button>
+                                <button asp-page-handler="DeleteFeature" type="submit">Delete</button>
                             </div>
                         </div>
                     </form>
@@ -156,12 +156,12 @@
             @for (int i = 0; i < Model.Product.Models.Count; i++)
             {
                 <div class="col-lg-7">
-                    <form asp-asp-page-handler="EditModel" method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200">
+                    <form method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200">
                         <input type="hidden" name="modelId" value="@i" />
                         <input type="hidden" name="id" value="@Model.Product.Id" />
                         <div class="row gy-4">
                             <div class="col-md-12 mt-5">
-                                <h3 class="w-100 mb-2 ps-2 text-start">Model @i</h3>
+                                <h3 class="w-100 mb-2 ps-2 text-start">Model @(i + 1)</h3>
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start">Name</label>
                                     <input asp-for="Product.Models[@i].Name" style="border-radius: 5px;"
@@ -174,12 +174,12 @@
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
-                                    <input asp-for="ModelImages[@i]" style="border-radius: 5px;" class="form-control"
+                                    <input asp-for="ModelImage" style="border-radius: 5px;" class="form-control"
                                         placeholder="Image">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Data Sheet</label>
-                                    <input asp-for="ModelDataSheets[@i]" style="border-radius: 5px;" class="form-control"
+                                    <input asp-for="ModelDataSheet" style="border-radius: 5px;" class="form-control"
                                         placeholder="Data Sheet">
                                 </div>
                                 <div class="col-md-12 mt-2">
@@ -198,8 +198,8 @@
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
 
-                                <button formaction="" type="submit">Save</button>
-                                <button formaction="" type="submit">Delete</button>
+                                <button asp-page-handler="EditModel" type="submit">Save</button>
+                                <button asp-page-handler="DeleteModel" type="submit">Delete</button>
                             </div>
                         </div>
                     </form>
@@ -213,8 +213,8 @@
                 @for (int i = 0; i < Model.Product.Photos.Count; i++)
                 {
                     <div class="col-lg-4">
-                        <form asp-asp-page-handler="DeletePhoto" method="post" class="form">
-                            <img style="width: 100%;" src="@Model.Product.Photos[i]" alt="">
+                        <form asp-page-handler="DeletePhoto" method="post" class="form">
+                            <img style="width: 100%;" src="@Model.Product.Photos[i].Url" alt="">
                             <input type="hidden" name="photoId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Product.Id" />
                             <div class="col-md-12 text-center mt-3">
@@ -232,10 +232,10 @@
                 @for (int i = 0; i < Model.Product.Videos.Count; i++)
                 {
                     <div class="col-lg-4">
-                        <form asp-asp-page-handler="DeleteVideo" class="form">
-                            <input type="hidden" name="modelId" value="@i" />
+                        <form asp-page-handler="DeleteVideo" class="form">
+                            <input type="hidden" name="videoId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Product.Id" />
-                            <iframe src="@Model.Product.Videos[i]" frameborder="0"
+                            <iframe src="@Model.Product.Videos[i].Url" frameborder="0"
                                 allowfullscreen></iframe>
                             <div class="col-md-12 text-center mt-3">
                                 <button type="submit">Delete</button>
@@ -250,6 +250,7 @@
 <!-- /Admin Section -->
 
 @section Scripts {
+    <script src="~/js/editproduct.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

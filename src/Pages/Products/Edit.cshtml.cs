@@ -23,6 +23,18 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     public List<IFormFile> PhotoFiles { get; set; } = [];
 
     [BindProperty]
+    public IFormFile? FeatureImage { get; set; } = default!;
+
+    [BindProperty]
+    public IFormFile? FeatureDataSheet { get; set; } = default!;
+
+    [BindProperty]
+    public IFormFile? ModelImage { get; set; } = default!;
+
+    [BindProperty]
+    public IFormFile? ModelDataSheet { get; set; } = default!;
+    
+    [BindProperty]
     public List<IFormFile> FeatureImages { get; set; } = [];
 
     [BindProperty]
@@ -32,8 +44,14 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     public List<IFormFile> ModelImages { get; set; } = [];
 
     [BindProperty]
-    public List<IFormFile> ModelDataSheets { get; set; } = [];
+    public List<SubModule> Features { get; set; } = [];
 
+    [BindProperty]
+    public List<SubModule> Models { get; set; } = [];
+    
+    [BindProperty]
+    public List<IFormFile> ModelDataSheets { get; set; } = [];
+    
     [BindProperty]
     public List<GalleryEntry> PhotoDetails { get; set; } = [];
 
@@ -51,43 +69,75 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
             return NotFound();
 
         Product = product;
+        PhotoDetails = product.Photos;
+        VideoUrls = product.Videos.Select(v => v.Url).ToList();
         CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(int id)
     {
-        string folder = "uploads/images/products";
+        var product = await context.Products.FindAsync(id);
+		
+		product.Name = Product.Name;
+		product.Description = Product.Description;
+		product.Category = Product.Category;
 
         if (MainImage != null)
-        {
-            // TODO: Delete old image if exists
-            Product.Image = await UploadHelper.UploadFile(MainImage, folder);
-        }
+            product.Image = await UploadHelper.UploadFile(MainImage, "uploads/images/products");
 
-        // Handle Video URLs
+        for (int i = 0; i < FeatureImages.Count; i++)
+            Features[i].Image = await UploadHelper.UploadFile(FeatureImages[i], "uploads/images/products/features");
+
+        for (int i = 0; i < ModelImages.Count; i++)
+            Models[i].Image = await UploadHelper.UploadFile(ModelImages[i], "uploads/images/products/models");
+
+        for (int i = 0; i < FeatureDataSheets.Count; i++)
+            Features[i].DataSheetUrl = await UploadHelper.UploadFile(FeatureDataSheets[i], "uploads/datasheets/features");
+
+        for (int i = 0; i < ModelDataSheets.Count; i++)
+            Models[i].DataSheetUrl = await UploadHelper.UploadFile(ModelDataSheets[i], "uploads/datasheets/models");
+
+        for (int i = 0; i < PhotoFiles.Count; i++)
+            PhotoDetails[i].Url = await UploadHelper.UploadFile(PhotoFiles[i], "uploads/images/products");
+
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
-        {
-            Product.Videos.Add(new GalleryEntry { Url = videoUrl });
-        }
-
-        if (!ModelState.IsValid)
-        {
-            CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
-            return Page();
-        }
-
-        context.Products.Update(Product);
+            product.Videos.Add(new GalleryEntry { Url = videoUrl });
+            
+            product.Features.AddRange(Features);
+            product.Models.AddRange(Models);
+            product.Photos.AddRange(PhotoDetails);
+            
         await context.SaveChangesAsync();
 
-        return RedirectToPage("/Products/Details", Product.Id);
+        return RedirectToPage("/Products/Details", new { id = id });
     }
 
-    public async Task<IActionResult> OnPostEditFeatureAsync(int id, int featId)
+    public async Task<IActionResult> OnPostEditFeatureAsync(int id, int featureId)
+    {
+        var product = await context.Products.FindAsync(id);
+        
+        if (FeatureImage != null)
+        {
+            // TODO: Delete old image if exists
+            Product.Features[featureId].Image = await UploadHelper.UploadFile(FeatureImage, "uploads/images/products/features");
+        }
+        else
+        {
+            Product.Features[featureId].Image = product.Features[featureId].Image;
+        }
+        
+        product.Features[featureId] = Product.Features[featureId];
+        await context.SaveChangesAsync();
+
+        return RedirectToPage();
+    }
+    
+    public async Task<IActionResult> OnPostDeleteFeatureAsync(int id, int featureId)
     {
         var product = await context.Products.FindAsync(id);
 
-        context.Products.Update(product);
+        product.Features.RemoveAt(featureId);
         await context.SaveChangesAsync();
 
         return RedirectToPage();
@@ -97,7 +147,27 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     {
         var product = await context.Products.FindAsync(id);
 
-        context.Products.Update(product);
+        if (ModelImage != null)
+        {
+            // TODO: Delete old image if exists
+            Product.Models[modelId].Image = await UploadHelper.UploadFile(ModelImage, "uploads/images/products/models");
+        }
+        else
+        {
+            Product.Models[modelId].Image = product.Models[modelId].Image;
+        }
+        
+        product.Models[modelId] = Product.Models[modelId];
+        await context.SaveChangesAsync();
+
+        return RedirectToPage();
+    }
+    
+    public async Task<IActionResult> OnPostDeleteModelAsync(int id, int modelId)
+    {
+        var product = await context.Products.FindAsync(id);
+
+        product.Models.RemoveAt(modelId);
         await context.SaveChangesAsync();
 
         return RedirectToPage();
@@ -108,7 +178,16 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         var product = await context.Products.FindAsync(id);
 
         product.Photos.RemoveAt(photoId);
-        context.Products.Update(product);
+        await context.SaveChangesAsync();
+
+        return RedirectToPage();
+    }
+    
+    public async Task<IActionResult> OnPostDeleteVideoAsync(int id, int videoId)
+    {
+        var product = await context.Products.FindAsync(id);
+
+        product.Videos.RemoveAt(videoId);
         await context.SaveChangesAsync();
 
         return RedirectToPage();
