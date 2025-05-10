@@ -1,12 +1,9 @@
 translate
-nav current page highlight
 
 edit product
 
 form
-    asp-antiforgery="false"
     validatin
-    required
     span validiation??
 
 server validatin msgs

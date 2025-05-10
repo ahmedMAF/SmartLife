@@ -32,7 +32,7 @@
                     <div class="row gy-4">
                         <div>
                             <label class="w-100 mb-2 ps-2 text-start">Country</label>
-                            <select asp-for="Contact.Country" style="border-radius: 5px;" class="form-select select">
+                            <select asp-for="Contact.Country" style="border-radius: 5px;" class="form-select select" required="">
                                 <option value="" disabled selected>Select a Country</option>
                                 @foreach(var country in Model.Countries)
                                 {

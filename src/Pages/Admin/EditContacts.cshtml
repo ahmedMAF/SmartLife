@@ -32,7 +32,7 @@ tion id="portfolio" class="portfolio section">
                     <div class="row gy-4">
                         <div>
                             <label class="w-100 mb-2 ps-2 text-start">Please select a country</label>
-                            <select style="border-radius: 5px;" class="form-select select" name="country">
+                            <select style="border-radius: 5px;" class="form-select select" name="country" required="">
                                 <option value="" disabled selected>Select a country</option>
                                 @foreach (var contact in Model.Contacts)
                                 {

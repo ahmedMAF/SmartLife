@@ -1,34 +1,27 @@
 @using Microsoft.AspNetCore.Localization
 @using Microsoft.Extensions.Localization
 
-@inject IStringLocalizer<SharedResources> Localizer
-
 @model SmartLife.Data.ProductsMenu
 
-<li class="dropdown">
-    <a asp-page="/Products/Index"><span>@Localizer["nav_products"]</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-    <ul>
-        @foreach (var product in Model.Products["-"])
-        {
-            <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
-        }
+@foreach (var product in Model.Products["-"])
+{
+    <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
+}
 
-        @foreach (var cat in Model.Categories)
-        {
-            @if (cat == "")
+@foreach (var cat in Model.Categories)
+{
+    @if (cat == "")
+    {
+        continue;
+    }
+    
+    <li class="dropdown">
+        <a href="#"><span>@cat</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <ul>
+            @foreach (var product in Model.Products[cat])
             {
-                continue;
+                <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
             }
-            
-            <li class="dropdown">
-                <a href="#"><span>@cat</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                    @foreach (var product in Model.Products[cat])
-                    {
-                        <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
-                    }
-                </ul>
-            </li>
-        }
-    </ul>
-</li>
+        </ul>
+    </li>
+}

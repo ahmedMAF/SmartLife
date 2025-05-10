@@ -35,13 +35,13 @@
                         <div class="col-md-12">
                             <label class="w-100 mb-2 ps-2 text-start">Name</label>
                             <input asp-for="Product.Name" class="form-control" placeholder="Name"
-                                style="border-radius: 5px;" />
+                                style="border-radius: 5px;" required="">
                             <span asp-validation-for="Product.Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <label class="w-100 mb-2 ps-2 text-start">Description</label>
                             <textarea asp-for="Product.Description" class="form-control" placeholder="Description"
-                                style="border-radius: 5px;"></textarea>
+                                style="border-radius: 5px;" required=""></textarea>
                             <span asp-validation-for="Product.Description" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
@@ -110,7 +110,7 @@
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start">Name</label>
                                     <input asp-for="Product.Features[@i].Name" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Name">
+                                        class="form-control" placeholder="Name" required="">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">Description</label>
@@ -165,7 +165,7 @@
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start">Name</label>
                                     <input asp-for="Product.Models[@i].Name" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Name">
+                                        class="form-control" placeholder="Name" required="">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">Description</label>

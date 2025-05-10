@@ -45,19 +45,28 @@
                 <h1 class="sitename">@Localizer["name"]</h1>
             </a>
 
+            @{
+                string? page = ViewContext.RouteData.Values["page"]?.ToString();
+            }
+
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a asp-page="/Index" class="active">@Localizer["nav_home"]</a></li>
-                    <li><a asp-page="/About/Index">@Localizer["nav_about"]</a></li>
-                    @await Component.InvokeAsync("ProductsMenu")
-                    <li><a asp-page="/Partners/Index">@Localizer["nav_partners"]</a></li>
-                    <li><a asp-page="/Clients/Index">@Localizer["nav_clients"]</a></li>
-                    <li><a asp-page="/Team/Index">@Localizer["nav_team"]</a></li>
-                    <li><a asp-page="/News/Index">@Localizer["nav_news"]</a></li>
-                    <li><a asp-page="/Contacts/Index">@Localizer["nav_contacts"]</a></li>
+                    <li><a asp-page="/Index" class="@(page == "/Index" ? "active" : "")">@Localizer["nav_home"]</a></li>
+                    <li><a asp-page="/About/Index" class="@(page == "/About/Index" ? "active" : "")">@Localizer["nav_about"]</a></li>
+                    <li class="dropdown">
+                        <a asp-page="/Products/Index" class="@(page == "/Products/Index" ? "active" : "")"><span>@Localizer["nav_products"]</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            @await Component.InvokeAsync("ProductsMenu")
+                        </ul>
+                    </li>
+                    <li><a asp-page="/Partners/Index" class="@(page == "/Partners/Index" ? "active" : "")">@Localizer["nav_partners"]</a></li>
+                    <li><a asp-page="/Clients/Index" class="@(page == "/Clients/Index" ? "active" : "")">@Localizer["nav_clients"]</a></li>
+                    <li><a asp-page="/Team/Index" class="@(page == "/Team/Index" ? "active" : "")">@Localizer["nav_team"]</a></li>
+                    <li><a asp-page="/News/Index" class="@(page == "/News/Index" ? "active" : "")">@Localizer["nav_news"]</a></li>
+                    <li><a asp-page="/Contacts/Index" class="@(page == "/Contacts/Index" ? "active" : "")">@Localizer["nav_contacts"]</a></li>
                     @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-page="/Admin/Index">@Localizer["nav_admin"]</a></li>
+                        <li><a asp-page="/Admin/Index" class="@(page == "/Admin/Index" ? "active" : "")">@Localizer["nav_admin"]</a></li>
                         <li><a href="/Admin/Logout">@Localizer["nav_logout"]</a></li>
                     }
                     <li class="language-switcher">
