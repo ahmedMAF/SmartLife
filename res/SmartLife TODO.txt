@@ -1,0 +1,12 @@
+edit product
+translate
+form valid
+data sheet
+delete old files
+short desc in every page
+validate youtube
+server validatin msgs
+span validiation??
+
+test admin
+nav current page highlight
