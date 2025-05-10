@@ -16,47 +16,48 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     public Product Product { get; set; } = default!;
 
     [BindProperty]
-    public IFormFile? MainImage { get; set; }
+    public IFormFile? Image { get; set; }
+
+    // For editing features and models
+    [BindProperty]
+    public IFormFile? SubImage { get; set; } = default!;
 
     [BindProperty]
-    public List<IFormFile> PhotoFiles { get; set; } = [];
+    public IFormFile? DataSheet { get; set; } = default!;
 
     [BindProperty]
-    public IFormFile? FeatureImage { get; set; } = default!;
+    public SubModule SubModule { get; set; } = default!;
 
-    [BindProperty]
-    public IFormFile? FeatureDataSheet { get; set; } = default!;
-
-    [BindProperty]
-    public IFormFile? ModelImage { get; set; } = default!;
-
-    [BindProperty]
-    public IFormFile? ModelDataSheet { get; set; } = default!;
-    
-    [BindProperty]
-    public List<IFormFile> FeatureImages { get; set; } = [];
-
-    [BindProperty]
-    public List<IFormFile> FeatureDataSheets { get; set; } = [];
-
-    [BindProperty]
-    public List<IFormFile> ModelImages { get; set; } = [];
-
+    // For Adding new features and models
     [BindProperty]
     public List<SubModule> Features { get; set; } = [];
 
     [BindProperty]
     public List<SubModule> Models { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> FeatureDataSheets { get; set; } = [];
     
     [BindProperty]
     public List<IFormFile> ModelDataSheets { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> FeatureImages { get; set; } = [];
+
+    [BindProperty]
+    public List<IFormFile> ModelImages { get; set; } = [];
     
+    // For adding new photos and videos
     [BindProperty]
     public List<GalleryEntry> PhotoDetails { get; set; } = [];
 
     [BindProperty]
+    public List<IFormFile> PhotoFiles { get; set; } = [];
+
+    [BindProperty]
     public List<string> VideoUrls { get; set; } = [];
 
+    // Others
     public List<string> CategoryList { get; set; } = default!;
     public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
@@ -71,6 +72,8 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         PhotoDetails = product.Photos;
         VideoUrls = product.Videos;
         CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
+        CategoryList.Sort();
+
         return Page();
     }
 
@@ -80,11 +83,11 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 		
 		product.Name = Product.Name;
 		product.Description = Product.Description;
-		product.Category = Product.Category;
+		product.Category = Product.Category ?? "";
 
-        if (MainImage != null)
-            product.Image = await FileHelper.UploadReplaceFile(product.Image, MainImage, "uploads/images/products");
+        product.Image = await FileHelper.UploadReplaceFile(product.Image, Image, "uploads/images/products");
 
+        // Newly added features and models
         for (int i = 0; i < FeatureImages.Count; i++)
             Features[i].Image = await FileHelper.UploadReplaceFile(Features[i].Image, FeatureImages[i], "uploads/images/products/features");
 
@@ -103,9 +106,9 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
             product.Videos.Add(UrlHelper.GetYouTubeVideoId(videoUrl));
             
-            product.Features.AddRange(Features);
-            product.Models.AddRange(Models);
-            product.Photos.AddRange(PhotoDetails);
+        product.Features.AddRange(Features);
+        product.Models.AddRange(Models);
+        product.Photos.AddRange(PhotoDetails);
             
         await context.SaveChangesAsync();
 
@@ -115,18 +118,13 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     public async Task<IActionResult> OnPostEditFeatureAsync(int id, int featureId)
     {
         var product = await context.Products.FindAsync(id);
-        
-        if (FeatureImage != null)
-        {
-            // TODO: Delete old image if exists
-            Product.Features[featureId].Image = await FileHelper.UploadFile(FeatureImage, "uploads/images/products/features");
-        }
-        else
-        {
-            Product.Features[featureId].Image = product.Features[featureId].Image;
-        }
-        
-        product.Features[featureId] = Product.Features[featureId];
+
+        SubModule.Image = await FileHelper.UploadReplaceFile(product.Features[featureId].Image, SubImage,
+            "uploads/images/products/features");
+        SubModule.DataSheetUrl = await FileHelper.UploadReplaceFile(product.Features[featureId].DataSheetUrl, DataSheet,
+            "uploads/datasheets/features");
+        product.Features[featureId] = SubModule;
+
         await context.SaveChangesAsync();
 
         return RedirectToPage();
@@ -146,18 +144,11 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
     {
         var product = await context.Products.FindAsync(id);
 
-        if (ModelImage != null)
-        {
-            // TODO: Delete old image if exists
-            Product.Models[modelId].Image = await FileHelper.UploadFile(ModelImage, "uploads/images/products/models");
-        }
-        else
-        {
-            Product.Models[modelId].Image = product.Models[modelId].Image;
-        }
-        
-        product.Models[modelId] = Product.Models[modelId];
-        await context.SaveChangesAsync();
+        SubModule.Image = await FileHelper.UploadReplaceFile(product.Models[modelId].Image, SubImage,
+            "uploads/images/models/features");
+        SubModule.DataSheetUrl = await FileHelper.UploadReplaceFile(product.Models[modelId].DataSheetUrl, DataSheet,
+            "uploads/datasheets/models");
+        product.Models[modelId] = SubModule;
 
         return RedirectToPage();
     }

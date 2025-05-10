@@ -1,10 +1,10 @@
 translate
 
 edit product
+localize db
 
-form
-    validatin
-    span validiation??
+form validatin
+undo add feature
 
 server validatin msgs
 
