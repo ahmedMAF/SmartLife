@@ -10,6 +10,9 @@ public static class FileHelper
 
         try
         {
+            if (string.IsNullOrEmpty(oldFile))
+                return newFile;
+
             if (!string.IsNullOrEmpty(newFile))
             {
                 string rootedPath = Path.Combine(Environment.WebRootPath, oldFile.TrimStart('/'));
@@ -27,6 +30,9 @@ public static class FileHelper
 
     public static async Task<string> UploadFile(IFormFile file, string folder)
     {
+        if (file == null)
+            return "";
+
         try
         {
             string rootedPath = Path.Combine(Environment.WebRootPath, folder.TrimStart('/'));

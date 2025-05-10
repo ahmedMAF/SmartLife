@@ -59,9 +59,9 @@
                             </div>
                             <div class="col-md-12">
                                 <label class="w-100 mb-2 ps-2 text-start" for="image">Update Image</label>
-                                <input type="file" asp-for="MainImage" class="form-control"
+                                <input type="file" asp-for="Image" class="form-control"
                                     style="border-radius: 5px;" />
-                                <span asp-validation-for="MainImage" class="text-danger"></span>
+                                <span asp-validation-for="Image" class="text-danger"></span>
                             </div>
                             <div id="feature" class="text-start mt-3">
                                 <span>Add a feature</span>
@@ -109,33 +109,33 @@
                                 <h3 class="w-100 mb-2 ps-2 text-start">Feature @(i + 1)</h3>
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start">Name</label>
-                                    <input asp-for="Product.Features[@i].Name" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Name" required="">
+                                    <input name="SubModule.Name" type="text" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Name" value="@Model.Product.Features[i].Name" required="">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">Description</label>
-                                    <textarea asp-for="Product.Features[@i].Description" class="form-control"
-                                        style="border-radius: 5px;" placeholder="Description"></textarea>
+                                    <textarea name="SubModule.Description" type="text" class="form-control"
+                                        style="border-radius: 5px;" placeholder="Description">@Model.Product.Features[i].Description</textarea>
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
-                                    <input asp-for="FeatureImage" style="border-radius: 5px;" class="form-control"
+                                    <input asp-for="SubImage" style="border-radius: 5px;" class="form-control"
                                         placeholder="Image">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Data Sheet</label>
-                                    <input asp-for="FeatureDataSheet" style="border-radius: 5px;" class="form-control"
+                                    <input asp-for="DataSheet" style="border-radius: 5px;" class="form-control"
                                         placeholder="Data Sheet">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
-                                    <input asp-for="Product.Features[@i].GooglePlay" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Link">
+                                    <input name="SubModule.GooglePlay" type="text" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Link" value="@Model.Product.Features[i].GooglePlay">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
-                                    <input asp-for="Product.Features[@i].AppStore" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Link">
+                                    <input name="SubModule.AppStore" type="text" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Link" value="@Model.Product.Features[i].AppStore">
                                 </div>
                             </div>
 
@@ -157,40 +157,40 @@
             {
                 <div class="col-lg-7">
                     <form method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
-                        <input type="hidden" name="modelId" value="@i" />
-                        <input type="hidden" name="id" value="@Model.Product.Id" />
+                        <input type="hidden" name="modelId" value="@i">
+                        <input type="hidden" name="id" value="@Model.Product.Id">
                         <div class="row gy-4">
                             <div class="col-md-12 mt-5">
                                 <h3 class="w-100 mb-2 ps-2 text-start">Model @(i + 1)</h3>
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start">Name</label>
-                                    <input asp-for="Product.Models[@i].Name" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Name" required="">
+                                    <input name="SubModule.Name" type="text" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Name" value="@Model.Product.Models[i].Name" required="">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">Description</label>
-                                    <textarea asp-for="Product.Models[@i].Description" class="form-control"
-                                        style="border-radius: 5px;" placeholder="Description"></textarea>
+                                    <textarea name="SubModule.Description" type="text" class="form-control"
+                                        style="border-radius: 5px;" placeholder="Description">@Model.Product.Models[i].Description</textarea>
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
-                                    <input asp-for="ModelImage" style="border-radius: 5px;" class="form-control"
+                                    <input asp-for="SubImage" style="border-radius: 5px;" class="form-control"
                                         placeholder="Image">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Data Sheet</label>
-                                    <input asp-for="ModelDataSheet" style="border-radius: 5px;" class="form-control"
+                                    <input asp-for="DataSheet" style="border-radius: 5px;" class="form-control"
                                         placeholder="Data Sheet">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
-                                    <input asp-for="Product.Models[@i].GooglePlay" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Link">
+                                    <input name="SubModule.GooglePlay" type="text" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Link" value="@Model.Product.Models[i].GooglePlay">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
-                                    <input asp-for="Product.Models[@i].AppStore" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Link">
+                                    <input name="SubModule.AppStore" type="text" style="border-radius: 5px;"
+                                        class="form-control" placeholder="Link" value="@Model.Product.Models[i].AppStore">
                                 </div>
                             </div>
 
