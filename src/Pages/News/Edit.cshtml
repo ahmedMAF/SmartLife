@@ -29,18 +29,18 @@
         <!--main detalis-->
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                     <input type="hidden" name="id" value="@Model.Post.Id" />
                     <div class="row gy-4">
                         <div class="col-md-12">
                             <label class="w-100 mb-2 ps-2 text-start">Title</label>
                             <input asp-for="Post.Title" required style="border-radius: 5px;" class="form-control"
-                                placeholder="Title">
+                                placeholder="Title" required="">
                         </div>
                         <div class="col-md-12">
                             <label class="w-100 mb-2 ps-2 text-start">Content</label>
                             <textarea asp-for="Post.Content" class="form-control" style="border-radius: 5px;"
-                                placeholder="Content"></textarea>
+                                placeholder="Content" required=""></textarea>
                         </div>
                         <div class="col-md-12">
                             <div>
@@ -68,7 +68,7 @@
                 @for(int i = 0; i < Model.Post.Images.Count; i++)
                 {
                     <div class="col-lg-4">
-                        <form asp-asp-page-handler="DeletePhoto" class="form">
+                        <form asp-asp-page-handler="DeletePhoto" class="form" asp-antiforgery="false">
                             <input type="hidden" name="modelId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Post.Id" />
                             <img style="width: 100%;" src="Model.Post.Images[i]" alt="">

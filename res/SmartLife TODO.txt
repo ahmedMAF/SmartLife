@@ -1,12 +1,36 @@
 translate
-nav current page highlight
 
 edit product
 
-antiforgery all assembly (is ignore = disable)
-form valid
+form
+    validatin
+    span validiation??
+
 server validatin msgs
-download data sheet
-span validiation??
 
 test admin
+
+
+To Laod page with videos faster
+Instead of embedding the full player, first show just a thumbnail image and a “play” button.
+Only when the user clicks, replace it with the actual <iframe>.
+
+<div class="video-thumbnail" data-video-id="VIDEO_ID">
+  <img src="https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg" alt="Video thumbnail">
+  <button class="play-button">Play</button>
+</div>
+
+document.querySelectorAll('.play-button').forEach(button => {
+  button.addEventListener('click', function() {
+    const container = this.parentElement;
+    const videoId = container.dataset.videoId;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    iframe.width = 560;
+    iframe.height = 315;
+    iframe.frameBorder = 0;
+    iframe.allowFullscreen = true;
+    container.innerHTML = '';
+    container.appendChild(iframe);
+  });
+});

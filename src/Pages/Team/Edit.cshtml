@@ -28,16 +28,16 @@
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                     <div class="row gy-4">
                         <div class="col-md-12">
                             <input asp-for="TeamMember.Name" style="border-radius: 5px;" class="form-control"
-                                placeholder="Name">
+                                placeholder="Name" required="">
                             <span asp-validation-for="TeamMember.Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
-                            <textarea asp-for="TeamMember.Role" class="form-control" style="border-radius: 5px;"
-                                placeholder="Role"></textarea>
+                            <input asp-for="TeamMember.Role" class="form-control" style="border-radius: 5px;"
+                                placeholder="Role" required="">
                             <span asp-validation-for="TeamMember.Role" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
@@ -45,7 +45,7 @@
                                 <label asp-for="TeamMember.Photo" class="w-100 mb-2 ps-2 text-start">Upload
                                     Image</label>
                                 <input asp-for="Image" style="border-radius: 5px;"
-                                    class="form-control" placeholder="Image">
+                                    class="form-control" placeholder="Image" required="">
                             </div>
                         </div>
 

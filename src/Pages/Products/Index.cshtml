@@ -32,7 +32,7 @@
                 @foreach (var product in Model.Products)
                 {
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item">
-                        <a asp-page="Details" asp-route-id="@product.Id">
+                        <a asp-page="/Products/Details" asp-route-id="@product.Id">
                             <img src="@product.Image" class="product-image" alt="@product.Name">
                             <div class="portfolio-info">
                                 <h4>@product.Name</h4>
@@ -44,12 +44,12 @@
                                 </p>
                                 <a href="@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app"
                                     class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a asp-page="Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i
+                                <a asp-page="/Products/Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i
                                         class="bi bi-link-45deg"></i></a>
                                 @if (User.Identity != null && User.Identity.IsAuthenticated)
                                 {
                                     <a asp-page="/Products/Edit" asp-route-id="@product.Id" class="me-3">Edit</a>
-                                    <form method="post" action="/Products/Delete/@product.Id" style="display: inline;">
+                                    <form method="post" action="/Products/Delete/@product.Id" style="display: inline;" asp-antiforgery="false">
                                         <button class="a text-danger" type="submit">Delete</button>
                                     </form>
                                 }

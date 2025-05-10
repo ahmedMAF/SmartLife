@@ -28,7 +28,7 @@
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" enctype="multipart/form-data">
+                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" enctype="multipart/form-data" asp-antiforgery="false">
                     <div class="row gy-4">
                         <div class="col-md-12">
                             <input asp-for="Partner.Name" style="border-radius: 5px;" class="form-control" placeholder="Name">
@@ -45,7 +45,7 @@
                         <div class="col-md-12">
                             <div>
                                 <label class="w-100 mb-2 ps-2 text-start" for="image">Upload Image</label>
-                                <input asp-for="Image" style="border-radius: 5px;" class="form-control" placeholder="Image">
+                                <input asp-for="Image" style="border-radius: 5px;" class="form-control" placeholder="Image" required="">
                             </div>
                         </div>
 
