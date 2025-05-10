@@ -3,6 +3,7 @@ nav current page highlight
 
 edit product
 
+antiforgery all assembly (is ignore = disable)
 form valid
 server validatin msgs
 download data sheet
