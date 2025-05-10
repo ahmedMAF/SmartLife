@@ -8,11 +8,11 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Last News</h1>
+        <h1>@Model.Localizer["lastnews"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li class="current">Last News</li>
+                <li><a asp-page="/Index">@Model.Localizer["lastnewshome"]</a></li>
+                <li class="current">@Model.Localizer["lastnews"]</li>
             </ol>
         </nav>
     </div>
@@ -23,9 +23,9 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Last News</h2>
+        <h2>@Model.Localizer["lastnews"]</h2>
         <p>
-            At Smart Life, we believe that knowledge is power - stay updated with our latest news and always be at the heart of the action.
+            @Model.Localizer["lastnewsp1"]
         </p>
     </div><!-- End Section Title -->
 
