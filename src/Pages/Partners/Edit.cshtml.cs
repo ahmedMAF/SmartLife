@@ -36,10 +36,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         partner.Url = Partner.Url;
     
         if (Image != null)
-        {
-            FileHelper.DeleteUploadedFile(partner.Image);
-            partner.Image = await FileHelper.UploadFile(Image, "uploads/images/clients");
-        }
+            partner.Image = await FileHelper.UploadReplaceFile(partner.Image, Image, "uploads/images/clients");
 
         await context.SaveChangesAsync();
 
