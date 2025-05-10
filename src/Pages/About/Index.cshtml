@@ -11,8 +11,8 @@
         <h1>@Model.Localizer["about"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li class="current">About us</li>
+                <li><a asp-page="/Index">@Model.Localizer["aboutHome"]</a></li>
+                <li class="current">@Model.Localizer["about"]</li>
             </ol>
         </nav>
     </div>
@@ -23,8 +23,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>We create smart solutions that make your life easier and more luxurious</p>
+        <h2>@Model.Localizer["about"]</h2>
+        <p>@Model.Localizer["paragraph"]</p>
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -35,29 +35,24 @@
                     class="img-fluid" alt="">
             </div>
             <div class="col-lg-7 content">
-                <h3>Vision</h3>
+                <h3>@Model.Localizer["vision"]</h3>
                 <p class="fst-italic">
-                    To be the market leader in smart automation systems, delivering innovative solutions that redefine
-                    comfort, efficiency, and security.
+                    @Model.Localizer["visionp1"]
                 </p>
                 <p>
-                    To be one of Middle East market leaders in the field of automation system solutions and to pursue
-                    maximum customer satisfaction by providing reliable, sustainable products & efficient, high-quality
-                    services.
+                    @Model.Localizer["visionp2"]
                 </p>
             </div>
         </div>
 
         <div class="row gy-4">
             <div class="col-lg-7 content">
-                <h3>Mission</h3>
+                <h3>@Model.Localizer["mission"]</h3>
                 <p class="fst-italic">
-                    Full Smart City Automation
+                    @Model.Localizer["missionp1"]
                 </p>
                 <p>
-                    Developing comprehensive sustainable automation solutions & providing innovative services in
-                    accordance with international standards & best practices with inspiring national talents that
-                    enhance community luxury & and seeks maximum customer satisfaction.
+                    @Model.Localizer["missionp2"]
                 </p>
             </div>
             <div class="col-lg-5 text-center">
@@ -71,20 +66,17 @@
 <section id="about" class="about section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Values</h2>
+        <h2>@Model.Localizer["values"]</h2>
         <p>
-            Our values are the foundation upon which we build every innovation we offer. We believe in sustainability as
-            a path to the future, in smart solutions as a means to comfort, and in innovation as the spirit of renewal
-            and progress. Quality is not an option, but a commitment — and safety is a non-negotiable priority. With
-            Smart Life, we are redefining smart living through solid values and a renewed vision.
+            @Model.Localizer["valuesp1"]
         </p>
         <div class="values mt-5 w-100 d-flex justify-content-center align-items-center">
             <div class="circle-container position-relative">
-                <div class="circle smart">Smart</div>
-                <div class="circle sustainability">Sustainability</div>
-                <div class="circle innovation">Innovation</div>
-                <div class="circle quality">Quality</div>
-                <div class="circle safety">Safety</div>
+                <div class="circle smart">@Model.Localizer["smart"]</div>
+                <div class="circle sustainability">@Model.Localizer["sustainability"]</div>
+                <div class="circle innovation">@Model.Localizer["innovation"]</div>
+                <div class="circle quality">@Model.Localizer["quality"]</div>
+                <div class="circle safety">@Model.Localizer["safety"]</div>
             </div>
         </div>
 
@@ -96,7 +88,7 @@
 <section id="about" class="about section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Our Growing</h2>
+        <h2>@Model.Localizer["growing"]</h2>
         <div class="grow" id="companyChart">
             <!-- Chart will be inserted here by JavaScript -->
         </div>
@@ -107,53 +99,49 @@
 <section id="about" class="about section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Since</h2>
+        <h2>@Model.Localizer["since"]</h2>
         <p>
-            Since 2008, Smart Life has been at the forefront of redefining modern living — seamlessly blending advanced
-            technology with everyday comfort. What began as a vision to simplify life through innovation has evolved
-            into a trusted name in smart home solutions, sustainability, and safety. Passion drives us, technology
-            empowers us, and the future inspires us. We continue to innovate to deliver intelligent solutions that shape
-            a more comfortable and secure tomorrow.
+            @Model.Localizer["sincep1"]
         </p>
         <p class="since">2008</p>
         <div class="mt-4 since-item graph row justify-content-around gap-3">
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span>@(DateTime.Now.Year - 2008)</span>
-                <span>Year</span>
+                <span>@Model.Localizer["year"]</span>
             </div>
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span>@Model.AboutData.Countries</span>
-                <span>Country</span>
+                <span>@Model.Localizer["country"]</span>
             </div>
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span>@Model.AboutData.Projects</span>
-                <span>Project</span>
+                <span>@Model.Localizer["project"]</span>
             </div>
         </div>
         <div class="detals graph row justify-content-around gap-3">
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+@Model.AboutData.Projects</span>
-                <span>Projects</span>
+                <span>@Model.Localizer["project"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+@Model.AboutData.Consultants</span>
-                <span>Consultants</span>
+                <span>@Model.Localizer["consultants"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+@Model.AboutData.Employees</span>
-                <span>Emplyoees</span>
+                <span>@Model.Localizer["emplyoees"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+@Model.AboutData.Clients</span>
-                <span>Happy Clients</span>
+                <span>@Model.Localizer["happyClients"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+@Model.AboutData.Branches</span>
-                <span>Branches</span>
+                <span>@Model.Localizer["branches"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>@Model.AboutData.Countries</span>
-                <span>Countries</span>
+                <span>@Model.Localizer["countries"]</span>
             </div>
         </div>
     </div><!-- End Section Title -->

@@ -117,112 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="about" xml:space="preserve">
-    <value>حولنا</value>
+  <data name="ourproducts" xml:space="preserve">
+    <value>منتجاتنا</value>
     <comment/>
   </data>
-  <data name="aboutHome" xml:space="preserve">
+  <data name="ourproductsHome" xml:space="preserve">
     <value>الرئيسية</value>
     <comment/>
   </data>
-  <data name="paragraph" xml:space="preserve">
-    <value>نحن نبتكر حلولًا ذكية تجعل حياتك أسهل وأكثر رفاهية </value>
+  <data name="products" xml:space="preserve">
+    <value>المنتجات</value>
     <comment/>
   </data>
-  <data name="vision" xml:space="preserve">
-    <value>الرؤية</value>
-    <comment/>
-  </data>
-  <data name="visionp1" xml:space="preserve">
-    <value>أن نكون الروّاد في سوق أنظمة الأتمتة الذكية من خلال تقديم حلول مبتكرة تعيد تعريف مفاهيم الراحة والكفاءة والأمان</value>
-    <comment/>
-  </data>
-  <data name="visionp2" xml:space="preserve">
-    <value>أن نكون من الروّاد في سوق الشرق الأوسط في مجال حلول أنظمة الأتمتة، والسعي لتحقيق أقصى درجات رضا العملاء من خلال تقديم منتجات موثوقة ومستدامة، وخدمات فعّالة وعالية الجودة</value>
-    <comment/>
-  </data>
-  <data name="mission" xml:space="preserve">
-    <value>الرسالة</value>
-    <comment/>
-  </data>
-  <data name="missionp1" xml:space="preserve">
-    <value>أتمتة شاملة للمدن الذكية</value>
-    <comment/>
-  </data>
-  <data name="missionp2" xml:space="preserve">
-    <value>تطوير حلول أتمتة شاملة ومستدامة، وتقديم خدمات مبتكرة وفقًا للمعايير الدولية وأفضل الممارسات، وذلك من خلال كوادر وطنية ملهمة تسهم في تعزيز رفاهية المجتمع وتسعى لتحقيق أقصى درجات رضا العملاء</value>
-    <comment/>
-  </data>
-  <data name="values" xml:space="preserve">
-    <value>القيم</value>
-    <comment/>
-  </data>
-  <data name="valuesp1" xml:space="preserve">
-    <value>قيمنا هي الأساس الذي نبني عليه كل ابتكار نقدمه. نؤمن بأن الاستدامة هي الطريق نحو المستقبل، وأن الحلول الذكية وسيلة لتحقيق الراحة، وأن الابتكار هو روح التجديد والتقدّم. الجودة ليست خيارًا بل التزامًا، والسلامة أولوية غير قابلة للتفاوض. مع "سمارت لايف"، نعيد تعريف أسلوب الحياة الذكية من خلال قيم راسخة ورؤية متجددة</value>
-    <comment/>
-  </data>
-  <data name="smart" xml:space="preserve">
-    <value>ذكي</value>
-    <comment/>
-  </data>
-  <data name="sustainability" xml:space="preserve">
-    <value>الاستدامة</value>
-    <comment/>
-  </data>
-  <data name="innovation" xml:space="preserve">
-    <value>الابتكار</value>
-    <comment/>
-  </data>
-  <data name="quality" xml:space="preserve">
-    <value>الجودة</value>
-    <comment/>
-  </data>
-  <data name="safety" xml:space="preserve">
-    <value>السلامة</value>
-    <comment/>
-  </data>
-  <data name="growing" xml:space="preserve">
-    <value>نموّنا</value>
-    <comment/>
-  </data>
-  <data name="since" xml:space="preserve">
-    <value>منذ</value>
-    <comment/>
-  </data>
-  <data name="sincep1" xml:space="preserve">
-    <value>منذ عام 2008، كانت سمارت لايف في طليعة إعادة تعريف أسلوب الحياة العصري، حيث تمزج بسلاسة بين التكنولوجيا المتقدمة وراحة الحياة اليومية. ما بدأ كرؤية لتبسيط الحياة من خلال الابتكار، تطور ليصبح اسمًا موثوقًا في حلول المنازل الذكية، الاستدامة، والسلامة. يقودنا الشغف، وتمكِّننا التكنولوجيا، ويلهمنا المستقبل. نواصل الابتكار لتقديم حلول ذكية تشكل غدًا أكثر راحة وأمانًا</value>
-    <comment/>
-  </data>
-  <data name="year" xml:space="preserve">
-    <value>سنة</value>
-    <comment/>
-  </data>
-  <data name="country" xml:space="preserve">
-    <value>دولة</value>
-    <comment/>
-  </data>
-  <data name="project" xml:space="preserve">
-    <value>مشروع</value>
-    <comment/>
-  </data>
-  <data name="consultants" xml:space="preserve">
-    <value>المستشارون</value>
-    <comment/>
-  </data>
-  <data name="emplyoees" xml:space="preserve">
-    <value>الموظفون</value>
-    <comment/>
-  </data>
-  <data name="happyClients" xml:space="preserve">
-    <value>العملاء السعداء</value>
-    <comment/>
-  </data>
-  <data name="branches" xml:space="preserve">
-    <value>الفروع</value>
-    <comment/>
-  </data>
-  <data name="countries" xml:space="preserve">
-    <value>الدول</value>
+  <data name="productsp1" xml:space="preserve">
+    <value>حلول شاملة للأتمتة الذكية والأمن</value>
     <comment/>
   </data>
 </root>

@@ -8,11 +8,11 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Partners</h1>
+        <h1>@Model.Localizer["partners"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li class="current">Partners</li>
+                <li><a asp-page="/Index">@Model.Localizer["partnersHome"]</a></li>
+                <li class="current">@Model.Localizer["partners"]</li>
             </ol>
         </nav>
     </div>
@@ -22,8 +22,8 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Our Partners</h2>
-        <p>Collaborating for smarter living.</p>
+        <h2>@Model.Localizer["ourpartners"]</h2>
+        <p>@Model.Localizer["ourpartnersp1"]</p>
     </div><!-- End Section Title -->
 
     <div class="container">
