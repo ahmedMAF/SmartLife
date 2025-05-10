@@ -1,15 +1,9 @@
 translate
 
-edit product
 localize db
-
 form validatin
 undo add feature
-
 server validatin msgs
-
-test admin
-
 
 To Laod page with videos faster
 Instead of embedding the full player, first show just a thumbnail image and a “play” button.
