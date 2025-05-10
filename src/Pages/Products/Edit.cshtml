@@ -29,7 +29,7 @@
         <!--main details-->
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <form method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200">
+                <form method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                     <input type="hidden" name="id" value="@Model.Product.Id" />
                     <div class="row gy-4">
                         <div class="col-md-12">
@@ -101,7 +101,7 @@
             @for (int i = 0; i < Model.Product.Features.Count; i++)
             {
                 <div class="col-lg-7">
-                    <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                    <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                         <input type="hidden" name="featureId" value="@i" />
                         <input type="hidden" name="id" value="@Model.Product.Id" />
                         <div class="row gy-4">
@@ -156,7 +156,7 @@
             @for (int i = 0; i < Model.Product.Models.Count; i++)
             {
                 <div class="col-lg-7">
-                    <form method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200">
+                    <form method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                         <input type="hidden" name="modelId" value="@i" />
                         <input type="hidden" name="id" value="@Model.Product.Id" />
                         <div class="row gy-4">
@@ -213,7 +213,7 @@
                 @for (int i = 0; i < Model.Product.Photos.Count; i++)
                 {
                     <div class="col-lg-4">
-                        <form asp-page-handler="DeletePhoto" method="post" class="form">
+                        <form asp-page-handler="DeletePhoto" method="post" class="form" asp-antiforgery="false">
                             <img style="width: 100%;" src="@Model.Product.Photos[i].Url" alt="">
                             <input type="hidden" name="photoId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Product.Id" />
@@ -232,7 +232,7 @@
                 @for (int i = 0; i < Model.Product.Videos.Count; i++)
                 {
                     <div class="col-lg-4">
-                        <form asp-page-handler="DeleteVideo" class="form">
+                        <form asp-page-handler="DeleteVideo" class="form" asp-antiforgery="false">
                             <input type="hidden" name="videoId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Product.Id" />
                             <iframe src="@Model.Product.Videos[i]" frameborder="0"

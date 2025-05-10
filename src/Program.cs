@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using SmartLife.Utilities;
@@ -14,7 +15,11 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddSession();
-        builder.Services.AddRazorPages();
+        builder.Services.AddRazorPages(options =>
+        {
+            options.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
+        });
+
         builder.Services.AddAuthentication("SLCookieAuth")
             .AddCookie("SLCookieAuth", options =>
             {

@@ -3,10 +3,13 @@ nav current page highlight
 
 edit product
 
-antiforgery all assembly (is ignore = disable)
-form valid
+form
+    asp-antiforgery="false"
+    validatin
+    required
+    span validiation??
+
 server validatin msgs
 download data sheet
-span validiation??
 
 test admin

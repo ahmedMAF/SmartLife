@@ -127,7 +127,7 @@
                                         @(product.Description[..50] + "...")
                                 </p>
                                 <a href="@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a asp-page="Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <a asp-page="/Products/Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </a>
                     </div><!-- End Portfolio Item -->
@@ -141,7 +141,7 @@
 </section><!-- /products Section -->
 <!-- clinets Section -->
 <section id="testimonials" class="testimonials section dark-background">
-    <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+    <img src="~/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2 class="text-center mb-5">@Model.Localizer["home_clients"]</h2>
@@ -332,8 +332,7 @@
             </div>
 
             <div class="col-lg-8">
-                <form method="post" class="form" data-aos="fade-up"
-                    data-aos-delay="200">
+                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                     <div class="row gy-4">
 
                         <div class="col-md-6">

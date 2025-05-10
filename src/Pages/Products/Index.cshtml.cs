@@ -6,7 +6,6 @@ using SmartLife.Models;
 
 namespace SmartLife.Pages.Products;
 
-[IgnoreAntiforgeryToken]
 public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
