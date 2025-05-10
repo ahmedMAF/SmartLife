@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
@@ -70,7 +69,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
         Product = product;
         PhotoDetails = product.Photos;
-        VideoUrls = product.Videos.Select(v => v.Url).ToList();
+        VideoUrls = product.Videos;
         CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
         return Page();
     }
@@ -84,25 +83,25 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 		product.Category = Product.Category;
 
         if (MainImage != null)
-            product.Image = await UploadHelper.UploadFile(MainImage, "uploads/images/products");
+            product.Image = await FileHelper.UploadFile(MainImage, "uploads/images/products");
 
         for (int i = 0; i < FeatureImages.Count; i++)
-            Features[i].Image = await UploadHelper.UploadFile(FeatureImages[i], "uploads/images/products/features");
+            Features[i].Image = await FileHelper.UploadFile(FeatureImages[i], "uploads/images/products/features");
 
         for (int i = 0; i < ModelImages.Count; i++)
-            Models[i].Image = await UploadHelper.UploadFile(ModelImages[i], "uploads/images/products/models");
+            Models[i].Image = await FileHelper.UploadFile(ModelImages[i], "uploads/images/products/models");
 
         for (int i = 0; i < FeatureDataSheets.Count; i++)
-            Features[i].DataSheetUrl = await UploadHelper.UploadFile(FeatureDataSheets[i], "uploads/datasheets/features");
+            Features[i].DataSheetUrl = await FileHelper.UploadFile(FeatureDataSheets[i], "uploads/datasheets/features");
 
         for (int i = 0; i < ModelDataSheets.Count; i++)
-            Models[i].DataSheetUrl = await UploadHelper.UploadFile(ModelDataSheets[i], "uploads/datasheets/models");
+            Models[i].DataSheetUrl = await FileHelper.UploadFile(ModelDataSheets[i], "uploads/datasheets/models");
 
         for (int i = 0; i < PhotoFiles.Count; i++)
-            PhotoDetails[i].Url = await UploadHelper.UploadFile(PhotoFiles[i], "uploads/images/products");
+            PhotoDetails[i].Url = await FileHelper.UploadFile(PhotoFiles[i], "uploads/images/products");
 
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
-            product.Videos.Add(new GalleryEntry { Url = videoUrl });
+            product.Videos.Add(UrlHelper.GetYouTubeVideoId(videoUrl));
             
             product.Features.AddRange(Features);
             product.Models.AddRange(Models);
@@ -110,7 +109,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
             
         await context.SaveChangesAsync();
 
-        return RedirectToPage("/Products/Details", new { id = id });
+        return RedirectToPage("/Products/Details", new { id });
     }
 
     public async Task<IActionResult> OnPostEditFeatureAsync(int id, int featureId)
@@ -120,7 +119,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         if (FeatureImage != null)
         {
             // TODO: Delete old image if exists
-            Product.Features[featureId].Image = await UploadHelper.UploadFile(FeatureImage, "uploads/images/products/features");
+            Product.Features[featureId].Image = await FileHelper.UploadFile(FeatureImage, "uploads/images/products/features");
         }
         else
         {
@@ -150,7 +149,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         if (ModelImage != null)
         {
             // TODO: Delete old image if exists
-            Product.Models[modelId].Image = await UploadHelper.UploadFile(ModelImage, "uploads/images/products/models");
+            Product.Models[modelId].Image = await FileHelper.UploadFile(ModelImage, "uploads/images/products/models");
         }
         else
         {

@@ -1,7 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication;
-using System.Security.Claims;
 using SmartLife.Models;
 using Microsoft.AspNetCore.Localization;
 

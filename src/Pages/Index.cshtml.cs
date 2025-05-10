@@ -20,9 +20,9 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
 
     public async Task<IActionResult> OnGetAsync()
     {
-        Partners = await context.PartnersClients.Where(m => m.Type == PcType.Partner).Take(10).ToListAsync();
-        Clients = await context.PartnersClients.Where(m => m.Type == PcType.Client).Take(10).ToListAsync();
-        Products = await context.Products.Take(10).ToListAsync();
+        Partners = await context.PartnersClients.Where(m => m.Type == PcType.Partner).Take(6).ToListAsync();
+        Clients = await context.PartnersClients.Where(m => m.Type == PcType.Client).Take(6).ToListAsync();
+        Products = await context.Products.Take(6).ToListAsync();
         Categories = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
 
         Contact = await LocationHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact();

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
 using SmartLife.Utilities;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
 
@@ -37,7 +36,10 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         partner.Url = Partner.Url;
     
         if (Image != null)
-            partner.Image = await UploadHelper.UploadFile(Image, "uploads/images/clients");
+        {
+            FileHelper.DeleteUploadedFile(partner.Image);
+            partner.Image = await FileHelper.UploadFile(Image, "uploads/images/clients");
+        }
 
         await context.SaveChangesAsync();
 

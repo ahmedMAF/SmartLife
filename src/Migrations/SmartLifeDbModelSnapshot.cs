@@ -141,9 +141,9 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("json");
 
-                    b.Property<string>("Videos")
+                    b.PrimitiveCollection<string>("Videos")
                         .IsRequired()
-                        .HasColumnType("json");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

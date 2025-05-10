@@ -31,7 +31,7 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         {
             foreach (var image in Images)
             {
-                string file = await UploadHelper.UploadFile(image, folder);
+                string file = await FileHelper.UploadFile(image, folder);
                 Post.Images.Add(file);
             }
         }

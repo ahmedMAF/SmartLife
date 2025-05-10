@@ -36,7 +36,12 @@
                             <img src="@product.Image" class="product-image" alt="@product.Name">
                             <div class="portfolio-info">
                                 <h4>@product.Name</h4>
-                                <p>@product.Description</p>
+                                <p>
+                                    @if (product.Description.Length <= 60)
+                                        @product.Description
+                                    else 
+                                        @(product.Description[..50] + "...")
+                                </p>
                                 <a href="@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app"
                                     class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a asp-page="Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i

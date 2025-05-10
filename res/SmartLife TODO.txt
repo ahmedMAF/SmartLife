@@ -1,12 +1,11 @@
-edit product
 translate
+nav current page highlight
+
+edit product
+
 form valid
-data sheet
-delete old files
-short desc in every page
-validate youtube
 server validatin msgs
+download data sheet
 span validiation??
 
 test admin
-nav current page highlight

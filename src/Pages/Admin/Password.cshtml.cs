@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
-using System.Security.Claims;
 
 namespace SmartLife.Pages.Admin;
 

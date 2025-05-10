@@ -26,10 +26,9 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public async Task<IActionResult> OnPostAsync()
     {
         Client.Type = PcType.Client;
-        Client.Url = "";
 
         if (Image != null)
-            Client.Image = await UploadHelper.UploadFile(Image, "uploads/images/clients");
+            Client.Image = await FileHelper.UploadFile(Image, "uploads/images/clients");
 
         // if (!ModelState.IsValid)
         //     return Page();
@@ -37,6 +36,6 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         context.PartnersClients.Add(Client);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("/Admin/Index");
+        return RedirectToPage("/Clients/Index");
     }
 }

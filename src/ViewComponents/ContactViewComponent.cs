@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SmartLife.Data;
 using SmartLife.Models;
 using SmartLife.Utilities;
 

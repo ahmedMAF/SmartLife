@@ -37,7 +37,10 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         member.Role = TeamMember.Role;
         
         if (Image != null)
-            TeamMember.Photo = await UploadHelper.UploadFile(Image, "uploads/images/team");
+        {
+            FileHelper.DeleteUploadedFile(member.Photo);
+            member.Photo = await FileHelper.UploadFile(Image, "uploads/images/team");
+        }
 
         await context.SaveChangesAsync();
 

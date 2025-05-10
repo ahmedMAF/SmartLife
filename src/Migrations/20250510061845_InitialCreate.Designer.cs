@@ -12,7 +12,7 @@ using SmartLife;
 namespace SmartLife.Migrations
 {
     [DbContext(typeof(SmartLifeDb))]
-    [Migration("20250507054733_InitialCreate")]
+    [Migration("20250510061845_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -144,9 +144,9 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("json");
 
-                    b.Property<string>("Videos")
+                    b.PrimitiveCollection<string>("Videos")
                         .IsRequired()
-                        .HasColumnType("json");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

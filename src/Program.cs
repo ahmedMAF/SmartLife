@@ -77,7 +77,7 @@ internal class Program
         app.MapRazorPages();
         MinRoutes.Map(app);
 
-        UploadHelper.Environment = app.Environment;
+        FileHelper.Environment = app.Environment;
         app.Run();
     }
 }

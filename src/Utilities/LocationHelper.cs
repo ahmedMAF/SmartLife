@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using SmartLife.Models;
 using System.Globalization;
 using System.Net;

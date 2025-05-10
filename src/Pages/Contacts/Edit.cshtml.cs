@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SmartLife.Models;
-using SmartLife.Data;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
 using SmartLife.Utilities;

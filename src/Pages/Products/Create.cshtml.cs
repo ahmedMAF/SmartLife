@@ -53,28 +53,28 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         Product.Category ??= "";
 
         if (Image != null)
-            Product.Image = await UploadHelper.UploadFile(Image, "uploads/images/products");
+            Product.Image = await FileHelper.UploadFile(Image, "uploads/images/products");
 
         for (int i = 0; i < FeatureImages.Count; i++)
-            Product.Features[i].Image = await UploadHelper.UploadFile(FeatureImages[i], "uploads/images/products/features");
+            Product.Features[i].Image = await FileHelper.UploadFile(FeatureImages[i], "uploads/images/products/features");
 
         for (int i = 0; i < ModelImages.Count; i++)
-            Product.Models[i].Image = await UploadHelper.UploadFile(ModelImages[i], "uploads/images/products/models");
+            Product.Models[i].Image = await FileHelper.UploadFile(ModelImages[i], "uploads/images/products/models");
 
         for (int i = 0; i < FeatureDataSheets.Count; i++)
-            Product.Features[i].DataSheetUrl = await UploadHelper.UploadFile(FeatureDataSheets[i], "uploads/datasheets/features");
+            Product.Features[i].DataSheetUrl = await FileHelper.UploadFile(FeatureDataSheets[i], "uploads/datasheets/features");
 
         for (int i = 0; i < ModelDataSheets.Count; i++)
-            Product.Models[i].DataSheetUrl = await UploadHelper.UploadFile(ModelDataSheets[i], "uploads/datasheets/models");
+            Product.Models[i].DataSheetUrl = await FileHelper.UploadFile(ModelDataSheets[i], "uploads/datasheets/models");
 
         for (int i = 0; i < PhotoFiles.Count; i++)
         {
-            PhotoDetails[i].Url = await UploadHelper.UploadFile(PhotoFiles[i], "uploads/images/products");
+            PhotoDetails[i].Url = await FileHelper.UploadFile(PhotoFiles[i], "uploads/images/products");
             Product.Photos.Add(PhotoDetails[i]);
         }
 
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
-            Product.Videos.Add(new GalleryEntry { Url = videoUrl.Split("v=")[1] });
+            Product.Videos.Add(UrlHelper.GetYouTubeVideoId(videoUrl));
 
         // if (!ModelState.IsValid)
         // {
@@ -85,6 +85,6 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
         context.Products.Add(Product);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("/Admin/Index");
+        return RedirectToPage("/Products/Details", new { id = Product.Id });
     }
 }

@@ -235,7 +235,7 @@
                         <form asp-page-handler="DeleteVideo" class="form">
                             <input type="hidden" name="videoId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Product.Id" />
-                            <iframe src="@Model.Product.Videos[i].Url" frameborder="0"
+                            <iframe src="@Model.Product.Videos[i]" frameborder="0"
                                 allowfullscreen></iframe>
                             <div class="col-md-12 text-center mt-3">
                                 <button type="submit">Delete</button>

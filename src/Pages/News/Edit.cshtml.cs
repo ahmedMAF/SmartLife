@@ -4,7 +4,6 @@ using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
 using SmartLife.Models;
 using SmartLife.Utilities;
-using Microsoft.EntityFrameworkCore;
 
 namespace SmartLife.Pages.News;
 
@@ -42,7 +41,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         {
             foreach (var image in Images)
             {
-                string file = await UploadHelper.UploadFile(image, folder);
+                string file = await FileHelper.UploadFile(image, folder);
                 post.Images.Add(file);
             }
         }
