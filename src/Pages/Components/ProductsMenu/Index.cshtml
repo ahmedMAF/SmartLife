@@ -3,9 +3,13 @@
 
 @model SmartLife.Data.ProductsMenu
 
+@{
+    bool isAr = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
+}
+
 @foreach (var product in Model.Products["-"])
 {
-    <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
+    <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@if (isAr) { @product.NameAr } else { @product.Name }</a></li>
 }
 
 @foreach (var cat in Model.Categories)
@@ -20,7 +24,7 @@
         <ul>
             @foreach (var product in Model.Products[cat])
             {
-                <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@product.Name</a></li>
+                <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@if (isAr) { @product.NameAr } else { @product.Name }</a></li>
             }
         </ul>
     </li>

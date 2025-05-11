@@ -43,8 +43,8 @@
                                         src="@pFeature.Image" class="img-fluid" alt="">
                                 </div>
                                 <div class="col-lg-7 content">
-                                    <h3>@pFeature.Name</h3>
-                                    <p class="fst-italic mb-5">@pFeature.Description</p>
+                                    <h3>@if (Model.IsAr) { @pFeature.NameAr } else { @pFeature.Name }</h3>
+                                    <p class="fst-italic mb-5">@if (Model.IsAr) { @pFeature.DescriptionAr } else { @pFeature.Description }</p>
                                     @if (!string.IsNullOrEmpty(pFeature.AppStore))
                                     {
                                         <a href="@pFeature.AppStore">
@@ -85,8 +85,8 @@
                                     src="@pModel.Image" class="img-fluid" alt="">
                                 </div>
                                 <div class="col-lg-7 content">
-                                    <h3>@pModel.Name</h3>
-                                    <p class="fst-italic mb-5">@pModel.Description</p>
+                                    <h3>@if (Model.IsAr) { @pModel.NameAr } else { @pModel.Name }</h3>
+                                    <p class="fst-italic mb-5">@if (Model.IsAr) { @pModel.DescriptionAr } else { @pModel.Description }</p>
                                     @if (!string.IsNullOrEmpty(pModel.AppStore))
                                     {
                                         <a href="@pModel.AppStore">
@@ -142,9 +142,9 @@
                                     <div class="swiper-slide portfolio-item isotope-item">
                                         <img src="@photo.Url" class="img-fluid" alt="">
                                         <div class="portfolio-info">
-                                            <h4>@photo.Name</h4>
-                                            <p>@photo.Description</p>
-                                            <a href="@photo.Url" title="@photo.Name"
+                                            <h4>@if (Model.IsAr) { @photo.NameAr } else { @photo.Name }</h4>
+                                            <p>@if (Model.IsAr) { @photo.DescriptionAr } else { @photo.Description }</p>
+                                            <a href="@photo.Url" title="@if (Model.IsAr) { @photo.NameAr } else { @photo.Name }"
                                             data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                                 class="bi bi-zoom-in"></i></a>
                                         </div>
