@@ -28,20 +28,34 @@
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
+                <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200"
+                    asp-antiforgery="false">
                     <input type="hidden" name="id" value="@Model.Client.Id" />
                     <div class="row gy-4">
                         <div class="col-md-12">
-                            <input asp-for="Client.Name" style="border-radius: 5px;" class="form-control" placeholder="Name">
+                            <input asp-for="Client.Name" style="border-radius: 5px;" class="form-control"
+                                placeholder="Name (English)">
                             <span asp-validation-for="Client.Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
-                            <textarea asp-for="Client.Description" class="form-control" style="border-radius: 5px;" placeholder="Description"></textarea>
+                            <input asp-for="Client.NameAr" style="border-radius: 5px;" class="form-control"
+                                placeholder="Name (Arabic)">
+                            <span asp-validation-for="Client.NameAr" class="text-danger"></span>
+                        </div>>
+                        <div class="col-md-12">
+                            <textarea asp-for="Client.Description" class="form-control" style="border-radius: 5px;"
+                                placeholder="Description (English)"></textarea>
                             <span asp-validation-for="Client.Description" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
+                            <textarea asp-for="Client.DescriptionAr" class="form-control" style="border-radius: 5px;"
+                                placeholder="Description (Arabic)"></textarea>
+                            <span asp-validation-for="Client.DescriptionAr" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
                             <div>
-                                <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["uploadimage"]</label>
+                                <label class="w-100 mb-2 ps-2 text-start"
+                                    for="image">@Model.Localizer["uploadimage"]</label>
                                 <input asp-for="Image" style="border-radius: 5px;" class="form-control"
                                     placeholder="Image">
                             </div>
@@ -64,5 +78,7 @@
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

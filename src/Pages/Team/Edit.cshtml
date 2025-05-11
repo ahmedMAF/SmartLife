@@ -28,17 +28,27 @@
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
+                <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                     <div class="row gy-4">
                         <div class="col-md-12">
                             <input asp-for="TeamMember.Name" style="border-radius: 5px;" class="form-control"
-                                placeholder="Name" required="">
+                                placeholder="Name (English)" required="">
                             <span asp-validation-for="TeamMember.Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
+                            <input asp-for="TeamMember.NameAr" style="border-radius: 5px;" class="form-control"
+                                placeholder="Name (Arabic)" required="">
+                            <span asp-validation-for="TeamMember.NameAr" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
                             <input asp-for="TeamMember.Role" class="form-control" style="border-radius: 5px;"
-                                placeholder="Role" required="">
+                                placeholder="Role (English)" required="">
                             <span asp-validation-for="TeamMember.Role" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <input asp-for="TeamMember.RoleAr" class="form-control" style="border-radius: 5px;"
+                                placeholder="Role (Arabic)" required="">
+                            <span asp-validation-for="TeamMember.RoleAr" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <div>
@@ -53,7 +63,6 @@
                             <div class="error-message"></div>
                             <button type="submit">@Model.Localizer["save"]</button>
                         </div>
-
                     </div>
                 </form>
             </div>

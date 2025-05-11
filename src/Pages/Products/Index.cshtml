@@ -35,14 +35,24 @@
                         <a asp-page="/Products/Details" asp-route-id="@product.Id">
                             <img src="@product.Image" class="product-image" alt="@product.Name">
                             <div class="portfolio-info">
-                                <h4>@product.Name</h4>
+                                <h4>@if (Model.IsAr) { @product.NameAr } else { @product.Name }</h4>
                                 <p>
-                                    @if (product.Description.Length <= 60)
-                                        @product.Description
-                                    else 
-                                        @(product.Description[..50] + "...")
+                                    @if (Model.IsAr)
+                                    {
+                                        @if (product.Description.Length < 50)
+                                            @product.Description
+                                        else 
+                                            @(product.Description[..50] + "...")
+                                    }
+                                    else
+                                    {
+                                        @if (product.DescriptionAr.Length < 50)
+                                            @product.DescriptionAr
+                                        else
+                                            @(product.DescriptionAr[..50] + "...")
+                                    }
                                 </p>
-                                <a href="@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app"
+                                <a href="@product.Image" title="@if (Model.IsAr) { @product.NameAr } else { @product.Name }" data-gallery="portfolio-gallery-app"
                                     class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a asp-page="/Products/Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i
                                         class="bi bi-link-45deg"></i></a>
@@ -56,7 +66,6 @@
                             </div>
                         </a>
                     </div>
-                
                     <!-- End Portfolio Item -->
                 }
             </div><!-- End Portfolio Container -->

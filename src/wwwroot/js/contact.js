@@ -12,9 +12,17 @@ iconAddress.onclick = function(){
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Contact.Addresses[${a}]`;
-    input.placeholder = "Address";
+    input.placeholder = "Address (English)";
     input.className = "form-control mt-2";
     address.appendChild(input);
+
+    let input2 = document.createElement("input");
+    input2.type = "text";
+    input2.name = `Contact.AddressesAr[${a}]`;
+    input2.placeholder = "Address (Arabic";
+    input2.className = "form-control mt-2";
+    address.appendChild(input2);
+
     a++;
 }
 iconEmail.onclick = function(){

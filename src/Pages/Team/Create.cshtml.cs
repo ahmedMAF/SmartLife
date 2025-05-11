@@ -23,11 +23,7 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (Image != null)
-            TeamMember.Photo = await FileHelper.UploadFile(Image, "uploads/images/team");
-
-        // if (!ModelState.IsValid)
-        //     return Page();
+        TeamMember.Photo = await FileHelper.UploadFile(Image, "uploads/images/team");
 
         context.Team.Add(TeamMember);
         await context.SaveChangesAsync();

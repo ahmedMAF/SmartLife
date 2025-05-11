@@ -30,20 +30,24 @@
             <div class="col-lg-7">
                 <form method="post" enctype="multipart/form-data" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                     <div class="row gy-4">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        
                         <div class="col-md-12">
-                            <input asp-for="Product.Name" class="form-control" placeholder="Name" style="border-radius: 5px;" required="">
+                            <input asp-for="Product.Name" class="form-control" placeholder="Name (English)" style="border-radius: 5px;" required="">
                             <span asp-validation-for="Product.Name" class="text-danger"></span>
                         </div>
-
                         <div class="col-md-12">
-                            <textarea asp-for="Product.Description" class="form-control" placeholder="Description" style="border-radius: 5px;" required=""></textarea>
+                            <input asp-for="Product.NameAr" class="form-control" placeholder="Name (Arabic)" style="border-radius: 5px;" required="">
+                            <span asp-validation-for="Product.NameAr" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <textarea asp-for="Product.Description" class="form-control" placeholder="Description (English)" style="border-radius: 5px;" required=""></textarea>
                             <span asp-validation-for="Product.Description" class="text-danger"></span>
                         </div>
-
                         <div class="col-md-12">
-                            <input list="options" asp-for="Product.Category" class="form-control" placeholder="Category" style="border-radius: 5px;">
+                            <textarea asp-for="Product.DescriptionAr" class="form-control" placeholder="Description (Arabic)" style="border-radius: 5px;" required=""></textarea>
+                            <span asp-validation-for="Product.DescriptionAr" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <input list="options" asp-for="Product.Category" class="form-control" placeholder="Category (English)" style="border-radius: 5px;">
                             <datalist id="options">
                                 @foreach(var cat in Model.CategoryList)
                                 {
@@ -52,7 +56,16 @@
                             </datalist>
                             <span asp-validation-for="Product.Category" class="text-danger"></span>
                         </div>
-
+                        <div class="col-md-12">
+                            <input list="options" asp-for="Product.CategoryAr" class="form-control" placeholder="Category (Arabic)" style="border-radius: 5px;">
+                            <datalist id="options">
+                                @foreach(var cat in Model.CategoryArList)
+                                {
+                                    <option value="@cat" />
+                                }
+                            </datalist>
+                            <span asp-validation-for="Product.CategoryAr" class="text-danger"></span>
+                        </div>
                         <div class="col-md-12">
                             <div>
                                 <label class="w-100 mb-2 ps-2 text-start" for="MainImage">@Model.Localizer["image"]</label>

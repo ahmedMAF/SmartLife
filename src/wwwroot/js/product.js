@@ -17,36 +17,55 @@ iconfeature.onclick = function(){
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Product.Features[${f}].Name`;
-    input.placeholder = "Name";
+    input.placeholder = "Name (English)";
     input.className = "form-control mt-2";
+
+    let inputa = document.createElement("input");
+    inputa.type = "text";
+    inputa.name = `Product.Features[${f}].NameAr`;
+    inputa.placeholder = "Name (Arabic)";
+    inputa.className = "form-control mt-2";
+
     let input1 = document.createElement("textarea");
     input1.name = `Product.Features[${f}].Description`;
-    input1.placeholder = "Description";
+    input1.placeholder = "Description (English)";
     input1.className = "form-control mt-2";
+
+    let input1a = document.createElement("textarea");
+    input1a.name = `Product.Features[${f}].DescriptionAr`;
+    input1a.placeholder = "Description (Arabic)";
+    input1a.className = "form-control mt-2";
+
     let input22 = document.createElement("label");
     input22.className = "w-100 mb-1 mt-3 ps-2 text-start";
     input22.innerText = "Upload Image";
+
     let input2 = document.createElement("input");
     input2.type = "file";
     input2.name = "FeatureImages";
     input2.className = "form-control mt-2";
+
     let input33 = document.createElement("label");
     input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
     input33.innerText = "Upload Datasheet";
+
     let input3 = document.createElement("input");
     input3.type = "file";
     input3.name = "FeatureDataSheets";
     input3.className = "form-control mt-2";
+
     let input4 = document.createElement("input");
     input4.type = "text";
     input4.name = `Product.Features[${f}].GooglePlay`;
-    input4.placeholder = "Link google play";
+    input4.placeholder = "Link GooglePlay";
     input4.className = "form-control mt-2";
+
     let input5 = document.createElement("input");
     input5.type = "text";
     input5.name = `Product.Features[${f}].AppStore`;
-    input5.placeholder = "Link apple store";
+    input5.placeholder = "Link AppStore";
     input5.className = "form-control mt-2";
+
     feature.appendChild(input);
     feature.appendChild(input1);
     feature.appendChild(input22);
@@ -55,42 +74,63 @@ iconfeature.onclick = function(){
     feature.appendChild(input3);
     feature.appendChild(input4);
     feature.appendChild(input5);
+
     f++;
 }
+
 iconmodel.onclick = function(){
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `Product.Models[${m}].Name`;
-    input.placeholder = "Name";
+    input.name = `Product.Models[${f}].Name`;
+    input.placeholder = "Name (English)";
     input.className = "form-control mt-2";
+
+    let inputa = document.createElement("input");
+    inputa.type = "text";
+    inputa.name = `Product.Models[${f}].NameAr`;
+    inputa.placeholder = "Name (Arabic)";
+    inputa.className = "form-control mt-2";
+
     let input1 = document.createElement("textarea");
-    input1.name = `Product.Models[${m}].Description`;
-    input1.placeholder = "Description";
+    input1.name = `Product.Models[${f}].Description`;
+    input1.placeholder = "Description (English)";
     input1.className = "form-control mt-2";
+
+    let input1a = document.createElement("textarea");
+    input1a.name = `Product.Models[${f}].DescriptionAr`;
+    input1a.placeholder = "Description (Arabic)";
+    input1a.className = "form-control mt-2";
+
     let input22 = document.createElement("label");
     input22.className = "w-100 mb-1 mt-3 ps-2 text-start";
     input22.innerText = "Upload Image";
+
     let input2 = document.createElement("input");
     input2.type = "file";
     input2.name = "ModelImages";
     input2.className = "form-control mt-2";
+
     let input33 = document.createElement("label");
     input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
     input33.innerText = "Upload Datasheet";
+
     let input3 = document.createElement("input");
     input3.type = "file";
     input3.name = "ModelDataSheets";
     input3.className = "form-control mt-2";
+
     let input4 = document.createElement("input");
     input4.type = "text";
     input4.name = `Product.Models[${m}].GooglePlay`;
-    input4.placeholder = "Link google play";
+    input4.placeholder = "Link GooglePlay";
     input4.className = "form-control mt-2";
+
     let input5 = document.createElement("input");
     input5.type = "text";
     input5.name = `Product.Models[${m}].AppStore`;
-    input5.placeholder = "Link apple store";
+    input5.placeholder = "Link AppStore";
     input5.className = "form-control mt-2";
+
     model.appendChild(input);
     model.appendChild(input1);
     model.appendChild(input22);
@@ -99,33 +139,53 @@ iconmodel.onclick = function(){
     model.appendChild(input3);
     model.appendChild(input4);
     model.appendChild(input5);
+
     m++;
 }
+
 iconphoto.onclick = function(){
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `PhotoDetails[${p}].Name`;
-    input.placeholder = "Name";
+    input.name = `Product.Photos[${p}].Name`;
+    input.placeholder = "Name (English)";
     input.className = "form-control mt-2";
+    
+    let inputa = document.createElement("input");
+    inputa.type = "text";
+    inputa.name = `Product.Photos[${p}].NameAr`;
+    inputa.placeholder = "Name (Arabic)";
+    inputa.className = "form-control mt-2";
+
+    let input1a = document.createElement("textarea");
+    input1a.name = `Product.Photos[${p}].Description`;
+    input1a.placeholder = "Description (English)";
+    input1a.className = "form-control mt-2";
+
     let input1 = document.createElement("textarea");
-    input1.name = `PhotoDetails[${p}].Description`;
-    input1.placeholder = "Description";
+    input1.name = `Product.Photos[${p}].DescriptionAr`;
+    input1.placeholder = "Description (Arabic)";
     input1.className = "form-control mt-2";
+
     let input2 = document.createElement("input");
     input2.type = "file";
     input2.name = "PhotoFiles";
     input2.className = "form-control mt-2";
+
     photo.appendChild(input);
     photo.appendChild(input1);
     photo.appendChild(input2);
+
     p++;
 }
+
 iconvideo.onclick = function(){
     let input = document.createElement("input");
     input.type = "text";
     input.name = `VideoUrls[${v}]`;
     input.placeholder = "Video link";
     input.className = "form-control mt-2";
+
     video.appendChild(input);
+
     v++;
 }

@@ -29,13 +29,24 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
     public async Task<IActionResult> OnPostAsync()
     {
-        Contact.Addresses.RemoveAll(string.IsNullOrEmpty);
+        for (int i = 0; i < Contact.Addresses.Count; i++)
+        {
+            if (string.IsNullOrEmpty(Contact.Addresses[i]) && string.IsNullOrEmpty(Contact.AddressesAr[i]))
+            {
+                Contact.Addresses.RemoveAt(i);
+                Contact.AddressesAr.RemoveAt(i);
+                i--;
+            }
+            else if (string.IsNullOrEmpty(Contact.Addresses[i]) || string.IsNullOrEmpty(Contact.AddressesAr[i]))
+            {
+                ModelState.AddModelError("", "Not all addresses are written in both languages.");
+                return Page();
+            }
+        }
+
         Contact.Emails.RemoveAll(string.IsNullOrEmpty);
         Contact.Phones.RemoveAll(string.IsNullOrEmpty);
         Contact.WhatsApps.RemoveAll(string.IsNullOrEmpty);
-
-        if (!ModelState.IsValid)
-            return Page();
 
         context.Contacts.Update(Contact);
         await context.SaveChangesAsync();

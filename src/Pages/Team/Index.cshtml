@@ -32,8 +32,8 @@
         {
             <div class="team-member">
                 <img src="@member.Photo" alt="@member.Name" class="profile-pic" />
-                <div class="name">@member.Name</div>
-                <div class="title">@member.Role</div>
+                <div class="name">@if (Model.IsAr) { @member.NameAr } else { @member.Name }</div>
+                <div class="title">@if (Model.IsAr) { @member.NameAr } else { @member.Name }</div>
                 @if (User.Identity != null && User.Identity.IsAuthenticated)
                 {
                     <a asp-page="/Team/Edit" asp-route-id="@member.Id" class="me-3">Edit</a>
@@ -44,6 +44,5 @@
             </div>
         }
     </div>
-
 </section>
 <!-- /Clients Section -->

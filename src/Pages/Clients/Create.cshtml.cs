@@ -26,12 +26,7 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public async Task<IActionResult> OnPostAsync()
     {
         Client.Type = PcType.Client;
-
-        if (Image != null)
-            Client.Image = await FileHelper.UploadFile(Image, "uploads/images/clients");
-
-        // if (!ModelState.IsValid)
-        //     return Page();
+        Client.Image = await FileHelper.UploadFile(Image, "uploads/images/clients");
 
         context.PartnersClients.Add(Client);
         await context.SaveChangesAsync();

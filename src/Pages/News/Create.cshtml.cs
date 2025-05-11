@@ -26,22 +26,13 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     {
         string folder = "uploads/images/posts";
         Post.Time = DateTime.Now;
-    
-        if (Images != null)
-        {
-            foreach (var image in Images)
-            {
-                string file = await FileHelper.UploadFile(image, folder);
-                Post.Images.Add(file);
-            }
-        }
 
-        if (!ModelState.IsValid)
-            return Page();
+        foreach (var image in Images)
+            Post.Images.Add(await FileHelper.UploadFile(image, folder));
 
         context.News.Add(Post);
         await context.SaveChangesAsync();
 
-        return RedirectToPage("/Admin/Index");
+        return RedirectToPage("/News/Index");
     }
 }

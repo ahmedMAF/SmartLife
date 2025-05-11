@@ -19,7 +19,6 @@ public class PasswordModel(SmartLifeDb context, IStringLocalizer<PasswordModel> 
 
     public async Task<IActionResult> OnGetAsync()
     {
-        
         return Page();
     }
 
@@ -30,7 +29,7 @@ public class PasswordModel(SmartLifeDb context, IStringLocalizer<PasswordModel> 
         if (password != OldPassword)
         {
             ModelState.AddModelError("OldPassword", "Wrong password.");
-            return RedirectToPage();
+            return Page();
         }
 
         if (NewPassword == ConfirmPassword)
@@ -38,6 +37,7 @@ public class PasswordModel(SmartLifeDb context, IStringLocalizer<PasswordModel> 
             System.IO.File.WriteAllText("pwd", NewPassword);
         }
 
+        return RedirectToPage("/Admin/Index");
         return RedirectToPage("/Admin/Index");
 	}
 }

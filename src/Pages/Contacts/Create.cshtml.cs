@@ -25,9 +25,6 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
-            return Page();
-
         context.Contacts.Add(Contact);
         await context.SaveChangesAsync();
 

@@ -6,7 +6,6 @@
 
 <!-- Hero Section -->
 <section id="hero" class="hero section dark-background">
-
     <div class="container text-center">
         <div class="row justify-content-center" data-aos="zoom-out">
             <div class="col-lg-8">
@@ -119,14 +118,24 @@
                         <a asp-page="/Products/Details" asp-route-id="@product.Id">
                             <img src="@product.Image" class="product-image" alt="@product.Name">
                             <div class="portfolio-info">
-                                <h4>@product.Name</h4>
+                                <h4>@if (Model.IsAr) { @product.NameAr } else { @product.Name }</h4>
                                 <p>
-                                    @if (product.Description.Length < 50)
-                                        @product.Description
-                                    else 
-                                        @(product.Description[..50] + "...")
+                                    @if (Model.IsAr)
+                                    {
+                                        @if (product.Description.Length < 50)
+                                            @product.Description
+                                        else 
+                                            @(product.Description[..50] + "...")
+                                    }
+                                    else
+                                    {
+                                        @if (product.DescriptionAr.Length < 50)
+                                            @product.DescriptionAr
+                                        else
+                                            @(product.DescriptionAr[..50] + "...")
+                                    }
                                 </p>
-                                <a href="@product.Image" title="@product.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="@product.Image" title="@if (Model.IsAr) { @product.NameAr } else { @product.Name }" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a asp-page="/Products/Details" asp-route-id="@product.Id" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
                         </a>
@@ -167,10 +176,25 @@
                     <div class="swiper-slide">
                         <div class="testimonial-item">
                             <img src="@client.Image" class="testimonial-img" alt="@client.Name">
-                            <h3>@client.Name</h3>
+                            <h3>@if (Model.IsAr) { @client.NameAr } else { @client.Name }</h3>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>@client.Description</span>
+                                <span>
+                                    @if (Model.IsAr)
+                                    {
+                                        @if (client.Description.Length < 50)
+                                            @client.Description
+                                        else 
+                                            @(client.Description[..50] + "...")
+                                    }
+                                    else
+                                    {
+                                        @if (client.DescriptionAr.Length < 50)
+                                            @client.DescriptionAr
+                                        else
+                                            @(client.DescriptionAr[..50] + "...")
+                                    }
+                                </span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -194,13 +218,9 @@
     </div><!-- End Section Title -->
 
     <div class="container">
-
         <div class="row">
-
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
                 <div class="faq-container">
-
                     <div class="faq-item faq-active">
                         <h3>@Model.Localizer["home_why_us_q1"]</h3>
                         <div class="faq-content">
@@ -217,7 +237,6 @@
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
                 </div>
-
             </div><!-- End Faq Column-->
 
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
@@ -276,7 +295,7 @@
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
                             <h3>@Model.Localizer["home_contact_address"]</h3>
-                            @foreach (string address in Model.Contact.Addresses)
+                            @foreach (string address in Model.IsAr ? Model.Contact.AddressesAr : Model.Contact.Addresses)
                             {
                                 <p>@address</p>
                             }
@@ -358,13 +377,9 @@
 
                             <button type="submit">@Model.Localizer["home_contact_form_send"]</button>
                         </div>
-
                     </div>
                 </form>
             </div><!-- End Contact Form -->
-
         </div>
-
     </div>
-
 </section><!-- /Contact Section -->
