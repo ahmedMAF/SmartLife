@@ -8,12 +8,12 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Admin</h1>
+        <h1>@Model.Localizer["editclientsadmin"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li><a asp-page="/Admin/Index">Admin</a></li>
-                <li class="current">Edit Client</li>
+                <li><a asp-page="/Index">@Model.Localizer["editclientsahome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["editclientsadmin"]</a></li>
+                <li class="current">@Model.Localizer["editclient"]</li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Edit Client</h2>
+        <h2>@Model.Localizer["editclient"]</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-md-12">
                             <div>
-                                <label class="w-100 mb-2 ps-2 text-start" for="image">Upload Image</label>
+                                <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["uploadimage"]</label>
                                 <input asp-for="Image" style="border-radius: 5px;" class="form-control"
                                     placeholder="Image">
                             </div>
@@ -51,7 +51,7 @@
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
 
-                            <button type="submit">Save</button>
+                            <button type="submit">@Model.Localizer["save"]</button>
                         </div>
 
                     </div>

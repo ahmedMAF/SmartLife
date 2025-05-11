@@ -117,16 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lastnews" xml:space="preserve">
-    <value>آخر الأخبار</value>
+  <data name="editclientsadmin" xml:space="preserve">
+    <value>المسؤول</value>
     <comment/>
   </data>
-  <data name="lastnewshome" xml:space="preserve">
+  <data name="editclientsahome" xml:space="preserve">
     <value>الرئيسية</value>
     <comment/>
   </data>
-  <data name="lastnewsp1" xml:space="preserve">
-    <value>في سمارت لايف، نؤمن بأن المعرفة قوة — تابع آخر أخبارنا وكن دائمًا في قلب الحدث</value>
+  <data name="editclient" xml:space="preserve">
+    <value>تعديل العميل</value>
+    <comment/>
+  </data>
+  <data name="uploadimage" xml:space="preserve">
+    <value>رفع صورة</value>
+    <comment/>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>حفظ</value>
     <comment/>
   </data>
 </root>

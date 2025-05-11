@@ -8,11 +8,11 @@
 <!-- Page Title -->
 <div style="background-image: /img/contact.jpg;" class="page-title dark-background">
     <div class="container">
-    <h1>Contact Us</h1>
+    <h1>@Model.Localizer["contactus"]</h1>
     <nav class="breadcrumbs">
         <ol>
-        <li><a asp-page="/Index">Home</a></li>
-        <li class="current">Contact</li>
+        <li><a asp-page="/Index">@Model.Localizer["contacthome"]</a></li>
+        <li class="current">@Model.Localizer["contactus"]</li>
         </ol>
     </nav>
     </div>
@@ -23,8 +23,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>If you have any questions, please do not hesitate to send us a message. We aim to reply within 24 hours.</p>
+        <h2>@Model.Localizer["contactus"]</h2>
+        <p>@Model.Localizer["contactusp1"]</p>
     </div>
     <!-- End Section Title -->
 

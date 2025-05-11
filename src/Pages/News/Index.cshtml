@@ -9,8 +9,11 @@
 <div class="page-title dark-background">
     <div class="container">
         <h1>@Model.Localizer["lastnews"]</h1>
+        <h1>@Model.Localizer["lastnews"]</h1>
         <nav class="breadcrumbs">
             <ol>
+                <li><a asp-page="/Index">@Model.Localizer["lastnewshome"]</a></li>
+                <li class="current">@Model.Localizer["lastnews"]</li>
                 <li><a asp-page="/Index">@Model.Localizer["lastnewshome"]</a></li>
                 <li class="current">@Model.Localizer["lastnews"]</li>
             </ol>
@@ -23,6 +26,7 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
+        <h2>@Model.Localizer["lastnews"]</h2>
         <h2>@Model.Localizer["lastnews"]</h2>
         <p>
             @Model.Localizer["lastnewsp1"]

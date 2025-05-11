@@ -117,16 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lastnews" xml:space="preserve">
-    <value>آخر الأخبار</value>
+  <data name="editadmin" xml:space="preserve">
+    <value>Admin</value>
     <comment/>
   </data>
-  <data name="lastnewshome" xml:space="preserve">
-    <value>الرئيسية</value>
+  <data name="editadminhome" xml:space="preserve">
+    <value>Home</value>
     <comment/>
   </data>
-  <data name="lastnewsp1" xml:space="preserve">
-    <value>في سمارت لايف، نؤمن بأن المعرفة قوة — تابع آخر أخبارنا وكن دائمًا في قلب الحدث</value>
+  <data name="editabout" xml:space="preserve">
+    <value>Edit About</value>
+    <comment/>
+  </data>
+  <data name="countries" xml:space="preserve">
+    <value>Countries</value>
+    <comment/>
+  </data>
+  <data name="projects" xml:space="preserve">
+    <value>Projects</value>
+    <comment/>
+  </data>
+  <data name="consultants" xml:space="preserve">
+    <value>Consultants</value>
+    <comment/>
+  </data>
+  <data name="employees" xml:space="preserve">
+    <value>Employees</value>
+    <comment/>
+  </data>
+  <data name="clients" xml:space="preserve">
+    <value>Clients</value>
+    <comment/>
+  </data>
+  <data name="branches" xml:space="preserve">
+    <value>Branches</value>
+    <comment/>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+    <comment/>
+  </data>
+  <data name="addgrowth" xml:space="preserve">
+    <value>Add Growth</value>
+    <comment/>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>Year</value>
+    <comment/>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>Value</value>
+    <comment/>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>Add</value>
     <comment/>
   </data>
 </root>
