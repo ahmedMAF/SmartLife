@@ -117,112 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="about" xml:space="preserve">
-    <value>About Us</value>
+  <data name="lastnews" xml:space="preserve">
+    <value>آخر الأخبار</value>
     <comment/>
   </data>
-  <data name="aboutHome" xml:space="preserve">
-    <value>Home</value>
+  <data name="lastnewshome" xml:space="preserve">
+    <value>الرئيسية</value>
     <comment/>
   </data>
-  <data name="paragraph" xml:space="preserve">
-    <value>We create smart solutions that make your life easier and more luxurious</value>
-    <comment/>
-  </data>
-  <data name="vision" xml:space="preserve">
-    <value>Vision</value>
-    <comment/>
-  </data>
-  <data name="visionp1" xml:space="preserve">
-    <value>To be the market leader in smart automation systems, delivering innovative solutions that redefine comfort, efficiency, and security.</value>
-    <comment/>
-  </data>
-  <data name="visionp2" xml:space="preserve">
-    <value>To be one of Middle East market leaders in the field of automation system solutions and to pursue maximum customer satisfaction by providing reliable, sustainable products &amp; efficient, high-quality services.</value>
-    <comment/>
-  </data>
-  <data name="mission" xml:space="preserve">
-    <value>Mission</value>
-    <comment/>
-  </data>
-  <data name="missionp1" xml:space="preserve">
-    <value>Full Smart City Automation</value>
-    <comment/>
-  </data>
-  <data name="missionp2" xml:space="preserve">
-    <value>Developing comprehensive sustainable automation solutions &amp; providing innovative services in accordance with international standards &amp; best practices with inspiring national talents that enhance community luxury &amp; and seeks maximum customer satisfaction.</value>
-    <comment/>
-  </data>
-  <data name="values" xml:space="preserve">
-    <value>Values</value>
-    <comment/>
-  </data>
-  <data name="valuesp1" xml:space="preserve">
-    <value>Our values are the foundation upon which we build every innovation we offer. We believe in sustainability as a path to the future, in smart solutions as a means to comfort, and in innovation as the spirit of renewal and progress. Quality is not an option, but a commitment — and safety is a non-negotiable priority. With Smart Life, we are redefining smart living through solid values and a renewed vision.</value>
-    <comment/>
-  </data>
-  <data name="smart" xml:space="preserve">
-    <value>Smart</value>
-    <comment/>
-  </data>
-  <data name="sustainability" xml:space="preserve">
-    <value>Sustainability</value>
-    <comment/>
-  </data>
-  <data name="innovation" xml:space="preserve">
-    <value>Innovation</value>
-    <comment/>
-  </data>
-  <data name="quality" xml:space="preserve">
-    <value>Quality</value>
-    <comment/>
-  </data>
-  <data name="safety" xml:space="preserve">
-    <value>Safety</value>
-    <comment/>
-  </data>
-  <data name="growing" xml:space="preserve">
-    <value>Our Growing</value>
-    <comment/>
-  </data>
-  <data name="since" xml:space="preserve">
-    <value>Since</value>
-    <comment/>
-  </data>
-  <data name="sincep1" xml:space="preserve">
-    <value>Since 2008, Smart Life has been at the forefront of redefining modern living — seamlessly blending advanced technology with everyday comfort. What began as a vision to simplify life through innovation has evolved into a trusted name in smart home solutions, sustainability, and safety. Passion drives us, technology empowers us, and the future inspires us. We continue to innovate to deliver intelligent solutions that shape a more comfortable and secure tomorrow.</value>
-    <comment/>
-  </data>
-  <data name="year" xml:space="preserve">
-    <value>Year</value>
-    <comment/>
-  </data>
-  <data name="country" xml:space="preserve">
-    <value>Country</value>
-    <comment/>
-  </data>
-  <data name="project" xml:space="preserve">
-    <value>Project</value>
-    <comment/>
-  </data>
-  <data name="consultants" xml:space="preserve">
-    <value>Consultants</value>
-    <comment/>
-  </data>
-  <data name="emplyoees" xml:space="preserve">
-    <value>Emplyoees</value>
-    <comment/>
-  </data>
-  <data name="happyClients" xml:space="preserve">
-    <value>Happy Clients</value>
-    <comment/>
-  </data>
-  <data name="branches" xml:space="preserve">
-    <value>Branches</value>
-    <comment/>
-  </data>
-  <data name="countries" xml:space="preserve">
-    <value>Countries</value>
+  <data name="lastnewsp1" xml:space="preserve">
+    <value>في Smart Life، نؤمن أن المعرفة هي القوة - تابع أحدث أخبارنا وكن دائمًا في قلب الحدث</value>
     <comment/>
   </data>
 </root>
