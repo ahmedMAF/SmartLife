@@ -11,8 +11,8 @@
         <h1>@Model.Product.Name</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li><a asp-page="/Products/Index">Products</a></li>
+                <li><a asp-page="/Index">@Model.Localizer["detalishome"]</a></li>
+                <li><a asp-page="/Products/Index">@Model.Localizer["products"]</a></li>
                 <li class="current">@Model.Product.Name</li>
             </ol>
         </nav>
@@ -32,7 +32,7 @@
         @if (Model.Product.Features.Count != 0)
         {
             <div class="" data-layout="masonry" data-sort="original-order">
-                <h2 class="partners mb-5">Features</h2>
+                <h2 class="partners mb-5">@Model.Localizer["features"]</h2>
                 <div class="" data-aos="fade-up" data-aos-delay="200">
                     @foreach (var pFeature in @Model.Product.Features)
                     {
@@ -74,7 +74,7 @@
         @if (Model.Product.Models.Count != 0)
         {
             <div class="" data-layout="masonry" data-sort="original-order">
-                <h2 class="partners mb-5">Models</h2>
+                <h2 class="partners mb-5">@Model.Localizer["models"]</h2>
                 <div class="" data-aos="fade-up" data-aos-delay="200">
                     @foreach (var pModel in @Model.Product.Models)
                     {
@@ -116,7 +116,7 @@
         @if (Model.Product.Photos.Count != 0)
         {
             <div class="mb-5" data-layout="masonry" data-sort="original-order">
-                <h2 class="partners mb-5">Photo Gallery</h2>
+                <h2 class="partners mb-5">@Model.Localizer["photogallery"]</h2>
                 <div class="d-flex justify-content-around" data-aos="fade-up" data-aos-delay="200">
                     <div class="portfolio-details col-lg-8">
                         <div class="portfolio-details-slider swiper init-swiper">
@@ -162,7 +162,7 @@
         @if (Model.Product.Videos.Count != 0)
         {
             <div class="" data-layout="masonry" data-sort="original-order">
-                <h2 class="partners mb-5">Video Gallary</h2>
+                <h2 class="partners mb-5">@Model.Localizer["videogallary"]</h2>
                 <div class="d-flex justify-content-around" data-aos="fade-up" data-aos-delay="200">
                     <div class="portfolio-details col-lg-8 text-center">
                         <div class="portfolio-details-slider swiper init-swiper">
