@@ -31,6 +31,10 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.PrimitiveCollection<string>("AddressesAr")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.PrimitiveCollection<string>("Emails")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -59,11 +63,17 @@ namespace SmartLife.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("DescriptionAr")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameAr")
                         .HasColumnType("longtext");
 
                     b.Property<int>("Type")
@@ -89,6 +99,10 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("ContentAr")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.PrimitiveCollection<string>("Images")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -97,6 +111,10 @@ namespace SmartLife.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TitleAr")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -117,7 +135,15 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("CategoryAr")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("DescriptionAr")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -134,6 +160,10 @@ namespace SmartLife.Migrations
                         .HasColumnType("json");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameAr")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -162,11 +192,19 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("NameAr")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Photo")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RoleAr")
                         .IsRequired()
                         .HasColumnType("longtext");
 

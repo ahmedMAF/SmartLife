@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SmartLife.Models;
-using SmartLife.Data;
 using SmartLife.Utilities;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
@@ -34,26 +33,23 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public List<IFormFile> ModelDataSheets { get; set; } = [];
 
     [BindProperty]
-    public List<GalleryEntry> PhotoDetails { get; set; } = [];
-
-    [BindProperty]
     public List<string> VideoUrls { get; set; } = [];
 
     public List<string> CategoryList { get; set; } = default!;
+    public List<string> CategoryArList { get; set; } = default!;
     public IStringLocalizer<CreateModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()
     {
         CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
+        CategoryArList = await context.Products.Select(p => p.CategoryAr).Distinct().ToListAsync();
         return Page();
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
         Product.Category ??= "";
-
-        if (Image != null)
-            Product.Image = await FileHelper.UploadFile(Image, "uploads/images/products");
+        Product.Image = await FileHelper.UploadFile(Image, "uploads/images/products");
 
         for (int i = 0; i < FeatureImages.Count; i++)
             Product.Features[i].Image = await FileHelper.UploadFile(FeatureImages[i], "uploads/images/products/features");
@@ -68,19 +64,10 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
             Product.Models[i].DataSheetUrl = await FileHelper.UploadFile(ModelDataSheets[i], "uploads/datasheets/models");
 
         for (int i = 0; i < PhotoFiles.Count; i++)
-        {
-            PhotoDetails[i].Url = await FileHelper.UploadFile(PhotoFiles[i], "uploads/images/products");
-            Product.Photos.Add(PhotoDetails[i]);
-        }
+            Product.Photos[i].Url = await FileHelper.UploadFile(PhotoFiles[i], "uploads/images/products");
 
         foreach (var videoUrl in VideoUrls.Where(v => !string.IsNullOrWhiteSpace(v)))
             Product.Videos.Add(UrlHelper.GetYouTubeVideoId(videoUrl));
-
-        // if (!ModelState.IsValid)
-        // {
-        //     CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
-        //     return Page();
-        // }
 
         context.Products.Add(Product);
         await context.SaveChangesAsync();

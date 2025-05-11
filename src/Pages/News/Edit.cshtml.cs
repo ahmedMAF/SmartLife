@@ -33,18 +33,12 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         var post = await context.News.FindAsync(id);
         post.Time = Post.Time;
         post.Title = Post.Title;
+        post.TitleAr = Post.TitleAr;
         post.Content = Post.Content;
+        post.ContentAr = Post.ContentAr;
 
-        string folder = "uploads/images/posts";
-    
-        if (Images.Count != 0)
-        {
-            foreach (var image in Images)
-            {
-                string file = await FileHelper.UploadFile(image, folder);
-                post.Images.Add(file);
-            }
-        }
+        foreach (var image in Images)
+            post.Images.Add(await FileHelper.UploadFile(image, "uploads/images/posts"));
 
         await context.SaveChangesAsync();
 
@@ -56,7 +50,6 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         var post = await context.News.FindAsync(id);
 
         post.Images.RemoveAt(photoId);
-        context.News.Update(post);
         await context.SaveChangesAsync();
 
         return RedirectToPage();

@@ -1,9 +1,10 @@
-translate
-
-localize db
-form validatin
 undo add feature
-server validatin msgs
+delete bar about
+
+style:
+clients and partners short description not warping
+
+===========================================================================================================
 
 To Laod page with videos faster
 Instead of embedding the full player, first show just a thumbnail image and a “play” button.

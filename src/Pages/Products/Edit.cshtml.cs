@@ -59,6 +59,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
     // Others
     public List<string> CategoryList { get; set; } = default!;
+    public List<string> CategoryArList { get; set; } = default!;
     public IStringLocalizer<EditModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync(int id)
@@ -69,10 +70,9 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
             return NotFound();
 
         Product = product;
-        PhotoDetails = product.Photos;
-        VideoUrls = product.Videos;
         CategoryList = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
-        CategoryList.Sort();
+        CategoryArList = await context.Products.Select(p => p.CategoryAr).Distinct().ToListAsync();
+        // CategoryList.Sort();
 
         return Page();
     }
@@ -82,8 +82,11 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         var product = await context.Products.FindAsync(id);
 		
 		product.Name = Product.Name;
+		product.NameAr = Product.NameAr;
 		product.Description = Product.Description;
+		product.DescriptionAr = Product.DescriptionAr;
 		product.Category = Product.Category ?? "";
+		product.CategoryAr = Product.CategoryAr ?? "";
 
         product.Image = await FileHelper.UploadReplaceFile(product.Image, Image, "uploads/images/products");
 

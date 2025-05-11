@@ -32,23 +32,23 @@
     <div class="pricing section">
         <div class="container">
             <div class="row gy-4">
-                @foreach (var post in Model.Posts)
+                @for (int i = Model.Posts.Count; i >= 0; i--)
                 {
                     <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-item">
-                            <h3 class="mb-0">@post.Title</h3>
-                            <span>@post.Time</span>
-                            <p class="my-3">@post.Content</p>
+                            <h3 class="mb-0">@Model.Posts[i].Title</h3>
+                            <span>@Model.Posts[i].Time</span>
+                            <p class="my-3">@Model.Posts[i].Content</p>
                             <div class="text-end">
-                                @foreach(var image in post.Images)
+                                @foreach(var image in Model.Posts[i].Images)
                                 {
-                                    <img style="height: 200px;" class="mb-1" src="@image" alt="@post.Title">
+                                    <img style="height: 200px;" class="mb-1" src="@image" alt="@Model.Posts[i].Title">
                                 }
                             </div>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
-                                <a asp-page="/News/Edit" asp-route-id="@post.Id" class="me-3">Edit</a>
-                                <form method="post" action="/News/Delete/@post.Id" style="display: inline;" asp-antiforgery="false">
+                                <a asp-page="/News/Edit" asp-route-id="@Model.Posts[i].Id" class="me-3">Edit</a>
+                                <form method="post" action="/News/Delete/@Model.Posts[i].Id" style="display: inline;" asp-antiforgery="false">
                                     <button class="a text-danger" type="submit">Delete</button>
                                 </form>
                             }
