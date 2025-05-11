@@ -19,7 +19,6 @@ public class PasswordModel(SmartLifeDb context, IStringLocalizer<PasswordModel> 
 
     public async Task<IActionResult> OnGetAsync()
     {
-        
         return Page();
     }
 

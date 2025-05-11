@@ -149,6 +149,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         SubModule.DataSheetUrl = await FileHelper.UploadReplaceFile(product.Models[modelId].DataSheetUrl, DataSheet,
             "uploads/datasheets/models");
         product.Models[modelId] = SubModule;
+        await context.SaveChangesAsync();
 
         return RedirectToPage();
     }

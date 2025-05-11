@@ -44,7 +44,7 @@
                                         @(client.Description[..50] + "...")
                                 </p>
                             }
-                            <a href="@client.Image" title="Zoom" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="@client.Image" title="@client.Description" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
                                 <a asp-page="/Clients/Edit" asp-route-id="@client.Id" class="me-3">Edit</a>
