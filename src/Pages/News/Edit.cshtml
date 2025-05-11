@@ -71,7 +71,7 @@
                         <form asp-asp-page-handler="DeletePhoto" class="form" asp-antiforgery="false">
                             <input type="hidden" name="modelId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Post.Id" />
-                            <img style="width: 100%;" src="Model.Post.Images[i]" alt="">
+                            <img style="width: 100%;" src="@Model.Post.Images[i]" alt="">
                             <div class="col-md-12 text-center mt-3">
                                 <button type="submit">Delete</button>
                             </div>

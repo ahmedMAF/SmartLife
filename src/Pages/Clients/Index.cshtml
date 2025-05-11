@@ -35,8 +35,16 @@
                         <img src="@client.Image" class="product-image" alt="">
                         <div class="portfolio-info">
                             <h4>@client.Name</h4>
-                            <p>@client.Description</p>
-                            <a href="@client.Image" title="@client.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            @if (client.Description != null)
+                            {
+                                <p>
+                                    @if (client.Description.Length <= 60)
+                                        @client.Description
+                                    else
+                                        @(client.Description[..50] + "...")
+                                </p>
+                            }
+                            <a href="@client.Image" title="Zoom" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
                                 <a asp-page="/Clients/Edit" asp-route-id="@client.Id" class="me-3">Edit</a>
