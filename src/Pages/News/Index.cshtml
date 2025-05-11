@@ -36,13 +36,13 @@
                 {
                     <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-item">
-                            <h3 class="mb-0">@Model.Posts[i].Title</h3>
+                            <h3 class="mb-0">@if (Model.IsAr) { @Model.Posts[i].TitleAr } else { @Model.Posts[i].Title }</h3>
                             <span>@Model.Posts[i].Time</span>
-                            <p class="my-3">@Model.Posts[i].Content</p>
+                            <p class="my-3">@if (Model.IsAr) { @Model.Posts[i].ContentAr } else { @Model.Posts[i].Content }</p>
                             <div class="text-end">
                                 @foreach(var image in Model.Posts[i].Images)
                                 {
-                                    <img style="height: 200px;" class="mb-1" src="@image" alt="@Model.Posts[i].Title">
+                                    <img style="height: 200px;" class="mb-1" src="@image" alt="">
                                 }
                             </div>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)

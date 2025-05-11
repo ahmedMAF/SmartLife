@@ -8,10 +8,9 @@ namespace SmartLife.Pages.Team;
 
 public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
-    [BindProperty]
-    public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
-
     public IList<TeamMember> Team { get;set; } = default!;
+    public bool IsAr { get; set; } = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
+    public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()
     {

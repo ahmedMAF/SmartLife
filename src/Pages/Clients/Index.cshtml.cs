@@ -10,6 +10,7 @@ namespace SmartLife.Pages.Clients;
 public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
     public IList<PartnerClient> Clients { get;set; } = default!;
+    public bool IsAr { get; set; } = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()

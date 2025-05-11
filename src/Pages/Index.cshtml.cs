@@ -16,6 +16,7 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
     public IList<Product> Products { get; set; } = default!;
     public IList<string> Categories { get; set; } = default!;
     public Contact Contact { get; set; } = default!;
+    public bool IsAr { get; set; } = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public async Task<IActionResult> OnGetAsync()

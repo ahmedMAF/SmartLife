@@ -34,17 +34,20 @@
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                         <img src="@partner.Image" class="partner-image" alt="">
                         <div class="portfolio-info">
-                            <h4>@partner.Name</h4>
-                            @if (partner.Description != null)
+                            <h4>@if (Model.IsAr) { @partner.NameAr } else { @partner.Name }</h4>
+                            @{
+                                string desc = Model.IsAr ? partner.DescriptionAr : partner.Description;
+                            }
+                            @if (desc != null)
                             {
                                 <p>
-                                    @if (partner.Description.Length <= 60)
-                                        @partner.Description
+                                    @if (desc.Length <= 60)
+                                        @desc
                                     else
-                                        @(partner.Description[..50] + "...")
+                                        @(desc[..50] + "...")
                                 </p>
                             }
-                            <a href="@partner.Image" title="@partner.Description" data-gallery="portfolio-gallery-app"
+                            <a href="@partner.Image" title="@if (Model.IsAr) { @partner.DescriptionAr } else { @partner.Description }" data-gallery="portfolio-gallery-app"
                                 class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {

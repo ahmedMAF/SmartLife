@@ -44,7 +44,7 @@
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
                             <h3>Address</h3>
-                            @foreach (string address in Model.Contact.Addresses)
+                            @foreach (string address in Model.IsAr ? Model.Contact.AddressesAr : Model.Contact.Addresses)
                             {
                                 <p>@address</p>
                             }

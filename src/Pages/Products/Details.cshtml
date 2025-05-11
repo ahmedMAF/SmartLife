@@ -24,8 +24,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>@Model.Product.Name</h2>
-        <p>@Model.Product.Description</p>
+        <h2>@if (Model.IsAr) { @Model.Product.NameAr } else { @Model.Product.Name }</h2>
+        <p>@if (Model.IsAr) { @Model.Product.DescriptionAr } else { @Model.Product.Description }</p>
     </div><!-- End Section Title -->
 
     <div class="container">
