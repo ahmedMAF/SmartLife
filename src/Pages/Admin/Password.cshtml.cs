@@ -27,11 +27,17 @@ public class PasswordModel(SmartLifeDb context, IStringLocalizer<PasswordModel> 
 	{
         string password = System.IO.File.ReadAllText("pwd");
 
-        if (password == OldPassword && NewPassword == ConfirmPassword)
+        if (password != OldPassword)
+        {
+            ModelState.AddModelError("OldPassword", "Wrong password.");
+            return Page();
+        }
+
+        if (NewPassword == ConfirmPassword)
         {
             System.IO.File.WriteAllText("pwd", NewPassword);
         }
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Admin/Index");
 	}
 }
