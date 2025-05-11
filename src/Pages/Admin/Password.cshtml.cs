@@ -39,5 +39,6 @@ public class PasswordModel(SmartLifeDb context, IStringLocalizer<PasswordModel> 
         }
 
         return RedirectToPage("/Admin/Index");
+        return RedirectToPage("/Admin/Index");
 	}
 }
