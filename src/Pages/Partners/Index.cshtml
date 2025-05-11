@@ -35,11 +35,17 @@
                         <img src="@partner.Image" class="partner-image" alt="">
                         <div class="portfolio-info">
                             <h4>@partner.Name</h4>
-                            <p>@partner.Description</p>
-                            <a href="@partner.Image" title="@partner.Name" data-gallery="portfolio-gallery-app"
+                            @if (partner.Description != null)
+                            {
+                                <p>
+                                    @if (partner.Description.Length <= 60)
+                                        @partner.Description
+                                    else
+                                        @(partner.Description[..50] + "...")
+                                </p>
+                            }
+                            <a href="@partner.Image" title="Zoom" data-gallery="portfolio-gallery-app"
                                 class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="@partner.Url" title="More Details" class="details-link"><i
-                                    class="bi bi-link-45deg"></i></a>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
                                 <a asp-page="/Partners/Edit" asp-route-id="@partner.Id" class="me-3">Edit</a>

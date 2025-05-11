@@ -29,6 +29,11 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
     public async Task<IActionResult> OnPostAsync()
     {
+        Contact.Addresses.RemoveAll(string.IsNullOrEmpty);
+        Contact.Emails.RemoveAll(string.IsNullOrEmpty);
+        Contact.Phones.RemoveAll(string.IsNullOrEmpty);
+        Contact.WhatsApps.RemoveAll(string.IsNullOrEmpty);
+
         if (!ModelState.IsValid)
             return Page();
 

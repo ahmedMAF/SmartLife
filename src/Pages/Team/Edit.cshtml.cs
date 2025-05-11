@@ -35,9 +35,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         var member = await context.Team.FindAsync(id);
         member.Name = TeamMember.Name;
         member.Role = TeamMember.Role;
-        
-        if (Image != null)
-            member.Photo = await FileHelper.UploadReplaceFile(member.Photo, Image, "uploads/images/team");
+        member.Photo = await FileHelper.UploadReplaceFile(member.Photo, Image, "uploads/images/team");
 
         await context.SaveChangesAsync();
 
