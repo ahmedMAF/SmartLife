@@ -8,12 +8,12 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Admin</h1>
+        <h1>@Model.Localizer["editproductadmin"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li><a asp-page="/Admin/Index">Admin</a></li>
-                <li class="current">Edit Product</li>
+                <li><a asp-page="/Index">@Model.Localizer["editproductadminhome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["editproductadmin"]</a></li>
+                <li class="current">@Model.Localizer["editproduct"]</li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Edit Product</h2>
+        <h2>@Model.Localizer["editproduct"]</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
         <!--main details-->
@@ -33,20 +33,20 @@
                     <input type="hidden" name="id" value="@Model.Product.Id" />
                     <div class="row gy-4">
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["name"]</label>
                             <input asp-for="Product.Name" class="form-control" placeholder="Name"
                                 style="border-radius: 5px;" required="">
                             <span asp-validation-for="Product.Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["description"]</label>
                             <textarea asp-for="Product.Description" class="form-control" placeholder="Description"
                                 style="border-radius: 5px;" required=""></textarea>
                             <span asp-validation-for="Product.Description" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="w-100 mb-2 ps-2 text-start">Category</label>
+                                <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["category"]</label>
                                 <input list="options" asp-for="Product.Category" class="form-control"
                                     style="border-radius: 5px;">
                                 <datalist id="options">
@@ -58,28 +58,28 @@
                                 <span asp-validation-for="Product.Category" class="text-danger"></span>
                             </div>
                             <div class="col-md-12">
-                                <label class="w-100 mb-2 ps-2 text-start" for="image">Update Image</label>
+                                <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["image"]</label>
                                 <input type="file" asp-for="Image" class="form-control"
                                     style="border-radius: 5px;" />
                                 <span asp-validation-for="Image" class="text-danger"></span>
                             </div>
                             <div id="feature" class="text-start mt-3">
-                                <span>Add a feature</span>
+                                <span>@Model.Localizer["feature"]</span>
                                 <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;"
                                     class="bi bi-plus-circle fs-5"></i>
                             </div>
                             <div id="model" class="text-start mt-3">
-                                <span>Add a model</span>
+                                <span>@Model.Localizer["model"]</span>
                                 <i id="iconmodel" style="color: #7cc576; cursor: pointer;"
                                     class="bi bi-plus-circle fs-5 ms-3"></i>
                             </div>
                             <div id="photo" class="text-start mt-3">
-                                <span>Add a photo</span>
+                                <span>@Model.Localizer["photo"]</span>
                                 <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;"
                                     class="bi bi-plus-circle fs-5"></i>
                             </div>
                             <div id="video" class="text-start mt-3">
-                                <span>Add a video</span>
+                                <span>@Model.Localizer["video"]</span>
                                 <i id="iconvideo" style="color: #7cc576; cursor: pointer; margin-left: 20px;"
                                     class="bi bi-plus-circle fs-5"></i>
                             </div>
@@ -89,7 +89,7 @@
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
 
-                            <button type="submit">Save</button>
+                            <button type="submit">@Model.Localizer["save"]</button>
                         </div>
 
                     </div>
@@ -106,34 +106,34 @@
                         <input type="hidden" name="id" value="@Model.Product.Id" />
                         <div class="row gy-4">
                             <div class="col-md-12 mt-5">
-                                <h3 class="w-100 mb-2 ps-2 text-start">Feature @(i + 1)</h3>
+                                <h3 class="w-100 mb-2 ps-2 text-start">@Model.Localizer["feature"] @(i + 1)</h3>
                                 <div>
-                                    <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["name"]</label>
                                     <input name="SubModule.Name" type="text" style="border-radius: 5px;"
                                         class="form-control" placeholder="Name" value="@Model.Product.Features[i].Name" required="">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["description"]</label>
                                     <textarea name="SubModule.Description" type="text" class="form-control"
                                         style="border-radius: 5px;" placeholder="Description">@Model.Product.Features[i].Description</textarea>
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
+                                    <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["image"]</label>
                                     <input asp-for="SubImage" style="border-radius: 5px;" class="form-control"
                                         placeholder="Image">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Data Sheet</label>
+                                    <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["data"]</label>
                                     <input asp-for="DataSheet" style="border-radius: 5px;" class="form-control"
                                         placeholder="Data Sheet">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
+                                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["play"]</label>
                                     <input name="SubModule.GooglePlay" type="text" style="border-radius: 5px;"
                                         class="form-control" placeholder="Link" value="@Model.Product.Features[i].GooglePlay">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
+                                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["store"]</label>
                                     <input name="SubModule.AppStore" type="text" style="border-radius: 5px;"
                                         class="form-control" placeholder="Link" value="@Model.Product.Features[i].AppStore">
                                 </div>
@@ -143,8 +143,8 @@
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
 
-                                <button asp-page-handler="EditFeature" type="submit">Save</button>
-                                <button asp-page-handler="DeleteFeature" type="submit">Delete</button>
+                                <button asp-page-handler="EditFeature" type="submit">@Model.Localizer["save"]</button>
+                                <button asp-page-handler="DeleteFeature" type="submit">@Model.Localizer["delete"]</button>
                             </div>
                         </div>
                     </form>
@@ -161,34 +161,34 @@
                         <input type="hidden" name="id" value="@Model.Product.Id">
                         <div class="row gy-4">
                             <div class="col-md-12 mt-5">
-                                <h3 class="w-100 mb-2 ps-2 text-start">Model @(i + 1)</h3>
+                                <h3 class="w-100 mb-2 ps-2 text-start">@Model.Localizer["model"] @(i + 1)</h3>
                                 <div>
-                                    <label class="w-100 mb-2 ps-2 text-start">Name</label>
+                                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["name"]</label>
                                     <input name="SubModule.Name" type="text" style="border-radius: 5px;"
                                         class="form-control" placeholder="Name" value="@Model.Product.Models[i].Name" required="">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start">Description</label>
+                                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["description"]</label>
                                     <textarea name="SubModule.Description" type="text" class="form-control"
                                         style="border-radius: 5px;" placeholder="Description">@Model.Product.Models[i].Description</textarea>
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Image</label>
+                                    <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["image"]</label>
                                     <input asp-for="SubImage" style="border-radius: 5px;" class="form-control"
                                         placeholder="Image">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start" for="image">Edit Data Sheet</label>
+                                    <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["data"]</label>
                                     <input asp-for="DataSheet" style="border-radius: 5px;" class="form-control"
                                         placeholder="Data Sheet">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start">Link Google Play</label>
+                                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["play"]</label>
                                     <input name="SubModule.GooglePlay" type="text" style="border-radius: 5px;"
                                         class="form-control" placeholder="Link" value="@Model.Product.Models[i].GooglePlay">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <label class="w-100 mb-2 ps-2 text-start">Link Apple Store</label>
+                                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["store"]</label>
                                     <input name="SubModule.AppStore" type="text" style="border-radius: 5px;"
                                         class="form-control" placeholder="Link" value="@Model.Product.Models[i].AppStore">
                                 </div>
@@ -198,8 +198,8 @@
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
 
-                                <button asp-page-handler="EditModel" type="submit">Save</button>
-                                <button asp-page-handler="DeleteModel" type="submit">Delete</button>
+                                <button asp-page-handler="EditModel" type="submit">@Model.Localizer["save"]</button>
+                                <button asp-page-handler="DeleteModel" type="submit">@Model.Localizer["delete"]</button>
                             </div>
                         </div>
                     </form>
@@ -208,7 +208,7 @@
         </div>
         <!--photos-->
         <div class="container mt-5">
-            <h3 class="mb-4">Photos</h3>
+            <h3 class="mb-4">@Model.Localizer["photog"]</h3>
             <div class="row gy-4">
                 @for (int i = 0; i < Model.Product.Photos.Count; i++)
                 {
@@ -218,7 +218,7 @@
                             <input type="hidden" name="photoId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Product.Id" />
                             <div class="col-md-12 text-center mt-3">
-                                <button type="submit">Delete</button>
+                                <button type="submit">@Model.Localizer["delete"]</button>
                             </div>
                         </form>
                     </div>
@@ -227,7 +227,7 @@
         </div>
         <!--videos-->
         <div class="container mt-5">
-            <h3 class="mb-4">Video</h3>
+            <h3 class="mb-4">@Model.Localizer["videog"]</h3>
             <div class="row gy-4">
                 @for (int i = 0; i < Model.Product.Videos.Count; i++)
                 {
@@ -238,7 +238,7 @@
                             <iframe src="@Model.Product.Videos[i]" frameborder="0"
                                 allowfullscreen></iframe>
                             <div class="col-md-12 text-center mt-3">
-                                <button type="submit">Delete</button>
+                                <button type="submit">@Model.Localizer["delete"]</button>
                             </div>
                         </form>
                     </div>
