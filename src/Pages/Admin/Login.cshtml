@@ -8,11 +8,11 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Login</h1>
+        <h1>@Model.Localizer["login"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li class="current">Login</li>
+                <li><a asp-page="/Index">@Model.Localizer["adminhome"]</a></li>
+                <li class="current">@Model.Localizer["login"]</li>
             </ol>
         </nav>
     </div>
@@ -35,10 +35,10 @@
                         <div class="col-md-12 text-center">
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
-                            <button type="submit">Login</button>
+                            <button type="submit">@Model.Localizer["login"]</button>
 
                             <div class="mt-3">
-                                <a asp-page="/Admin/Forgot">Forgot your password?</a>
+                                <a asp-page="/Admin/Forgot">@Model.Localizer["forgot"]</a>
                             </div>
                         </div>
 

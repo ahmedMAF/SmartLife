@@ -8,11 +8,11 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1>@Model.Localizer["adminhome"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li class="current">Admin</li>
+                <li><a asp-page="/Index">@Model.Localizer["adminhome"]</a></li>
+                <li class="current">@Model.Localizer["editadmin"]</li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 tion id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Edit Contact</h2>
+        <h2>@Model.Localizer["editcontact"]</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center mb-5">
@@ -33,7 +33,7 @@ tion id="portfolio" class="portfolio section">
                         <div>
                             <label class="w-100 mb-2 ps-2 text-start">Please select a country</label>
                             <select style="border-radius: 5px;" class="form-select select" name="country" required="">
-                                <option value="" disabled selected>Select a country</option>
+                                <option value="" disabled selected>@Model.Localizer["select"]</option>
                                 @foreach (var contact in Model.Contacts)
                                 {
                                     <option value="@contact.Country">@SmartLife.Utilities.LocationHelper.GetCountryNameBy2LetterISO(contact.Country)</option>
@@ -43,7 +43,7 @@ tion id="portfolio" class="portfolio section">
                         <div class="col-md-12 text-center">
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
-                            <button type="submit">Edit</button>
+                            <button type="submit">@Model.Localizer["edit"]</button>
                         </div>
                     </div>
                 </form>

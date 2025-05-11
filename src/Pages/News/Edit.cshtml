@@ -8,12 +8,12 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1>@Model.Localizer["dashboard"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li><a asp-page="/Admin/Index">Admin</a></li>
-                <li class="current">Edit Post</li>
+                <li><a asp-page="/Index">@Model.Localizer["Dashboardadmin"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["create"]</a></li>
+                <li class="current">@Model.Localizer["editpost"]</li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Edit Post</h2>
+        <h2>@Model.Localizer["editpost"]</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
         <!--main detalis-->
@@ -34,28 +34,28 @@
                     <input type="hidden" name="id" value="@Model.Post.Id" />
                     <div class="row gy-4">
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">Title</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["title"]</label>
                             <input asp-for="Post.Title" required style="border-radius: 5px;" class="form-control"
                                 placeholder="Title (English)" required="">
                         </div>
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">Title</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["title"]</label>
                             <input asp-for="Post.TitleAr" required style="border-radius: 5px;" class="form-control"
                                 placeholder="Title (Arabic)" required="">
                         </div>
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">Content</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["content"]</label>
                             <textarea asp-for="Post.Content" class="form-control" style="border-radius: 5px;"
                                 placeholder="Content (English)" required=""></textarea>
                         </div>
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">Content</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["content"]</label>
                             <textarea asp-for="Post.ContentAr" class="form-control" style="border-radius: 5px;"
                                 placeholder="Content (Arabic)" required=""></textarea>
                         </div>
                         <div class="col-md-12">
                             <div>
-                                <label class="w-100 mb-2 ps-2 text-start" for="image">Upload Image</label>
+                                <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["image"]</label>
                                 <input asp-for="Images" style="border-radius: 5px;" class="form-control"
                                     placeholder="Image" multiple>
                             </div>
@@ -65,7 +65,7 @@
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
 
-                            <button type="submit">Save</button>
+                            <button type="submit">@Model.Localizer["save"]</button>
                         </div>
                     </div>
                 </form>
@@ -83,7 +83,7 @@
                             <input type="hidden" name="id" value="@Model.Post.Id" />
                             <img style="width: 100%;" src="@Model.Post.Images[i]" alt="">
                             <div class="col-md-12 text-center mt-3">
-                                <button type="submit">Delete</button>
+                                <button type="submit">@Model.Localizer["delete"]</button>
                             </div>
                         </form>
                     </div>

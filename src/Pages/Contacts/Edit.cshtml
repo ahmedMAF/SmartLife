@@ -8,12 +8,12 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1>@Model.Localizer["dashboard"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li><a asp-page="/Admin/Index">Dashboard</a></li>
-                <li class="current">Edit Contact</li>
+                <li><a asp-page="/Index">@Model.Localizer["dashboardhome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["dashboard"]</a></li>
+                <li class="current">@Model.Localizer["editcontact"]</li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Edit Contact</h2>
+        <h2>@Model.Localizer["editcontact"]</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center mb-5">
@@ -32,9 +32,9 @@
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="row gy-4">
                         <div>
-                            <label class="w-100 mb-2 ps-2 text-start">Country</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["country"]</label>
                             <select asp-for="Contact.Country" style="border-radius: 5px;" class="form-select select" required="">
-                                <option value="" disabled selected>Select a Country</option>
+                                <option value="" disabled selected>@Model.Localizer["select"]</option>
                                 @foreach(var country in Model.Countries)
                                 {
                                     <option value="@country.Code">@country.Name</option>
@@ -42,7 +42,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="w-100 mb-2 ps-2 text-start">Addresses</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["addresses"]</label>
                             @for(int i = 0; i < Model.Contact.Addresses.Count; i++)
                             {
                                 <input asp-for="Contact.Addresses[@i]" style="border-radius: 5px;" class="form-control">
@@ -53,7 +53,7 @@
                             }
                         </div>
                         <div>
-                            <label class="w-100 mb-2 ps-2 text-start">Emails</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["emails"]</label>
                             @for(int i = 0; i < Model.Contact.Emails.Count; i++)
                             {
                                 <input asp-for="Contact.Emails[@i]" style="border-radius: 5px;" type="email" class="form-control">
@@ -61,7 +61,7 @@
                             }
                         </div>
                         <div>
-                            <label class="w-100 mb-2 ps-2 text-start">Phones</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["phones"]</label>
                             @for(int i = 0; i < Model.Contact.Phones.Count; i++)
                             {
                                 <input asp-for="Contact.Phones[@i]" style="border-radius: 5px;" class="form-control">
@@ -69,7 +69,7 @@
                             }
                         </div>
                         <div>
-                            <label class="w-100 mb-2 ps-2 text-start">WhatsApps</label>
+                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["whatsApps"]</label>
                             @for(int i = 0; i < Model.Contact.WhatsApps.Count; i++)
                             {
                                 <input asp-for="Contact.WhatsApps[@i]" style="border-radius: 5px;" class="form-control">
@@ -77,19 +77,19 @@
                             }
                         </div>
                         <div id="addresses" class="text-start">
-                            <span>Add an address</span>
+                            <span>@Model.Localizer["address"]</span>
                             <i id="iconAddress" style="color: #7cc576; cursor: pointer; margin-left: 25px;" class="bi bi-plus-circle fs-5"></i>
                         </div>
                         <div id="emails" class="text-start">
-                            <span>Add an email</span>
+                            <span>@Model.Localizer["email"]</span>
                             <i id="iconEmail" style="color: #7cc576; cursor: pointer; margin-left: 42px;" class="bi bi-plus-circle fs-5"></i>
                         </div>
                         <div id="phones" class="text-start">
-                            <span>Add an phone</span>
+                            <span>@Model.Localizer["phone"]</span>
                             <i id="iconPhone" style="color: #7cc576; cursor: pointer; margin-left: 36px;" class="bi bi-plus-circle fs-5"></i>
                         </div>
                         <div id="whatsup" class="text-start">
-                            <span>Add an whatsApp</span>
+                            <span>@Model.Localizer["whatsApp"]</span>
                             <i id="iconWhasapp" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-2"></i>
                         </div>
 
@@ -97,7 +97,7 @@
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
             
-                            <button formaction="" type="submit">Save</button>
+                            <button formaction="" type="submit">@Model.Localizer["save"]</button>
                             <button formaction="/Contacts/Delete/@Model.Contact.Country" type="submit" class="btn-danger">Delete</button>
                         </div>
                     </div>

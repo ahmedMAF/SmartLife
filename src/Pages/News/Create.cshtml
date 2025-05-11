@@ -8,12 +8,12 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1>@Model.Localizer["Dashboard"]</h1>
         <nav class="breadcrumbs">
             <ol> <!-- TODO: Fix Admin url -->
-                <li><a asp-page="/Index">Home</a></li>
-                <li><a asp-page="/Admin/Index">Admin</a></li>
-                <li class="current">Create Post</li>
+                <li><a asp-page="/Index">@Model.Localizer["Dashboardhome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["Dashboardadmin"]</a></li>
+                <li class="current">@Model.Localizer["createpost"]</li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Create Post</h2>
+        <h2>@Model.Localizer["createpost"]</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
@@ -52,7 +52,7 @@
                         </div>
                         <div class="col-md-12">
                             <div>
-                                <label asp-for="Images" class="w-100 mb-2 ps-2 text-start">Upload Images</label>
+                                <label asp-for="Images" class="w-100 mb-2 ps-2 text-start">@Model.Localizer["images"]</label>
                                 <input asp-for="Images" style="border-radius: 5px;" type="file" multiple class="form-control"
                                     placeholder="Image">
                                 <span asp-validation-for="Images" class="text-danger"></span>
@@ -62,7 +62,7 @@
                         <div class="col-md-12 text-center">
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
-                            <button type="submit">Create</button>
+                            <button type="submit">@Model.Localizer["create"]</button>
                         </div>
 
                     </div>
