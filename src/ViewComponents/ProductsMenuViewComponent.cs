@@ -17,43 +17,43 @@ public class ProductsMenuViewComponent(SmartLifeDb context) : ViewComponent
         
         if (IsAr)
         {
-         categories = await context.Products.Select(p => p.CategoryAr).Distinct().ToListAsync();
-         products = new Dictionary<string, IList<Product>>
-        {
-            ["-"] = await context.Products
-                    .Where(p => p.CategoryAr == "")
-                    .ToListAsync()
-        };
-                    
-        foreach (var category in categories)
-        {
-            if (category == "")
-                continue;
-
-            products[category] = await context.Products
-                .Where(p => p.CategoryAr == category)
-                .ToListAsync();
-        }
+            categories = await context.Products.Select(p => p.CategoryAr).Distinct().ToListAsync();
+            products = new Dictionary<string, IList<Product>>
+            {
+                ["-"] = await context.Products
+                        .Where(p => p.CategoryAr == "")
+                        .ToListAsync()
+            };
+                        
+            foreach (var category in categories)
+            {
+                if (category == "")
+                    continue;
+    
+                products[category] = await context.Products
+                    .Where(p => p.CategoryAr == category)
+                    .ToListAsync();
+            }
         }
         else
         {
             categories = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
-        products = new Dictionary<string, IList<Product>>
-        {
-            ["-"] = await context.Products
-                    .Where(p => p.Category == "")
-                    .ToListAsync()
-        };
-                    
-        foreach (var category in categories)
-        {
-            if (category == "")
-                continue;
-
-            products[category] = await context.Products
-                .Where(p => p.Category == category)
-                .ToListAsync();
-        }
+            products = new Dictionary<string, IList<Product>>
+            {
+                ["-"] = await context.Products
+                        .Where(p => p.Category == "")
+                        .ToListAsync()
+            };
+                        
+            foreach (var category in categories)
+            {
+                if (category == "")
+                    continue;
+    
+                products[category] = await context.Products
+                    .Where(p => p.Category == category)
+                    .ToListAsync();
+            }
         }
 
         return View("Index", new ProductsMenu
