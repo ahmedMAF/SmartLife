@@ -8,12 +8,12 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Admin</h1>
+        <h1>@Model.Localizer["productadmin"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li><a asp-page="/Admin/Index">Admin</a></li>
-                <li class="current">Add Product</li>
+                <li><a asp-page="/Index">@Model.Localizer["productadminhome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["productadmin"]</a></li>
+                <li class="current">@Model.Localizer["addproduct"]</li>
             </ol>
         </nav>
     </div>
@@ -22,7 +22,7 @@
 <!-- Admin Section -->
 <section id="portfolio" class="portfolio section">
     <div class="container section-title" data-aos="fade-up">
-        <h2>Add Product</h2>
+        <h2>@Model.Localizer["addproduct"]</h2>
     </div>
 
     <div class="container contact section-title" data-aos="fade-up">
@@ -55,7 +55,7 @@
 
                         <div class="col-md-12">
                             <div>
-                                <label class="w-100 mb-2 ps-2 text-start" for="MainImage">Main Product Image</label>
+                                <label class="w-100 mb-2 ps-2 text-start" for="MainImage">@Model.Localizer["image"]</label>
                                 <input type="file" asp-for="Image" class="form-control" style="border-radius: 5px;" required="">
                                 <span asp-validation-for="Image" class="text-danger"></span>
                             </div>
@@ -63,21 +63,21 @@
 
                         <div class="col-md-12">
                             <div id="feature" class="text-start mt-3">
-                                <span>Add a feature</span>
+                                <span>@Model.Localizer["feature"]</span>
                                 <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;" class="bi bi-plus-circle fs-5"></i>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div id="model" class="text-start mt-3">
-                                <span>Add a model</span>
+                                <span>@Model.Localizer["model"]</span>
                                 <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div id="photo" class="text-start mt-3">
-                                <span>Add a photo</span>
+                                <span>@Model.Localizer["photo"]</span>
                                 <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;" class="bi bi-plus-circle fs-5"></i>
                             </div>
                             <div id="photos-container">
@@ -87,7 +87,7 @@
 
                         <div class="col-md-12">
                             <div id="video" class="text-start mt-3">
-                                <span>Add a video</span>
+                                <span>@Model.Localizer["video"]</span>
                                 <i id="iconvideo" style="color: #7cc576; cursor: pointer; margin-left: 20px;" class="bi bi-plus-circle fs-5"></i>
                             </div>
                             <div id="videos-container">
@@ -96,7 +96,7 @@
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <button type="submit">Add Product</button>
+                            <button type="submit">@Model.Localizer["add"]</button>
                         </div>
                     </div>
                 </form>

@@ -8,12 +8,12 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1>@Model.Localizer["dashboard"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="Index">Home</a></li>
-                <li><a asp-page="Dashboard/Index">Dashboard</a></li>
-                <li class="current">Edit Team Member</li>
+                <li><a asp-page="Index">@Model.Localizer["dashboardhome"]</a></li>
+                <li><a asp-page="Dashboard/Index">@Model.Localizer["dashboard"]</a></li>
+                <li class="current">@Model.Localizer["editmember"]</li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Edit Team Member</h2>
+        <h2>@Model.Localizer["editmember"]</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
@@ -42,8 +42,7 @@
                         </div>
                         <div class="col-md-12">
                             <div>
-                                <label asp-for="TeamMember.Photo" class="w-100 mb-2 ps-2 text-start">Upload
-                                    Image</label>
+                                <label asp-for="TeamMember.Photo" class="w-100 mb-2 ps-2 text-start">@Model.Localizer["uploadimage"]</label>
                                 <input asp-for="Image" style="border-radius: 5px;"
                                     class="form-control" placeholder="Image" required="">
                             </div>
@@ -52,7 +51,7 @@
                         <div class="col-md-12 text-center">
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
-                            <button type="submit">Save</button>
+                            <button type="submit">@Model.Localizer["save"]</button>
                         </div>
 
                     </div>
