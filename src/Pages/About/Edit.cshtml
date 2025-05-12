@@ -33,28 +33,28 @@
         <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
           <div class="row gy-4">
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["countries"]</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["countries"]</label>
               <input name="countries" type="text" style="border-radius: 5px" class="form-control" value="@Model.AboutData.Countries" required="">
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["projects"]</label>
-              <input name="projects" style="border-radius: 5px" class="form-control" value="@Model.AboutData.Projects" required="">
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["projects"]</label>
+              <input name="projects" type="text" style="border-radius: 5px" class="form-control" value="@Model.AboutData.Projects" required="">
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["consultants"]</label>
-              <input name="consultants" value="@Model.AboutData.Consultants" style="border-radius: 5px" class="form-control" required="">
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["consultants"]</label>
+              <input name="consultants" type="text" value="@Model.AboutData.Consultants" style="border-radius: 5px" class="form-control" required="">
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["employees"]</label>
-              <input name="employees" value="@Model.AboutData.Employees" style="border-radius: 5px" class="form-control" required="">
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["employees"]</label>
+              <input name="employees" type="text" value="@Model.AboutData.Employees" style="border-radius: 5px" class="form-control" required="">
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["clients"]</label>
-              <input name="clients" value="@Model.AboutData.Clients" style="border-radius: 5px" class="form-control" required="">
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["clients"]</label>
+              <input name="clients" type="text" value="@Model.AboutData.Clients" style="border-radius: 5px" class="form-control" required="">
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["branches"]</label>
-              <input name="branches" value="@Model.AboutData.Branches" style="border-radius: 5px" class="form-control" required="">
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["branches"]</label>
+              <input name="branches" type="text" value="@Model.AboutData.Branches" style="border-radius: 5px" class="form-control" required="">
             </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
@@ -78,12 +78,12 @@
         <form asp-page-handler="Add" method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
           <div class="row gy-4">
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["year"]</label>
-              <input name="year" style="border-radius: 5px" class="form-control" required="">
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["year"]</label>
+              <input name="year" type="text" style="border-radius: 5px" class="form-control" required="">
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["value"]</label>
-              <input name="val" type="number" style="border-radius: 5px" class="form-control" required="">
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["value"]</label>
+              <input name="val" type="text" style="border-radius: 5px" class="form-control" required="">
             </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
@@ -98,7 +98,7 @@
   </div>
 
   <div class="container section-title" data-aos="fade-up">
-    <h2>Edit Growth</h2>
+    <h2>@Model.Localizer["editgrowth"]</h2>
   </div>
   <!-- End Section Title -->
   <div class="container contact section-title" data-aos="fade-up">
@@ -109,12 +109,12 @@
             @for(int i = 0; i < Model.Growth.Count; i++)
             {
                 <div>
-                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["year"]</label>
-                    <input asp-for="Growth[@i].Year" value="@Model.Growth[i].Year" style="border-radius: 5px" class="form-control" required="">
+                    <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["year"]</label>
+                    <input asp-for="Growth[@i].Year" type="text" value="@Model.Growth[i].Year" style="border-radius: 5px" class="form-control" required="">
                 </div>
                 <div>
-                    <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["value"]</label>
-                    <input asp-for="Growth[@i].Value" value="@Model.Growth[i].Value" style="border-radius: 5px" class="form-control mb-5" required="">
+                    <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["value"]</label>
+                    <input asp-for="Growth[@i].Value" type="text" value="@Model.Growth[i].Value" style="border-radius: 5px" class="form-control mb-5" required="">
                 </div>
             }
             

@@ -34,6 +34,10 @@
     <!-- Main CSS File -->
     <link href="~/css/main.css" rel="stylesheet">
     @await RenderSectionAsync("Styles", required: false)
+    @if (isAr)
+    {
+        <link href="~/css/mainar.css" rel="stylesheet">
+    }
 </head>
 <body class="portfolio-details-page">
     <header id="header" class="header d-flex align-items-center fixed-top">

@@ -41,7 +41,7 @@
                 @if (Model.Contact.Addresses.Count != 0)
                 {
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <i class="bi bi-geo-alt flex-shrink-0 contactar"></i>
                         <div>
                             <h3>Address</h3>
                             @foreach (string address in Model.IsAr ? Model.Contact.AddressesAr : Model.Contact.Addresses)
@@ -56,7 +56,7 @@
                 @if (Model.Contact.Phones.Count != 0)
                 {
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <i class="bi bi-telephone flex-shrink-0 contactar"></i>
                         <div>
                             <h3>Call Us</h3>
                             @foreach (string phone in Model.Contact.Phones)
@@ -71,7 +71,7 @@
                 @if (Model.Contact.WhatsApps.Count != 0)
                 {
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <i class="bi bi-telephone flex-shrink-0 contactar"></i>
                         <div>
                             <h3>WhatsApp</h3>
                             @foreach (string whatsApp in Model.Contact.WhatsApps)
@@ -86,7 +86,7 @@
                 @if (Model.Contact.Emails.Count != 0)
                 {
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <i class="bi bi-envelope flex-shrink-0 contactar"></i>
                         <div>
                             <h3>Email Us</h3>
                             @foreach (string email in Model.Contact.Emails)

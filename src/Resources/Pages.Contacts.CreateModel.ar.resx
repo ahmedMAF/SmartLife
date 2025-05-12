@@ -142,11 +142,11 @@
     <comment/>
   </data>
   <data name="email" xml:space="preserve">
-    <value>Add an Email</value>
+    <value>أضف بريد إلكتروني</value>
     <comment/>
   </data>
   <data name="address" xml:space="preserve">
-    <value>أضف بريد إلكتروني</value>
+    <value>أضف عنوان</value>
     <comment/>
   </data>
   <data name="add" xml:space="preserve">

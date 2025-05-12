@@ -154,7 +154,7 @@
     <comment/>
   </data>
   <data name="addcontact" xml:space="preserve">
-    <value>إضافة جهة اتصال</value>
+    <value>إضافة تواصل</value>
     <comment/>
   </data>
   <data name="password" xml:space="preserve">
@@ -162,11 +162,11 @@
     <comment/>
   </data>
   <data name="editcontact" xml:space="preserve">
-    <value>تعديل جهة الاتصال</value>
+    <value>تعديل التواصل</value>
     <comment/>
   </data>
   <data name="editabout" xml:space="preserve">
-    <value>تعديل صفحة من نحن</value>
+    <value>تعديل حولنا</value>
     <comment/>
   </data>
 </root>

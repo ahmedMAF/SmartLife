@@ -67,7 +67,9 @@ iconfeature.onclick = function(){
     input5.className = "form-control mt-2";
 
     feature.appendChild(input);
+    feature.appendChild(inputa);
     feature.appendChild(input1);
+    feature.appendChild(input1a);
     feature.appendChild(input22);
     feature.appendChild(input2);
     feature.appendChild(input33);
@@ -132,7 +134,9 @@ iconmodel.onclick = function(){
     input5.className = "form-control mt-2";
 
     model.appendChild(input);
+    model.appendChild(inputa);
     model.appendChild(input1);
+    model.appendChild(input1a);
     model.appendChild(input22);
     model.appendChild(input2);
     model.appendChild(input33);
@@ -172,6 +176,8 @@ iconphoto.onclick = function(){
     input2.className = "form-control mt-2";
 
     photo.appendChild(input);
+    photo.appendChild(inputa);
+    photo.appendChild(input1a);
     photo.appendChild(input1);
     photo.appendChild(input2);
 

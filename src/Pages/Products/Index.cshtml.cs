@@ -15,6 +15,7 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
     public async Task<IActionResult> OnGetAsync()
     {
         Products = await context.Products.ToListAsync();
+
         return Page();
     }
 }

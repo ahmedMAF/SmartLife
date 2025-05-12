@@ -68,28 +68,28 @@
                         </div>
                         <div class="col-md-12">
                             <div>
-                                <label class="w-100 mb-2 ps-2 text-start" for="MainImage">@Model.Localizer["image"]</label>
+                                <label class="w-100 mb-2 ps-2 text-start textar" for="MainImage">@Model.Localizer["image"]</label>
                                 <input type="file" asp-for="Image" class="form-control" style="border-radius: 5px;" required="">
                                 <span asp-validation-for="Image" class="text-danger"></span>
                             </div>
                         </div>
 
                         <div class="col-md-12">
-                            <div id="feature" class="text-start mt-3">
+                            <div id="feature" class="text-start mt-3 textar">
                                 <span>@Model.Localizer["feature"]</span>
                                 <i id="iconfeature" style="color: #7cc576; cursor: pointer; margin-left: 11px;" class="bi bi-plus-circle fs-5"></i>
                             </div>
                         </div>
 
                         <div class="col-md-12">
-                            <div id="model" class="text-start mt-3">
+                            <div id="model" class="text-start mt-3 textar">
                                 <span>@Model.Localizer["model"]</span>
                                 <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
                             </div>
                         </div>
 
                         <div class="col-md-12">
-                            <div id="photo" class="text-start mt-3">
+                            <div id="photo" class="text-start mt-3 textar">
                                 <span>@Model.Localizer["photo"]</span>
                                 <i id="iconphoto" style="color: #7cc576; cursor: pointer; margin-left: 18px;" class="bi bi-plus-circle fs-5"></i>
                             </div>
@@ -99,7 +99,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <div id="video" class="text-start mt-3">
+                            <div id="video" class="text-start mt-3 textar">
                                 <span>@Model.Localizer["video"]</span>
                                 <i id="iconvideo" style="color: #7cc576; cursor: pointer; margin-left: 20px;" class="bi bi-plus-circle fs-5"></i>
                             </div>

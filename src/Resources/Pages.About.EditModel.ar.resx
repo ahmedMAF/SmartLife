@@ -173,4 +173,8 @@
     <value>إضافة  </value>
     <comment/>
   </data>
+  <data name="editgrowth" xml:space="preserve">
+    <value>تعديل النمو</value>
+    <comment/>
+  </data>
 </root>

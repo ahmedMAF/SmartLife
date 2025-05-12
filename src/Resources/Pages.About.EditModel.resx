@@ -173,4 +173,8 @@
     <value>Add</value>
     <comment/>
   </data>
+  <data name="editgrowth" xml:space="preserve">
+    <value>Edit Growth</value>
+    <comment/>
+  </data>
 </root>

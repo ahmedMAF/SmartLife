@@ -39,17 +39,17 @@
                                 <p>
                                     @if (Model.IsAr)
                                     {
-                                        @if (product.Description.Length < 50)
-                                            @product.Description
+                                        @if (product.DescriptionAr.Length < 50)
+                                            @product.DescriptionAr
                                         else 
-                                            @(product.Description[..50] + "...")
+                                            @(product.DescriptionAr[..50] + "...")
                                     }
                                     else
                                     {
-                                        @if (product.DescriptionAr.Length < 50)
-                                            @product.DescriptionAr
+                                        @if (product.Description.Length < 50)
+                                            @product.Description
                                         else
-                                            @(product.DescriptionAr[..50] + "...")
+                                            @(product.Description[..50] + "...")
                                     }
                                 </p>
                                 <a href="@product.Image" title="@if (Model.IsAr) { @product.NameAr } else { @product.Name }" data-gallery="portfolio-gallery-app"

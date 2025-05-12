@@ -122,17 +122,17 @@
                                 <p>
                                     @if (Model.IsAr)
                                     {
-                                        @if (product.Description.Length < 50)
-                                            @product.Description
+                                        @if (product.DescriptionAr.Length < 50)
+                                            @product.DescriptionAr
                                         else 
-                                            @(product.Description[..50] + "...")
+                                            @(product.DescriptionAr[..50] + "...")
                                     }
                                     else
                                     {
-                                        @if (product.DescriptionAr.Length < 50)
-                                            @product.DescriptionAr
+                                        @if (product.Description.Length < 50)
+                                            @product.Description
                                         else
-                                            @(product.DescriptionAr[..50] + "...")
+                                            @(product.Description[..50] + "...")
                                     }
                                 </p>
                                 <a href="@product.Image" title="@if (Model.IsAr) { @product.NameAr } else { @product.Name }" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
@@ -183,16 +183,16 @@
                                     @if (Model.IsAr)
                                     {
                                         @if (client.Description.Length < 50)
-                                            @client.Description
+                                            @client.DescriptionAr
                                         else 
-                                            @(client.Description[..50] + "...")
+                                            @(client.DescriptionAr[..50] + "...")
                                     }
                                     else
                                     {
                                         @if (client.DescriptionAr.Length < 50)
-                                            @client.DescriptionAr
+                                            @client.Description
                                         else
-                                            @(client.DescriptionAr[..50] + "...")
+                                            @(client.Description[..50] + "...")
                                     }
                                 </span>
                                 <i class="bi bi-quote quote-icon-right"></i>
@@ -292,7 +292,7 @@
                 @if (Model.Contact.Addresses.Count != 0)
                 {
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <i class="bi bi-geo-alt flex-shrink-0 contactar"></i>
                         <div>
                             <h3>@Model.Localizer["home_contact_address"]</h3>
                             @foreach (string address in Model.IsAr ? Model.Contact.AddressesAr : Model.Contact.Addresses)
@@ -307,7 +307,7 @@
                 @if (Model.Contact.Phones.Count != 0)
                 {
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <i class="bi bi-telephone flex-shrink-0 contactar"></i>
                         <div>
                             <h3>@Model.Localizer["home_contact_call"]</h3>
                             @foreach (string phone in Model.Contact.Phones)
@@ -322,7 +322,7 @@
                 @if (Model.Contact.WhatsApps.Count != 0)
                 {
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <i class="bi bi-telephone flex-shrink-0 contactar"></i>
                         <div>
                             <h3>@Model.Localizer["home_contact_whatsapp"]</h3>
                             @foreach (string whatsApp in Model.Contact.WhatsApps)
@@ -337,7 +337,7 @@
                 @if (Model.Contact.Emails.Count != 0)
                 {
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <i class="bi bi-envelope flex-shrink-0 contactar"></i>
                         <div>
                             <h3>@Model.Localizer["home_contact_email"]</h3>
                             @foreach (string email in Model.Contact.Emails)

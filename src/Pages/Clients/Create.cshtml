@@ -46,14 +46,14 @@
                                 placeholder="Description (English)"></textarea>
                             <span asp-validation-for="Client.Description" class="text-danger"></span>
                         </div>
-                        <div class="col-md-12"></div>
+                        <div class="col-md-12">
                         <textarea asp-for="Client.DescriptionAr" class="form-control" style="border-radius: 5px;"
                             placeholder="Description (Arabic)"></textarea>
                         <span asp-validation-for="Client.Description" class="text-danger"></span>
                     </div>
                     <div class="col-md-12">
                         <div>
-                            <label class="w-100 mb-2 ps-2 text-start"
+                            <label class="w-100 mb-2 ps-2 text-start textar"
                                 for="image">@Model.Localizer["uploadimage"]</label>
                             <input asp-for="Image" style="border-radius: 5px;" type="file" class="form-control"
                                 placeholder="Image" required="">

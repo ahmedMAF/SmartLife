@@ -34,28 +34,28 @@
                     <input type="hidden" name="id" value="@Model.Post.Id" />
                     <div class="row gy-4">
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["title"]</label>
+                            <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["title"]</label>
                             <input asp-for="Post.Title" required style="border-radius: 5px;" class="form-control"
                                 placeholder="Title (English)" required="">
                         </div>
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["title"]</label>
+                            <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["title"]</label>
                             <input asp-for="Post.TitleAr" required style="border-radius: 5px;" class="form-control"
                                 placeholder="Title (Arabic)" required="">
                         </div>
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["content"]</label>
+                            <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["content"]</label>
                             <textarea asp-for="Post.Content" class="form-control" style="border-radius: 5px;"
                                 placeholder="Content (English)" required=""></textarea>
                         </div>
                         <div class="col-md-12">
-                            <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["content"]</label>
+                            <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["content"]</label>
                             <textarea asp-for="Post.ContentAr" class="form-control" style="border-radius: 5px;"
                                 placeholder="Content (Arabic)" required=""></textarea>
                         </div>
                         <div class="col-md-12">
                             <div>
-                                <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["image"]</label>
+                                <label class="w-100 mb-2 ps-2 text-start textar" for="image">@Model.Localizer["image"]</label>
                                 <input asp-for="Images" style="border-radius: 5px;" class="form-control"
                                     placeholder="Image" multiple>
                             </div>

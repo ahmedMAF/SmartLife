@@ -146,11 +146,11 @@
     <comment/>
   </data>
   <data name="feature" xml:space="preserve">
-    <value>Feature</value>
+    <value>Add a Feature</value>
     <comment/>
   </data>
   <data name="model" xml:space="preserve">
-    <value>Model</value>
+    <value>Add a Model</value>
     <comment/>
   </data>
   <data name="photo" xml:space="preserve">
