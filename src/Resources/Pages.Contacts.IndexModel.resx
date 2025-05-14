@@ -129,4 +129,40 @@
     <value>If you have any questions, please do not hesitate to send us a message. We aim to reply within 24 hours.</value>
     <comment/>
   </data>
+  <data name="emails" xml:space="preserve">
+    <value>Email Us</value>
+    <comment/>
+  </data>
+  <data name="whatsApp" xml:space="preserve">
+    <value>WhatsApp</value>
+    <comment/>
+  </data>
+  <data name="call" xml:space="preserve">
+    <value>Call Us</value>
+    <comment/>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+    <comment/>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Send Message</value>
+    <comment/>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+    <comment/>
+  </data>
+  <data name="YourEmail" xml:space="preserve">
+    <value>Your Email</value>
+    <comment/>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+    <comment/>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>Your Name</value>
+    <comment/>
+  </data>
 </root>

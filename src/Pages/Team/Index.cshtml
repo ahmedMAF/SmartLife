@@ -36,9 +36,9 @@
                 <div class="title">@if (Model.IsAr) { @member.RoleAr } else { @member.Role }</div>
                 @if (User.Identity != null && User.Identity.IsAuthenticated)
                 {
-                    <a asp-page="/Team/Edit" asp-route-id="@member.Id" class="me-3">Edit</a>
+                    <a asp-page="/Team/Edit" asp-route-id="@member.Id" class="me-3">@Model.Localizer["edit"]</a>
                     <form method="post" action="/Team/Delete/@member.Id" style="display: inline;" asp-antiforgery="false">
-                        <button class="a text-danger" type="submit">Delete</button>
+                        <button class="a text-danger" type="submit">@Model.Localizer["delete"]</button>
                     </form>
                 }
             </div>

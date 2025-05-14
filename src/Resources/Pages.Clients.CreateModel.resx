@@ -137,4 +137,20 @@
     <value>Add</value>
     <comment/>
   </data>
+  <data name="name" xml:space="preserve">
+    <value>Name (English)</value>
+    <comment/>
+  </data>
+  <data name="namea" xml:space="preserve">
+    <value>Name (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="des" xml:space="preserve">
+    <value>Description (English)</value>
+    <comment/>
+  </data>
+  <data name="desa" xml:space="preserve">
+    <value>Description (Arabic)</value>
+    <comment/>
+  </data>
 </root>

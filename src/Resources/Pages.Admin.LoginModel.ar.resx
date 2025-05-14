@@ -129,4 +129,12 @@
     <value>هل نسيت كلمة المرور؟</value>
     <comment/>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>بريدك الالكتروني</value>
+    <comment/>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+    <comment/>
+  </data>
 </root>

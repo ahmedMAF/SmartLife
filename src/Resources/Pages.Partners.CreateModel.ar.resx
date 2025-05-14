@@ -141,4 +141,24 @@
     <value>إضافة </value>
     <comment/>
   </data>
+  <data name="name" xml:space="preserve">
+    <value>الاسم (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="namea" xml:space="preserve">
+    <value>الاسم (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="url" xml:space="preserve">
+    <value>الرابط</value>
+    <comment/>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>الوصف (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="descriptiona" xml:space="preserve">
+    <value>الوصف (اللغة العربية)</value>
+    <comment/>
+  </data>
 </root>

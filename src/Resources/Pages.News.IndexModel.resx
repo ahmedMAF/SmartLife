@@ -129,4 +129,12 @@
     <value>At Smart Life, we believe that knowledge is power - stay updated with our latest news and always be at the heart of the action.</value>
     <comment/>
   </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment/>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment/>
+  </data>
 </root>

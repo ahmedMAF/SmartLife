@@ -33,27 +33,27 @@
                     <div class="row gy-4">
                         <div class="col-md-12">
                             <input asp-for="Partner.Name" style="border-radius: 5px;" class="form-control"
-                                placeholder="Name (English)">
+                                placeholder="@Model.Localizer["name"]">
                             <span asp-validation-for="Partner.Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <input asp-for="Partner.NameAr" style="border-radius: 5px;" class="form-control"
-                                placeholder="Name (Arabic)">
+                                placeholder="@Model.Localizer["namea"]">
                             <span asp-validation-for="Partner.NameAr" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <input asp-for="Partner.Url" style="border-radius: 5px;" class="form-control"
-                                placeholder="URL">
+                                placeholder="@Model.Localizer["url"]">
                             <span asp-validation-for="Partner.Url" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <textarea asp-for="Partner.Description" class="form-control" style="border-radius: 5px;"
-                                placeholder="Description (English)"></textarea>
+                                placeholder="@Model.Localizer["description"]"></textarea>
                             <span asp-validation-for="Partner.Description" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <textarea asp-for="Partner.DescriptionAr" class="form-control" style="border-radius: 5px;"
-                                placeholder="Description (Arabic)"></textarea>
+                                placeholder="@Model.Localizer["descriptiona"]"></textarea>
                             <span asp-validation-for="Partner.DescriptionAr" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">

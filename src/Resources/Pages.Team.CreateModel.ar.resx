@@ -137,4 +137,20 @@
     <value>رفع صورة</value>
     <comment/>
   </data>
+  <data name="name" xml:space="preserve">
+    <value>الاسم (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="namea" xml:space="preserve">
+    <value>الاسم (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="role" xml:space="preserve">
+    <value>الوظيفة (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="rolea" xml:space="preserve">
+    <value>الوظيفة (اللغة العربية)</value>
+    <comment/>
+  </data>
 </root>

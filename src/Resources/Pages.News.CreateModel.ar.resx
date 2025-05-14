@@ -141,4 +141,20 @@
     <value>إنشاء </value>
     <comment/>
   </data>
+  <data name="title" xml:space="preserve">
+    <value>العنوان (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="titlea" xml:space="preserve">
+    <value>العنوان (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="contant" xml:space="preserve">
+    <value>المحتوي (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="contanta" xml:space="preserve">
+    <value>المحتوي (اللغة العربية)</value>
+    <comment/>
+  </data>
 </root>

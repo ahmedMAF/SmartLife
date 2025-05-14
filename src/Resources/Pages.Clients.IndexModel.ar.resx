@@ -133,4 +133,12 @@
     <value>العملاء الذين نفخر بخدمتهم</value>
     <comment/>
   </data>
+  <data name="edit" xml:space="preserve">
+    <value>تعديل</value>
+    <comment/>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>حذف</value>
+    <comment/>
+  </data>
 </root>

@@ -33,22 +33,22 @@
                     <div class="row gy-4">
                         <div class="col-md-12">
                             <input asp-for="Client.Name" style="border-radius: 5px;" class="form-control"
-                                placeholder="Name (English)">
+                                placeholder="@Model.Localizer["name"]">
                             <span asp-validation-for="Client.Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <input asp-for="Client.NameAr" style="border-radius: 5px;" class="form-control"
-                                placeholder="Name (Arabic)">
+                                placeholder="@Model.Localizer["namea"]">
                             <span asp-validation-for="Client.NameAr" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <textarea asp-for="Client.Description" class="form-control" style="border-radius: 5px;"
-                                placeholder="Description (English)"></textarea>
+                                placeholder="@Model.Localizer["des"]"></textarea>
                             <span asp-validation-for="Client.Description" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                         <textarea asp-for="Client.DescriptionAr" class="form-control" style="border-radius: 5px;"
-                            placeholder="Description (Arabic)"></textarea>
+                            placeholder="@Model.Localizer["desa"]"></textarea>
                         <span asp-validation-for="Client.Description" class="text-danger"></span>
                     </div>
                     <div class="col-md-12">

@@ -134,7 +134,7 @@
     <comment/>
   </data>
   <data name="select" xml:space="preserve">
-    <value>اختر دولة</value>
+    <value>الرجاء اختيار الدولة</value>
     <comment/>
   </data>
   <data name="edit" xml:space="preserve">

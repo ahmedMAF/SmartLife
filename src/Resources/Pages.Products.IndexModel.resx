@@ -133,4 +133,12 @@
     <value>Full Solutions for Smart Automation and Security</value>
     <comment/>
   </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment/>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment/>
+  </data>
 </root>

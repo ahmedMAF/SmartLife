@@ -129,4 +129,40 @@
     <value>إذا كان لديك أي استفسار، فلا تتردد في إرسال رسالة لنا. نسعى للرد خلال 24 ساعة</value>
     <comment/>
   </data>
+  <data name="emails" xml:space="preserve">
+    <value>راسلنا عبر البريد الإلكتروني</value>
+    <comment/>
+  </data>
+  <data name="whatsApp" xml:space="preserve">
+    <value>واتساب</value>
+    <comment/>
+  </data>
+  <data name="call" xml:space="preserve">
+    <value>اتصل بنا</value>
+    <comment/>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>العناوين</value>
+    <comment/>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>أرسل الرسالة</value>
+    <comment/>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>الرسالة</value>
+    <comment/>
+  </data>
+  <data name="YourEmail" xml:space="preserve">
+    <value>بريدك الالكتروني</value>
+    <comment/>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>الهاتف</value>
+    <comment/>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>اسمك</value>
+    <comment/>
+  </data>
 </root>
