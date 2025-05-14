@@ -117,7 +117,7 @@
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                         <a asp-page="/Products/Details" asp-route-id="@product.Id">
                             <img src="@product.Image" class="product-image" alt="@product.Name">
-                            <div class="portfolio-info">
+                            <div class="portfolio-info showar">
                                 <h4>@if (Model.IsAr) { @product.NameAr } else { @product.Name }</h4>
                                 <p>
                                     @if (Model.IsAr)
@@ -222,7 +222,7 @@
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="faq-container">
                     <div class="faq-item faq-active">
-                        <h3>@Model.Localizer["home_why_us_q1"]</h3>
+                        <h3 class="choosear">@Model.Localizer["home_why_us_q1"]</h3>
                         <div class="faq-content">
                             <p>@Model.Localizer["home_why_us_a1"]</p>
                         </div>
@@ -230,7 +230,7 @@
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>@Model.Localizer["home_why_us_q2"]</h3>
+                        <h3 class="choosear">@Model.Localizer["home_why_us_q2"]</h3>
                         <div class="faq-content">
                             <p>@Model.Localizer["home_why_us_a2"]</p>
                         </div>
@@ -244,7 +244,7 @@
                 <div class="faq-container">
 
                     <div class="faq-item">
-                        <h3>@Model.Localizer["home_why_us_q3"]</h3>
+                        <h3 class="choosear">@Model.Localizer["home_why_us_q3"]</h3>
                         <div class="faq-content">
                             <p>@Model.Localizer["home_why_us_a3"]</p>
                         </div>
@@ -252,7 +252,7 @@
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>@Model.Localizer["home_why_us_q4"]</h3>
+                        <h3 class="choosear">@Model.Localizer["home_why_us_q4"]</h3>
                         <div class="faq-content">
                             <p>@Model.Localizer["home_why_us_a4"]</p>
                         </div>

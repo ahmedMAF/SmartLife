@@ -34,7 +34,7 @@
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item">
                         <a asp-page="/Products/Details" asp-route-id="@product.Id">
                             <img src="@product.Image" class="product-image" alt="@product.Name">
-                            <div class="portfolio-info">
+                            <div class="portfolio-info showar">
                                 <h4>@if (Model.IsAr) { @product.NameAr } else { @product.Name }</h4>
                                 <p>
                                     @if (Model.IsAr)
