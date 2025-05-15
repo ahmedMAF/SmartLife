@@ -12,8 +12,8 @@ using SmartLife;
 namespace SmartLife.Migrations
 {
     [DbContext(typeof(SmartLifeDb))]
-    [Migration("20250511132449_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250515081732_InitaialCreate")]
+    partial class InitaialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace SmartLife.Migrations
 
                     b.PrimitiveCollection<string>("Emails")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("GoogleMap")
                         .HasColumnType("longtext");
 
                     b.PrimitiveCollection<string>("Phones")

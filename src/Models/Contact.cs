@@ -6,6 +6,7 @@ public class Contact
 {
     [Key]
     public string Country { get; set; }
+    public string? GoogleMap { get; set; }
     public List<string> Addresses { get; set; } = [];
     public List<string> AddressesAr { get; set; } = [];
     public List<string> Emails { get; set; } = [];

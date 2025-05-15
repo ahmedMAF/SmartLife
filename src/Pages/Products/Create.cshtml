@@ -119,6 +119,17 @@
 </section>
 
 @section Scripts {
+    <script>
+        let nameen = "@Html.Raw(Model.Localizer["name"])";
+        let namear = "@Html.Raw(Model.Localizer["namea"])";
+        let descen = "@Html.Raw(Model.Localizer["description"])";
+        let descar = "@Html.Raw(Model.Localizer["descriptiona"])";
+        let img = "@Html.Raw(Model.Localizer["img"])";
+        let data = "@Html.Raw(Model.Localizer["data"])";
+        let gp = "@Html.Raw(Model.Localizer["gp"])";
+        let as = "@Html.Raw(Model.Localizer["as"])";
+        let vid = "@Html.Raw(Model.Localizer["vid"])";
+    </script>
     <script src="~/js/product.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -49,6 +49,7 @@
                             }
                             <a href="@partner.Image" title="@if (Model.IsAr) { @partner.DescriptionAr } else { @partner.Description }" data-gallery="portfolio-gallery-app"
                                 class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="@partner.Url" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
                                 <a asp-page="/Partners/Edit" asp-route-id="@partner.Id" class="me-3">@Model.Localizer["edit"]</a>

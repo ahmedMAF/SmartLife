@@ -39,6 +39,9 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("GoogleMap")
+                        .HasColumnType("longtext");
+
                     b.PrimitiveCollection<string>("Phones")
                         .IsRequired()
                         .HasColumnType("longtext");

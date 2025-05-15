@@ -1,6 +1,9 @@
+using System.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using SmartLife.Data;
+using SmartLife.Services;
 using SmartLife.Utilities;
 
 namespace SmartLife;
@@ -47,6 +50,9 @@ internal class Program
             options.AddSupportedCultures(supportedCultures);
             options.AddSupportedUICultures(supportedCultures);
         });
+
+        builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+        builder.Services.AddTransient<EmailService>();
 
         WebApplication app = builder.Build();
 

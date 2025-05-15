@@ -34,25 +34,25 @@
                     <div class="row gy-4">
                         <div class="col-md-12">
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["name"]</label>
-                            <input asp-for="Product.Name" class="form-control" placeholder="Name (English)"
+                            <input asp-for="Product.Name" class="form-control" placeholder="@Model.Localizer["nameen"]"
                                 style="border-radius: 5px;" required="">
                             <span asp-validation-for="Product.Name" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["name"]</label>
-                            <input asp-for="Product.NameAr" class="form-control" placeholder="Name (Arabic)"
+                            <input asp-for="Product.NameAr" class="form-control" placeholder="@Model.Localizer["namear"]"
                                 style="border-radius: 5px;" required="">
                             <span asp-validation-for="Product.NameAr" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["description"]</label>
-                            <textarea asp-for="Product.Description" class="form-control" placeholder="Description (English)"
+                            <textarea asp-for="Product.Description" class="form-control" placeholder="@Model.Localizer["descen"]"
                                 style="border-radius: 5px;" required=""></textarea>
                             <span asp-validation-for="Product.Description" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["description"]</label>
-                            <textarea asp-for="Product.DescriptionAr" class="form-control" placeholder="Description (Arabic)"
+                            <textarea asp-for="Product.DescriptionAr" class="form-control" placeholder="@Model.Localizer["descar"]"
                                 style="border-radius: 5px;" required=""></textarea>
                             <span asp-validation-for="Product.DescriptionAr" class="text-danger"></span>
                         </div>
@@ -70,7 +70,7 @@
                                 <span asp-validation-for="Product.Category" class="text-danger"></span>
                             </div>
                             <div class="mb-3">
-                                <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["category"]</label>
+                                <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["categorya"]</label>
                                 <input list="options" asp-for="Product.CategoryAr" class="form-control"
                                     style="border-radius: 5px;">
                                 <datalist id="options">
@@ -134,42 +134,42 @@
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["name"]</label>
                                     <input name="SubModule.Name" type="text" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Name (English)" value="@Model.Product.Features[i].Name" required="">
+                                        class="form-control" placeholder="@Model.Localizer["nameen"]" value="@Model.Product.Features[i].Name" required="">
                                 </div>
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["name"]</label>
                                     <input name="SubModule.NameAr" type="text" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Name (Arabic)" value="@Model.Product.Features[i].NameAr" required="">
+                                        class="form-control" placeholder="@Model.Localizer["namear"]" value="@Model.Product.Features[i].NameAr" required="">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["description"]</label>
                                     <textarea name="SubModule.Description" type="text" class="form-control"
-                                        style="border-radius: 5px;" placeholder="Description (English)">@Model.Product.Features[i].Description</textarea>
+                                        style="border-radius: 5px;" placeholder="@Model.Localizer["descen"]">@Model.Product.Features[i].Description</textarea>
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["description"]</label>
                                     <textarea name="SubModule.DescriptionAr" type="text" class="form-control"
-                                        style="border-radius: 5px;" placeholder="Description (Arabic)">@Model.Product.Features[i].DescriptionAr</textarea>
+                                        style="border-radius: 5px;" placeholder="@Model.Localizer["descar"]">@Model.Product.Features[i].DescriptionAr</textarea>
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start textar" for="image">@Model.Localizer["image"]</label>
                                     <input asp-for="SubImage" style="border-radius: 5px;" class="form-control"
-                                        placeholder="Image">
+                                        placeholder="@Model.Localizer["image"]">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start textar" for="image">@Model.Localizer["data"]</label>
                                     <input asp-for="DataSheet" style="border-radius: 5px;" class="form-control"
-                                        placeholder="Data Sheet">
+                                        placeholder="@Model.Localizer["data"]">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["play"]</label>
                                     <input name="SubModule.GooglePlay" type="text" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Link GooglePlay" value="@Model.Product.Features[i].GooglePlay">
+                                        class="form-control" placeholder="@Model.Localizer["play"]" value="@Model.Product.Features[i].GooglePlay">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["store"]</label>
                                     <input name="SubModule.AppStore" type="text" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Link AppStore" value="@Model.Product.Features[i].AppStore">
+                                        class="form-control" placeholder="@Model.Localizer["store"]" value="@Model.Product.Features[i].AppStore">
                                 </div>
                             </div>
 
@@ -199,42 +199,42 @@
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["name"]</label>
                                     <input name="SubModule.Name" type="text" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Name (English)" value="@Model.Product.Models[i].Name" required="">
+                                        class="form-control" placeholder="@Model.Localizer["nameen"]" value="@Model.Product.Models[i].Name" required="">
                                 </div>
                                 <div>
                                     <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["name"]</label>
                                     <input name="SubModule.NameAr" type="text" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Name (Arabic)" value="@Model.Product.Models[i].NameAr" required="">
+                                        class="form-control" placeholder="@Model.Localizer["namear"]" value="@Model.Product.Models[i].NameAr" required="">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["description"]</label>
                                     <textarea name="SubModule.Description" type="text" class="form-control"
-                                        style="border-radius: 5px;" placeholder="Description (English)">@Model.Product.Models[i].Description</textarea>
+                                        style="border-radius: 5px;" placeholder="@Model.Localizer["descen"]">@Model.Product.Models[i].Description</textarea>
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["description"]</label>
                                     <textarea name="SubModule.DescriptionAr" type="text" class="form-control"
-                                        style="border-radius: 5px;" placeholder="Description (Arabic)">@Model.Product.Models[i].DescriptionAr</textarea>
+                                        style="border-radius: 5px;" placeholder="@Model.Localizer["descar"]">@Model.Product.Models[i].DescriptionAr</textarea>
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["image"]</label>
                                     <input asp-for="SubImage" style="border-radius: 5px;" class="form-control"
-                                        placeholder="Image">
+                                        placeholder="@Model.Localizer["image"]">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["data"]</label>
                                     <input asp-for="DataSheet" style="border-radius: 5px;" class="form-control"
-                                        placeholder="Data Sheet">
+                                        placeholder="@Model.Localizer["data"]">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["play"]</label>
                                     <input name="SubModule.GooglePlay" type="text" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Link GooglePlay" value="@Model.Product.Models[i].GooglePlay">
+                                        class="form-control" placeholder="@Model.Localizer["play"]" value="@Model.Product.Models[i].GooglePlay">
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label class="w-100 mb-2 ps-2 text-start">@Model.Localizer["store"]</label>
                                     <input name="SubModule.AppStore" type="text" style="border-radius: 5px;"
-                                        class="form-control" placeholder="Link AppStore" value="@Model.Product.Models[i].AppStore">
+                                        class="form-control" placeholder="@Model.Localizer["store"]" value="@Model.Product.Models[i].AppStore">
                                 </div>
                             </div>
 
@@ -294,6 +294,17 @@
 <!-- /Admin Section -->
 
 @section Scripts {
+    <script>
+        let nameen = "@Html.Raw(Model.Localizer["nameen"])";
+        let namear = "@Html.Raw(Model.Localizer["namear"])";
+        let descen = "@Html.Raw(Model.Localizer["descen"])";
+        let descar = "@Html.Raw(Model.Localizer["descar"])";
+        let img = "@Html.Raw(Model.Localizer["img"])";
+        let data = "@Html.Raw(Model.Localizer["data"])";
+        let gp = "@Html.Raw(Model.Localizer["gp"])";
+        let as = "@Html.Raw(Model.Localizer["as"])";
+        let vid = "@Html.Raw(Model.Localizer["vid"])";
+    </script>
     <script src="~/js/editproduct.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

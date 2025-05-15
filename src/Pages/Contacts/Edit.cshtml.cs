@@ -40,6 +40,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
             else if (string.IsNullOrEmpty(Contact.Addresses[i]) || string.IsNullOrEmpty(Contact.AddressesAr[i]))
             {
                 ModelState.AddModelError("", "Not all addresses are written in both languages.");
+                Countries = LocationHelper.GetCountries();
                 return Page();
             }
         }
@@ -47,6 +48,17 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         Contact.Emails.RemoveAll(string.IsNullOrEmpty);
         Contact.Phones.RemoveAll(string.IsNullOrEmpty);
         Contact.WhatsApps.RemoveAll(string.IsNullOrEmpty);
+
+        string embeddedUrl = UrlHelper.GetGoogleMapsEmbedUrl(Contact.GoogleMap);
+
+        if (string.IsNullOrEmpty(embeddedUrl))
+        {
+            ModelState.AddModelError("Contact.GoogleMap", Localizer["InvalidGoogleMapLink"]);
+            Countries = LocationHelper.GetCountries();
+            return Page();
+        }
+
+        Contact.GoogleMap = embeddedUrl;
 
         context.Contacts.Update(Contact);
         await context.SaveChangesAsync();

@@ -177,4 +177,40 @@
     <value>Save</value>
     <comment/>
   </data>
+  <data name="InvalidGoogleMapLink" xml:space="preserve">
+    <value>Invalid GoogleMaps Link</value>
+    <comment/>
+  </data>
+  <data name="map" xml:space="preserve">
+    <value>GoogleMaps Link</value>
+    <comment/>
+  </data>
+  <data name="addressen" xml:space="preserve">
+    <value>Address (English)</value>
+    <comment/>
+  </data>
+  <data name="addressar" xml:space="preserve">
+    <value>Address (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="emailh" xml:space="preserve">
+    <value>Email</value>
+    <comment/>
+  </data>
+  <data name="phoneh" xml:space="preserve">
+    <value>Phone</value>
+    <comment/>
+  </data>
+  <data name="whatsapph" xml:space="preserve">
+    <value>WhatsApp</value>
+    <comment/>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment/>
+  </data>
+  <data name="categorya" xml:space="preserve">
+    <value>Category (Arabic)</value>
+    <comment/>
+  </data>
 </root>

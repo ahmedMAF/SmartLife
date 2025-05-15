@@ -177,4 +177,20 @@
     <value>Category (Arabic)</value>
     <comment/>
   </data>
+  <data name="img" xml:space="preserve">
+    <value>Upload Image</value>
+    <comment/>
+  </data>
+  <data name="gp" xml:space="preserve">
+    <value>Link GooglePlay</value>
+    <comment/>
+  </data>
+  <data name="as" xml:space="preserve">
+    <value>Link AppStore</value>
+    <comment/>
+  </data>
+  <data name="vid" xml:space="preserve">
+    <value>Video Link</value>
+    <comment/>
+  </data>
 </root>

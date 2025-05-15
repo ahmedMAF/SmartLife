@@ -25,6 +25,15 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
     public async Task<IActionResult> OnPostAsync()
     {
+        string embeddedUrl = UrlHelper.GetGoogleMapsEmbedUrl(Contact.GoogleMap);
+
+        if (string.IsNullOrEmpty(embeddedUrl))
+        {
+            ModelState.AddModelError("Contact.GoogleMap", Localizer["InvalidGoogleMapLink"]);
+            return Page();
+        }
+
+        Contact.GoogleMap = embeddedUrl;
         context.Contacts.Add(Contact);
         await context.SaveChangesAsync();
 

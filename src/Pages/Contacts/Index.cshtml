@@ -8,16 +8,16 @@
 <!-- Page Title -->
 <div style="background-image: /img/contact.jpg;" class="page-title dark-background">
     <div class="container">
-    <h1>@Model.Localizer["contactus"]</h1>
-    <nav class="breadcrumbs">
-        <ol>
-        <li><a asp-page="/Index">@Model.Localizer["contacthome"]</a></li>
-        <li class="current">@Model.Localizer["contactus"]</li>
-        </ol>
-    </nav>
+        <h1>@Model.Localizer["contactus"]</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">@Model.Localizer["contacthome"]</a></li>
+                <li class="current">@Model.Localizer["contactus"]</li>
+            </ol>
+        </nav>
     </div>
 </div><!-- End Page Title -->
-    
+
 <!-- Contact Section -->
 <section id="contact" class="contact section">
 
@@ -29,12 +29,14 @@
     <!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <!-- End Google Maps -->
-
+        @if (!string.IsNullOrEmpty(Model.Contact.GoogleMap))
+        {
+            <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border:0; width: 100%; height: 270px;" src="@Model.Contact.GoogleMap" frameborder="0"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- End Google Maps -->
+        }
         <div class="row gy-4">
 
             <div class="col-lg-4">
@@ -104,19 +106,23 @@
                     <div class="row gy-4">
 
                         <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="@Model.Localizer["YourName"]" required="">
+                            <input type="text" name="name" class="form-control"
+                                placeholder="@Model.Localizer["YourName"]" required="">
                         </div>
 
                         <div class="col-md-6 ">
-                            <input type="text" class="form-control" name="phone" placeholder="@Model.Localizer["Phone"]" required="">
+                            <input type="text" class="form-control" name="phone" placeholder="@Model.Localizer["Phone"]"
+                                required="">
                         </div>
 
                         <div class="col-md-12">
-                            <input type="email" class="form-control" name="email" placeholder="@Model.Localizer["YourEmail"]" required="">
+                            <input type="email" class="form-control" name="email"
+                                placeholder="@Model.Localizer["YourEmail"]" required="">
                         </div>
 
                         <div class="col-md-12">
-                            <textarea class="form-control" name="message" rows="6" placeholder="@Model.Localizer["Message"]" required=""></textarea>
+                            <textarea class="form-control" name="message" rows="6"
+                                placeholder="@Model.Localizer["Message"]" required=""></textarea>
                         </div>
 
                         <div class="col-md-12 text-center">

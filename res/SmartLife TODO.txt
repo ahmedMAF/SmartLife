@@ -1,8 +1,8 @@
 undo add feature
 delete bar about
 
-style:
-clients and partners short description not warping
+seo
+host
 
 ===========================================================================================================
 

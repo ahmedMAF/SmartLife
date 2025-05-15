@@ -42,6 +42,11 @@
                             </select>
                         </div>
                         <div>
+                            <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["map"]</label>
+                            <input asp-for="Contact.GoogleMap" style="border-radius: 5px;" type="text" class="form-control mb-1">
+                            <span asp-validation-for="Contact.GoogleMap" class="text-danger"></span>
+                        </div>
+                        <div>
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["addresses"]</label>
                             @for(int i = 0; i < Model.Contact.Addresses.Count; i++)
                             {
@@ -98,7 +103,7 @@
                             <div class="error-message"></div>
             
                             <button formaction="" type="submit">@Model.Localizer["save"]</button>
-                            <button formaction="/Contacts/Delete/@Model.Contact.Country" type="submit" class="btn-danger">Delete</button>
+                            <button formaction="/Contacts/Delete/@Model.Contact.Country" type="submit" class="btn-danger">@Model.Localizer["delete"]</button>
                         </div>
                     </div>
                 </form>
@@ -114,6 +119,12 @@
         let e = @Model.Contact.Emails.Count;
         let p = @Model.Contact.Phones.Count;
         let w = @Model.Contact.WhatsApps.Count;
+
+        let addressen = "@Html.Raw(Model.Localizer["addressen"])";
+        let addressar = "@Html.Raw(Model.Localizer["addressar"])";
+        let emailh = "@Html.Raw(Model.Localizer["emailh"])";
+        let phoneh = "@Html.Raw(Model.Localizer["phoneh"])";
+        let whasapph = "@Html.Raw(Model.Localizer["whasapph"])";
     </script>
     <script src="~/js/contact.js"></script>
     @{

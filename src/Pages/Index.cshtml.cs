@@ -5,11 +5,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using SmartLife.Data;
 using SmartLife.Models;
+using SmartLife.Services;
 using SmartLife.Utilities;
 
 namespace SmartLife.Pages;
 
-public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IStringLocalizer<IndexModel> localizer) : PageModel
+public class IndexModel(SmartLifeDb context, EmailService emailService, ILogger<IndexModel> logger, IStringLocalizer<IndexModel> localizer) : PageModel
 {
     public IList<PartnerClient> Partners { get; set; } = default!;
     public IList<PartnerClient> Clients { get; set; } = default!;
@@ -41,15 +42,6 @@ public class IndexModel(SmartLifeDb context, ILogger<IndexModel> logger, IString
         var subject = $"Contact Form Submission from {name}";
         var body = $"Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}";
 
-        var recipient = "ceo@smartlifeeg.com";
-
-        var mail = new MailMessage();
-        mail.To.Add(recipient);
-        mail.Subject = subject;
-        mail.Body = body;
-        mail.From = new MailAddress(email, name);
-        mail.IsBodyHtml = false;
-        
-        EmailHelper.SendEmail(mail);
+        emailService.SendEmail("ceo@smartlifeeg.com", "noreply@smartlifeeg.com", subject, body);
     }
 }

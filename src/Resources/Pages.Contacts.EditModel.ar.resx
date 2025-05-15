@@ -173,4 +173,36 @@
     <value>حفظ</value>
     <comment/>
   </data>
+  <data name="InvalidGoogleMapLink" xml:space="preserve">
+    <value>رابط غير صالح</value>
+    <comment/>
+  </data>
+  <data name="map" xml:space="preserve">
+    <value>رابط خرائط جوجل</value>
+    <comment/>
+  </data>
+  <data name="addressen" xml:space="preserve">
+    <value>عنوان (إنجليزي)</value>
+    <comment/>
+  </data>
+  <data name="addressar" xml:space="preserve">
+    <value>عنوان (عربي)</value>
+    <comment/>
+  </data>
+  <data name="emailh" xml:space="preserve">
+    <value>بريد إلكتروني</value>
+    <comment/>
+  </data>
+  <data name="phoneh" xml:space="preserve">
+    <value>هاتف</value>
+    <comment/>
+  </data>
+  <data name="whatsapph" xml:space="preserve">
+    <value>واتساب</value>
+    <comment/>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>حذف</value>
+    <comment/>
+  </data>
 </root>

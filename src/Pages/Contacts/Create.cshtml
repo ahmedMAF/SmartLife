@@ -40,6 +40,11 @@
                             </select>
                             <span asp-validation-for="Contact.Country" class="text-danger"></span>
                         </div>
+                        <div>
+                            <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["map"]</label>
+                            <input asp-for="Contact.GoogleMap" style="border-radius: 5px;" type="text" class="form-control mb-1">
+                            <span asp-validation-for="Contact.GoogleMap" class="text-danger"></span>
+                        </div>
                         <div id="addresses" class="text-start textar">
                             <span>@Model.Localizer["address"]</span>
                             <i id="iconAddress" style="color: #7cc576; cursor: pointer; margin-left: 25px;"
@@ -81,6 +86,12 @@
         let e = 0;
         let p = 0;
         let w = 0;
+
+        let addressen = "@Html.Raw(Model.Localizer["addressen"])";
+        let addressar = "@Html.Raw(Model.Localizer["addressar"])";
+        let emailh = "@Html.Raw(Model.Localizer["emailh"])";
+        let phoneh = "@Html.Raw(Model.Localizer["phoneh"])";
+        let whasapph = "@Html.Raw(Model.Localizer["whasapph"])";
     </script>
     <script src="~/js/contact.js"></script>
     @{

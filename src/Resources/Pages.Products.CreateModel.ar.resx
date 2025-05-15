@@ -177,4 +177,20 @@
     <value>التصنيف (اللغة العربية)</value>
     <comment/>
   </data>
+  <data name="img" xml:space="preserve">
+    <value>تحميل صورة</value>
+    <comment/>
+  </data>
+  <data name="gp" xml:space="preserve">
+    <value>رابط جوجل بلاي</value>
+    <comment/>
+  </data>
+  <data name="as" xml:space="preserve">
+    <value>رابط ابستور</value>
+    <comment/>
+  </data>
+  <data name="vid" xml:space="preserve">
+    <value>رابط فيديو</value>
+    <comment/>
+  </data>
 </root>

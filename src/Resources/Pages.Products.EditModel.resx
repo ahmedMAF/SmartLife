@@ -166,15 +166,15 @@
     <comment/>
   </data>
   <data name="data" xml:space="preserve">
-    <value>Edit Data Sheet</value>
+    <value>Upload Datasheet</value>
     <comment/>
   </data>
   <data name="play" xml:space="preserve">
-    <value>Link Google Play</value>
+    <value>Link GooglePlay</value>
     <comment/>
   </data>
   <data name="store" xml:space="preserve">
-    <value>Link Apple Store</value>
+    <value>Link AppStore</value>
     <comment/>
   </data>
   <data name="delete" xml:space="preserve">
@@ -187,6 +187,38 @@
   </data>
   <data name="videog" xml:space="preserve">
     <value>Video Gallery</value>
+    <comment/>
+  </data>
+  <data name="nameen" xml:space="preserve">
+    <value>Name (English)</value>
+    <comment/>
+  </data>
+  <data name="namear" xml:space="preserve">
+    <value>Name (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="descen" xml:space="preserve">
+    <value>Description (English)</value>
+    <comment/>
+  </data>
+  <data name="descar" xml:space="preserve">
+    <value>Description (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="img" xml:space="preserve">
+    <value>Upload Image</value>
+    <comment/>
+  </data>
+  <data name="gp" xml:space="preserve">
+    <value>Link GooglePlay</value>
+    <comment/>
+  </data>
+  <data name="as" xml:space="preserve">
+    <value>Link AppStore</value>
+    <comment/>
+  </data>
+  <data name="vid" xml:space="preserve">
+    <value>Video link</value>
     <comment/>
   </data>
 </root>

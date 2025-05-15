@@ -129,12 +129,12 @@
     <value>تعديل المنتج</value>
     <comment/>
   </data>
-  <data name="name" xml:space="preserve">
-    <value>الاسم</value>
+  <data name="nameen" xml:space="preserve">
+    <value>الاسم (اللغة الانجليزية)</value>
     <comment/>
   </data>
-  <data name="description" xml:space="preserve">
-    <value>الوصف</value>
+  <data name="descen" xml:space="preserve">
+    <value>الوصف (اللغة الانجليزية)</value>
     <comment/>
   </data>
   <data name="category" xml:space="preserve">
@@ -187,6 +187,46 @@
   </data>
   <data name="videog" xml:space="preserve">
     <value>معرض الفيديوهات</value>
+    <comment/>
+  </data>
+  <data name="img" xml:space="preserve">
+    <value>تحميل صورة</value>
+    <comment/>
+  </data>
+  <data name="gp" xml:space="preserve">
+    <value>رابط جوجل بلاي</value>
+    <comment/>
+  </data>
+  <data name="as" xml:space="preserve">
+    <value>رابط ابستور</value>
+    <comment/>
+  </data>
+  <data name="vid" xml:space="preserve">
+    <value>رابط فيديو</value>
+    <comment/>
+  </data>
+  <data name="namear" xml:space="preserve">
+    <value>الاسم (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="descar" xml:space="preserve">
+    <value>الوصف (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>الاسم</value>
+    <comment/>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>الوصف</value>
+    <comment/>
+  </data>
+  <data name="categorya" xml:space="preserve">
+    <value>التصنيف (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="categoryen" xml:space="preserve">
+    <value>التصنيف (اللغة الإنجليزية)</value>
     <comment/>
   </data>
 </root>
