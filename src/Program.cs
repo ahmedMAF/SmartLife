@@ -14,7 +14,12 @@ internal class Program
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
         MySqlServerVersion serverVersion = new(new Version(8, 0, 29));
+
+#if DEBUG
+        string connectionString = builder.Configuration.GetConnectionString("DevConnection");
+#else
         string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+#endif
 
         // Add services to the container.
         builder.Services.AddSession();
@@ -35,7 +40,7 @@ internal class Program
             options.UseMySql(connectionString, serverVersion, options =>
                 options.UseMicrosoftJson(MySqlCommonJsonChangeTrackingOptions.FullHierarchyOptimizedFast));
 #if DEBUG
-            options.LogTo(Console.WriteLine, LogLevel.Error)
+                options.LogTo(Console.WriteLine, LogLevel.Error)
                     .EnableSensitiveDataLogging()
                     .EnableDetailedErrors();
 #endif

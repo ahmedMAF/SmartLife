@@ -37,7 +37,7 @@ iconfeature.onclick = function(){
     input1a.className = "form-control mt-2";
 
     let input22 = document.createElement("label");
-    input22.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input22.className = "w-100 mb-1 mt-3 ps-2 text-start textar";
     input22.innerText = img;
 
     let input2 = document.createElement("input");
@@ -46,7 +46,7 @@ iconfeature.onclick = function(){
     input2.className = "form-control mt-2";
 
     let input33 = document.createElement("label");
-    input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input33.className = "w-100 mb-1 mt-3 ps-2 text-start textar";
     input33.innerText = data;
 
     let input3 = document.createElement("input");
@@ -104,7 +104,7 @@ iconmodel.onclick = function(){
     input1a.className = "form-control mt-2";
 
     let input22 = document.createElement("label");
-    input22.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input22.className = "w-100 mb-1 mt-3 ps-2 text-start textar";
     input22.innerText = img;
 
     let input2 = document.createElement("input");
@@ -113,7 +113,7 @@ iconmodel.onclick = function(){
     input2.className = "form-control mt-2";
 
     let input33 = document.createElement("label");
-    input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input33.className = "w-100 mb-1 mt-3 ps-2 text-start textar";
     input33.innerText = data;
 
     let input3 = document.createElement("input");

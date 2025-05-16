@@ -50,7 +50,7 @@ iconWhasapp.onclick = function(){
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Contact.WhatsApps[${w}]`;
-    input.placeholder = whatsapp;
+    input.placeholder = whasapph;
     input.className = "form-control mt-2";
     whatsApp.appendChild(input);
     w++;
