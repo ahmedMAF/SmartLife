@@ -20,7 +20,7 @@ iconAddress.onclick = function(){
     input2.type = "text";
     input2.name = `Contact.AddressesAr[${a}]`;
     input2.placeholder = addressar;
-    input2.className = "form-control mt-2";
+    input2.className = "form-control mt-2 mb-5";
     address.appendChild(input2);
 
     a++;

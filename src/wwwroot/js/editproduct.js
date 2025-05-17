@@ -64,7 +64,7 @@ iconfeature.onclick = function(){
     input5.type = "text";
     input5.name = `Features[${f}].AppStore`;
     input5.placeholder = as;
-    input5.className = "form-control mt-2";
+    input5.className = "form-control mt-2 mb-5";
 
     feature.appendChild(input);
     feature.appendChild(inputa);
@@ -131,7 +131,7 @@ iconmodel.onclick = function(){
     input5.type = "text";
     input5.name = `Models[${m}].AppStore`;
     input5.placeholder = as;
-    input5.className = "form-control mt-2";
+    input5.className = "form-control mt-2 mb-5";
 
     model.appendChild(input);
     model.appendChild(inputa);
@@ -173,7 +173,7 @@ iconphoto.onclick = function(){
     let input2 = document.createElement("input");
     input2.type = "file";
     input2.name = "PhotoFiles";
-    input2.className = "form-control mt-2";
+    input2.className = "form-control mt-2 mb-5";
 
     photo.appendChild(input);
     photo.appendChild(inputa);
