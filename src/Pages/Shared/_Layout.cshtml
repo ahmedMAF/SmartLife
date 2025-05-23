@@ -44,7 +44,7 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
-            <a asp-page="/Index" class="logo d-flex align-items-center me-auto me-xl-0">
+            <a asp-page="/Index" class="logo d-flex align-items-center me-auto me-xl-0 logoar">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="~/img/logo.png" alt=""> -->
                 <h1 class="sitename">
@@ -61,7 +61,7 @@
                     <li><a asp-page="/Index" class="@(page == "/Index" ? "active" : "")">@Localizer["nav_home"]</a></li>
                     <li><a asp-page="/About/Index" class="@(page == "/About/Index" ? "active" : "")">@Localizer["nav_about"]</a></li>
                     <li class="dropdown">
-                        <a asp-page="/Products/Index" class="@(page == "/Products/Index" ? "active" : "")"><span>@Localizer["nav_products"]</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <a asp-page="/Products/Index" class="@(page == "/Products/Index" ? "active" : "")"><span>@Localizer["nav_products"]</span> <i class="bi bi-chevron-down toggle-dropdown product-arowar"></i></a>
                         <ul>
                             @await Component.InvokeAsync("ProductsMenu")
                         </ul>

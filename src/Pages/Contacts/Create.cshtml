@@ -31,7 +31,7 @@
                 <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
                     <div class="row gy-4">
                         <div class="col-md-12">
-                            <select asp-for="Contact.Country" style="border-radius: 5px;" class="form-select select" required="">
+                            <select asp-for="Contact.Country" style="border-radius: 5px;" class="form-select select arowar" required="">
                                 <option value="" disabled selected>@Model.Localizer["select"]</option>
                                 @foreach(var country in Model.Countries)
                                 {

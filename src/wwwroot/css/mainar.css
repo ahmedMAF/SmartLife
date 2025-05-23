@@ -10,3 +10,15 @@
 .showar{
     text-align: left;
 }
+.arowar{
+    background-position: left 0.75rem center;
+    padding-left: 2.25rem;
+    padding-right: 0.75rem;
+}
+.product-arowar{
+    margin-right: 5px;
+    margin-left: 0px !important;
+}
+.logoar{
+    margin-right: 0px !important;
+}

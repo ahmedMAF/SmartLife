@@ -33,7 +33,7 @@
                     <div class="row gy-4">
                         <div>
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["country"]</label>
-                            <select asp-for="Contact.Country" style="border-radius: 5px;" class="form-select select" required="">
+                            <select asp-for="Contact.Country" style="border-radius: 5px;" class="form-select select arowar" required="">
                                 <option value="" disabled selected>@Model.Localizer["select"]</option>
                                 @foreach(var country in Model.Countries)
                                 {
