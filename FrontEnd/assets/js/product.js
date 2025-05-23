@@ -103,6 +103,7 @@ iconmodel.onclick = function(){
 }
 iconphoto.onclick = function(){
     p++;
+    let div = document.createElement("div");
     let input = document.createElement("input");
     input.type = "text";
     input.name = `title${p}`;
@@ -116,16 +117,33 @@ iconphoto.onclick = function(){
     input2.type = "file";
     input2.name = `image${p}`;
     input2.className = "form-control mt-2";
-    photo.appendChild(input);
-    photo.appendChild(input1);
-    photo.appendChild(input2);
+    let cancel = document.createElement("button");
+    cancel.textContent = "cancel";
+    cancel.className = "btn btn-danger mx-auto mt-2 d-block";
+    cancel.onclick = function(e) {
+        e.target.parentElement.remove();
+    };
+    div.appendChild(input);
+    div.appendChild(input1);
+    div.appendChild(input2);
+    div.appendChild(cancel);
+    photo.appendChild(div);
 }
 iconvideo.onclick = function(){
     v++;
+    let div = document.createElement("div");
     let input = document.createElement("input");
     input.type = "text";
     input.name = `video${v}`;
     input.placeholder = "Video link";
     input.className = "form-control mt-2";
-    video.appendChild(input);
+    let cancel = document.createElement("button");
+    cancel.textContent = "cancel";
+    cancel.className = "btn btn-danger mx-auto mt-2 d-block";
+    cancel.onclick = function(e) {
+        e.target.parentElement.remove();
+    };
+    div.appendChild(input);
+    div.appendChild(cancel);
+    video.appendChild(div);
 }

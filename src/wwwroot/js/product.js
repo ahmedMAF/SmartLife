@@ -14,6 +14,7 @@ let p = 0;
 let v = 0;
 		
 iconfeature.onclick = function(){
+    let div = document.createElement("div");
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Product.Features[${f}].Name`;
@@ -64,23 +65,33 @@ iconfeature.onclick = function(){
     input5.type = "text";
     input5.name = `Product.Features[${f}].AppStore`;
     input5.placeholder = as;
-    input5.className = "form-control mt-2 mb-5";
+    input5.className = "form-control mt-2";
 
-    feature.appendChild(input);
-    feature.appendChild(inputa);
-    feature.appendChild(input1);
-    feature.appendChild(input1a);
-    feature.appendChild(input22);
-    feature.appendChild(input2);
-    feature.appendChild(input33);
-    feature.appendChild(input3);
-    feature.appendChild(input4);
-    feature.appendChild(input5);
+    let cancel = document.createElement("button");
+    cancel.textContent = "cancel";
+    cancel.className = "btn btn-danger mx-auto mt-2 mb-5 d-block";
+    cancel.onclick = function(e) {
+        e.target.parentElement.remove();
+    };
+
+    div.appendChild(input);
+    div.appendChild(inputa);
+    div.appendChild(input1);
+    div.appendChild(input1a);
+    div.appendChild(input22);
+    div.appendChild(input2);
+    div.appendChild(input33);
+    div.appendChild(input3);
+    div.appendChild(input4);
+    div.appendChild(input5);
+    div.appendChild(cancel);
+    feature.appendChild(div);
 
     f++;
 }
 
 iconmodel.onclick = function(){
+    let div = document.createElement("div");
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Product.Models[${f}].Name`;
@@ -131,23 +142,33 @@ iconmodel.onclick = function(){
     input5.type = "text";
     input5.name = `Product.Models[${m}].AppStore`;
     input5.placeholder = as;
-    input5.className = "form-control mt-2 mb-5";
+    input5.className = "form-control mt-2";
 
-    model.appendChild(input);
-    model.appendChild(inputa);
-    model.appendChild(input1);
-    model.appendChild(input1a);
-    model.appendChild(input22);
-    model.appendChild(input2);
-    model.appendChild(input33);
-    model.appendChild(input3);
-    model.appendChild(input4);
-    model.appendChild(input5);
+    let cancel = document.createElement("button");
+    cancel.textContent = "cancel";
+    cancel.className = "btn btn-danger mx-auto mt-2 mb-5 d-block";
+    cancel.onclick = function(e) {
+        e.target.parentElement.remove();
+    };
+
+    div.appendChild(input);
+    div.appendChild(inputa);
+    div.appendChild(input1);
+    div.appendChild(input1a);
+    div.appendChild(input22);
+    div.appendChild(input2);
+    div.appendChild(input33);
+    div.appendChild(input3);
+    div.appendChild(input4);
+    div.appendChild(input5);
+    div.appendChild(cancel);
+    model.appendChild(div);
 
     m++;
 }
 
 iconphoto.onclick = function(){
+    let div = document.createElement("div");
     let input = document.createElement("input");
     input.type = "text";
     input.name = `Product.Photos[${p}].Name`;
@@ -173,25 +194,44 @@ iconphoto.onclick = function(){
     let input2 = document.createElement("input");
     input2.type = "file";
     input2.name = "PhotoFiles";
-    input2.className = "form-control mt-2 mb-5";
+    input2.className = "form-control mt-2";
 
-    photo.appendChild(input);
-    photo.appendChild(inputa);
-    photo.appendChild(input1a);
-    photo.appendChild(input1);
-    photo.appendChild(input2);
+    let cancel = document.createElement("button");
+    cancel.textContent = "cancel";
+    cancel.className = "btn btn-danger mx-auto mt-2 mb-5 d-block";
+    cancel.onclick = function(e) {
+        e.target.parentElement.remove();
+    };
+
+    div.appendChild(input);
+    div.appendChild(inputa);
+    div.appendChild(input1a);
+    div.appendChild(input1);
+    div.appendChild(input2);
+    div.appendChild(cancel);
+    photo.appendChild(div);
 
     p++;
 }
 
 iconvideo.onclick = function(){
+    let div = document.createElement("div");
     let input = document.createElement("input");
     input.type = "text";
     input.name = `VideoUrls[${v}]`;
     input.placeholder = vid;
     input.className = "form-control mt-2";
 
-    video.appendChild(input);
+    let cancel = document.createElement("button");
+    cancel.textContent = "cancel";
+    cancel.className = "btn btn-danger mx-auto mt-2 d-block";
+    cancel.onclick = function(e) {
+        e.target.parentElement.remove();
+    };
+
+    div.appendChild(input);
+    div.appendChild(cancel);
+    video.appendChild(div);
 
     v++;
 }
