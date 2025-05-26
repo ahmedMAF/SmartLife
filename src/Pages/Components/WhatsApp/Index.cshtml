@@ -1,0 +1,6 @@
+@model SmartLife.Models.Contact
+
+@if (Model.WhatsApps != null && Model.WhatsApps.Count > 0)
+{
+    <a href="https://wa.me/@Model.WhatsApps[0]"><img style="width: 55px;" src="~/img/WhatsApp.svg.png" alt=""></a>
+}
