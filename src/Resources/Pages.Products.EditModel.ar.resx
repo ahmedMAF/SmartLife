@@ -229,4 +229,8 @@
     <value>التصنيف (اللغة الإنجليزية)</value>
     <comment/>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>إلغاء</value>
+    <comment/>
+  </data>
 </root>

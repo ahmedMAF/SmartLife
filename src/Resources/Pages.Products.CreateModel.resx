@@ -193,4 +193,12 @@
     <value>Video Link</value>
     <comment/>
   </data>
+  <data name="data" xml:space="preserve">
+    <value>Datasheet</value>
+    <comment/>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment/>
+  </data>
 </root>

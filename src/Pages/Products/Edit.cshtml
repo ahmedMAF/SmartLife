@@ -279,7 +279,7 @@
                         <form asp-page-handler="DeleteVideo" class="form" asp-antiforgery="false">
                             <input type="hidden" name="videoId" value="@i" />
                             <input type="hidden" name="id" value="@Model.Product.Id" />
-                            <iframe src="@Model.Product.Videos[i]" frameborder="0"
+                            <iframe src="https://www.youtube.com/embed/@Model.Product.Videos[i]" frameborder="0"
                                 allowfullscreen></iframe>
                             <div class="col-md-12 text-center mt-3">
                                 <button type="submit">@Model.Localizer["delete"]</button>
@@ -304,6 +304,7 @@
         let gp = "@Html.Raw(Model.Localizer["gp"])";
         let as = "@Html.Raw(Model.Localizer["as"])";
         let vid = "@Html.Raw(Model.Localizer["vid"])";
+        let can = "@Html.Raw(Model.Localizer["cancel"])";
     </script>
     <script src="~/js/editproduct.js"></script>
     @{

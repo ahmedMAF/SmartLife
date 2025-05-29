@@ -47,7 +47,7 @@ iconfeature.onclick = function(){
     input2.className = "form-control mt-2";
 
     let input33 = document.createElement("label");
-    input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input33.className = "w-100 mb-1 mt-3 ps-2 text-start textar";
     input33.innerText = data;
 
     let input3 = document.createElement("input");
@@ -68,10 +68,11 @@ iconfeature.onclick = function(){
     input5.className = "form-control mt-2";
 
     let cancel = document.createElement("button");
-    cancel.textContent = "cancel";
+    cancel.textContent = can;
     cancel.className = "btn btn-danger mx-auto mt-2 mb-5 d-block";
     cancel.onclick = function(e) {
         e.target.parentElement.remove();
+        f--;
     };
 
     div.appendChild(input);
@@ -124,7 +125,7 @@ iconmodel.onclick = function(){
     input2.className = "form-control mt-2";
 
     let input33 = document.createElement("label");
-    input33.className = "w-100 mb-1 mt-3 ps-2 text-start";
+    input33.className = "w-100 mb-1 mt-3 ps-2 text-start textar";
     input33.innerText = data;
 
     let input3 = document.createElement("input");
@@ -145,10 +146,11 @@ iconmodel.onclick = function(){
     input5.className = "form-control mt-2";
 
     let cancel = document.createElement("button");
-    cancel.textContent = "cancel";
+    cancel.textContent = can;
     cancel.className = "btn btn-danger mx-auto mt-2 mb-5 d-block";
     cancel.onclick = function(e) {
         e.target.parentElement.remove();
+        m--;
     };
 
     div.appendChild(input);
@@ -197,10 +199,11 @@ iconphoto.onclick = function(){
     input2.className = "form-control mt-2";
 
     let cancel = document.createElement("button");
-    cancel.textContent = "cancel";
+    cancel.textContent = can;
     cancel.className = "btn btn-danger mx-auto mt-2 mb-5 d-block";
     cancel.onclick = function(e) {
         e.target.parentElement.remove();
+        p--;
     };
 
     div.appendChild(input);
@@ -223,10 +226,11 @@ iconvideo.onclick = function(){
     input.className = "form-control mt-2";
 
     let cancel = document.createElement("button");
-    cancel.textContent = "cancel";
+    cancel.textContent = can;
     cancel.className = "btn btn-danger mx-auto mt-2 d-block";
     cancel.onclick = function(e) {
         e.target.parentElement.remove();
+        v--;
     };
 
     div.appendChild(input);

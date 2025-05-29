@@ -11,10 +11,11 @@ const iconWhasapp = document.getElementById("iconWhasapp");
 iconAddress.onclick = function(){
     let div = document.createElement("div");
     let cancel = document.createElement("button");
-    cancel.textContent = "cancel";
+    cancel.textContent = can;
     cancel.className = "btn btn-danger mx-auto mt-2 mb-5 d-block";
     cancel.onclick = function(e) {
         e.target.parentElement.remove();
+        a--;
     };
     let input = document.createElement("input");
     input.type = "text";
@@ -43,10 +44,11 @@ iconEmail.onclick = function(){
     input.placeholder = emailh;
     input.className = "form-control mt-2";
     let cancel = document.createElement("button");
-    cancel.textContent = "cancel";
+    cancel.textContent = can;
     cancel.className = "btn btn-danger mx-auto mt-2 d-block";
     cancel.onclick = function(e) {
         e.target.parentElement.remove();
+        e--;
     };
     div.appendChild(input);
     div.appendChild(cancel);
@@ -62,10 +64,11 @@ iconPhone.onclick = function(){
     input.placeholder = phoneh;
     input.className = "form-control mt-2";
     let cancel = document.createElement("button");
-    cancel.textContent = "cancel";
+    cancel.textContent = can;
     cancel.className = "btn btn-danger mx-auto mt-2 d-block";
     cancel.onclick = function(e) {
         e.target.parentElement.remove();
+        p--;
     };
     div.appendChild(input);
     div.appendChild(cancel);
@@ -81,10 +84,11 @@ iconWhasapp.onclick = function(){
     input.placeholder = whasapph;
     input.className = "form-control mt-2";
     let cancel = document.createElement("button");
-    cancel.textContent = "cancel";
+    cancel.textContent = can;
     cancel.className = "btn btn-danger mx-auto mt-2 d-block";
     cancel.onclick = function(e) {
         e.target.parentElement.remove();
+        w--;
     };
     div.appendChild(input);
     div.appendChild(cancel);

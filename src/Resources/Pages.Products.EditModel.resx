@@ -221,4 +221,8 @@
     <value>Video link</value>
     <comment/>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment/>
+  </data>
 </root>
