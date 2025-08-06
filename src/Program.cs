@@ -61,6 +61,12 @@ internal class Program
 
         WebApplication app = builder.Build();
 
+        using (var scope = app.Services.CreateScope())
+        {
+            var dbContext = scope.ServiceProvider.GetRequiredService<SmartLifeDb>();
+            dbContext.Database.Migrate(); // This applies all pending migrations
+        }
+
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {
