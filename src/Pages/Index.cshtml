@@ -122,17 +122,23 @@
                                 <p>
                                     @if (Model.IsAr)
                                     {
-                                        @if (product.DescriptionAr.Length < 50)
-                                            @product.DescriptionAr
-                                        else 
-                                            @(product.DescriptionAr[..50] + "...")
+                                        @if (product.DescriptionAr != null)
+                                        {
+                                            @if (product.DescriptionAr.Length < 50)
+                                                @product.DescriptionAr
+                                            else 
+                                                @(product.DescriptionAr[..50] + "...")
+                                        }
                                     }
                                     else
                                     {
-                                        @if (product.Description.Length < 50)
-                                            @product.Description
-                                        else
-                                            @(product.Description[..50] + "...")
+                                        @if (product.Description != null)
+                                        {
+                                            @if (product.Description.Length < 50)
+                                                @product.Description
+                                            else
+                                                @(product.Description[..50] + "...")
+                                        }
                                     }
                                 </p>
                                 <a href="@product.Image" title="@if (Model.IsAr) { @product.NameAr } else { @product.Name }" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
@@ -182,17 +188,23 @@
                                 <span>
                                     @if (Model.IsAr)
                                     {
-                                        @if (client.Description.Length < 50)
-                                            @client.DescriptionAr
-                                        else 
-                                            @(client.DescriptionAr[..50] + "...")
+                                        @if (client.DescriptionAr != null)
+                                        {
+                                            @if (client.DescriptionAr.Length < 50)
+                                                @client.DescriptionAr
+                                            else 
+                                                @(client.DescriptionAr[..50] + "...")
+                                        }
                                     }
                                     else
                                     {
-                                        @if (client.DescriptionAr.Length < 50)
-                                            @client.Description
-                                        else
-                                            @(client.Description[..50] + "...")
+                                        @if (client.Description != null)
+                                        {
+                                            @if (client.Description.Length < 50)
+                                                @client.Description
+                                            else
+                                                @(client.Description[..50] + "...")
+                                        }
                                     }
                                 </span>
                                 <i class="bi bi-quote quote-icon-right"></i>
