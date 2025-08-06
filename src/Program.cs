@@ -21,6 +21,16 @@ internal class Program
         string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 #endif
 
+        builder.WebHost.ConfigureKestrel(options =>
+        {
+            options.ListenAnyIP(80); // For HTTP
+
+            options.ListenAnyIP(443, listenOptions =>
+            {
+                listenOptions.UseHttps("/root/https/aspnetapp.pfx", "SmartLife@123");
+            });
+        });
+
         // Add services to the container.
         builder.Services.AddSession();
         builder.Services.AddRazorPages(options =>
