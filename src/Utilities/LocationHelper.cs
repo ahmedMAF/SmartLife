@@ -66,7 +66,9 @@ public static class LocationHelper
             ctx.Session.SetString("country", country);
         }
 
-        return await context.Contacts.FindAsync(country);
+        Contact? contact = await context.Contacts.FindAsync(country);
+
+        return contact ?? await context.Contacts.FindAsync("EG");
     }
     
     public static async Task<string> GetContactByIpTestAsync(SmartLifeDb context, HttpContext ctx)
