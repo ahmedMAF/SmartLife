@@ -50,10 +50,10 @@
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["addresses"]</label>
                             @for(int i = 0; i < Model.Contact.Addresses.Count; i++)
                             {
-                                <input asp-for="Contact.Addresses[@i]" style="border-radius: 5px;" class="form-control mb-1">
+                                <input asp-for="Contact.Addresses[@i]" type="text" style="border-radius: 5px;" class="form-control mb-1">
                                 <span asp-validation-for="Contact.Addresses[@i]" class="text-danger"></span>
 
-                                <input asp-for="Contact.AddressesAr[@i]" style="border-radius: 5px;" class="form-control mb-1">
+                                <input asp-for="Contact.AddressesAr[@i]" type="text" style="border-radius: 5px;" class="form-control mb-1">
                                 <span asp-validation-for="Contact.AddressesAr[@i]" class="text-danger"></span>
                             }
                         </div>
@@ -69,7 +69,7 @@
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["phones"]</label>
                             @for(int i = 0; i < Model.Contact.Phones.Count; i++)
                             {
-                                <input asp-for="Contact.Phones[@i]" style="border-radius: 5px;" class="form-control mb-1">
+                                <input asp-for="Contact.Phones[@i]" type="text" style="border-radius: 5px;" class="form-control mb-1">
                                 <span asp-validation-for="Contact.Phones[@i]" class="text-danger"></span>
                             }
                         </div>
@@ -77,7 +77,7 @@
                             <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["whatsApps"]</label>
                             @for(int i = 0; i < Model.Contact.WhatsApps.Count; i++)
                             {
-                                <input asp-for="Contact.WhatsApps[@i]" style="border-radius: 5px;" class="form-control mb-1">
+                                <input asp-for="Contact.WhatsApps[@i]" type="text" style="border-radius: 5px;" class="form-control mb-1">
                                 <span asp-validation-for="Contact.WhatsApps[@i]" class="text-danger"></span>
                             }
                         </div>
@@ -126,6 +126,8 @@
         let phoneh = "@Html.Raw(Model.Localizer["phoneh"])";
         let whasapph = "@Html.Raw(Model.Localizer["whatsapph"])";
         let can = "@Html.Raw(Model.Localizer["cancel"])";
+
+        console.log('@Model.Contact.WhatsApps[0]');
     </script>
     <script src="~/js/contact.js"></script>
     @{

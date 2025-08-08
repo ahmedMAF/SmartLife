@@ -49,7 +49,12 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         Contact.Phones.RemoveAll(string.IsNullOrEmpty);
         Contact.WhatsApps.RemoveAll(string.IsNullOrEmpty);
 
-        string embeddedUrl = UrlHelper.GetGoogleMapsEmbedUrl(Contact.GoogleMap);
+        string embeddedUrl = Contact.GoogleMap;
+
+        if (!embeddedUrl.EndsWith("embed"))
+        {
+            embeddedUrl = UrlHelper.GetGoogleMapsEmbedUrl(Contact.GoogleMap);
+        }
 
         if (string.IsNullOrEmpty(embeddedUrl))
         {

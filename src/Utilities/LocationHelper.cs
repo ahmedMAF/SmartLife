@@ -71,39 +71,6 @@ public static class LocationHelper
         return contact ?? await context.Contacts.FindAsync("EG");
     }
     
-    public static async Task<string> GetContactByIpTestAsync(SmartLifeDb context, HttpContext ctx)
-    {
-        string? country = ctx.Session.GetString("country");
-        
-        if (string.IsNullOrEmpty(country))
-        {
-            IPAddress? ip = ctx.Connection.RemoteIpAddress;
-            HttpClient client = new();
-
-            try
-            {
-                string requestUri = $"http://ip-api.com/json/{ip}?fields=16386";
-                HttpResponseMessage response = await client.GetAsync(requestUri);
-                string json = await response.Content.ReadAsStringAsync();
-                IpApiResponse c = JsonSerializer.Deserialize<IpApiResponse>(json, _options);
-
-                country = c.Status == "success" ? c.CountryCode : "EG";
-            }
-            catch (Exception)
-            {
-                country = "EG";
-            }
-            finally
-            {
-                client.Dispose();
-            }
-            
-            // ctx.Session.SetString("country", country);
-        }
-
-        return country;
-    }
-
     private struct IpApiResponse
     {
         public string Status { get; set; }
