@@ -19,7 +19,6 @@ internal class Program
         string connectionString = builder.Configuration.GetConnectionString("DevConnection");
 #else
         string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-#endif
 
         builder.WebHost.ConfigureKestrel(options =>
         {
@@ -30,7 +29,8 @@ internal class Program
                 listenOptions.UseHttps("/root/https/aspnetapp.pfx", "SmartLife@123");
             });
         });
-
+#endif
+        
         // Add services to the container.
         builder.Services.AddSession();
         builder.Services.AddRazorPages(options =>
@@ -74,7 +74,14 @@ internal class Program
         using (var scope = app.Services.CreateScope())
         {
             var dbContext = scope.ServiceProvider.GetRequiredService<SmartLifeDb>();
-            dbContext.Database.Migrate(); // This applies all pending migrations
+
+            try
+            {
+                dbContext.Database.Migrate(); // This applies all pending migrations
+            }
+            catch
+            {
+            }
         }
 
         // Configure the HTTP request pipeline.

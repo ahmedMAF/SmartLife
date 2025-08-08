@@ -68,10 +68,43 @@ public static class LocationHelper
 
         return await context.Contacts.FindAsync(country);
     }
+    
+    public static async Task<string> GetContactByIpTestAsync(SmartLifeDb context, HttpContext ctx)
+    {
+        string? country = null;
+        
+        if (string.IsNullOrEmpty(country))
+        {
+            IPAddress? ip = ctx.Connection.RemoteIpAddress;
+            HttpClient client = new();
+
+            try
+            {
+                string requestUri = $"http://ip-api.com/json/{ip}?fields=16386";
+                HttpResponseMessage response = await client.GetAsync(requestUri);
+                string json = await response.Content.ReadAsStringAsync();
+                IpApiResponse c = JsonSerializer.Deserialize<IpApiResponse>(json, _options);
+
+                country = ip + " "+json;
+            }
+            catch (Exception)
+            {
+                country = ip + " Ex";
+            }
+            finally
+            {
+                client.Dispose();
+            }
+            
+            // ctx.Session.SetString("country", country);
+        }
+
+        return country;
+    }
 
     private struct IpApiResponse
     {
-        public string Status {get; set;}
-        public string CountryCode {get; set;}
+        public string Status { get; set; }
+        public string CountryCode { get; set; }
     }
 }

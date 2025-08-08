@@ -138,3 +138,15 @@
         </div>
     </div>
 </section><!-- /Contact Section -->
+
+@section Scripts {
+    <script>
+        let a = "@Model.Contact.Country";
+        let b = '@(Model.Contact.Emails.Count > 0 ? @Model.Contact.Emails[0] : "no email")';
+        let c = '@Model.Test';
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    </script>
+}
+
