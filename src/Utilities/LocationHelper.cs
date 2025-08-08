@@ -71,7 +71,7 @@ public static class LocationHelper
     
     public static async Task<string> GetContactByIpTestAsync(SmartLifeDb context, HttpContext ctx)
     {
-        string? country = null;
+        string? country = ctx.Session.GetString("country");
         
         if (string.IsNullOrEmpty(country))
         {
@@ -85,11 +85,11 @@ public static class LocationHelper
                 string json = await response.Content.ReadAsStringAsync();
                 IpApiResponse c = JsonSerializer.Deserialize<IpApiResponse>(json, _options);
 
-                country = ip + " "+json;
+                country = c.Status == "success" ? c.CountryCode : "EG";
             }
             catch (Exception)
             {
-                country = ip + " Ex";
+                country = "EG";
             }
             finally
             {
