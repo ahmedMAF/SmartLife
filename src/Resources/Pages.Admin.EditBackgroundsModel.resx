@@ -117,160 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="home_title" xml:space="preserve">
+  <data name="backAdmin" xml:space="preserve">
+    <value>Admin</value>
+    <comment/>
+  </data>
+  <data name="addBackground" xml:space="preserve">
+    <value>Add Background</value>
+    <comment/>
+  </data>
+  <data name="backHome" xml:space="preserve">
     <value>Home</value>
     <comment/>
   </data>
-  <data name="home_welcome" xml:space="preserve">
-    <value>Welcome To Smart Life</value>
+  <data name="uploadBckground" xml:space="preserve">
+    <value>Upload Bckground</value>
     <comment/>
   </data>
-  <data name="home_intro" xml:space="preserve">
-    <value>We are a team providing luxurious home and business automation solutions to make your life easier anytime, anywhere.</value>
+  <data name="add" xml:space="preserve">
+    <value>Add</value>
     <comment/>
   </data>
-  <data name="home_start" xml:space="preserve">
-    <value>Get Started</value>
+  <data name="backgrounds" xml:space="preserve">
+    <value>Backgrounds</value>
     <comment/>
   </data>
-  <data name="home_about_title" xml:space="preserve">
-    <value>About</value>
-    <comment/>
-  </data>
-  <data name="home_about" xml:space="preserve">
-    <value>We create smart solutions that make your life easier and more luxurious.</value>
-    <comment/>
-  </data>
-  <data name="home_vision_title" xml:space="preserve">
-    <value>Vision</value>
-    <comment/>
-  </data>
-  <data name="home_vision" xml:space="preserve">
-    <value> To be the market leader in smart automation systems, delivering innovative solutions that redefine comfort, efficiency, and security.</value>
-    <comment/>
-  </data>
-  <data name="home_aim" xml:space="preserve">
-    <value>To be one of Middle East market leaders in the field of automation system solutions and to pursue                     maximum customer satisfaction by providing reliable, sustainable products &amp; efficient, high-quality services.</value>
-    <comment/>
-  </data>
-  <data name="home_see_more" xml:space="preserve">
-    <value>See More</value>
-    <comment/>
-  </data>
-  <data name="home_partners" xml:space="preserve">
-    <value>Our partners</value>
-    <comment/>
-  </data>
-  <data name="home_products" xml:space="preserve">
-    <value>Products</value>
-    <comment/>
-  </data>
-  <data name="home_products_desc" xml:space="preserve">
-    <value>All-In-One Smart Automation for homes, industries and commerce</value>
-    <comment/>
-  </data>
-  <data name="home_all" xml:space="preserve">
-    <value>All</value>
-    <comment/>
-  </data>
-  <data name="home_clients" xml:space="preserve">
-    <value>Our Clinets</value>
-    <comment/>
-  </data>
-  <data name="home_why_us" xml:space="preserve">
-    <value>Why Choose Us?</value>
-    <comment/>
-  </data>
-  <data name="home_why_us_q1" xml:space="preserve">
-    <value>Locally Engineered Excellence</value>
-    <comment/>
-  </data>
-  <data name="home_why_us_a1" xml:space="preserve">
-    <value>All our smart solutions are designed and built by engineers, combining innovation with deep local insight.</value>
-    <comment/>
-  </data>
-  <data name="home_why_us_q2" xml:space="preserve">
-    <value>Seamless Smart Integration</value>
-    <comment/>
-  </data>
-  <data name="home_why_us_a2" xml:space="preserve">
-    <value>We offer complete automation for homes, businesses, and parking systems — all controlled from your smartphone.</value>
-    <comment/>
-  </data>
-  <data name="home_why_us_q3" xml:space="preserve">
-    <value>Innovation You Can Feel</value>
-    <comment/>
-  </data>
-  <data name="home_why_us_a3" xml:space="preserve">
-    <value>We don't just automate — we elevate your lifestyle with smart, intuitive systems tailored to your needs.</value>
-    <comment/>
-  </data>
-  <data name="home_why_us_q4" xml:space="preserve">
-    <value>End-to-End Support</value>
-    <comment/>
-  </data>
-  <data name="home_why_us_a4" xml:space="preserve">
-    <value>From design and installation to after-sales service — we’re with you every step of the way.</value>
-    <comment/>
-  </data>
-  <data name="home_contact" xml:space="preserve">
-    <value>Contact</value>
-    <comment/>
-  </data>
-  <data name="home_contact_desc" xml:space="preserve">
-    <value>If you have any questions, please do not hesitate to send us a message. We aim to reply within 24 hours.</value>
-    <comment/>
-  </data>
-  <data name="home_contact_address" xml:space="preserve">
-    <value>Addresses</value>
-    <comment/>
-  </data>
-  <data name="home_contact_call" xml:space="preserve">
-    <value>Call Us</value>
-    <comment/>
-  </data>
-  <data name="home_contact_whatsapp" xml:space="preserve">
-    <value>WhatsApp</value>
-    <comment/>
-  </data>
-  <data name="home_contact_email" xml:space="preserve">
-    <value>Email Us</value>
-    <comment/>
-  </data>
-  <data name="home_contact_form_name" xml:space="preserve">
-    <value>Your Name</value>
-    <comment/>
-  </data>
-  <data name="home_contact_form_phone" xml:space="preserve">
-    <value>Phone</value>
-    <comment/>
-  </data>
-  <data name="home_contact_form_email" xml:space="preserve">
-    <value>Your Email</value>
-    <comment/>
-  </data>
-  <data name="home_contact_form_message" xml:space="preserve">
-    <value>Message</value>
-    <comment/>
-  </data>
-  <data name="home_contact_form_loading" xml:space="preserve">
-    <value>Loading</value>
-    <comment/>
-  </data>
-  <data name="home_contact_form_sent" xml:space="preserve">
-    <value>Your message has been sent. Thank you!</value>
-    <comment/>
-  </data>
-  <data name="home_contact_form_send" xml:space="preserve">
-    <value>Send Message</value>
-    <comment/>
-  </data>
-  <data name="lastnews" xml:space="preserve">
-    <value>Last News</value>
-    <comment/>
-  </data>
-  <data name="lastnewsp1" xml:space="preserve">
-    <value>At Smart Life, we believe that knowledge is power - stay updated with our latest news and always be at the heart of the action.</value>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
     <comment/>
   </data>
 </root>

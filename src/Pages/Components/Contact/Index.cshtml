@@ -6,25 +6,36 @@
 @model SmartLife.Models.Contact
 
 @{
-    bool isAr = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
+    bool isAr =
+    StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName,
+    "ar");
 }
 
 <div class="footer-contact pt-3">
     <p>@SmartLife.Utilities.LocationHelper.GetCountryNameBy2LetterISO(Model.Country)</p>
-    @foreach (var address in isAr ? Model.AddressesAr : Model.Addresses)
+    @if (Model.Addresses.Count > 0)
     {
-        <p>@address</p>
+        string a = isAr ? Model.AddressesAr[0] : Model.Addresses[0];
+        string[] aa = a.Split(':');
+        @if (aa.Length > 1)
+        {
+            <p><strong>@aa[0]:</strong>@aa[1]</p>
+        }
+        else
+        {
+            <p>@a</p>
+        }
     }
-    @foreach (var phone in Model.Phones)
+    @if (Model.Phones.Count > 0)
     {
-        <p class="mt-3"><strong>@Localizer["foot_phone"]:</strong> <span>@phone</span></p>
+        <p class="mt-3"><strong>@Localizer["foot_phone"]:</strong> <a style="font-size: 14px; font-weight: normal;" href="tel:@Model.Phones[0]">@Model.Phones[0]</a></p>
     }
-    @foreach (var whatsApp in Model.WhatsApps)
+    @if (Model.WhatsApps.Count > 0)
     {
-        <p class="mt-3"><strong>@Localizer["foot_whatsapp"]:</strong> <span>@whatsApp</span></p>
+        <p class="mt-3"><strong>@Localizer["foot_whatsapp"]:</strong> <a style="font-size: 14px; font-weight: normal;" href="https://wa.me/@Model.WhatsApps[0]" target="_blank">@Model.WhatsApps[0]</a></p>
     }
-    @foreach (var email in Model.Emails)
+    @if (Model.Emails.Count > 0)
     {
-        <p><strong>@Localizer["foot_email"]:</strong> <span>@email</span></p>
+        <p><strong>@Localizer["foot_email"]:</strong> <a style="font-size: 14px; font-weight: normal;" href="mailto:@Model.Emails[0]">@Model.Emails[0]</a></p>
     }
 </div>

@@ -2,7 +2,7 @@
 @model SmartLife.Pages.About.EditModel
 
 @{
-    ViewData["Title"] = "Edit About";
+  ViewData["Title"] = "Edit About";
 }
 
 <!-- Page Title -->
@@ -34,27 +34,33 @@
           <div class="row gy-4">
             <div>
               <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["countries"]</label>
-              <input name="countries" type="text" style="border-radius: 5px" class="form-control" value="@Model.AboutData.Countries" required="">
+              <input name="countries" type="text" style="border-radius: 5px" class="form-control"
+                value="@Model.AboutData.Countries" required="">
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["projects"]</label>
-              <input name="projects" type="text" style="border-radius: 5px" class="form-control" value="@Model.AboutData.Projects" required="">
+              <input name="projects" type="text" style="border-radius: 5px" class="form-control"
+                value="@Model.AboutData.Projects" required="">
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["consultants"]</label>
-              <input name="consultants" type="text" value="@Model.AboutData.Consultants" style="border-radius: 5px" class="form-control" required="">
+              <input name="consultants" type="text" value="@Model.AboutData.Consultants" style="border-radius: 5px"
+                class="form-control" required="">
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["employees"]</label>
-              <input name="employees" type="text" value="@Model.AboutData.Employees" style="border-radius: 5px" class="form-control" required="">
+              <input name="employees" type="text" value="@Model.AboutData.Employees" style="border-radius: 5px"
+                class="form-control" required="">
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["clients"]</label>
-              <input name="clients" type="text" value="@Model.AboutData.Clients" style="border-radius: 5px" class="form-control" required="">
+              <input name="clients" type="text" value="@Model.AboutData.Clients" style="border-radius: 5px"
+                class="form-control" required="">
             </div>
             <div>
               <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["branches"]</label>
-              <input name="branches" type="text" value="@Model.AboutData.Branches" style="border-radius: 5px" class="form-control" required="">
+              <input name="branches" type="text" value="@Model.AboutData.Branches" style="border-radius: 5px"
+                class="form-control" required="">
             </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
@@ -75,7 +81,8 @@
   <div class="container contact section-title" data-aos="fade-up">
     <div class="row justify-content-center mb-5">
       <div class="col-lg-7">
-        <form asp-page-handler="Add" method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
+        <form asp-page-handler="Add" method="post" class="form" data-aos="fade-up" data-aos-delay="200"
+          asp-antiforgery="false">
           <div class="row gy-4">
             <div>
               <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["year"]</label>
@@ -103,26 +110,114 @@
   <!-- End Section Title -->
   <div class="container contact section-title" data-aos="fade-up">
     <div class="row justify-content-center mb-5">
+      @for (int i = 0; i < Model.Growth.Count; i++)
+      {
+        <div class="col-lg-7">
+          <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+            <input type="hidden" name="i" value="@i">
+            <div class="row gy-4">
+              <div>
+                <label class="w-100 mb-2 ps-2 text-start">Year</label>
+                <input style="border-radius: 5px;" type="text" class="form-control" name="GrowthBar.Year"
+                  value="@Model.AboutData.Growth[i].Year">
+              </div>
+              <div>
+                <label class="w-100 ps-2 text-start">Value</label>
+                <input style="border-radius: 5px;" type="text" class="form-control" name="GrowthBar.Value"
+                  value="@Model.AboutData.Growth[i].Value">
+              </div>
+              <div class="col-md-12 text-center">
+                <button asp-page-handler="Edit" type="submit">Save</button>
+                <button asp-page-handler="Del" type="submit">Delete</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="container section-title" data-aos="fade-up"></div>
+  <h2>Edit Vision and Mission</h2>
+  </div><!-- End Section Title -->
+  <div class="container contact section-title" data-aos="fade-up">
+    <div class="row justify-content-center mb-5">
       <div class="col-lg-7">
-        <form asp-page-handler="Edit" method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
+        <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-4">
-            @for(int i = 0; i < Model.Growth.Count; i++)
-            {
-                <div>
-                    <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["year"]</label>
-                    <input asp-for="Growth[@i].Year" type="text" value="@Model.Growth[i].Year" style="border-radius: 5px" class="form-control" required="">
-                </div>
-                <div>
-                    <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["value"]</label>
-                    <input asp-for="Growth[@i].Value" type="text" value="@Model.Growth[i].Value" style="border-radius: 5px" class="form-control mb-5" required="">
-                </div>
-            }
-            
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Vision Paragraph 1 (English)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="v1">@Model.AboutData.Vision1</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Vision Paragraph 1 (Arabic)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="v1Ar">@Model.AboutData.Vision1Ar</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Vision Paragraph 2 (English)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="v2">@Model.AboutData.Vision2</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Vision Paragraph 2 (Arabic)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="v2Ar">@Model.AboutData.Vision2Ar</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Mission Paragraph 1 (English)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="m1">@Model.AboutData.Mission1</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Mission Paragraph 1 (Arabic)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="m1Ar">@Model.AboutData.Mission1Ar</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Mission Paragraph 2 (English)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="m2">@Model.AboutData.Mission2</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Mission Paragraph 2 (Arabic)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="m2Ar">@Model.AboutData.Mission2Ar</textarea>
+            </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
 
-              <button type="submit">@Model.Localizer["save"]</button>
+              <button asp-page-handler="Para" type="submit">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Edit Values and Since</h2>
+  </div><!-- End Section Title -->
+  <div class="container contact section-title" data-aos="fade-up">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-7">
+        <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Values (English)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="v">@Model.AboutData.Values</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Values (Arabic)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="vAr">@Model.AboutData.ValuesAr</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Since (English)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="s">@Model.AboutData.Since</textarea>
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start">Since (Arabic)</label>
+              <textarea class="form-control" style="border-radius: 5px;" name="sAr">@Model.AboutData.SinceAr</textarea>
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+
+              <button asp-page-handler="Since" type="submit">Save</button>
             </div>
           </div>
         </form>

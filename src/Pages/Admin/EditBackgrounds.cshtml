@@ -1,0 +1,70 @@
+@page
+@model SmartLife.Pages.Admin.EditBackgroundsModel
+
+@{
+    ViewData["Title"] = "Edit Backgrounds";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>@Model.Localizer["backAdmin"]</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">@Model.Localizer["backHome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["backAdmin"]</a></li>
+                <li class="current">@Model.Localizer["addBackground"]</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Admin Section -->
+<section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>@Model.Localizer["addBackground"]</h2>
+    </div><!-- End Section Title -->
+    <div class="container contact section-title" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+                        <div class="col-md-12">
+                            <div>
+                                <label class="w-100 mb-2 ps-2 text-start" for="image">@Model.Localizer["uploadBckground"]</label>
+                                <input asp-for="Image" style="border-radius: 5px;" type="file" class="form-control"
+                                    placeholder="Image">
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+
+                            <button type="submit">@Model.Localizer["add"]</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5 contact ">
+        <h3 class="mb-4 text-center">@Model.Localizer["backgrounds"]</h3>
+        <div class="row gy-4">
+            @for (int i = 0; i < Model.Images.Count; i++)
+            {
+                <div class="col-lg-4">
+                    <form asp-page-handler="Del" class="form">
+                        <img style="width: 100%;" src="@Model.Images[i]" alt="">
+                        <input type="hidden" name="i" value="@i">
+                        <div class="col-md-12 text-center mt-3">
+                            <button type="submit">@Model.Localizer["delete"]</button>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- /Admin Section -->

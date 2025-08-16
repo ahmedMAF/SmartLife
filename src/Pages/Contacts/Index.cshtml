@@ -48,7 +48,15 @@
                             <h3>@Model.Localizer["address"]</h3>
                             @foreach (string address in Model.IsAr ? Model.Contact.AddressesAr : Model.Contact.Addresses)
                             {
-                                <p>@address</p>
+                                string[] aa = address.Split(':');
+                                @if (aa.Length > 1)
+                                {
+                                    <p><strong>@aa[0]:</strong>@aa[1]</p>
+                                }
+                                else
+                                {
+                                    <p>@address</p>
+                                }
                             }
                         </div>
                     </div>
@@ -63,7 +71,7 @@
                             <h3>@Model.Localizer["call"]</h3>
                             @foreach (string phone in Model.Contact.Phones)
                             {
-                                <p>@phone</p>
+                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;" href="tel:@phone">@phone</a></p>
                             }
                         </div>
                     </div>
@@ -78,7 +86,7 @@
                             <h3>@Model.Localizer["whatsApp"]</h3>
                             @foreach (string whatsApp in Model.Contact.WhatsApps)
                             {
-                                <p>@whatsApp</p>
+                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;" href="https://wa.me/@whatsApp">@whatsApp</a></p>
                             }
                         </div>
                     </div>
@@ -93,7 +101,7 @@
                             <h3>@Model.Localizer["emails"]</h3>
                             @foreach (string email in Model.Contact.Emails)
                             {
-                                <p>@email</p>
+                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;" href="mailto:@email">@email</a></p>
                             }
                         </div>
                     </div>

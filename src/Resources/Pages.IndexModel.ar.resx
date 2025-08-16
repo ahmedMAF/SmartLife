@@ -265,4 +265,12 @@
     <value>أرسل الرسالة</value>
     <comment/>
   </data>
+  <data name="lastnews" xml:space="preserve">
+    <value>آخر الأخبار</value>
+    <comment/>
+  </data>
+  <data name="lastnewsp1" xml:space="preserve">
+    <value>في سمارت لايف، نؤمن بأن المعرفة قوة — تابع آخر أخبارنا وكن دائمًا في قلب الحدث</value>
+    <comment/>
+  </data>
 </root>

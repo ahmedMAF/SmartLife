@@ -2,6 +2,19 @@ namespace SmartLife.Data;
 
 public class AboutData
 {
+    public string Vision1 { get; set; }
+    public string Vision1Ar { get; set; }
+    public string Vision2 { get; set; }
+    public string Vision2Ar { get; set; }
+    public string Mission1 { get; set; }
+    public string Mission1Ar { get; set; }
+    public string Mission2 { get; set; }
+    public string Mission2Ar { get; set; }
+    public string Values { get; set; }
+    public string ValuesAr { get; set; }
+    public string Since { get; set; }
+    public string SinceAr { get; set; }
+
     public string Countries { get; set; } = "4";
     public string Projects { get; set; } = "17K";
     public string Consultants { get; set; } = "15";
@@ -23,16 +36,16 @@ public class AboutData
 
 public class Bar
 {
-	public string Year { get; set; }
+    public string Year { get; set; }
     public string Value { get; set; }
-	
-	public Bar()
+
+    public Bar()
     {
     }
-	
-	public Bar(string year, string val)
+
+    public Bar(string year, string val)
     {
-		Year = year;
-		Value = val;
+        Year = year;
+        Value = val;
     }
 }

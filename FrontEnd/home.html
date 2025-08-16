@@ -9,15 +9,17 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-   <!--
+  <!--
   <link href="assets/img/favicon.png" rel="icon">
   -->
-   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +60,8 @@
           <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                    class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li><a href="#">Deep Dropdown 1</a></li>
                   <li><a href="#">Deep Dropdown 2</a></li>
@@ -96,12 +99,52 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
+      <div class="swiper init-swiper" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 1000,
+            "autoplay": {
+              "delay": 4000
+            },
+            "slidesPerView": 1,
+            "effect": "fade",
+            "fadeEffect": {
+              "crossFade": true
+            },
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            }
+          }
+        </script>
+
+        <div class="swiper-wrapper" style="width: 100%; height: 100%;">
+          <div class="swiper-slide" style="width: 100%; height: 100%;">
+            <img src="assets/img/back.jfif" alt="Background" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="swiper-slide" style="width: 100%; height: 100%;">
+            <img src="assets/img/back1.jfif" alt="Background" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="swiper-slide" style="width: 100%; height: 100%;">
+            <img src="assets/img/back2.jfif" alt="Background" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1;">
+      </div>
+
+
       <div class="container text-center">
         <div class="row justify-content-center" data-aos="zoom-out">
           <div class="col-lg-8">
-            <img style="height: 80px;" src="assets/img/smartLife.png" alt="" class="img-fluid mb-3">
+            <img src="assets/img/smartLife.png" alt="" class="img-main img-fluid mb-3">
             <h2>Welcome To Smart Life</h2>
-            <p>We are a team providing luxurious home and business automation solutions to make your life easier anytime, anywhere.</p>
+            <p>We are a team providing luxurious home and business automation solutions to make your life easier
+              anytime, anywhere.</p>
             <a href="#about" class="btn-get-started">Get Started</a>
           </div>
         </div>
@@ -114,27 +157,96 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>We create smart solutions that make your life easier and more luxurious</p>
+        <h2>Last News</h2>
+        <p>At Smart Life, we believe that knowledge is power – stay updated with our latest news and always be at the
+          heart of the action.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
-          <div class="col-lg-5 text-center">
-            <img style="height: 350px; text-align: center; border-radius: 10px;" src="assets/img/about2.jpg" class="img-fluid" alt="">
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": 1,
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide">
+              <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="100">
+                <div class="pricing-item">
+                  <h3 class="mb-0">Ahmed Afana</h3>
+                  <span>Tuesday, April 22, 2025</span>
+                  <p class="my-3">
+                    Smart Life has announced the launch of its new initiative, Smart Cities for the Future, aimed at
+                    promoting digital transformation within residential and commercial communities across Egypt.
+                    The initiative includes the implementation of smart solutions in lighting, energy management,
+                    security,
+                    and remote control systems, in collaboration with leading real estate developers in the Egyptian
+                    market.
+                  </p>
+                  <div class="text-end">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                  </div>
+                </div>
+              </div><!-- End post Item -->
+            </div>
+            <div class="swiper-slide">
+              <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="100">
+                <div class="pricing-item">
+                  <h3 class="mb-0">Fadi Afana</h3>
+                  <span>Tuesday, April 22, 2025</span>
+                  <p class="my-3">
+                    Smart Life has announced the launch of its new initiative, Smart Cities for the Future, aimed at
+                    promoting digital transformation within residential and commercial communities across Egypt.
+                    The initiative includes the implementation of smart solutions in lighting, energy management,
+                    security,
+                    and remote control systems, in collaboration with leading real estate developers in the Egyptian
+                    market.
+                  </p>
+                  <div class="text-end">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                  </div>
+                </div>
+              </div><!-- End post Item -->
+            </div>
+            <div class="swiper-slide">
+              <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="100">
+                <div class="pricing-item">
+                  <h3 class="mb-0">SS Afana</h3>
+                  <span>Tuesday, April 22, 2025</span>
+                  <p class="my-3">
+                    Smart Life has announced the launch of its new initiative, Smart Cities for the Future, aimed at
+                    promoting digital transformation within residential and commercial communities across Egypt.
+                    The initiative includes the implementation of smart solutions in lighting, energy management,
+                    security,
+                    and remote control systems, in collaboration with leading real estate developers in the Egyptian
+                    market.
+                  </p>
+                  <div class="text-end">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                    <img style="height: 200px;" class="mb-1" src="assets/img/cards-1.jpg" alt="">
+                  </div>
+                </div>
+              </div><!-- End post Item -->
+            </div>
           </div>
-          <div class="col-lg-7 content">
-            <h3>Vision</h3>
-            <p class="fst-italic">
-              To be the market leader in smart automation systems, delivering innovative solutions that redefine comfort, efficiency, and security.
-            </p>
-            <p>
-              To be one of Middle East market leaders in the field of automation system solutions and to pursue maximum customer satisfaction by providing reliable, sustainable products & efficient, high-quality services.
-            </p>
-            <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mt-5">See More</a>
-          </div>
-         </div>
+          <a style="color: white; width: fit-content;" href="#news" class="see-more d-block mx-auto">See More</a>
+        </div>
 
       </div>
 
@@ -173,8 +285,8 @@
                   "spaceBetween": 80
                 },
                 "992": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
+                  "slidesPerView": 4,
+                  "spaceBetween": 200
                 }
               }
             }
@@ -183,12 +295,8 @@
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide"><img src="assets/img/partners.png" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="assets/img/part3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="assets/img/partners.png" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="assets/img/part3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
           </div>
           <a style="color: white; width: fit-content;" href="#about" class="see-more d-block mx-auto">See More</a>
         </div>
@@ -226,8 +334,11 @@
                 <div class="portfolio-info">
                   <h4>Smart Home</h4>
                   <p>A smart home uses technology to control devices like lights...</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                      class="bi bi-link-45deg"></i></a>
                 </div>
               </a>
             </div><!-- End Portfolio Item -->
@@ -237,8 +348,11 @@
                 <div class="portfolio-info">
                   <h4>Smart Home</h4>
                   <p>A smart home uses technology to control devices like lights...</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                      class="bi bi-link-45deg"></i></a>
                 </div>
               </a>
             </div><!-- End Portfolio Item -->
@@ -248,8 +362,11 @@
                 <div class="portfolio-info">
                   <h4>Smart Home</h4>
                   <p>A smart home uses technology to control devices like lights...</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                      class="bi bi-link-45deg"></i></a>
                 </div>
               </a>
             </div><!-- End Portfolio Item -->
@@ -259,8 +376,11 @@
                 <div class="portfolio-info">
                   <h4>Smart Home</h4>
                   <p>A smart home uses technology to control devices like lights...</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                      class="bi bi-link-45deg"></i></a>
                 </div>
               </a>
             </div><!-- End Portfolio Item -->
@@ -270,8 +390,11 @@
                 <div class="portfolio-info">
                   <h4>Smart Home</h4>
                   <p>A smart home uses technology to control devices like lights...</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                      class="bi bi-link-45deg"></i></a>
                 </div>
               </a>
             </div><!-- End Portfolio Item -->
@@ -281,8 +404,11 @@
                 <div class="portfolio-info">
                   <h4>Smart Home</h4>
                   <p>A smart home uses technology to control devices like lights...</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="Smart Home"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                      class="bi bi-link-45deg"></i></a>
                 </div>
               </a>
             </div><!-- End Portfolio Item -->
@@ -321,11 +447,12 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/clintes.png"  class="testimonial-img" alt="">
+                <img src="assets/img/clintes.png" class="testimonial-img" alt="">
                 <h3>Saul Goodman</h3>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
+                    Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -337,7 +464,8 @@
                 <h3>Saul Goodman</h3>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
+                    Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -349,7 +477,8 @@
                 <h3>Saul Goodman</h3>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
+                    Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -382,10 +511,11 @@
 
             <div class="faq-container">
 
-              <div class="faq-item faq-active">
+              <div class="faq-item">
                 <h3>Locally Engineered Excellence</h3>
                 <div class="faq-content">
-                  <p>All our smart solutions are designed and built by engineers, combining innovation with deep local insight.</p>
+                  <p>All our smart solutions are designed and built by engineers, combining innovation with deep local
+                    insight.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -393,7 +523,8 @@
               <div class="faq-item">
                 <h3>Seamless Smart Integration</h3>
                 <div class="faq-content">
-                  <p>We offer complete automation for homes, businesses, and parking systems — all controlled from your smartphone.</p>
+                  <p>We offer complete automation for homes, businesses, and parking systems — all controlled from your
+                    smartphone.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -408,7 +539,8 @@
               <div class="faq-item">
                 <h3> Innovation You Can Feel</h3>
                 <div class="faq-content">
-                  <p>We don’t just automate — we elevate your lifestyle with smart, intuitive systems tailored to your needs.</p>
+                  <p>We don’t just automate — we elevate your lifestyle with smart, intuitive systems tailored to your
+                    needs.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -444,7 +576,9 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe style="border:0; width: 100%; height: 270px;"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+            frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div><!-- End Google Maps -->
 
         <div class="row gy-4">
@@ -501,7 +635,7 @@
                 </div>
 
                 <div class="col-md-12">
-                   <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
                 </div>
 
                 <div class="col-md-12">
@@ -564,7 +698,7 @@
             <li><i class="bi bi-chevron-right"></i> <a href="#">Products</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Last News</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Team</a></li>
-           </ul>
+          </ul>
         </div>
 
         <div class="col-lg-4 col-md-12">
@@ -599,7 +733,8 @@
   </div>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>

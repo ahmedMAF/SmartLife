@@ -169,4 +169,8 @@
     <value>Edit About</value>
     <comment/>
   </data>
+  <data name="back" xml:space="preserve">
+    <value>Backgrounds</value>
+    <comment/>
+  </data>
 </root>

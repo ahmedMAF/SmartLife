@@ -169,4 +169,8 @@
     <value>تعديل حولنا</value>
     <comment/>
   </data>
+  <data name="back" xml:space="preserve">
+    <value>الخلفيات</value>
+    <comment/>
+  </data>
 </root>

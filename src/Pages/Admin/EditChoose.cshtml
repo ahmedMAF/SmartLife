@@ -1,0 +1,93 @@
+@page
+@model SmartLife.Pages.Admin.EditChooseModel
+
+@{
+    ViewData["Title"] = "Edit Why Choose Us";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>Admin</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">Home</a></li>
+                <li><a asp-page="/Admin/Index">Admin</a></li>
+                <li class="current">Edit Why Choose Us</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Admin Section -->
+<section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Edit Why Choose Us</h2>
+    </div><!-- End Section Title -->
+    <div class="container contact section-title" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+                        <div class="col-md-12">
+                            <input asp-for="Question.Name" style="border-radius: 5px;" type="text" class="form-control"
+                                placeholder="Question (English)">
+                        </div>
+                        <div class="col-md-12">
+                            <input asp-for="Question.NameAr" style="border-radius: 5px;" type="text" class="form-control"
+                                placeholder="Question (Arabic)">
+                        </div>
+                        <div class="col-md-12">
+                            <input asp-for="Question.Answer" style="border-radius: 5px;" type="text" class="form-control"
+                                placeholder="Answer (English)">
+                        </div>
+                        <div class="col-md-12">
+                            <input asp-for="Question.AnswerAr" style="border-radius: 5px;" type="text" class="form-control"
+                                placeholder="Answer (Arabic)">
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+
+                            <button type="submit">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <h4 class="mt-5">Edit Previous Questions</h4>
+
+            @for(int i = 0; i < Model.Questions.Count; i++)
+            {
+                <div class="col-lg-7 mb-5">
+                    <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+                        <input type="hidden" name="i" value="@i">
+                        <div class="row gy-4">
+                            <div class="col-md-12">
+                                <input name="Question.Name" value="@Model.Questions[i].Name" style="border-radius: 5px;" type="text" class="form-control" name="name"
+                                    placeholder="Question (English)">
+                            </div>
+                            <div class="col-md-12">
+                                <input name="Question.NameAr" value="@Model.Questions[i].NameAr" style="border-radius: 5px;" type="text" class="form-control" name="name"
+                                    placeholder="Question (Arabic)">
+                            </div>
+                            <div class="col-md-12">
+                                <input name="Question.Answer" value="@Model.Questions[i].Answer" style="border-radius: 5px;" type="text" class="form-control" name="name"
+                                    placeholder="Answer (English)">
+                            </div>
+                            <div class="col-md-12">
+                                <input name="Question.AnswerAr" value="@Model.Questions[i].AnswerAr" style="border-radius: 5px;" type="text" class="form-control" name="name"
+                                    placeholder="Answer (Arabic)">
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <input asp-page-handler="Edit" type="submit" value="Save">
+                                <input asp-page-handler="Del" type="submit" value="Delete">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- /Admin Section -->
