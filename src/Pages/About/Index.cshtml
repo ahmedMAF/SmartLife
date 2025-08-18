@@ -31,16 +31,16 @@
 
         <div class="row gy-4 mb-5">
             <div class="col-lg-5 text-center text-md-start img-about1">
-                <img style="height: 300px; text-align: center; border-radius: 10px;" src="~/img/about2.jpg"
+                <img style="height: 300px; text-align: center; border-radius: 10px;" src="@Model.AboutData.VisionImage"
                     class="img-fluid" alt="">
             </div>
             <div class="col-lg-7 content">
                 <h3>@Model.Localizer["vision"]</h3>
                 <p class="fst-italic">
-                    @Model.Localizer["visionp1"]
+                    @(Model.IsAr ? Model.AboutData.Vision1Ar : Model.AboutData.Vision1)
                 </p>
                 <p>
-                    @Model.Localizer["visionp2"]
+                    @(Model.IsAr ? Model.AboutData.Vision2Ar : Model.AboutData.Vision2)
                 </p>
             </div>
         </div>
@@ -49,14 +49,14 @@
             <div class="col-lg-7 content">
                 <h3>@Model.Localizer["mission"]</h3>
                 <p class="fst-italic">
-                    @Model.Localizer["missionp1"]
+                    @(Model.IsAr ? Model.AboutData.Mission1Ar : Model.AboutData.Mission1)
                 </p>
                 <p>
-                    @Model.Localizer["missionp2"]
+                    @(Model.IsAr ? Model.AboutData.Mission2Ar : Model.AboutData.Mission2)
                 </p>
             </div>
             <div class="col-lg-5 text-center text-md-end img-about2">
-                <img style="height: 250px; text-align: center; border-radius: 10px;" src="~/img/about3.jpg"
+                <img style="height: 250px; text-align: center; border-radius: 10px;" src="@Model.AboutData.MissionImage"
                     class="img-fluid" alt="">
             </div>
         </div>
@@ -68,7 +68,7 @@
     <div class="container section-title" data-aos="fade-up">
         <h2>@Model.Localizer["values"]</h2>
         <p>
-            @Model.Localizer["valuesp1"]
+            @(Model.IsAr ? Model.AboutData.ValuesAr : Model.AboutData.Values)
         </p>
         <div class="values mt-5 w-100 d-flex justify-content-center align-items-center">
             <div class="circle-container position-relative">
@@ -101,7 +101,7 @@
     <div class="container section-title" data-aos="fade-up">
         <h2>@Model.Localizer["since"]</h2>
         <p>
-            @Model.Localizer["sincep1"]
+            @(Model.IsAr ? Model.AboutData.SinceAr : Model.AboutData.Since)
         </p>
         <p class="since">2008</p>
         <div class="mt-4 since-item graph row justify-content-around gap-3">

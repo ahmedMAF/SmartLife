@@ -8,12 +8,12 @@
 <!-- Page Title -->
 <div class="page-title dark-background">
     <div class="container">
-        <h1>Admin</h1>
+        <h1>@Model.Localizer["chooseAdmin"]</h1>
         <nav class="breadcrumbs">
             <ol>
-                <li><a asp-page="/Index">Home</a></li>
-                <li><a asp-page="/Admin/Index">Admin</a></li>
-                <li class="current">Edit Why Choose Us</li>
+                <li><a asp-page="/Index">@Model.Localizer["chooseHome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["chooseAdmin"]</a></li>
+                <li class="current">@Model.Localizer["whyChoose"]</li>
             </ol>
         </nav>
     </div>
@@ -23,7 +23,7 @@
 <section id="portfolio" class="portfolio section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Edit Why Choose Us</h2>
+        <h2>@Model.Localizer["whyChoose"]</h2>
     </div><!-- End Section Title -->
     <div class="container contact section-title" data-aos="fade-up">
         <div class="row justify-content-center">
@@ -32,30 +32,30 @@
                     <div class="row gy-4">
                         <div class="col-md-12">
                             <input asp-for="Question.Name" style="border-radius: 5px;" type="text" class="form-control"
-                                placeholder="Question (English)">
+                                placeholder="@Model.Localizer["questionEn"]">
                         </div>
                         <div class="col-md-12">
                             <input asp-for="Question.NameAr" style="border-radius: 5px;" type="text" class="form-control"
-                                placeholder="Question (Arabic)">
+                                placeholder="@Model.Localizer["questionAr"]">
                         </div>
                         <div class="col-md-12">
                             <input asp-for="Question.Answer" style="border-radius: 5px;" type="text" class="form-control"
-                                placeholder="Answer (English)">
+                                placeholder="@Model.Localizer["answerEn"]">
                         </div>
                         <div class="col-md-12">
                             <input asp-for="Question.AnswerAr" style="border-radius: 5px;" type="text" class="form-control"
-                                placeholder="Answer (Arabic)">
+                                placeholder="@Model.Localizer["answerAr"]">
                         </div>
                         <div class="col-md-12 text-center">
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
 
-                            <button type="submit">Add</button>
+                            <button type="submit">@Model.Localizer["add"]</button>
                         </div>
                     </div>
                 </form>
             </div>
-            <h4 class="mt-5">Edit Previous Questions</h4>
+            <h4 class="mt-5">@Model.Localizer["previous"]</h4>
 
             @for(int i = 0; i < Model.Questions.Count; i++)
             {
@@ -65,23 +65,23 @@
                         <div class="row gy-4">
                             <div class="col-md-12">
                                 <input name="Question.Name" value="@Model.Questions[i].Name" style="border-radius: 5px;" type="text" class="form-control" name="name"
-                                    placeholder="Question (English)">
+                                    placeholder="@Model.Localizer["questionEn"]">
                             </div>
                             <div class="col-md-12">
                                 <input name="Question.NameAr" value="@Model.Questions[i].NameAr" style="border-radius: 5px;" type="text" class="form-control" name="name"
-                                    placeholder="Question (Arabic)">
+                                    placeholder="@Model.Localizer["questionAr"]">
                             </div>
                             <div class="col-md-12">
                                 <input name="Question.Answer" value="@Model.Questions[i].Answer" style="border-radius: 5px;" type="text" class="form-control" name="name"
-                                    placeholder="Answer (English)">
+                                    placeholder="@Model.Localizer["answerEn"]">
                             </div>
                             <div class="col-md-12">
                                 <input name="Question.AnswerAr" value="@Model.Questions[i].AnswerAr" style="border-radius: 5px;" type="text" class="form-control" name="name"
-                                    placeholder="Answer (Arabic)">
+                                    placeholder="@Model.Localizer["answerAr"]">
                             </div>
                             <div class="col-md-12 text-center">
-                                <input asp-page-handler="Edit" type="submit" value="Save">
-                                <input asp-page-handler="Del" type="submit" value="Delete">
+                                <input asp-page-handler="Edit" type="submit" value="@Model.Localizer["save"]">
+                                <input asp-page-handler="Del" type="submit" value="@Model.Localizer["delete"]">
                             </div>
                         </div>
                     </form>

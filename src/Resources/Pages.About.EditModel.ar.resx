@@ -177,4 +177,72 @@
     <value>تعديل النمو</value>
     <comment/>
   </data>
+  <data name="delete" xml:space="preserve">
+    <value>حذف</value>
+    <comment/>
+  </data>
+  <data name="EVAM" xml:space="preserve">
+    <value>تعديل الرؤية والرسالة</value>
+    <comment/>
+  </data>
+  <data name="IFV" xml:space="preserve">
+    <value>صورة للرؤية</value>
+    <comment/>
+  </data>
+  <data name="VP1En" xml:space="preserve">
+    <value>الرؤية الفقرة الاولي (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="VP1Ar" xml:space="preserve">
+    <value>الرؤية الفقرة الاولي (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="VP2En" xml:space="preserve">
+    <value>الرؤية الفقرة الثانية (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="VP2Ar" xml:space="preserve">
+    <value>الرؤية الفقرة الثانية (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="IFM" xml:space="preserve">
+    <value>صورة للرسالة</value>
+    <comment/>
+  </data>
+  <data name="MP1E" xml:space="preserve">
+    <value>الرسالة الفقرة الاولي (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="MP1A" xml:space="preserve">
+    <value>الرسالة الفقرة الاولي (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="MP2E" xml:space="preserve">
+    <value>الرسالة الفقرة الثانية (اللغة الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="MP2A" xml:space="preserve">
+    <value>الرسالة الفقرة الثانية (اللغة العربية)</value>
+    <comment/>
+  </data>
+  <data name="EVAS" xml:space="preserve">
+    <value>تعديل القيم ومنذ</value>
+    <comment/>
+  </data>
+  <data name="VE" xml:space="preserve">
+    <value>القيم (الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="VA" xml:space="preserve">
+    <value>القيم (العربية)</value>
+    <comment/>
+  </data>
+  <data name="sinceE" xml:space="preserve">
+    <value>منذ (الانجليزية)</value>
+    <comment/>
+  </data>
+  <data name="sinceA" xml:space="preserve">
+    <value>منذ (العربية)</value>
+    <comment/>
+  </data>
 </root>

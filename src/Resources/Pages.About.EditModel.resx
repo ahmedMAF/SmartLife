@@ -177,4 +177,72 @@
     <value>Edit Growth</value>
     <comment/>
   </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment/>
+  </data>
+  <data name="EVAM" xml:space="preserve">
+    <value>Edit Vision and Mission</value>
+    <comment/>
+  </data>
+  <data name="IFV" xml:space="preserve">
+    <value>Image for Vision</value>
+    <comment/>
+  </data>
+  <data name="VP1En" xml:space="preserve">
+    <value>Vision Paragraph 1 (English)</value>
+    <comment/>
+  </data>
+  <data name="VP1Ar" xml:space="preserve">
+    <value>Vision Paragraph 1 (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="VP2En" xml:space="preserve">
+    <value>Vision Paragraph 2 (English)</value>
+    <comment/>
+  </data>
+  <data name="VP2Ar" xml:space="preserve">
+    <value>Vision Paragraph 2 (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="IFM" xml:space="preserve">
+    <value>Image for Mission</value>
+    <comment/>
+  </data>
+  <data name="MP1E" xml:space="preserve">
+    <value>Mission Paragraph 1 (English)</value>
+    <comment/>
+  </data>
+  <data name="MP1A" xml:space="preserve">
+    <value>Mission Paragraph 1 (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="MP2E" xml:space="preserve">
+    <value>Mission Paragraph 2 (English)</value>
+    <comment/>
+  </data>
+  <data name="MP2A" xml:space="preserve">
+    <value>Mission Paragraph 2 (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="EVAS" xml:space="preserve">
+    <value>Edit Values and Since</value>
+    <comment/>
+  </data>
+  <data name="VE" xml:space="preserve">
+    <value>Values (English)</value>
+    <comment/>
+  </data>
+  <data name="VA" xml:space="preserve">
+    <value>Values (Arabic)</value>
+    <comment/>
+  </data>
+  <data name="sinceE" xml:space="preserve">
+    <value>Since (English)</value>
+    <comment/>
+  </data>
+  <data name="sinceA" xml:space="preserve">
+    <value>Since (Arabic)</value>
+    <comment/>
+  </data>
 </root>

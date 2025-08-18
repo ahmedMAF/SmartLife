@@ -15,6 +15,9 @@ public class AboutData
     public string Since { get; set; }
     public string SinceAr { get; set; }
 
+    public string VisionImage { get; set; }
+    public string MissionImage { get; set; }
+
     public string Countries { get; set; } = "4";
     public string Projects { get; set; } = "17K";
     public string Consultants { get; set; } = "15";

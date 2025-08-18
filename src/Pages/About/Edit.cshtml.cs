@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
 using SmartLife.Data;
+using SmartLife.Utilities;
 
 namespace SmartLife.Pages.About;
 
@@ -10,6 +11,11 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 {
     [BindProperty]
     public AboutData AboutData { get; set; } = default!;
+
+    [BindProperty]
+    public IFormFile? VisionImage { get; set; } = default!;
+    [BindProperty]
+    public IFormFile? MissionImage { get; set; } = default!;
 
     [BindProperty]
     public IList<Bar> Growth { get; set; }
@@ -94,7 +100,7 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         return RedirectToPage("/Admin/Index");
     }
     
-    public IActionResult OnPostPara()
+    public async Task<IActionResult> OnPostParaAsync()
     {
         AboutData = JsonSerializer.Deserialize<AboutData>(System.IO.File.ReadAllText("about.json"));
 
@@ -106,6 +112,12 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
         AboutData.Mission1Ar = Request.Form["m1Ar"];
         AboutData.Mission2 = Request.Form["m2"];
         AboutData.Mission2Ar = Request.Form["m2Ar"];
+
+        if (VisionImage != null)
+            AboutData.VisionImage = await FileHelper.UploadFile(VisionImage, "uploads/images/about");
+
+        if (MissionImage != null)
+            AboutData.MissionImage = await FileHelper.UploadFile(MissionImage, "uploads/images/about");
 
         System.IO.File.WriteAllText("about.json", JsonSerializer.Serialize(AboutData));
 

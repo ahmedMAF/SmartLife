@@ -117,64 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="adminadmin" xml:space="preserve">
-    <value>المسؤول</value>
+  <data name="chooseAdmin" xml:space="preserve">
+    <value>السؤول</value>
     <comment/>
   </data>
-  <data name="adminhome" xml:space="preserve">
+  <data name="whyChoose" xml:space="preserve">
+    <value>تعديل لماذا تختارنا</value>
+    <comment/>
+  </data>
+  <data name="chooseHome" xml:space="preserve">
     <value>الرئيسية</value>
     <comment/>
   </data>
-  <data name="adminadmindashboard" xml:space="preserve">
-    <value>لوحة تحكم المسؤول</value>
+  <data name="add" xml:space="preserve">
+    <value>إضافة</value>
     <comment/>
   </data>
-  <data name="dashboardp1" xml:space="preserve">
-    <value>قم بإدارة كل تفصيل من موقع Smart Life بسهولة وتحكم كامل</value>
+  <data name="answerAr" xml:space="preserve">
+    <value>الاجابة (اللغة العربية)</value>
     <comment/>
   </data>
-  <data name="addproduct" xml:space="preserve">
-    <value>إضافة منتج</value>
+  <data name="answerEn" xml:space="preserve">
+    <value>الاجابة (اللغة الانجليزية)</value>
     <comment/>
   </data>
-  <data name="addpartner" xml:space="preserve">
-    <value>إضافة شريك</value>
+  <data name="questionAr" xml:space="preserve">
+    <value>السؤال (اللغة العربية)</value>
     <comment/>
   </data>
-  <data name="addclient" xml:space="preserve">
-    <value>إضافة عميل</value>
+  <data name="questionEn" xml:space="preserve">
+    <value>السؤال (اللغة الانجليزية)</value>
     <comment/>
   </data>
-  <data name="addmember" xml:space="preserve">
-    <value>إضافة عضو</value>
+  <data name="save" xml:space="preserve">
+    <value>حفظ</value>
     <comment/>
   </data>
-  <data name="addpost" xml:space="preserve">
-    <value>إضافة منشور</value>
+  <data name="delete" xml:space="preserve">
+    <value>حذف</value>
     <comment/>
   </data>
-  <data name="addcontact" xml:space="preserve">
-    <value>إضافة تواصل</value>
-    <comment/>
-  </data>
-  <data name="password" xml:space="preserve">
-    <value>كلمة المرور</value>
-    <comment/>
-  </data>
-  <data name="editcontact" xml:space="preserve">
-    <value>تعديل التواصل</value>
-    <comment/>
-  </data>
-  <data name="editabout" xml:space="preserve">
-    <value>تعديل حولنا</value>
-    <comment/>
-  </data>
-  <data name="back" xml:space="preserve">
-    <value>الخلفيات</value>
-    <comment/>
-  </data>
-  <data name="choose" xml:space="preserve">
-    <value>لماذا تختارنا</value>
+  <data name="previous" xml:space="preserve">
+    <value>تعديل الاسألة السابقة</value>
     <comment/>
   </data>
 </root>

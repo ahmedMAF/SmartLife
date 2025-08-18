@@ -8,7 +8,9 @@ namespace SmartLife.Pages.About;
 
 public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> localizer) : PageModel
 {
-    public AboutData AboutData { get;set; } = default!;
+    public AboutData AboutData { get; set; } = default!;
+
+    public bool IsAr { get; set; } = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
     public IActionResult OnGet()

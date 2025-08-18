@@ -117,18 +117,18 @@
             <input type="hidden" name="i" value="@i">
             <div class="row gy-4">
               <div>
-                <label class="w-100 mb-2 ps-2 text-start">Year</label>
+                <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["year"]</label>
                 <input style="border-radius: 5px;" type="text" class="form-control" name="GrowthBar.Year"
                   value="@Model.AboutData.Growth[i].Year">
               </div>
               <div>
-                <label class="w-100 ps-2 text-start">Value</label>
+                <label class="w-100 ps-2 text-start textar">@Model.Localizer["value"]</label>
                 <input style="border-radius: 5px;" type="text" class="form-control" name="GrowthBar.Value"
                   value="@Model.AboutData.Growth[i].Value">
               </div>
               <div class="col-md-12 text-center">
-                <button asp-page-handler="Edit" type="submit">Save</button>
-                <button asp-page-handler="Del" type="submit">Delete</button>
+                <button asp-page-handler="Edit" type="submit">@Model.Localizer["save"]</button>
+                <button asp-page-handler="Del" type="submit">@Model.Localizer["delete"]</button>
               </div>
             </div>
           </form>
@@ -137,51 +137,59 @@
     </div>
   </div>
 
-  <div class="container section-title" data-aos="fade-up"></div>
-  <h2>Edit Vision and Mission</h2>
+  <div class="container section-title" data-aos="fade-up">
+  <h2>@Model.Localizer["EVAM"]</h2>
   </div><!-- End Section Title -->
   <div class="container contact section-title" data-aos="fade-up">
     <div class="row justify-content-center mb-5">
       <div class="col-lg-7">
-        <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
+        <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-4">
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Vision Paragraph 1 (English)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["IFV"]</label>
+              <input asp-for="VisionImage" class="form-control" style="border-radius: 5px;">
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["VP1En"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="v1">@Model.AboutData.Vision1</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Vision Paragraph 1 (Arabic)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["VP1Ar"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="v1Ar">@Model.AboutData.Vision1Ar</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Vision Paragraph 2 (English)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["VP2En"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="v2">@Model.AboutData.Vision2</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Vision Paragraph 2 (Arabic)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["VP2Ar"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="v2Ar">@Model.AboutData.Vision2Ar</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Mission Paragraph 1 (English)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["IFM"]</label>
+              <input asp-for="MissionImage" class="form-control" style="border-radius: 5px;">
+            </div>
+            <div>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["MP1E"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="m1">@Model.AboutData.Mission1</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Mission Paragraph 1 (Arabic)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["MP1A"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="m1Ar">@Model.AboutData.Mission1Ar</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Mission Paragraph 2 (English)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["MP2E"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="m2">@Model.AboutData.Mission2</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Mission Paragraph 2 (Arabic)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["MP2A"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="m2Ar">@Model.AboutData.Mission2Ar</textarea>
             </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
 
-              <button asp-page-handler="Para" type="submit">Save</button>
+              <button asp-page-handler="Para" type="submit">@Model.Localizer["save"]</button>
             </div>
           </div>
         </form>
@@ -190,7 +198,7 @@
   </div>
 
   <div class="container section-title" data-aos="fade-up">
-    <h2>Edit Values and Since</h2>
+    <h2>@Model.Localizer["EVAS"]</h2>
   </div><!-- End Section Title -->
   <div class="container contact section-title" data-aos="fade-up">
     <div class="row justify-content-center mb-5">
@@ -198,26 +206,26 @@
         <form method="post" class="form" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-4">
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Values (English)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["VE"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="v">@Model.AboutData.Values</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Values (Arabic)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["VA"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="vAr">@Model.AboutData.ValuesAr</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Since (English)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["sinceE"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="s">@Model.AboutData.Since</textarea>
             </div>
             <div>
-              <label class="w-100 mb-2 ps-2 text-start">Since (Arabic)</label>
+              <label class="w-100 mb-2 ps-2 text-start textar">@Model.Localizer["sinceA"]</label>
               <textarea class="form-control" style="border-radius: 5px;" name="sAr">@Model.AboutData.SinceAr</textarea>
             </div>
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
 
-              <button asp-page-handler="Since" type="submit">Save</button>
+              <button asp-page-handler="Since" type="submit">@Model.Localizer["save"]</button>
             </div>
           </div>
         </form>
