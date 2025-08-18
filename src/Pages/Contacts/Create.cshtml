@@ -94,7 +94,7 @@
         let whasapph = "@Html.Raw(Model.Localizer["whatsapph"])";
         let can = "@Html.Raw(Model.Localizer["cancel"])";
     </script>
-    <script src="~/js/contact.js"></script>
+    <script src="~/js/contact.js" asp-append-version="true"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

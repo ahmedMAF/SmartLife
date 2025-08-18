@@ -26,18 +26,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="~/lib/aos/aos.css" rel="stylesheet">
-    <link href="~/lib/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="~/lib/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/lib/aos/aos.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/lib/swiper/swiper-bundle.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/lib/glightbox/css/glightbox.min.css" rel="stylesheet" asp-append-version="true">
 
     <!-- Main CSS File -->
-    <link href="~/css/main.css" rel="stylesheet">
+    <link href="~/css/main.css" rel="stylesheet" asp-append-version="true">
     @await RenderSectionAsync("Styles", required: false)
     @if (isAr)
     {
-        <link href="~/css/mainar.css" rel="stylesheet">
+        <link href="~/css/mainar.css" rel="stylesheet" asp-append-version="true">
     }
 </head>
 <body class="portfolio-details-page">
@@ -163,16 +163,16 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/php-email-form/validate.js"></script>
-    <script src="~/lib/aos/aos.js"></script>
-    <script src="~/lib/swiper/swiper-bundle.min.js"></script>
-    <script src="~/lib/glightbox/js/glightbox.min.js"></script>
-    <script src="~/lib/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="~/lib/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+    <script src="~/lib/php-email-form/validate.js" asp-append-version="true"></script>
+    <script src="~/lib/aos/aos.js" asp-append-version="true"></script>
+    <script src="~/lib/swiper/swiper-bundle.min.js" asp-append-version="true"></script>
+    <script src="~/lib/glightbox/js/glightbox.min.js" asp-append-version="true"></script>
+    <script src="~/lib/imagesloaded/imagesloaded.pkgd.min.js" asp-append-version="true"></script>
+    <script src="~/lib/isotope-layout/isotope.pkgd.min.js" asp-append-version="true"></script>
 
     <!-- Main JS File -->
-    <script src="~/js/main.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

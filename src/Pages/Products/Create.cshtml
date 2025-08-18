@@ -131,6 +131,6 @@
         let vid = "@Html.Raw(Model.Localizer["vid"])";
         let can = "@Html.Raw(Model.Localizer["cancel"])";
     </script>
-    <script src="~/js/product.js"></script>
+    <script src="~/js/product.js" asp-append-version="true"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
