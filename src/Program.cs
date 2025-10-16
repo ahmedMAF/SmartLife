@@ -5,6 +5,8 @@ using Microsoft.Extensions.Options;
 using SmartLife.Data;
 using SmartLife.Services;
 using SmartLife.Utilities;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 
 namespace SmartLife;
 
@@ -23,22 +25,19 @@ internal class Program
         builder.WebHost.ConfigureKestrel(options =>
         {
             options.ListenAnyIP(80);
-            
             options.ListenAnyIP(443, listenOptions =>
             {
-                listenOptions.UseHttps("/opt/SmartLife/certs/eg.pfx", "SmartLife@123");
-
-                listenOptions.UseSni(hostname =>
+                listenOptions.UseHttps(httpsOptions =>
                 {
-                    if (hostname.Equals("smartlifeae.com", StringComparison.OrdinalIgnoreCase))
+                    httpsOptions.ServerCertificateSelector = (connectionContext, hostName) =>
                     {
-                        return new HttpsConnectionAdapterOptions
-                        {
-                            ServerCertificate = new X509Certificate2("/opt/SmartLife/certs/ae.pfx", "SmartLife@123")
-                        };
-                    }
+                        if (hostName == "smartlifeeg.com")
+                            return new X509Certificate2("/opt/SmartLife/certs/eg.pfx", "SmartLife@123");
+                        else if (hostName == "smartlifeae.com")
+                            return new X509Certificate2("/opt/SmartLife/certs/ae.pfx", "SmartLife@123");
 
-                    return null; // fallback to smartlifeeg.com cert
+                        return null;
+                    };
                 });
             });
         });
