@@ -20,11 +20,12 @@ public class EmailService(IOptions<SmtpSettings> smtpOptions)
         mail.Subject = subject;
         mail.Body = body;
         mail.IsBodyHtml = false;
+        mail.ReplyToList.Add(new MailAddress(from));
 
         using var smtp = new SmtpClient(_smtp.Host, _smtp.Port)
         {
-            Credentials = new NetworkCredential(_smtp.UserName, _smtp.Password),
-            EnableSsl = _smtp.EnableSsl
+            Credentials = new NetworkCredential(to, ""), // TODO: Contact.Password
+            EnableSsl = true
         };
 
         smtp.Send(mail);

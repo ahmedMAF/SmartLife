@@ -22,15 +22,28 @@ internal class Program
 
         builder.WebHost.ConfigureKestrel(options =>
         {
-            options.ListenAnyIP(80); // For HTTP
-
+            options.ListenAnyIP(80);
+            
             options.ListenAnyIP(443, listenOptions =>
             {
-                listenOptions.UseHttps("/root/https/aspnetapp.pfx", "SmartLife@123");
+                listenOptions.UseHttps("/opt/SmartLife/certs/eg.pfx", "SmartLife@123");
+
+                listenOptions.UseSni(hostname =>
+                {
+                    if (hostname.Equals("smartlifeae.com", StringComparison.OrdinalIgnoreCase))
+                    {
+                        return new HttpsConnectionAdapterOptions
+                        {
+                            ServerCertificate = new X509Certificate2("/opt/SmartLife/certs/ae.pfx", "SmartLife@123")
+                        };
+                    }
+
+                    return null; // fallback to smartlifeeg.com cert
+                });
             });
         });
 #endif
-        
+
         // Add services to the container.
         builder.Services.AddSession();
         builder.Services.AddRazorPages(options =>
@@ -50,9 +63,9 @@ internal class Program
             options.UseMySql(connectionString, serverVersion, options =>
                 options.UseMicrosoftJson(MySqlCommonJsonChangeTrackingOptions.FullHierarchyOptimizedFast));
 #if DEBUG
-                options.LogTo(Console.WriteLine, LogLevel.Error)
-                    .EnableSensitiveDataLogging()
-                    .EnableDetailedErrors();
+            options.LogTo(Console.WriteLine, LogLevel.Error)
+                .EnableSensitiveDataLogging()
+                .EnableDetailedErrors();
 #endif
         });
 
@@ -60,7 +73,7 @@ internal class Program
 
         builder.Services.Configure<RequestLocalizationOptions>(options =>
         {
-            string[] supportedCultures = [ "en", "ar" ];
+            string[] supportedCultures = ["en", "ar"];
             options.SetDefaultCulture("en");
             options.AddSupportedCultures(supportedCultures);
             options.AddSupportedUICultures(supportedCultures);

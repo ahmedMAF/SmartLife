@@ -52,6 +52,8 @@ public class IndexModel(SmartLifeDb context, EmailService emailService, ILogger<
         var subject = $"Contact Form Submission from {name}";
         var body = $"Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}";
 
-        emailService.SendEmail("ceo@smartlifeeg.com", "noreply@smartlifeeg.com", subject, body);
+        string to = Contact.Emails[0] ?? "sales@smartlifeeg.com";
+        
+        emailService.SendEmail(to, to, subject, body);
     }
 }
