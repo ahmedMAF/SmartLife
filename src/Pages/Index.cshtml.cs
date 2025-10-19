@@ -42,7 +42,7 @@ public class IndexModel(SmartLifeDb context, EmailService emailService, ILogger<
         return Page();
     }
 
-    public async Task OnPostAsync()
+    public async Task<IActionResult> OnPostAsync()
     {
         var name = Request.Form["name"].ToString();
         var phone = Request.Form["phone"].ToString();
@@ -53,7 +53,9 @@ public class IndexModel(SmartLifeDb context, EmailService emailService, ILogger<
         var body = $"Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}";
 
         string to = Contact?.Emails[0] ?? "sales@smartlifeeg.com";
-        
-        await emailService.SendEmail("adham.abo.rabie@gmail.com", subject, body);
+
+        await emailService.SendEmail(to, subject, body);
+
+        return RedirectToPage();
     }
 }
