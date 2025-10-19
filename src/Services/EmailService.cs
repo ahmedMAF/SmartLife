@@ -15,14 +15,13 @@ public class EmailService(IOptions<SmtpSettings> smtpOptions)
     {
         MailMessage mail = new()
         {
-            From = new MailAddress(_smtp.Email)
+            From = new MailAddress(_smtp.Email),
+            Subject = subject,
+            Body = body,
+            IsBodyHtml = false
         };
 
         mail.To.Add(to);
-        mail.Subject = subject;
-        mail.Body = body;
-        mail.IsBodyHtml = false;
-        // mail.ReplyToList.Add(new MailAddress(_smtp.Email));
 
         using var smtp = new SmtpClient(_smtp.Host, _smtp.Port)
         {
@@ -30,7 +29,7 @@ public class EmailService(IOptions<SmtpSettings> smtpOptions)
             EnableSsl = true
         };
 
-        smtp.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
+        // smtp.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
 
         await smtp.SendMailAsync(mail);
     }

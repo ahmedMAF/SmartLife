@@ -54,6 +54,6 @@ public class IndexModel(SmartLifeDb context, EmailService emailService, ILogger<
 
         string to = Contact?.Emails[0] ?? "sales@smartlifeeg.com";
         
-        await emailService.SendEmail("ahmedafana652001@gmail.com", subject, body);
+        await emailService.SendEmail("adham.abo.rabie@gmail.com", subject, body);
     }
 }
