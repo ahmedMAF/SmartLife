@@ -31,9 +31,9 @@ internal class Program
                 {
                     httpsOptions.ServerCertificateSelector = (connectionContext, hostName) =>
                     {
-                        if (hostName == "smartlifeeg.com")
+                        if (hostName == "smartlifeeg.com" || hostName == "www.smartlifeeg.com")
                             return new X509Certificate2("/opt/SmartLife/certs/eg.pfx", "SmartLife@123");
-                        else if (hostName == "smartlifeae.com")
+                        else if (hostName == "smartlifeae.com" || hostName == "www.smartlifeae.com")
                             return new X509Certificate2("/opt/SmartLife/certs/ae.pfx", "SmartLife@123");
 
                         return null;
