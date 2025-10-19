@@ -202,20 +202,30 @@
 
 </section><!-- /product Section -->
 @section Scripts {
-    <script>
-        const videos = swiper.el.querySelectorAll('video');
-        videos.forEach(video => {
-            video.addEventListener('play', () => {
-                swiper.autoplay.stop();
-            });
+<script src="https://www.youtube.com/iframe_api"></script>
 
-            video.addEventListener('pause', () => {
-                swiper.autoplay.start();
-            });
+<script>
+    function onYouTubeIframeAPIReady() {
+        const swiperEl = document.querySelector('.portfolio-details-slider.swiper');
+        const swiper = swiperEl.swiper;
 
-            video.addEventListener('ended', () => {
-                swiper.autoplay.start();
+        const iframes = swiperEl.querySelectorAll('iframe');
+        iframes.forEach(iframe => {
+            const player = new YT.Player(iframe, {
+                events: {
+                    'onStateChange': event => {
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            swiper.autoplay.stop();
+                        } else if (
+                            event.data === YT.PlayerState.PAUSED ||
+                            event.data === YT.PlayerState.ENDED
+                        ) {
+                            swiper.autoplay.start();
+                        }
+                    }
+                }
             });
         });
-    </script>
+    }
+</script>
 }
