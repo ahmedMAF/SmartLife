@@ -13,9 +13,8 @@ public class ForgotModel(SmartLifeDb context, IStringLocalizer<ForgotModel> loca
 
     public async Task<IActionResult> OnGetAsync()
     {
-        emailService.SendEmail(
+        await emailService.SendEmail(
             "ceo@smartlifeeg.com",
-            "noreply@smartlifeeg.com",
             "Restore Password Request For SmartLife Admin",
             $"Your password is\n{System.IO.File.ReadAllText("pwd")}"
         );

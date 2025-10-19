@@ -72,3 +72,21 @@
         </div>
     </div>
 </section><!-- End Product Section -->
+@section Scripts {
+    <script>
+        const videos = swiper.el.querySelectorAll('video');
+        videos.forEach(video => {
+            video.addEventListener('play', () => {
+                swiper.autoplay.stop();
+            });
+
+            video.addEventListener('pause', () => {
+                swiper.autoplay.start();
+            });
+
+            video.addEventListener('ended', () => {
+                swiper.autoplay.start();
+            });
+        });
+    </script>
+}
