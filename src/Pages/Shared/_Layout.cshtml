@@ -4,11 +4,14 @@
 @inject IStringLocalizer<SharedResources> Localizer
 
 @{
-    bool isAr = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
+    bool isAr =
+    StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName,
+    "ar");
 }
 
 <!DOCTYPE html>
-<html dir="@(isAr ? "rtl" : "ltr")" lang="@(isAr ? "ar" : "en")"> 
+<html dir="@(isAr ? "rtl" : "ltr")" lang="@(isAr ? "ar" : "en")">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +26,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true">
@@ -39,7 +44,18 @@
     {
         <link href="~/css/mainar.css" rel="stylesheet" asp-append-version="true">
     }
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10927935275"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-10927935275');
+    </script>
 </head>
+
 <body class="portfolio-details-page">
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
@@ -48,7 +64,7 @@
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="~/img/logo.png" alt=""> -->
                 <h1 class="sitename">
-                   <img src="~/img/smartLife.png" alt="">
+                    <img src="~/img/smartLife.png" alt="">
                 </h1>
             </a>
 
@@ -59,21 +75,30 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a asp-page="/Index" class="@(page == "/Index" ? "active" : "")">@Localizer["nav_home"]</a></li>
-                    <li><a asp-page="/About/Index" class="@(page == "/About/Index" ? "active" : "")">@Localizer["nav_about"]</a></li>
+                    <li><a asp-page="/About/Index"
+                            class="@(page == "/About/Index" ? "active" : "")">@Localizer["nav_about"]</a></li>
                     <li class="dropdown">
-                        <a asp-page="/Products/Index" class="@(page == "/Products/Index" ? "active" : "")"><span>@Localizer["nav_products"]</span> <i class="bi bi-chevron-down toggle-dropdown product-arowar"></i></a>
+                        <a asp-page="/Products/Index"
+                            class="@(page == "/Products/Index" ? "active" : "")"><span>@Localizer["nav_products"]</span>
+                            <i class="bi bi-chevron-down toggle-dropdown product-arowar"></i></a>
                         <ul>
                             @await Component.InvokeAsync("ProductsMenu")
                         </ul>
                     </li>
-                    <li><a asp-page="/Partners/Index" class="@(page == "/Partners/Index" ? "active" : "")">@Localizer["nav_partners"]</a></li>
-                    <li><a asp-page="/Clients/Index" class="@(page == "/Clients/Index" ? "active" : "")">@Localizer["nav_clients"]</a></li>
-                    <li><a asp-page="/Team/Index" class="@(page == "/Team/Index" ? "active" : "")">@Localizer["nav_team"]</a></li>
-                    <li><a asp-page="/News/Index" class="@(page == "/News/Index" ? "active" : "")">@Localizer["nav_news"]</a></li>
-                    <li><a asp-page="/Contacts/Index" class="@(page == "/Contacts/Index" ? "active" : "")">@Localizer["nav_contacts"]</a></li>
+                    <li><a asp-page="/Partners/Index"
+                            class="@(page == "/Partners/Index" ? "active" : "")">@Localizer["nav_partners"]</a></li>
+                    <li><a asp-page="/Clients/Index"
+                            class="@(page == "/Clients/Index" ? "active" : "")">@Localizer["nav_clients"]</a></li>
+                    <li><a asp-page="/Team/Index"
+                            class="@(page == "/Team/Index" ? "active" : "")">@Localizer["nav_team"]</a></li>
+                    <li><a asp-page="/News/Index"
+                            class="@(page == "/News/Index" ? "active" : "")">@Localizer["nav_news"]</a></li>
+                    <li><a asp-page="/Contacts/Index"
+                            class="@(page == "/Contacts/Index" ? "active" : "")">@Localizer["nav_contacts"]</a></li>
                     @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-page="/Admin/Index" class="@(page == "/Admin/Index" ? "active" : "")">@Localizer["nav_admin"]</a></li>
+                        <li><a asp-page="/Admin/Index"
+                                class="@(page == "/Admin/Index" ? "active" : "")">@Localizer["nav_admin"]</a></li>
                         <li><a href="/Admin/Logout">@Localizer["nav_logout"]</a></li>
                     }
                     <li class="language-switcher">
@@ -87,10 +112,13 @@
             </nav>
 
             <div class="header-social-links">
-                <a href="https://youtube.com/@@smartlifecom?si=hdY7vixkDvCO5jZQ" class="youtube"><i class="bi bi-youtube"></i></a>
+                <a href="https://youtube.com/@@smartlifecom?si=hdY7vixkDvCO5jZQ" class="youtube"><i
+                        class="bi bi-youtube"></i></a>
                 <a href="https://www.facebook.com/share/1CaQ4VvXsQ/" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/smartlifeeg?igsh=OGsyNzZyZzR0ZGx1" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/smartlifeco/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/smartlifeeg?igsh=OGsyNzZyZzR0ZGx1" class="instagram"><i
+                        class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/smartlifeco/" class="linkedin"><i
+                        class="bi bi-linkedin"></i></a>
             </div>
 
         </div>
@@ -114,18 +142,24 @@
                     <h4>@Localizer["foot_links_useful"]</h4>
                     <ul>
                         <li><i class="bi bi-chevron-right"></i> <a asp-page="/Index">@Localizer["nav_home"]</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/About/Index">@Localizer["nav_about"]</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Partners/Index">@Localizer["nav_partners"]</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Clients/Index">@Localizer["nav_clients"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/About/Index">@Localizer["nav_about"]</a>
+                        </li>
+                        <li><i class="bi bi-chevron-right"></i> <a
+                                asp-page="/Partners/Index">@Localizer["nav_partners"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a
+                                asp-page="/Clients/Index">@Localizer["nav_clients"]</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>@Localizer["foot_links"]</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Products/Index">@Localizer["nav_products"]</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/News/Index">@Localizer["nav_news"]</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Team/Index">@Localizer["nav_team"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a
+                                asp-page="/Products/Index">@Localizer["nav_products"]</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/News/Index">@Localizer["nav_news"]</a>
+                        </li>
+                        <li><i class="bi bi-chevron-right"></i> <a asp-page="/Team/Index">@Localizer["nav_team"]</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -133,9 +167,11 @@
                     <h4>@Localizer["foot_follow"]</h4>
                     <p>@Localizer["foot_follow_desc"]</p>
                     <div class="social-links d-flex">
-                        <a href="https://youtube.com/@@smartlifecom?si=hdY7vixkDvCO5jZQ"><i class="bi bi-youtube"></i></a>
+                        <a href="https://youtube.com/@@smartlifecom?si=hdY7vixkDvCO5jZQ"><i
+                                class="bi bi-youtube"></i></a>
                         <a href="https://www.facebook.com/share/1CaQ4VvXsQ/"><i class="bi bi-facebook"></i></a>
-                        <a href="https://www.instagram.com/smartlifeeg?igsh=OGsyNzZyZzR0ZGx1"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/smartlifeeg?igsh=OGsyNzZyZzR0ZGx1"><i
+                                class="bi bi-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/smartlifeco/"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
@@ -146,7 +182,8 @@
         <div class="container copyright text-center mt-4">
             <p>©<strong class="px-1 sitename">@Localizer["name"]</strong> <span>@Localizer["foot_rights"]</span></p>
             <div class="credits">
-                @Localizer["foot_designby"] <a href="https://www.facebook.com/share/1AGyWmomEp/">NOVA Integrated Solutions</a>
+                @Localizer["foot_designby"] <a href="https://www.facebook.com/share/1AGyWmomEp/">NOVA Integrated
+                    Solutions</a>
             </div>
         </div>
 
@@ -157,7 +194,8 @@
     </div>
 
     <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
     <!-- Preloader -->
     <div id="preloader"></div>
@@ -175,5 +213,34 @@
     <script src="~/js/main.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Google tag conversions -->
+    <script>
+        (function () {
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('a[href^="tel:"]')) {
+                    gtag('event', 'conversion', { 'send_to': 'AW-10927935275/GGmHCPmFpbIbEKue7Noo' });
+                }
+            });
+        })();
+    </script>
+    <script>
+        (function () {
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('a[href^="mailto:"]')) {
+                    gtag('event', 'conversion', { 'send_to': 'AW-10927935275/LnXgCP6EpbIbEKue7Noo' });
+                }
+            });
+        })();
+    </script>
+    <script>
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('a[href*="https://wa.me/"]')) {
+                gtag('event', 'conversion', { 'send_to': 'AW-10927935275/Vm6UCPuEpbIbEKue7Noo' });
+            }
+        })
+
+    </script>
 </body>
+
 </html>

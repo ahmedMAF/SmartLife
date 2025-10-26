@@ -37,10 +37,10 @@
             <div class="col-lg-7 content">
                 <h3>@Model.Localizer["vision"]</h3>
                 <p class="fst-italic">
-                    @(Model.IsAr ? Model.AboutData.Vision1Ar : Model.AboutData.Vision1)
+                    @(Model.IsAr? Model.AboutData.Vision1Ar : Model.AboutData.Vision1)
                 </p>
                 <p>
-                    @(Model.IsAr ? Model.AboutData.Vision2Ar : Model.AboutData.Vision2)
+                    @(Model.IsAr? Model.AboutData.Vision2Ar : Model.AboutData.Vision2)
                 </p>
             </div>
         </div>
@@ -49,10 +49,10 @@
             <div class="col-lg-7 content">
                 <h3>@Model.Localizer["mission"]</h3>
                 <p class="fst-italic">
-                    @(Model.IsAr ? Model.AboutData.Mission1Ar : Model.AboutData.Mission1)
+                    @(Model.IsAr? Model.AboutData.Mission1Ar : Model.AboutData.Mission1)
                 </p>
                 <p>
-                    @(Model.IsAr ? Model.AboutData.Mission2Ar : Model.AboutData.Mission2)
+                    @(Model.IsAr? Model.AboutData.Mission2Ar : Model.AboutData.Mission2)
                 </p>
             </div>
             <div class="col-lg-5 text-center text-md-end img-about2">
@@ -63,20 +63,34 @@
     </div>
 </section>
 
+
 <section id="about" class="about section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>@Model.Localizer["values"]</h2>
         <p>
-            @(Model.IsAr ? Model.AboutData.ValuesAr : Model.AboutData.Values)
+            @(Model.IsAr? Model.AboutData.ValuesAr : Model.AboutData.Values)
         </p>
-        <div class="values mt-5 w-100 d-flex justify-content-center align-items-center">
-            <div class="circle-container position-relative">
-                <div class="circle smart">@Model.Localizer["smart"]</div>
-                <div class="circle sustainability">@Model.Localizer["sustainability"]</div>
-                <div class="circle innovation">@Model.Localizer["innovation"]</div>
-                <div class="circle quality">@Model.Localizer["quality"]</div>
-                <div class="circle safety">@Model.Localizer["safety"]</div>
+        <div class="mt-5 since-item graph row justify-content-around gap-3">
+            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span><i class="bi bi-cpu-fill"></i></span>
+                <span style="font-size: 25px;">@Model.Localizer["smart"]</span>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span><i class="bi bi-tree-fill"></i></span>
+                <span style="font-size: 25px;">@Model.Localizer["sustainability"]</span>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span><i class="bi bi-lightbulb-fill"></i></span>
+                <span style="font-size: 25px;">@Model.Localizer["innovation"]</span>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span><i class="bi bi-gear-fill"></i></span>
+                <span style="font-size: 25px;">@Model.Localizer["quality"]</span>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span><i class="bi bi-lock-fill"></i></span>
+                <span style="font-size: 25px;">@Model.Localizer["safety"]</span>
             </div>
         </div>
 
@@ -101,7 +115,7 @@
     <div class="container section-title" data-aos="fade-up">
         <h2>@Model.Localizer["since"]</h2>
         <p>
-            @(Model.IsAr ? Model.AboutData.SinceAr : Model.AboutData.Since)
+            @(Model.IsAr? Model.AboutData.SinceAr : Model.AboutData.Since)
         </p>
         <p class="since">2008</p>
         <div class="mt-4 since-item graph row justify-content-around gap-3">
@@ -152,11 +166,11 @@
 @section Scripts {
     <script>
         const chartData = [
-            @foreach(var bar in Model.AboutData.Growth)
+                        @foreach (var bar in Model.AboutData.Growth)
             {
                 @Html.Raw($"{{ year: \"{bar.Year}\", value: {bar.Value} }},")
             }
-        ];
+                    ];
     </script>
     <script src="~/js/about.js" asp-append-version="true"></script>
 }

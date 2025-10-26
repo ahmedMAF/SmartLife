@@ -27,7 +27,7 @@ public class IndexModel(SmartLifeDb context, EmailService emailService, ILogger<
     {
         Partners = await context.PartnersClients.Where(m => m.Type == PcType.Partner).Take(6).ToListAsync();
         Clients = await context.PartnersClients.Where(m => m.Type == PcType.Client).Take(6).ToListAsync();
-        Products = await context.Products.Take(6).ToListAsync();
+        Products = await context.Products.OrderBy(p => p.OrderIndex).Take(6).ToListAsync();
         Posts = await context.News.OrderByDescending(p => p.Time).Take(3).ToListAsync();
         Categories = await context.Products.Select(p => p.Category).Distinct().ToListAsync();
 

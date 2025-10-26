@@ -117,68 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="adminadmin" xml:space="preserve">
+  <data name="orderAdmin" xml:space="preserve">
     <value>المسؤول</value>
     <comment/>
   </data>
-  <data name="adminhome" xml:space="preserve">
+  <data name="orderHome" xml:space="preserve">
     <value>الرئيسية</value>
     <comment/>
   </data>
-  <data name="adminadmindashboard" xml:space="preserve">
-    <value>لوحة تحكم المسؤول</value>
-    <comment/>
-  </data>
-  <data name="dashboardp1" xml:space="preserve">
-    <value>قم بإدارة كل تفصيل من موقع Smart Life بسهولة وتحكم كامل</value>
-    <comment/>
-  </data>
-  <data name="addproduct" xml:space="preserve">
-    <value>إضافة منتج</value>
-    <comment/>
-  </data>
-  <data name="addpartner" xml:space="preserve">
-    <value>إضافة شريك</value>
-    <comment/>
-  </data>
-  <data name="addclient" xml:space="preserve">
-    <value>إضافة عميل</value>
-    <comment/>
-  </data>
-  <data name="addmember" xml:space="preserve">
-    <value>إضافة عضو</value>
-    <comment/>
-  </data>
-  <data name="addpost" xml:space="preserve">
-    <value>إضافة منشور</value>
-    <comment/>
-  </data>
-  <data name="addcontact" xml:space="preserve">
-    <value>إضافة تواصل</value>
-    <comment/>
-  </data>
-  <data name="password" xml:space="preserve">
-    <value>كلمة المرور</value>
-    <comment/>
-  </data>
-  <data name="editcontact" xml:space="preserve">
-    <value>تعديل التواصل</value>
-    <comment/>
-  </data>
-  <data name="editabout" xml:space="preserve">
-    <value>تعديل حولنا</value>
-    <comment/>
-  </data>
-  <data name="back" xml:space="preserve">
-    <value>الخلفيات</value>
-    <comment/>
-  </data>
-  <data name="choose" xml:space="preserve">
-    <value>لماذا تختارنا</value>
-    <comment/>
-  </data>
-  <data name="order" xml:space="preserve">
+  <data name="orderProduct" xml:space="preserve">
     <value>ترتيب المنتجات</value>
+    <comment/>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>حفظ</value>
     <comment/>
   </data>
 </root>

@@ -177,4 +177,8 @@
     <value>Choose us</value>
     <comment/>
   </data>
+  <data name="order" xml:space="preserve">
+    <value>Sort</value>
+    <comment/>
+  </data>
 </root>

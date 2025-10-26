@@ -1,0 +1,71 @@
+@page
+@model SmartLife.Pages.Admin.OrderProductsModel
+
+@{
+    ViewData["Title"] = "Order Products";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>@Model.Localizer["orderAdmin"]</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">@Model.Localizer["orderHome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["orderAdmin"]</a></li>
+                <li class="current">@Model.Localizer["orderProduct"]</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Admin Section -->
+<section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>@Model.Localizer["orderProduct"]</h2>
+    </div><!-- End Section Title -->
+
+    <div class="container contact section-title" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <ul id="product-list" class="list-group">
+                    @foreach (var p in Model.Products)
+                    {
+                        <li class="list-group-item d-flex align-items-center sortable-item" data-id="@p.Id">
+                            <span class="handle me-3" style="cursor: grab;">☰</span>
+                            <span>@if (Model.IsAr) { @p.NameAr } else { @p.Name }</span>
+                        </li>
+                    }
+                </ul>
+
+                <form method="post" asp-page-handler="SaveOrder" id="orderForm">
+                    <input type="hidden" name="ids" id="idsInput" />
+                    <button type="submit" class="btn btn-primary mt-3">@Model.Localizer["save"]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Admin Section -->
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+    <script>
+        const list = document.getElementById('product-list');
+        new Sortable(list, {
+            animation: 150,
+            handle: '.handle',
+            ghostClass: 'bg-light'
+        });
+
+        const form = document.getElementById('orderForm');
+        const idsInput = document.getElementById('idsInput');
+
+        form.addEventListener('submit', e => {
+            const ids = [...list.querySelectorAll('.sortable-item')].map(el => el.dataset.id);
+            idsInput.value = ids.join(','); // send comma-separated string
+        });
+    </script>
+}

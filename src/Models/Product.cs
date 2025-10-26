@@ -12,6 +12,7 @@ public class Product
     public string DescriptionAr { get; set; }
     public string Category { get; set; }
     public string CategoryAr { get; set; }
+    public int OrderIndex { get; set; }
     public List<SubModule> Features { get; set; } = [];
     public List<SubModule> Models { get; set; } = [];
     public List<GalleryEntry> Photos { get; set; } = [];

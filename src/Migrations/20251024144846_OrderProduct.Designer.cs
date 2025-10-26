@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartLife;
 
@@ -11,9 +12,11 @@ using SmartLife;
 namespace SmartLife.Migrations
 {
     [DbContext(typeof(SmartLifeDb))]
-    partial class SmartLifeDbModelSnapshot : ModelSnapshot
+    [Migration("20251024144846_OrderProduct")]
+    partial class OrderProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,7 +173,7 @@ namespace SmartLife.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Order")
+                    b.Property<int>("OrderIndex")
                         .HasColumnType("int");
 
                     b.Property<string>("Photos")
