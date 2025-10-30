@@ -29,6 +29,7 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
         if (string.IsNullOrEmpty(embeddedUrl))
         {
+            Countries = LocationHelper.GetCountries();
             ModelState.AddModelError("Contact.GoogleMap", Localizer["InvalidGoogleMapLink"]);
             return Page();
         }

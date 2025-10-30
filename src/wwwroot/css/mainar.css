@@ -1,33 +1,59 @@
-.contactar{
+.contactar {
     margin-left: 20px;
 }
-.textar{
+
+.textar {
     text-align: right !important;
 }
-.choosear{
+
+.choosear {
     padding-right: 15px;
 }
-.showar{
+
+.showar {
     text-align: left;
 }
-.arowar{
+
+.arowar {
     background-position: left 0.75rem center;
     padding-left: 2.25rem;
     padding-right: 0.75rem;
 }
-.product-arowar{
+
+.product-arowar {
     margin-right: 5px;
     margin-left: 0px !important;
 }
-.logoar{
+
+.logoar {
     margin-right: 0px !important;
 }
 
 @media (min-width: 768px) {
-    .img-about1{
+    .img-about1 {
         text-align: right !important;
     }
-    .img-about2{
+
+    .img-about2 {
         text-align: left !important;
+    }
+}
+
+.geo-float {
+    display: inline-block;
+    animation: geoFloat 1s ease-in-out infinite;
+}
+
+@keyframes geoFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

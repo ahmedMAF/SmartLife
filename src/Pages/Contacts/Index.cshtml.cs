@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using SmartLife.Data;
 using SmartLife.Models;
 using SmartLife.Services;
 using SmartLife.Utilities;
@@ -12,12 +11,20 @@ namespace SmartLife.Pages.Contacts;
 public class IndexModel(SmartLifeDb context, EmailService emailService, IStringLocalizer<IndexModel> localizer) : PageModel
 {
     public Contact Contact { get; set; } = default!;
+    public IList<Contact> Contacts { get; set; } = default!;
+
     public bool IsAr { get; set; } = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
-    public async Task<IActionResult> OnGetAsync()
+    public async Task<IActionResult> OnGetAsync(string? id)
     {
-        Contact = await LocationHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact();
+        Contacts = await context.Contacts.ToListAsync();
+
+        if (string.IsNullOrEmpty(id))
+            Contact = await LocationHelper.GetContactByIpAsync(context, HttpContext) ?? new Contact();
+        else
+            Contact = await context.Contacts.FindAsync(id);
+
         return Page();
     }
     

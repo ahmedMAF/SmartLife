@@ -12,14 +12,17 @@ public static class UrlHelper
 
     public static string GetGoogleMapsEmbedUrl(string url)
     {
-        string query;
-
         if (string.IsNullOrEmpty(url))
             return "";
+
+        if (url.Contains("embed"))
+            return url;
 
         if (!url.Contains("google.com/maps/"))
             return "";
 
+        string query;
+        
         if (url.Contains("place/"))
         {
             int placeIndex = url.IndexOf("place/");

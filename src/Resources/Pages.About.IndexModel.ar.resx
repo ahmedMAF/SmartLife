@@ -225,4 +225,16 @@
     <value>الدول</value>
     <comment/>
   </data>
+  <data name="branch" xml:space="preserve">
+    <value>فروعنا</value>
+    <comment/>
+  </data>
+  <data name="branchp" xml:space="preserve">
+    <value>نحن فخورون بامتلاكنا فروعًا في عدة دول</value>
+    <comment/>
+  </data>
+  <data name="click" xml:space="preserve">
+    <value>اضغط للتواصل</value>
+    <comment/>
+  </data>
 </root>

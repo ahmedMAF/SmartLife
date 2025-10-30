@@ -165,4 +165,16 @@
     <value>Your Name</value>
     <comment/>
   </data>
+  <data name="branch" xml:space="preserve">
+    <value>Our Branches</value>
+    <comment/>
+  </data>
+  <data name="branchp" xml:space="preserve">
+    <value>We're proud to have branches in multiple countries</value>
+    <comment/>
+  </data>
+  <data name="click" xml:space="preserve">
+    <value>Click to contact</value>
+    <comment/>
+  </data>
 </root>

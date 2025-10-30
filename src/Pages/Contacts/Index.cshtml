@@ -1,4 +1,5 @@
-﻿@page
+﻿@page "{id?}"
+@using SmartLife.Models
 @model SmartLife.Pages.Contacts.IndexModel
 
 @{
@@ -146,3 +147,31 @@
         </div>
     </div>
 </section><!-- /Contact Section -->
+
+<section id="about" class="about section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>@Model.Localizer["branch"]</h2>
+        <p>
+            @Model.Localizer["branchp"]
+        </p>
+        <div class="mt-5 row justify-content-around gap-5">
+            @foreach(Contact contact in Model.Contacts)
+            {
+                <div class="col-lg-3">
+                    <a asp-page="/Contacts/Index" asp-route-id="@contact.Country" class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
+                        <span><i style="font-size: 40px;" class="geo-float bi bi-geo-alt-fill"></i></span>
+                        <span style="font-size: 25px; font-weight: bold; color: black;">
+                            @SmartLife.Utilities.LocationHelper.GetCountryNameBy2LetterISO(contact.Country)
+                            <span class="fi fi-@contact.Country.ToLowerInvariant()"></span></span>
+                        <span style="font-size: 12px; color: black;">@Model.Localizer["click"]</span>
+                    </a>
+                </div>
+            }
+        </div>
+    </div><!-- End Section Title -->
+</section>
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+}
