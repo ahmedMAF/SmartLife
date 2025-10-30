@@ -28,7 +28,7 @@ public static class LocationHelper
 		try
 		{
 			var region = new RegionInfo(isoCode.ToUpperInvariant());
-			return region.DisplayName;
+			return region.EnglishName;
 		}
 		catch (Exception)
 		{
