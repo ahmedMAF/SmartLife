@@ -15,6 +15,21 @@ public static class UrlHelper
         if (string.IsNullOrEmpty(url))
             return "";
 
+        if (url.Contains("iframe"))
+        {
+            int srcIndex = url.IndexOf("src=\"", StringComparison.OrdinalIgnoreCase);
+            string srcUrl = "";
+
+            if (srcIndex != -1)
+            {
+                srcIndex += 5;
+                int endIndex = url.IndexOf('"', srcIndex);
+
+                if (endIndex != -1)
+                    return url[srcIndex..endIndex];
+            }
+        }
+
         if (url.Contains("embed"))
             return url;
 
@@ -22,18 +37,20 @@ public static class UrlHelper
             return "";
 
         string query;
-        
-        if (url.Contains("place/"))
+
+        if (url.Contains("maps/place/"))
         {
             int placeIndex = url.IndexOf("place/");
             int atIndex = url.IndexOf("/@", placeIndex);
 
-            if (placeIndex == -1 || atIndex == -1 || atIndex <= placeIndex + 6)
+            int startIndex = placeIndex + 6;
+            
+            if (placeIndex == -1 || atIndex == -1 || atIndex <= startIndex)
                 return "";
 
-            query = url[(placeIndex + 6)..atIndex];
+            query = url[startIndex..atIndex];
         }
-        else if (url.Contains('@'))
+        else if (url.Contains("maps/@"))
         {
             int atIndex = url.IndexOf("/@");
             int start = atIndex + 2; // skip "/@"
