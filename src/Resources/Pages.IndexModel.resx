@@ -273,4 +273,12 @@
     <value>At Smart Life, we believe that knowledge is power - stay updated with our latest news and always be at the heart of the action.</value>
     <comment/>
   </data>
+  <data name="senddone" xml:space="preserve">
+    <value>✅ Your message has been sent successfully. Thank you!</value>
+    <comment/>
+  </data>
+  <data name="senderror" xml:space="preserve">
+    <value>❌ Sorry, something went wrong while sending your message.</value>
+    <comment/>
+  </data>
 </root>

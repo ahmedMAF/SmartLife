@@ -177,4 +177,12 @@
     <value>Click to contact</value>
     <comment/>
   </data>
+  <data name="senddone" xml:space="preserve">
+    <value>✅ Your message has been sent successfully. Thank you!</value>
+    <comment/>
+  </data>
+  <data name="senderror" xml:space="preserve">
+    <value>❌ Sorry, something went wrong while sending your message.</value>
+    <comment/>
+  </data>
 </root>

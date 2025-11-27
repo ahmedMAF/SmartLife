@@ -1,5 +1,8 @@
 ﻿@page "{id?}"
+
 @using SmartLife.Models
+@using AspNetCore.ReCaptcha
+
 @model SmartLife.Pages.Contacts.IndexModel
 
 @{
@@ -72,7 +75,8 @@
                             <h3>@Model.Localizer["call"]</h3>
                             @foreach (string phone in Model.Contact.Phones)
                             {
-                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;" href="tel:@phone">@phone</a></p>
+                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;"
+                                        href="tel:@phone">@phone</a></p>
                             }
                         </div>
                     </div>
@@ -87,7 +91,8 @@
                             <h3>@Model.Localizer["whatsApp"]</h3>
                             @foreach (string whatsApp in Model.Contact.WhatsApps)
                             {
-                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;" href="https://wa.me/@whatsApp">@whatsApp</a></p>
+                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;"
+                                        href="https://wa.me/@whatsApp">@whatsApp</a></p>
                             }
                         </div>
                     </div>
@@ -102,7 +107,8 @@
                             <h3>@Model.Localizer["emails"]</h3>
                             @foreach (string email in Model.Contact.Emails)
                             {
-                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;" href="mailto:@email">@email</a></p>
+                                <p><a class="text-dark" style="font-size: 14px; font-weight: normal;"
+                                        href="mailto:@email">@email</a></p>
                             }
                         </div>
                     </div>
@@ -139,6 +145,18 @@
                             <div class="error-message"></div>
                             <div class="sent-message">Your message has been sent. Thank you!</div>
 
+                            @if (TempData["SuccessMessage"] != null && TempData["SuccessMessage"].ToString() != "")
+                            {
+                                <div class="alert alert-success">@TempData["ErrorMessage"].ToString()</div>
+                            }
+
+                            @if (TempData["ErrorMessage"] != null && TempData["ErrorMessage"].ToString() != "")
+                            {
+                                <div class="alert alert-danger">@TempData["ErrorMessage"].ToString()</div>
+                            }
+
+                            <recaptcha />
+
                             <button type="submit">@Model.Localizer["send"]</button>
                         </div>
                     </div>
@@ -156,10 +174,11 @@
             @Model.Localizer["branchp"]
         </p>
         <div class="mt-5 row justify-content-around gap-5">
-            @foreach(Contact contact in Model.Contacts)
+            @foreach (Contact contact in Model.Contacts)
             {
                 <div class="col-lg-3">
-                    <a asp-page="/Contacts/Index" asp-route-id="@contact.Country" class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
+                    <a asp-page="/Contacts/Index" asp-route-id="@contact.Country"
+                        class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
                         <span><i style="font-size: 40px;" class="geo-float bi bi-geo-alt-fill"></i></span>
                         <span style="font-size: 25px; font-weight: bold; color: black;">
                             @SmartLife.Utilities.LocationHelper.GetCountryNameBy2LetterISO(contact.Country)

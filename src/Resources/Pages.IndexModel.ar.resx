@@ -273,4 +273,12 @@
     <value>في سمارت لايف، نؤمن بأن المعرفة قوة — تابع آخر أخبارنا وكن دائمًا في قلب الحدث</value>
     <comment/>
   </data>
+  <data name="senddone" xml:space="preserve">
+    <value>✅ تم إرسال رسالتك بنجاح, شكراً لك!</value>
+    <comment/>
+  </data>
+  <data name="senderror" xml:space="preserve">
+    <value>❌ حصل خطأ أثناء الإرسال.</value>
+    <comment/>
+  </data>
 </root>

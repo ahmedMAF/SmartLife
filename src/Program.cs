@@ -7,6 +7,7 @@ using SmartLife.Services;
 using SmartLife.Utilities;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
+using AspNetCore.ReCaptcha;
 
 namespace SmartLife;
 
@@ -69,6 +70,7 @@ internal class Program
         });
 
         builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+        builder.Services.AddReCaptcha(builder.Configuration.GetSection("ReCaptcha"));
 
         builder.Services.Configure<RequestLocalizationOptions>(options =>
         {

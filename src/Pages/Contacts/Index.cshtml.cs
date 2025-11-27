@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCore.ReCaptcha;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
@@ -8,7 +9,7 @@ using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Contacts;
 
-public class IndexModel(SmartLifeDb context, EmailService emailService, IStringLocalizer<IndexModel> localizer) : PageModel
+public class IndexModel(SmartLifeDb context, IReCaptchaService reCaptcha, EmailService emailService, IStringLocalizer<IndexModel> localizer) : PageModel
 {
     public Contact Contact { get; set; } = default!;
     public IList<Contact> Contacts { get; set; } = default!;
@@ -27,9 +28,17 @@ public class IndexModel(SmartLifeDb context, EmailService emailService, IStringL
 
         return Page();
     }
-    
+
     public async Task<IActionResult> OnPostAsync()
     {
+        bool recaptchaResult = await reCaptcha.VerifyAsync(Request.Form["g-recaptcha-response"]);
+
+        if (!recaptchaResult)
+        {
+            TempData["ErrorMessage"] = Localizer["captcha"];
+            return RedirectToPage();
+        }
+
         var name = Request.Form["name"].ToString();
         var phone = Request.Form["phone"].ToString();
         var email = Request.Form["email"].ToString();
@@ -40,7 +49,15 @@ public class IndexModel(SmartLifeDb context, EmailService emailService, IStringL
 
         string to = Contact?.Emails[0] ?? "sales@smartlifeeg.com";
 
-        await emailService.SendEmail(to, subject, body);
+        try
+        {
+            await emailService.SendEmail(to, subject, body);
+            TempData["SuccessMessage"] = Localizer["senddone"];
+        }
+        catch (Exception)
+        {
+            TempData["ErrorMessage"] = Localizer["senderror"];
+        }
 
         return RedirectToPage();
     }

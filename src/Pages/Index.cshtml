@@ -490,6 +490,18 @@
                             <div class="error-message"></div>
                             <div class="sent-message">@Model.Localizer["home_contact_form_sent"]</div>
 
+                            @if (TempData["SuccessMessage"] != null && TempData["SuccessMessage"].ToString() != "")
+                            {
+                                <div class="alert alert-success">@TempData["ErrorMessage"].ToString()</div>
+                            }
+
+                            @if (TempData["ErrorMessage"] != null && TempData["ErrorMessage"].ToString() != "")
+                            {
+                                <div class="alert alert-danger">@TempData["ErrorMessage"].ToString()</div>
+                            }
+
+                            <recaptcha />
+
                             <button type="submit">@Model.Localizer["home_contact_form_send"]</button>
                         </div>
                     </div>
