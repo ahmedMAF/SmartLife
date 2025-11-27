@@ -185,4 +185,8 @@
     <value>❌ حصل خطأ أثناء الإرسال.</value>
     <comment/>
   </data>
+  <data name="captcha" xml:space="preserve">
+    <value>فشل تحقق reCaptcha</value>
+    <comment/>
+  </data>
 </root>

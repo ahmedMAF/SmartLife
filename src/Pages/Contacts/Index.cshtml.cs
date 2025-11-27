@@ -35,7 +35,7 @@ public class IndexModel(SmartLifeDb context, IReCaptchaService reCaptcha, EmailS
 
         if (!recaptchaResult)
         {
-            TempData["ErrorMessage"] = Localizer["captcha"];
+            TempData["ErrorMessage"] = Localizer["captcha"].Value;
             return RedirectToPage();
         }
 
@@ -52,11 +52,11 @@ public class IndexModel(SmartLifeDb context, IReCaptchaService reCaptcha, EmailS
         try
         {
             await emailService.SendEmail(to, subject, body);
-            TempData["SuccessMessage"] = Localizer["senddone"];
+            TempData["SuccessMessage"] = Localizer["senddone"].Value;
         }
         catch (Exception)
         {
-            TempData["ErrorMessage"] = Localizer["senderror"];
+            TempData["ErrorMessage"] = Localizer["senderror"].Value;
         }
 
         return RedirectToPage();

@@ -185,4 +185,8 @@
     <value>❌ Sorry, something went wrong while sending your message.</value>
     <comment/>
   </data>
+  <data name="captcha" xml:space="preserve">
+    <value>reCaptcha check failed</value>
+    <comment/>
+  </data>
 </root>
