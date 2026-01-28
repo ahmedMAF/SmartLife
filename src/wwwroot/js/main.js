@@ -69,19 +69,26 @@
   /**
    * Preloader
    */
+  /**
+   * Animation on scroll function and init
+   */
   const preloader = document.querySelector("#preloader");
 
-  if (preloader) {
-    document.addEventListener("DOMContentLoaded", () => {
-      preloader.remove();
+  function initAOS() {
+    AOS.init({
+      duration: 700,
+      easing: "ease-in-out",
+      once: false,
+      mirror: true,
     });
-
-    setTimeout(() => {
-      if (document.body.contains(preloader)) {
-        preloader.remove();
-      }
-    }, 3000);
   }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (preloader) {
+      preloader.remove();
+    }
+    initAOS();
+  });
 
   /**
    * Scroll top button
@@ -105,19 +112,6 @@
 
   window.addEventListener("load", toggleScrollTop);
   document.addEventListener("scroll", toggleScrollTop);
-
-  /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
-    AOS.init({
-      duration: 700,
-      easing: "ease-in-out",
-      once: false,
-      mirror: true,
-    });
-  }
-  window.addEventListener("load", aosInit);
 
   /**
    * Init swiper sliders
