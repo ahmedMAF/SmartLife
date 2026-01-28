@@ -130,7 +130,7 @@
     });
   }
 
-  window.addEventListener("load", initSwiper);
+  window.addEventListener("DOMContentLoaded", initSwiper);
 
   /**
    * Initiate glightbox
