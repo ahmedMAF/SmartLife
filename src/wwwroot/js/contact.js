@@ -34,6 +34,7 @@ iconAddress.onclick = function(){
     address.appendChild(div);
 
     a++;
+    AOS.refresh();
 }
 
 iconEmail.onclick = function(){
@@ -54,6 +55,7 @@ iconEmail.onclick = function(){
     div.appendChild(cancel);
     email.appendChild(div);
     e++;
+    AOS.refresh();
 }
 
 iconPhone.onclick = function(){
@@ -74,6 +76,7 @@ iconPhone.onclick = function(){
     div.appendChild(cancel);
     phone.appendChild(div);
     p++;
+    AOS.refresh();
 }
 
 iconWhasapp.onclick = function(){
@@ -94,4 +97,5 @@ iconWhasapp.onclick = function(){
     div.appendChild(cancel);
     whatsApp.appendChild(div);
     w++;
+    AOS.refresh();
 }

@@ -12,9 +12,12 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
     public bool IsAr { get; set; } = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
     public IStringLocalizer<IndexModel> Localizer { get; } = localizer;
 
-    public async Task<IActionResult> OnGetAsync()
+    public async Task<IActionResult> OnGetAsync(string? id)
     {
-        Products = await context.Products.OrderBy(p => p.OrderIndex).ToListAsync();
+        Products = await context.Products
+            .Where(p => id == null || p.Category == id)
+            .OrderBy(p => p.OrderIndex)
+            .ToListAsync();
 
         return Page();
     }

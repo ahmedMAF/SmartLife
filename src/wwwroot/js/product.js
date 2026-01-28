@@ -89,29 +89,30 @@ iconfeature.onclick = function(){
     feature.appendChild(div);
 
     f++;
+    AOS.refresh();
 }
 
 iconmodel.onclick = function(){
     let div = document.createElement("div");
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `Product.Models[${f}].Name`;
+    input.name = `Product.Models[${m}].Name`;
     input.placeholder = nameen;
     input.className = "form-control mt-2";
 
     let inputa = document.createElement("input");
     inputa.type = "text";
-    inputa.name = `Product.Models[${f}].NameAr`;
+    inputa.name = `Product.Models[${m}].NameAr`;
     inputa.placeholder = namear;
     inputa.className = "form-control mt-2";
 
     let input1 = document.createElement("textarea");
-    input1.name = `Product.Models[${f}].Description`;
+    input1.name = `Product.Models[${m}].Description`;
     input1.placeholder = descen;
     input1.className = "form-control mt-2";
 
     let input1a = document.createElement("textarea");
-    input1a.name = `Product.Models[${f}].DescriptionAr`;
+    input1a.name = `Product.Models[${m}].DescriptionAr`;
     input1a.placeholder = descar;
     input1a.className = "form-control mt-2";
 
@@ -167,6 +168,7 @@ iconmodel.onclick = function(){
     model.appendChild(div);
 
     m++;
+    AOS.refresh();
 }
 
 iconphoto.onclick = function(){
@@ -215,6 +217,7 @@ iconphoto.onclick = function(){
     photo.appendChild(div);
 
     p++;
+    AOS.refresh();
 }
 
 iconvideo.onclick = function(){
@@ -238,4 +241,5 @@ iconvideo.onclick = function(){
     video.appendChild(div);
 
     v++;
+    AOS.refresh();
 }

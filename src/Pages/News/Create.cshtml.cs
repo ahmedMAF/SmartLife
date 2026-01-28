@@ -19,13 +19,13 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
 
     public IActionResult OnGet()
     {
+        Post.Time = DateTime.Now;
         return Page();
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
         string folder = "uploads/images/posts";
-        Post.Time = DateTime.Now;
 
         foreach (var image in Images)
             Post.Images.Add(await FileHelper.UploadFile(image, folder));

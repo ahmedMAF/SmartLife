@@ -157,4 +157,8 @@
     <value>Content (Arabic)</value>
     <comment/>
   </data>
+  <data name="customdate" xml:space="preserve">
+    <value>Set Custom Date</value>
+    <comment/>
+  </data>
 </root>

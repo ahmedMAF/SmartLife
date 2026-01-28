@@ -23,14 +23,14 @@
 <section id="about" class="about section">
 
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title" data-aos="slide-left">
         <h2>@Model.Localizer["about"]</h2>
         <p>@Model.Localizer["paragraph"]</p>
     </div><!-- End Section Title -->
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container">
 
-        <div class="row gy-4 mb-5">
+        <div class="row gy-4 mb-5" data-aos="slide-right" data-aos-delay="100">
             <div class="col-lg-5 text-center text-md-start img-about1">
                 <img style="height: 300px; text-align: center; border-radius: 10px;" src="@Model.AboutData.VisionImage"
                     class="img-fluid" alt="">
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="row gy-4">
+        <div class="row gy-4" data-aos="slide-left" data-aos-delay="100">
             <div class="col-lg-7 content">
                 <h3>@Model.Localizer["mission"]</h3>
                 <p class="fst-italic">
@@ -66,7 +66,7 @@
 
 <section id="about" class="about section">
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title" data-aos="slide-right">
         <h2>@Model.Localizer["branch"]</h2>
         <p>
             @Model.Localizer["branchp"]
@@ -88,32 +88,32 @@
     </div><!-- End Section Title -->
 </section>
 
-<section id="about" class="about section">
+<section id="about" class="pt-0 about section">
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title" data-aos="slide-left">
         <h2>@Model.Localizer["values"]</h2>
         <p>
             @(Model.IsAr? Model.AboutData.ValuesAr : Model.AboutData.Values)
         </p>
         <div class="mt-5 since-item graph row justify-content-around gap-3">
-            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span><i class="bi bi-cpu-fill"></i></span>
+            <div class=" col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span><i class="geo-scale bi bi-cpu-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["smart"]</span>
             </div>
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span><i class="bi bi-tree-fill"></i></span>
+                <span><i class="geo-scale bi bi-tree-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["sustainability"]</span>
             </div>
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span><i class="bi bi-lightbulb-fill"></i></span>
+                <span><i class="geo-scale bi bi-lightbulb-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["innovation"]</span>
             </div>
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span><i class="bi bi-gear-fill"></i></span>
+                <span><i class="geo-scale bi bi-gear-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["quality"]</span>
             </div>
             <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span><i class="bi bi-lock-fill"></i></span>
+                <span><i class="geo-scale bi bi-lock-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["safety"]</span>
             </div>
         </div>
@@ -123,9 +123,9 @@
 </section>
 <!-- /values Section -->
 
-<section id="about" class="about section">
+<section id="about" class="pt-0 about section">
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="overflow-x-auto container section-title" data-aos="slide-right">
         <h2>@Model.Localizer["growing"]</h2>
         <div dir="ltr" class="grow" id="companyChart">
             <!-- Chart will be inserted here by JavaScript -->
@@ -134,51 +134,51 @@
 </section>
 <!--end section graph-->
 
-<section id="about" class="about section">
+<section id="about" class="pt-0 about section">
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title" data-aos="slide-left">
         <h2>@Model.Localizer["since"]</h2>
         <p>
             @(Model.IsAr? Model.AboutData.SinceAr : Model.AboutData.Since)
         </p>
         <p class="since">2008</p>
         <div class="mt-4 since-item graph row justify-content-around gap-3">
-            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span>@(DateTime.Now.Year - 2008)</span>
+            <div class="since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span class="counter">@(DateTime.Now.Year - 2008)</span>
                 <span>@Model.Localizer["year"]</span>
             </div>
-            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span>@Model.AboutData.Countries</span>
+            <div class="since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span class="counter">@Model.AboutData.Countries</span>
                 <span>@Model.Localizer["country"]</span>
             </div>
-            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span>@Model.AboutData.Projects</span>
+            <div class="since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <span class="counter">@Model.AboutData.Projects</span>
                 <span>@Model.Localizer["project"]</span>
             </div>
         </div>
-        <div class="detals graph row justify-content-around gap-3">
+        <div class="detals graph row justify-content-around gap-3" data-aos="slide-right">
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.AboutData.Projects</span>
+                <span>+<span class="counter">@Model.AboutData.Projects</span></span>
                 <span>@Model.Localizer["project"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.AboutData.Consultants</span>
+                <span>+ <span classcounter>@Model.AboutData.Consultants</span> </span>
                 <span>@Model.Localizer["consultants"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.AboutData.Employees</span>
+                <span>+ <span class="counter">@Model.AboutData.Employees</span> </span>
                 <span>@Model.Localizer["emplyoees"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.AboutData.Clients</span>
+                <span>+ <span class="counter">@Model.AboutData.Clients</span> </span>
                 <span>@Model.Localizer["happyClients"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>+@Model.AboutData.Branches</span>
+                <span>+ <span class="counter">@Model.AboutData.Branches</span> </span>
                 <span>@Model.Localizer["branches"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
-                <span>@Model.AboutData.Countries</span>
+                <span class="counter"> @Model.AboutData.Countries</span>
                 <span>@Model.Localizer["countries"]</span>
             </div>
         </div>

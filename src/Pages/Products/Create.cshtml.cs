@@ -49,6 +49,7 @@ public class CreateModel(SmartLifeDb context, IStringLocalizer<CreateModel> loca
     public async Task<IActionResult> OnPostAsync()
     {
         Product.Category ??= "";
+        Product.CategoryAr ??= "";
         Product.Image = await FileHelper.UploadFile(Image, "uploads/images/products");
 
         for (int i = 0; i < FeatureImages.Count; i++)

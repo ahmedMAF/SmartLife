@@ -26,16 +26,16 @@
 <section id="contact" class="contact section">
 
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title" data-aos="slide-right">
         <h2>@Model.Localizer["contactus"]</h2>
         <p>@Model.Localizer["contactusp1"]</p>
     </div>
     <!-- End Section Title -->
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container" data-aos="slide-left" data-aos-delay="100">
         @if (!string.IsNullOrEmpty(Model.Contact.GoogleMap))
         {
-            <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="mb-4" data-aos="slide-left" data-aos-delay="200">
                 <iframe style="border:0; width: 100%; height: 270px;" src="@Model.Contact.GoogleMap" frameborder="0"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -43,10 +43,10 @@
         }
         <div class="row gy-4">
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="slide-right" data-aos-delay="300">
                 @if (Model.Contact.Addresses.Count != 0)
                 {
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-item d-flex">
                         <i class="bi bi-geo-alt flex-shrink-0 contactar"></i>
                         <div>
                             <h3>@Model.Localizer["address"]</h3>
@@ -69,7 +69,7 @@
 
                 @if (Model.Contact.Phones.Count != 0)
                 {
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <div class="info-item d-flex">
                         <i class="bi bi-telephone flex-shrink-0 contactar"></i>
                         <div>
                             <h3>@Model.Localizer["call"]</h3>
@@ -85,8 +85,8 @@
 
                 @if (Model.Contact.WhatsApps.Count != 0)
                 {
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                        <i class="bi bi-telephone flex-shrink-0 contactar"></i>
+                    <div class="info-item d-flex">
+                        <i class="bi bi-whatsapp flex-shrink-0 contactar"></i>
                         <div>
                             <h3>@Model.Localizer["whatsApp"]</h3>
                             @foreach (string whatsApp in Model.Contact.WhatsApps)
@@ -101,7 +101,7 @@
 
                 @if (Model.Contact.Emails.Count != 0)
                 {
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                    <div class="info-item d-flex">
                         <i class="bi bi-envelope flex-shrink-0 contactar"></i>
                         <div>
                             <h3>@Model.Localizer["emails"]</h3>
@@ -117,7 +117,7 @@
             </div>
 
             <div class="col-lg-8">
-                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
+                <form method="post" class="form" data-aos="slide-left" data-aos-delay="200" asp-antiforgery="false">
                     <div class="row gy-4">
 
                         <div class="col-md-6">
@@ -157,7 +157,7 @@
 
                             <recaptcha class-name="mb-5" />
 
-                            <button type="submit">@Model.Localizer["send"]</button>
+                            <button class="mt-4" type="submit">@Model.Localizer["send"]</button>
                         </div>
                     </div>
                 </form>
@@ -168,7 +168,7 @@
 
 <section id="about" class="about section">
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title" data-aos="slide-right">
         <h2>@Model.Localizer["branch"]</h2>
         <p>
             @Model.Localizer["branchp"]

@@ -1,209 +1,283 @@
 .grow {
-    position: relative;
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    border-bottom: 2px solid #333;
-    height: 400px; 
-    margin: 40px auto 0px auto;
+  position: relative;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: 2px solid #333;
+  height: 400px;
+  margin: 40px auto 0px auto;
 }
 
 .bar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50px;
-    margin: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  margin: 0 15px;
 }
 
 .bar {
-    width: 30px;
-    background: linear-gradient(to top, #4a90e2, #376996);
-    border-radius: 5px 5px 0 0;
-    position: relative;
-    transition: height 1s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 30px;
+  background: linear-gradient(to top, #4a90e2, #376996);
+  border-radius: 5px 5px 0 0;
+  position: relative;
+  transition: height 1s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .bar-value {
-    position: absolute;
-    top: -25px;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    color: #333;
+  top: -25px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
 }
 
 .year-label {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #666;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
 }
 
 .y-axis {
-    position: absolute;
-    left: -40px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  position: absolute;
+  left: -40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .y-tick {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .y-tick-line {
-    width: 10px;
-    height: 1px;
-    background-color: #ccc;
-    margin-left: 5px;
+  width: 10px;
+  height: 1px;
+  background-color: #ccc;
+  margin-left: 5px;
 }
 
 .y-tick-label {
-    font-size: 12px;
-    color: #666;
+  font-size: 12px;
+  color: #666;
 }
 
 .values {
-    height: 500px;
-    position: relative;
-    overflow: hidden;
-  }
-  
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+}
+
+/* Hover effect */
+.circle:hover {
+  transform: scale(1.1);
+}
+
+/* Positioning for strong overlaps */
+.smart {
+  background-color: #376996;
+  top: 30px;
+  left: 150px;
+}
+
+.sustainability {
+  background-color: #c67b39;
+  top: 130px;
+  left: 40px;
+}
+
+.innovation {
+  background-color: #a66763;
+  top: 130px;
+  left: 260px;
+}
+
+.quality {
+  background-color: #b0b0b0;
+  top: 250px;
+  left: 80px;
+}
+
+.safety {
+  background-color: #34b1a5;
+  top: 250px;
+  left: 210px;
+}
+
+/* Responsive – keep overlap and scale down */
+@media (max-width: 768px) {
   .circle-container {
-    position: relative;
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
   }
-  
+
   .circle {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease;
-    opacity: 0.9;
-    mix-blend-mode: multiply;
+    width: 140px;
+    height: 140px;
+    font-size: 1rem;
   }
-  
-  /* Hover effect */
-  .circle:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Positioning for strong overlaps */
+
   .smart {
-    background-color: #376996;
-    top: 30px;
-    left: 150px;
+    top: 20px;
+    left: 105px;
   }
-  
+
   .sustainability {
-    background-color: #c67b39;
-    top: 130px;
-    left: 40px;
+    top: 95px;
+    left: 20px;
   }
-  
+
   .innovation {
-    background-color: #a66763;
-    top: 130px;
-    left: 260px;
+    top: 95px;
+    left: 185px;
   }
-  
+
   .quality {
-    background-color: #b0b0b0;
-    top: 250px;
-    left: 80px;
+    top: 190px;
+    left: 50px;
   }
-  
+
   .safety {
-    background-color: #34b1a5;
-    top: 250px;
-    left: 210px;
+    top: 190px;
+    left: 155px;
   }
-  
-  /* Responsive – keep overlap and scale down */
-  @media (max-width: 768px) {
-    .circle-container {
-      width: 350px;
-      height: 350px;
-    }
-  
-    .circle {
-      width: 140px;
-      height: 140px;
-      font-size: 1rem;
-    }
-  
-    .smart {
-      top: 20px;
-      left: 105px;
-    }
-  
-    .sustainability {
-      top: 95px;
-      left: 20px;
-    }
-  
-    .innovation {
-      top: 95px;
-      left: 185px;
-    }
-  
-    .quality {
-      top: 190px;
-      left: 50px;
-    }
-  
-    .safety {
-      top: 190px;
-      left: 155px;
-    }
+}
+
+.since {
+  color: #376996;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.since-item div {
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  cursor: pointer;
+  /*background: linear-gradient(to top, #4a90e2, #376996);*/
+  transition: 0.4s ease;
+}
+
+.since-item span{
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.detals span {
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--default-color);
+}
+
+.since-item div:hover,
+.detals div:hover {
+  /*background: linear-gradient(to top, #376996, #376996);*/
+  animation-play-state: paused;
+  transform: scale(1.1);
+}
+
+.geo-scale {
+  display: inline-block;
+  animation: geoScale 1s ease-in-out infinite;
+}
+
+@keyframes geoScale {
+  0% {
+    transform: scale(1);
   }
-  
-  .since{
-    color: #376996;
-    font-size: 60px;
-    font-weight: bold;
+
+  50% {
+    transform: scale(1.2);
   }
-  
-  .since-item div{
-    max-width: 200px;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    cursor: pointer;
-    background: linear-gradient(to top, #4a90e2, #376996);
-    transition: 0.4s ease;
+
+  100% {
+    transform: scale(1);
   }
-  .since-item span , .detals span{
-    font-size: 40px;
-    font-weight: bold;
-    color: white;
+}
+
+
+.detals div {
+  margin-top: 100px;
+  max-width: 200px;
+  cursor: pointer;
+  /* background: linear-gradient(to top, #4a90e2, #376996);*/
+  transition: 0.4s ease;
+  padding: 20px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.detals span {
+  font-size: 20px;
+}
+
+.chart-bar {
+  overflow: hidden;
+}
+
+.chart-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0));
+  animation: shineUp 2s ease-in-out infinite;
+}
+
+@keyframes shineUp {
+  0% {
+    bottom: -100%;
   }
-  .since-item div:hover , .detals div:hover{
-    background: linear-gradient(to top, #376996, #376996);
-    transform: scale(1.05);
+
+  100% {
+    bottom: 100%;
   }
-  .detals div{
-    margin-top: 100px;
-    max-width: 200px;
-    cursor: pointer;
-    background: linear-gradient(to top, #4a90e2, #376996);
-    transition: 0.4s ease;
-    padding: 20px;
-    width: fit-content;
-    border-radius: 5px;
-  }
-  .detals span{
-    font-size: 20px;
-  }
+}
+
+.chart-bar .bar-value {
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+}
+
+.since-item-span span {
+  color: var(--default-color);
+}
+
+.since-item .since-item-span:hover span , .detals div:hover span{
+  color: var( --accent-color);
+}

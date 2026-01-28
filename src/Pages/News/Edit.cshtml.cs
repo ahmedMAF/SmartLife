@@ -30,14 +30,14 @@ public class EditModel(SmartLifeDb context, IStringLocalizer<EditModel> localize
 
     public async Task<IActionResult> OnPostAsync(int id)
     {
-        var post = await context.News.FindAsync(id);
+        Post? post = await context.News.FindAsync(id);
         post.Time = Post.Time;
         post.Title = Post.Title;
         post.TitleAr = Post.TitleAr;
         post.Content = Post.Content;
         post.ContentAr = Post.ContentAr;
 
-        foreach (var image in Images)
+        foreach (IFormFile image in Images)
             post.Images.Add(await FileHelper.UploadFile(image, "uploads/images/posts"));
 
         await context.SaveChangesAsync();

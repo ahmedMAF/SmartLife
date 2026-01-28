@@ -89,6 +89,7 @@ iconfeature.onclick = function(){
     feature.appendChild(div);
 
     f++;
+    AOS.refresh();
 }
 
 iconmodel.onclick = function(){
@@ -167,6 +168,7 @@ iconmodel.onclick = function(){
     model.appendChild(div);
 
     m++;
+    AOS.refresh();
 }
 
 iconphoto.onclick = function(){
@@ -215,6 +217,7 @@ iconphoto.onclick = function(){
     photo.appendChild(div);
 
     p++;
+    AOS.refresh();
 }
 
 iconvideo.onclick = function(){
@@ -235,4 +238,5 @@ iconvideo.onclick = function(){
     div.appendChild(cancel);
     video.appendChild(div);
     v++;
+    AOS.refresh();
 }

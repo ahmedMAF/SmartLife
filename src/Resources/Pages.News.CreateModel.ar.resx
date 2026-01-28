@@ -157,4 +157,8 @@
     <value>المحتوي (اللغة العربية)</value>
     <comment/>
   </data>
+  <data name="customdate" xml:space="preserve">
+    <value>عين تاريخ مخصص</value>
+    <comment/>
+  </data>
 </root>

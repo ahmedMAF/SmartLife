@@ -78,7 +78,7 @@
                     <li><a asp-page="/About/Index"
                             class="@(page == "/About/Index" ? "active" : "")">@Localizer["nav_about"]</a></li>
                     <li class="dropdown">
-                        <a asp-page="/Products/Index"
+                        <a asp-page="/Products/Index" asp-route-id=""
                             class="@(page == "/Products/Index" ? "active" : "")"><span>@Localizer["nav_products"]</span>
                             <i class="bi bi-chevron-down toggle-dropdown product-arowar"></i></a>
                         <ul>
@@ -93,7 +93,7 @@
                             class="@(page == "/Team/Index" ? "active" : "")">@Localizer["nav_team"]</a></li>
                     <li><a asp-page="/News/Index"
                             class="@(page == "/News/Index" ? "active" : "")">@Localizer["nav_news"]</a></li>
-                    <li><a asp-page="/Contacts/Index"
+                    <li><a asp-page="/Contacts/Index" asp-route-id=""
                             class="@(page == "/Contacts/Index" ? "active" : "")">@Localizer["nav_contacts"]</a></li>
                     @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
