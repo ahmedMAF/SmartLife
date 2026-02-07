@@ -1,4 +1,6 @@
 ﻿@page "{id?}"
+@using X.PagedList.Mvc.Core
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @model SmartLife.Pages.Products.IndexModel
 
@@ -71,6 +73,17 @@
                     <!-- End Portfolio Item -->
                 }
             </div><!-- End Portfolio Container -->
+
+                <!-- Pagination -->
+                <div class="mt-5 mx-auto" style="width: fit-content;">
+                    @Html.PagedListPager(Model.Products, page => $"/Products/Index/{Model.CurrentCategory}?page={page}",
+                        new PagedListRenderOptions
+                        {
+                            LiElementClasses = new[] { "page-item" },
+                            PageClasses = new[] { "page-link" },
+                            UlElementClasses = new[] { "pagination" }
+                        })
+                </div>
 
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
