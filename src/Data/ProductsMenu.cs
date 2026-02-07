@@ -4,6 +4,6 @@ namespace SmartLife.Data;
 
 public class ProductsMenu
 {
-    public IDictionary<string, IList<Product>> Products { get; set; }
-    public IList<string> Categories { get; set; }
+    public Dictionary<string, List<Product>> Products { get; set; } = null!;
+    public List<string> Categories { get; set; } = null!;
 }

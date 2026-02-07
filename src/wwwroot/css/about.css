@@ -185,19 +185,38 @@
   transition: 0.4s ease;
 }
 
-.since-item span{
+.since-item .custim {
+  max-width: 100%;
+  aspect-ratio: auto;
+  border-radius: 5px;
+  background: linear-gradient(to right, rgb(74, 144, 226), rgb(55, 105, 150));
+  cursor: pointer;
+  height: 130px;
+  /*background: linear-gradient(to top, #4a90e2, #376996);*/
+  transition: 0.4s ease;
+}
+
+.since-item .custim:hover span {
+  color: white !important;
+}
+
+.custim.since-item-span span {
+  color: white;
+}
+
+.since-item span {
   font-size: 40px;
   font-weight: bold;
   color: var(--accent-color);
 }
 
 .detals span {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
-  color: var(--default-color);
+  color: white;
 }
 
-.since-item div:hover,
+.since-item .div:hover,
 .detals div:hover {
   /*background: linear-gradient(to top, #376996, #376996);*/
   animation-play-state: paused;
@@ -225,18 +244,23 @@
 
 
 .detals div {
-  margin-top: 100px;
   max-width: 200px;
   cursor: pointer;
   /* background: linear-gradient(to top, #4a90e2, #376996);*/
   transition: 0.4s ease;
   padding: 20px;
   width: fit-content;
-  border-radius: 5px;
+  position: relative;
 }
 
-.detals span {
-  font-size: 20px;
+.detals div:not(:last-child)::after {
+  content: '';
+  width: 1px;
+  height: 55px;
+  background-color: white;
+  position: absolute;
+  top: 30px;
+  right: -10px;
 }
 
 .chart-bar {
@@ -278,6 +302,48 @@
   color: var(--default-color);
 }
 
-.since-item .since-item-span:hover span , .detals div:hover span{
-  color: var( --accent-color);
+.since-item .since-item-span:hover span {
+  color: var(--accent-color);
+}
+
+.detals div:hover span {
+  color: white;
+}
+
+.since-item-span img {
+  width: 180px;
+  position: absolute;
+  top: -18px;
+}
+
+/*.planet-img div:hover{
+  all: unset;
+}*/
+.planet-img div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.planet-img div span {
+  color: white;
+  font-size: 35px;
+}
+
+.planet-img:hover span {
+  color: white !important;
+}
+
+@media (max-width: 992px) {
+  .since-item-span img {
+    top: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .planet-img div {
+    top: 35%;
+  }
 }

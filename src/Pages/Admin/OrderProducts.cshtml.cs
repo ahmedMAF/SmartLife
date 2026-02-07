@@ -1,18 +1,16 @@
-﻿using System.Text.Json;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using SmartLife.Models;
-using SmartLife.Utilities;
 
 namespace SmartLife.Pages.Admin;
 
 [Authorize]
 public class OrderProductsModel(SmartLifeDb context, IStringLocalizer<OrderProductsModel> localizer) : PageModel
 {
-    public IList<Product> Products { get; set; } = default!;
+    public IList<Product> Products { get; set; } = null!;
 
     public bool IsAr { get; set; } = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
     public IStringLocalizer<OrderProductsModel> Localizer { get; } = localizer;

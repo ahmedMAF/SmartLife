@@ -34,10 +34,8 @@
             <div class="" data-layout="masonry" data-sort="original-order">
                 <h2 class="partners mb-5">@Model.Localizer["features"]</h2>
                 <div class="" data-aos="fade-up" data-aos-delay="200">
-                    @for (int i = @Model.Product.Features.Count - 1; i >= 0; i--)
+                    @foreach (Data.SubModule pFeature in @Model.Product.Features)
                     {
-                        var pFeature = @Model.Product.Features[i];
-                        
                         <div class="container mb-5" data-aos="fade-up" data-aos-delay="100">
                             <div class="row justify-content-between gy-4">
                                 <div class="col-lg-4 text-center">
@@ -78,10 +76,8 @@
             <div class="" data-layout="masonry" data-sort="original-order">
                 <h2 class="partners mb-5">@Model.Localizer["models"]</h2>
                 <div class="" data-aos="fade-up" data-aos-delay="200">
-                    @for (int i = @Model.Product.Models.Count - 1; i >= 0; i--)
+                    @foreach (Data.SubModule pModel in @Model.Product.Models)
                     {
-                        var pModel = @Model.Product.Models[i];
-                        
                         <div class="container mb-5" data-aos="fade-up" data-aos-delay="100">
                             <div class="row justify-content-between gy-4">
                                 <div class="col-lg-4 text-center">

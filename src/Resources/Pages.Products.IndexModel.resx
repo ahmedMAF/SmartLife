@@ -141,4 +141,12 @@
     <value>Delete</value>
     <comment/>
   </data>
+  <data name="order" xml:space="preserve">
+    <value>Order </value>
+    <comment/>
+  </data>
+  <data name="orderProducts" xml:space="preserve">
+    <value>Order Products</value>
+    <comment/>
+  </data>
 </root>

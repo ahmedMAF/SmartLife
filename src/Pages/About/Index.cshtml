@@ -72,10 +72,11 @@
             @Model.Localizer["branchp"]
         </p>
         <div class="mt-5 row justify-content-around gap-5">
-            @foreach(Contact contact in Model.Contacts)
+            @foreach (Contact contact in Model.Contacts)
             {
                 <div class="col-lg-3">
-                    <a asp-page="/Contacts/Index" asp-route-id="@contact.Country" class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
+                    <a asp-page="/Contacts/Index" asp-route-id="@contact.Country"
+                        class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
                         <span><i style="font-size: 40px;" class="geo-float bi bi-geo-alt-fill"></i></span>
                         <span style="font-size: 25px; font-weight: bold; color: black;">
                             @SmartLife.Utilities.LocationHelper.GetCountryNameBy2LetterISO(contact.Country)
@@ -96,23 +97,23 @@
             @(Model.IsAr? Model.AboutData.ValuesAr : Model.AboutData.Values)
         </p>
         <div class="mt-5 since-item graph row justify-content-around gap-3">
-            <div class=" col-lg-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="div col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span><i class="geo-scale bi bi-cpu-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["smart"]</span>
             </div>
-            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="div col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span><i class="geo-scale bi bi-tree-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["sustainability"]</span>
             </div>
-            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="div col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span><i class="geo-scale bi bi-lightbulb-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["innovation"]</span>
             </div>
-            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="div col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span><i class="geo-scale bi bi-gear-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["quality"]</span>
             </div>
-            <div class="col-lg-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="div col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span><i class="geo-scale bi bi-lock-fill"></i></span>
                 <span style="font-size: 25px;">@Model.Localizer["safety"]</span>
             </div>
@@ -143,43 +144,65 @@
         </p>
         <p class="since">2008</p>
         <div class="mt-4 since-item graph row justify-content-around gap-3">
-            <div class="since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="div custim since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span class="counter">@(DateTime.Now.Year - 2008)</span>
-                <span>@Model.Localizer["year"]</span>
+                <span>
+                    <i class="bi bi-calendar-date"></i>
+                    @Model.Localizer["year"]</span>
             </div>
-            <div class="since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
-                <span class="counter">@Model.AboutData.Countries</span>
-                <span>@Model.Localizer["country"]</span>
+            <div style="position: relative;"
+                class="div planet-img since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
+                <img class="img" src="~/img/bg-since.png" style="width: 180px;" alt="bg">
+                <div>
+                    <span class="counter">@Model.AboutData.Countries</span>
+                    <span>@Model.Localizer["country"]</span>
+                </div>
             </div>
-            <div class="since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="div custim since-item-span col-lg-3 d-flex justify-content-center align-items-center flex-column">
                 <span class="counter">@Model.AboutData.Projects</span>
-                <span>@Model.Localizer["project"]</span>
+                <span>
+                    <i class="bi bi-buildings"></i>
+                    @Model.Localizer["project"]</span>
             </div>
         </div>
-        <div class="detals graph row justify-content-around gap-3" data-aos="slide-right">
+        <div style="background: linear-gradient(to right, rgb(74, 144, 226), rgb(55, 105, 150));"
+            class="mt-5 detals graph row justify-content-around gap-3" data-aos="slide-right">
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+<span class="counter">@Model.AboutData.Projects</span></span>
-                <span>@Model.Localizer["project"]</span>
+                <span>
+                    <i class="bi bi-briefcase"></i>
+                    @Model.Localizer["project"]
+                </span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+ <span classcounter>@Model.AboutData.Consultants</span> </span>
-                <span>@Model.Localizer["consultants"]</span>
+                <span>
+                    <i class="bi bi-person"></i>
+                    @Model.Localizer["consultants"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+ <span class="counter">@Model.AboutData.Employees</span> </span>
-                <span>@Model.Localizer["emplyoees"]</span>
+                <span>
+                    <i class="bi bi-people"></i>
+                    @Model.Localizer["emplyoees"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+ <span class="counter">@Model.AboutData.Clients</span> </span>
-                <span>@Model.Localizer["happyClients"]</span>
+                <span>
+                    <i class="bi bi-emoji-laughing"></i>
+                    @Model.Localizer["happyClients"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span>+ <span class="counter">@Model.AboutData.Branches</span> </span>
-                <span>@Model.Localizer["branches"]</span>
+                <span>
+                    <i class="bi bi-buildings"></i>
+                    @Model.Localizer["branches"]</span>
             </div>
             <div class="col-lg-2 d-flex justify-content-center align-items-center flex-column">
                 <span class="counter"> @Model.AboutData.Countries</span>
-                <span>@Model.Localizer["countries"]</span>
+                <span>
+                    <i class="bi bi-globe-americas"></i>
+                    @Model.Localizer["countries"]</span>
             </div>
         </div>
     </div><!-- End Section Title -->
@@ -190,11 +213,11 @@
 @section Scripts {
     <script>
         const chartData = [
-                            @foreach (var bar in Model.AboutData.Growth)
+                                    @foreach (var bar in Model.AboutData.Growth)
             {
                 @Html.Raw($"{{ year: \"{bar.Year}\", value: {bar.Value} }},")
             }
-                        ];
+                                ];
     </script>
     <script src="~/js/about.js" asp-append-version="true"></script>
 }

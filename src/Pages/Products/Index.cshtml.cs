@@ -15,7 +15,7 @@ public class IndexModel(SmartLifeDb context, IStringLocalizer<IndexModel> locali
     public async Task<IActionResult> OnGetAsync(string? id)
     {
         Products = await context.Products
-            .Where(p => id == null || p.Category == id)
+            .Where(p => id == null || (IsAr ? p.CategoryAr : p.Category) == id)
             .OrderBy(p => p.OrderIndex)
             .ToListAsync();
 

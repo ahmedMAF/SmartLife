@@ -1,0 +1,114 @@
+@page "{id:int}"
+@model SmartLife.Pages.Products.OrderModels
+
+@{
+    ViewData["Title"] = "Order Features and Models";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>@Model.Localizer["orderAdmin"]</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">@Model.Localizer["orderHome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["orderAdmin"]</a></li>
+                <li class="current">@Model.Localizer["orderSubmodules"]</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Admin Section -->
+<section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>@Model.Localizer["orderSubmodules"]</h2>
+    </div><!-- End Section Title -->
+
+    <div class="container contact section-title" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <p>@Model.Localizer["orderfeatures"]</p>
+                <ul id="feature-list" class="list-group mt-3">
+                    @for (int i = 0; i < Model.Product.Features.Count; i++)
+                    {
+                        <li class="list-group-item d-flex align-items-center sortable-feature" data-id="@i">
+                            <span class="handle-feature mx-3" style="cursor: grab;">☰</span>
+                            <span>@(Model.IsAr? Model.Product.Features[i].NameAr : Model.Product.Features[i].Name)</span>
+                        </li>
+                    }
+                </ul>
+
+                <form method="post" asp-page-handler="SaveFeaturesOrder" id="orderFeatureForm">
+                    <input type="hidden" name="ids" id="featureIdsInput" />
+                    <input type="hidden" name="productId" value="@Model.Product.Id" />
+                    <button type="submit" class="btn btn-primary mt-3">@Model.Localizer["save"]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container contact section-title" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <p>@Model.Localizer["ordermodels"]</p>
+                <ul id="product-list" class="list-group mt-3">
+                    @for (int i = 0; i < Model.Product.Models.Count; i++)
+                    {
+                        <li class="list-group-item d-flex align-items-center sortable-item" data-id="@i">
+                            <span class="handle mx-3" style="cursor: grab;">☰</span>
+                            <span>@(Model.IsAr? Model.Product.Models[i].NameAr : Model.Product.Models[i].Name)</span>
+                        </li>
+                    }
+                </ul>
+
+                <form method="post" asp-page-handler="SaveModelsOrder" id="orderModelForm">
+                    <input type="hidden" name="ids" id="idsInput" />
+                    <input type="hidden" name="productId" value="@Model.Product.Id" />
+                    <button type="submit" class="btn btn-primary mt-3">@Model.Localizer["save"]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Admin Section -->
+
+@section Scripts {
+    <script src="~/js/Sortable.min.js"></script>
+
+    <script>
+        const list = document.getElementById('product-list');
+
+        new Sortable(list, {
+            animation: 150,
+            handle: '.handle',
+            ghostClass: 'bg-light'
+        });
+
+        const form = document.getElementById('orderModelForm');
+        const idsInput = document.getElementById('idsInput');
+
+        form.addEventListener('submit', e => {
+            const ids = [...list.querySelectorAll('.sortable-item')].map(el => el.dataset.id);
+            idsInput.value = ids.join(',');
+        });
+    </script>
+    <script>
+        const featureList = document.getElementById('feature-list');
+
+        new Sortable(featureList, {
+            animation: 150,
+            handle: '.handle-feature',
+            ghostClass: 'bg-light'
+        });
+
+        const featureForm = document.getElementById('orderFeatureForm');
+        const featureIdsInput = document.getElementById('featureIdsInput');
+
+        featureForm.addEventListener('submit', e => {
+            const ids = [...featureList.querySelectorAll('.sortable-feature')].map(el => el.dataset.id);
+            featureIdsInput.value = ids.join(',');
+        });
+    </script>
+
+}

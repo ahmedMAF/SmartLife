@@ -19,6 +19,10 @@ public class DetailsModel(SmartLifeDb context, IStringLocalizer<DetailsModel> lo
             return NotFound();
 
         Product = product;
+
+        Product.Features = Product.Features.OrderBy(f => f.OrderIndex).ToList();
+        Product.Models = Product.Models.OrderBy(m => m.OrderIndex).ToList();
+
         return Page();
     }
 }

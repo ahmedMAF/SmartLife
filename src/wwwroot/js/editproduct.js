@@ -96,23 +96,23 @@ iconmodel.onclick = function(){
     let div = document.createElement("div");
     let input = document.createElement("input");
     input.type = "text";
-    input.name = `Models[${f}].Name`;
+    input.name = `Models[${m}].Name`;
     input.placeholder = nameen;
     input.className = "form-control mt-2";
 
     let inputa = document.createElement("input");
     inputa.type = "text";
-    inputa.name = `Models[${f}].NameAr`;
+    inputa.name = `Models[${m}].NameAr`;
     inputa.placeholder = namear;
     inputa.className = "form-control mt-2";
 
     let input1 = document.createElement("textarea");
-    input1.name = `Models[${f}].Description`;
+    input1.name = `Models[${m}].Description`;
     input1.placeholder = descen;
     input1.className = "form-control mt-2";
 
     let input1a = document.createElement("textarea");
-    input1a.name = `Models[${f}].DescriptionAr`;
+    input1a.name = `Models[${m}].DescriptionAr`;
     input1a.placeholder = descar;
     input1a.className = "form-control mt-2";
 

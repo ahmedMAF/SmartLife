@@ -8,14 +8,17 @@
     bool isAr = StringComparer.OrdinalIgnoreCase.Equals(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "ar");
 }
 
-@foreach (Product product in Model.Products["-"])
+@if (Model.Products.TryGetValue("-", out List<Product>? products))
 {
-    <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@if (isAr) { @product.NameAr } else { @product.Name }</a></li>
+    @foreach (Product product in products)
+    {
+        <li><a asp-page="/Products/Details" asp-route-id="@product.Id">@if (isAr) { @product.NameAr } else { @product.Name }</a></li>
+    }
 }
 
 @foreach (string cat in Model.Categories)
 {
-    @if (cat == "")
+    @if (cat == "-")
     {
         continue;
     }

@@ -117,36 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ourproducts" xml:space="preserve">
-    <value>منتجاتنا</value>
+  <data name="orderAdmin" xml:space="preserve">
+    <value>المسؤول</value>
     <comment/>
   </data>
-  <data name="ourproductsHome" xml:space="preserve">
+  <data name="orderHome" xml:space="preserve">
     <value>الرئيسية</value>
     <comment/>
   </data>
-  <data name="products" xml:space="preserve">
-    <value>المنتجات</value>
+  <data name="orderSubmodules" xml:space="preserve">
+    <value>ترتيب النماذج و الميزات</value>
     <comment/>
   </data>
-  <data name="productsp1" xml:space="preserve">
-    <value>حلول شاملة للأتمتة الذكية والأمن</value>
+  <data name="save" xml:space="preserve">
+    <value>حفظ</value>
     <comment/>
   </data>
-  <data name="edit" xml:space="preserve">
-    <value>تعديل</value>
+  <data name="ordermodels" xml:space="preserve">
+    <value>ترتيب النماذج</value>
     <comment/>
   </data>
-  <data name="delete" xml:space="preserve">
-    <value>حذف</value>
-    <comment/>
-  </data>
-  <data name="order" xml:space="preserve">
-    <value>ترتيب</value>
-    <comment/>
-  </data>
-  <data name="orderProducts" xml:space="preserve">
-    <value>ترتيب المنتجات</value>
+  <data name="orderfeatures" xml:space="preserve">
+    <value>ترتيب الميزات</value>
     <comment/>
   </data>
 </root>

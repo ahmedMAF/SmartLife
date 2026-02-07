@@ -32,8 +32,8 @@
                 <ul id="product-list" class="list-group">
                     @foreach (var p in Model.Products)
                     {
-                        <li class="list-group-item d-flex align-items-center sortable-item" data-id="@p.Id">
-                            <span class="handle me-3" style="cursor: grab;">☰</span>
+                        <li class="list-group-item d-flex align-items-center sortable-item" data-id="@p.OrderIndex">
+                            <span class="handle mx-3" style="cursor: grab;">☰</span>
                             <span>@if (Model.IsAr) { @p.NameAr } else { @p.Name }</span>
                         </li>
                     }
@@ -50,7 +50,7 @@
 <!-- /Admin Section -->
 
 @section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="~/js/Sortable.min.js"></script>
 
     <script>
         const list = document.getElementById('product-list');

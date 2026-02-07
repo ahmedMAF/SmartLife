@@ -60,6 +60,7 @@
                                 @if (User.Identity != null && User.Identity.IsAuthenticated)
                                 {
                                     <a asp-page="/Products/Edit" asp-route-id="@product.Id" class="me-3">@Model.Localizer["edit"]</a>
+                                    <a asp-page="/Products/OrderModels" asp-route-id="@product.Id" class="me-3">@Model.Localizer["order"]</a>
                                     <form method="post" action="/Products/Delete/@product.Id" style="display: inline;" asp-antiforgery="false">
                                         <button class="a text-danger" type="submit">@Model.Localizer["delete"]</button>
                                     </form>
@@ -70,6 +71,14 @@
                     <!-- End Portfolio Item -->
                 }
             </div><!-- End Portfolio Container -->
+
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <div class="mt-4 mx-auto" style="max-width: 250px;">
+                    <a style="color: white;" asp-page="/Admin/OrderProducts"
+                        class="text-center see-more d-block mt-5">@Model.Localizer["orderProducts"]</a>
+                </div>
+            }
         </div>
     </div>
 </section><!-- End Product Section -->
