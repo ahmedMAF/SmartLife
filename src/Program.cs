@@ -46,6 +46,10 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddSession();
+        builder.Services.AddMemoryCache();
+        builder.Services.AddSingleton<ScriptCacheService>();
+        builder.Services.AddHostedService<ScriptCacheLoaderService>();
+
         builder.Services.AddRazorPages(options =>
         {
             options.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());

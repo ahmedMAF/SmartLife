@@ -181,4 +181,8 @@
     <value>Sort</value>
     <comment/>
   </data>
+  <data name="script" xml:space="preserve">
+    <value>Scripts</value>
+    <comment/>
+  </data>
 </root>

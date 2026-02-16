@@ -10,6 +10,8 @@ namespace SmartLife.Pages.Admin;
 [Authorize]
 public class EditBackgroundsModel(SmartLifeDb context, IStringLocalizer<EditBackgroundsModel> localizer) : PageModel
 {
+    private const string Path = "images.json";
+
     [BindProperty]
     public IFormFile? Image { get; set; } = default!;
     public IList<string> Images { get; set; } = [];
@@ -17,37 +19,37 @@ public class EditBackgroundsModel(SmartLifeDb context, IStringLocalizer<EditBack
 
     public async Task<IActionResult> OnGetAsync()
     {
-        if (System.IO.File.Exists("images.json"))
-            Images = JsonSerializer.Deserialize<List<string>>(System.IO.File.ReadAllText("images.json"));
+        if (System.IO.File.Exists(Path))
+            Images = JsonSerializer.Deserialize<List<string>>(System.IO.File.ReadAllText(Path)) ?? [];
 
         return Page();
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (System.IO.File.Exists("images.json"))
-            Images = JsonSerializer.Deserialize<List<string>>(System.IO.File.ReadAllText("images.json"));
+        if (System.IO.File.Exists(Path))
+            Images = JsonSerializer.Deserialize<List<string>>(System.IO.File.ReadAllText(Path)) ?? [];
         else
             Images = [];
 
         Images.Add(await FileHelper.UploadFile(Image, "uploads/images/home"));
 
-        System.IO.File.WriteAllText("images.json", JsonSerializer.Serialize(Images));
+        System.IO.File.WriteAllText(Path, JsonSerializer.Serialize(Images));
 
         return RedirectToPage("/Index");
     }
 
     public async Task<IActionResult> OnPostDelAsync(int i)
     {
-        if (System.IO.File.Exists("images.json"))
-            Images = JsonSerializer.Deserialize<List<string>>(System.IO.File.ReadAllText("images.json"));
+        if (System.IO.File.Exists(Path))
+            Images = JsonSerializer.Deserialize<List<string>>(System.IO.File.ReadAllText(Path));
         else
             Images = [];
 
         if (i < Images.Count)
             Images.RemoveAt(i);
 
-        System.IO.File.WriteAllText("images.json", JsonSerializer.Serialize(Images));
+        System.IO.File.WriteAllText(Path, JsonSerializer.Serialize(Images));
 
         return RedirectToPage();
     }

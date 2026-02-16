@@ -117,72 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="adminadmin" xml:space="preserve">
-    <value>المسؤول</value>
+  <data name="productadmin" xml:space="preserve">
+    <value>Admin</value>
     <comment/>
   </data>
-  <data name="adminhome" xml:space="preserve">
-    <value>الرئيسية</value>
+  <data name="productadminhome" xml:space="preserve">
+    <value>Home</value>
     <comment/>
   </data>
-  <data name="adminadmindashboard" xml:space="preserve">
-    <value>لوحة تحكم المسؤول</value>
+  <data name="scripts" xml:space="preserve">
+    <value>Edit Scripts</value>
     <comment/>
   </data>
-  <data name="dashboardp1" xml:space="preserve">
-    <value>قم بإدارة كل تفصيل من موقع Smart Life بسهولة وتحكم كامل</value>
+  <data name="content" xml:space="preserve">
+    <value>Script Content</value>
     <comment/>
   </data>
-  <data name="addproduct" xml:space="preserve">
-    <value>إضافة منتج</value>
+  <data name="location" xml:space="preserve">
+    <value>Script Location</value>
     <comment/>
   </data>
-  <data name="addpartner" xml:space="preserve">
-    <value>إضافة شريك</value>
+  <data name="model" xml:space="preserve">
+    <value>Add a Script</value>
     <comment/>
   </data>
-  <data name="addclient" xml:space="preserve">
-    <value>إضافة عميل</value>
+  <data name="add" xml:space="preserve">
+    <value>Save</value>
     <comment/>
   </data>
-  <data name="addmember" xml:space="preserve">
-    <value>إضافة عضو</value>
+  <data name="name" xml:space="preserve">
+    <value>Script Name</value>
     <comment/>
   </data>
-  <data name="addpost" xml:space="preserve">
-    <value>إضافة منشور</value>
-    <comment/>
-  </data>
-  <data name="addcontact" xml:space="preserve">
-    <value>إضافة تواصل</value>
-    <comment/>
-  </data>
-  <data name="password" xml:space="preserve">
-    <value>كلمة المرور</value>
-    <comment/>
-  </data>
-  <data name="editcontact" xml:space="preserve">
-    <value>تعديل التواصل</value>
-    <comment/>
-  </data>
-  <data name="editabout" xml:space="preserve">
-    <value>تعديل حولنا</value>
-    <comment/>
-  </data>
-  <data name="back" xml:space="preserve">
-    <value>الخلفيات</value>
-    <comment/>
-  </data>
-  <data name="choose" xml:space="preserve">
-    <value>لماذا تختارنا</value>
-    <comment/>
-  </data>
-  <data name="order" xml:space="preserve">
-    <value>ترتيب المنتجات</value>
-    <comment/>
-  </data>
-  <data name="script" xml:space="preserve">
-    <value>أكواد</value>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
     <comment/>
   </data>
 </root>

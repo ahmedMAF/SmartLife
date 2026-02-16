@@ -1,0 +1,87 @@
+@page
+@using SmartLife.Data
+@model SmartLife.Pages.Admin.ScriptsModel
+
+@{
+    ViewData["Title"] = "Edit Scripts";
+}
+
+<!-- Page Title -->
+<div class="page-title dark-background">
+    <div class="container">
+        <h1>@Model.Localizer["productadmin"]</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-page="/Index">@Model.Localizer["productadminhome"]</a></li>
+                <li><a asp-page="/Admin/Index">@Model.Localizer["productadmin"]</a></li>
+                <li class="current">@Model.Localizer["scripts"]</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Admin Section -->
+<section id="portfolio" class="portfolio section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>@Model.Localizer["scripts"]</h2>
+    </div>
+
+    <div class="container contact section-title" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <form method="post" class="form" data-aos="fade-up" data-aos-delay="200" asp-antiforgery="false">
+                    <div class="row gy-4">
+                        @for (int i = 0; i < Model.Scripts.Count; i++)
+                        {
+                            <div class="col-md-12 mt-1">
+                                <input asp-for="Scripts[i].Name"
+                                    class="form-control"
+                                    placeholder="@Model.Localizer["name"]"
+                                    style="border-radius: 5px;" />
+                                <span asp-validation-for="Scripts[i].Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-12 mt-1">
+                                <textarea asp-for="Scripts[i].Content"
+                                        class="form-control"
+                                        placeholder="@Model.Localizer["description"]"
+                                        style="border-radius: 5px;"></textarea>
+                                <span asp-validation-for="Scripts[i].Content" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-12 mt-1">
+                                <select asp-for="Scripts[i].Location"
+                                        class="select w-100 mb-4"
+                                        asp-items="Html.GetEnumSelectList<ScriptLocation>()">
+                                </select>
+                                <span asp-validation-for="Scripts[i].Location" class="text-danger"></span>
+                            </div>
+                        }
+
+                        <div class="col-md-12">
+                            <div id="model" class="text-start mt-3 textar">
+                                <span>@Model.Localizer["model"]</span>
+                                <i id="iconmodel" style="color: #7cc576; cursor: pointer;" class="bi bi-plus-circle fs-5 ms-3"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <button type="submit">@Model.Localizer["add"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        let nameen = "@Html.Raw(Model.Localizer["name"])";
+        let contenten = "@Html.Raw(Model.Localizer["content"])";
+        let locationen = "@Html.Raw(Model.Localizer["location"])";
+        let can = "@Html.Raw(Model.Localizer["cancel"])";
+    </script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

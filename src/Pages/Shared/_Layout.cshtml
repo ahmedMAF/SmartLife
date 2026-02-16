@@ -1,7 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Localization
 @using Microsoft.Extensions.Localization
+@using SmartLife.Data
+@using SmartLife.Pages.Admin
+@using SmartLife.Services
 
 @inject IStringLocalizer<SharedResources> Localizer
+@inject ScriptCacheService ScriptCache
 
 @{
     bool isAr =
@@ -13,6 +17,11 @@
 <html dir="@(isAr ? "rtl" : "ltr")" lang="@(isAr ? "ar" : "en")">
 
 <head>
+    @if (ScriptCache.GetScripts(ScriptLocation.TopHead) is string topHead)
+    {
+        @Html.Raw(topHead)
+    }
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="">
@@ -45,18 +54,18 @@
         <link href="~/css/mainar.css" rel="stylesheet" asp-append-version="true">
     }
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10927935275"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'AW-10927935275');
-    </script>
+    @if (ScriptCache.GetScripts(ScriptLocation.BottomHead) is string bottomHead)
+    {
+        @Html.Raw(bottomHead)
+    }
 </head>
 
 <body class="portfolio-details-page">
+    @if (ScriptCache.GetScripts(ScriptLocation.TopBody) is string topBody)
+    {
+        @Html.Raw(topBody)
+    }
+
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
@@ -214,33 +223,10 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 
-    <!-- Google tag conversions -->
-    <script>
-        (function () {
-            document.addEventListener('click', function (e) {
-                if (e.target.closest('a[href^="tel:"]')) {
-                    gtag('event', 'conversion', { 'send_to': 'AW-10927935275/GGmHCPmFpbIbEKue7Noo' });
-                }
-            });
-        })();
-    </script>
-    <script>
-        (function () {
-            document.addEventListener('click', function (e) {
-                if (e.target.closest('a[href^="mailto:"]')) {
-                    gtag('event', 'conversion', { 'send_to': 'AW-10927935275/LnXgCP6EpbIbEKue7Noo' });
-                }
-            });
-        })();
-    </script>
-    <script>
-        document.addEventListener('click', function (e) {
-            if (e.target.closest('a[href*="https://wa.me/"]')) {
-                gtag('event', 'conversion', { 'send_to': 'AW-10927935275/Vm6UCPuEpbIbEKue7Noo' });
-            }
-        })
-
-    </script>
+    @if (ScriptCache.GetScripts(ScriptLocation.BottomBody) is string bottomBody)
+    {
+        @Html.Raw(bottomBody)
+    }
 </body>
 
 </html>
